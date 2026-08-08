@@ -1,0 +1,40 @@
+# Phase 3 V1 series-level feature whitelist.
+#
+# This is the single source of truth for which columns of
+# data/features/series_features_v1.parquet are legitimate ML model inputs.
+# Future training code must read this file rather than selecting arbitrary
+# numeric columns from the parquet - scripts/validate_phase3.py checks the
+# real parquet's columns against it.
+
+model_features:
+  - elo_diff
+  - overall_win_rate_diff
+  - win_rate_last_5_diff
+  - win_rate_last_10_diff
+  - format_win_rate_diff
+  - avg_series_margin_last_5_diff
+  - avg_series_margin_last_10_diff
+  - matches_last_30_days_diff
+  - days_since_last_match_diff
+  - total_matches_before_diff
+  - history_matches_min
+  - history_matches_sum
+  - both_teams_have_history
+  - both_teams_have_5_matches
+  - both_teams_have_10_matches
+  - bestOf
+  - tier
+
+target:
+  team1_series_win
+
+metadata:
+  - match_id
+  - datetime
+  - tournament
+  - team1
+  - team2
+  - team1_canonical
+  - team2_canonical
+  - source
+  - canonical_match_uid
