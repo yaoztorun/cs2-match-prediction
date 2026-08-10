@@ -1,0 +1,51 @@
+{
+  "selected_candidate_id": "random_002",
+  "params": {
+    "learning_rate": 0.02,
+    "max_depth": 4,
+    "min_child_weight": 20,
+    "subsample": 0.6,
+    "colsample_bytree": 0.9,
+    "gamma": 2.0,
+    "reg_alpha": 0.01,
+    "reg_lambda": 1.0
+  },
+  "fixed_params": {
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "tree_method": "hist",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "cv_mean_log_loss": 0.6651136052703389,
+  "cv_std_log_loss": 0.006883482928832534,
+  "cv_mean_roc_auc": 0.6269129988950664,
+  "cv_std_roc_auc": 0.014058868366093194,
+  "cv_mean_brier": 0.23626524582505226,
+  "cv_mean_accuracy": 0.5976256078951497,
+  "cv_mean_train_val_auc_gap": 0.04404271141225205,
+  "best_iterations_by_fold": [
+    72,
+    80,
+    149,
+    115
+  ],
+  "median_best_iteration": 97.5,
+  "final_n_estimators": 98,
+  "final_n_estimators_rule": "round(median(best_iteration + 1 across the 4 folds))",
+  "selection_stage": "secondary (log-loss tie within epsilon, resolved by highest mean CV ROC-AUC)",
+  "selection_rule": "1) PRIMARY: lowest mean CV log loss. 2) EQUIVALENCE: candidates within 0.002 of the best mean log loss are treated as essentially equivalent. 3) SECONDARY: highest mean CV ROC-AUC. 4) TERTIARY: lower CV log-loss standard deviation. 5) COMPLEXITY (deterministic, in order): lower max_depth -> higher min_child_weight -> higher gamma -> higher reg_lambda -> higher reg_alpha -> lower median effective tree count -> candidate_id lexicographic order. subsample/colsample_bytree are tunable predictive hyperparameters and are deliberately NOT used as a model-complexity ranking.",
+  "log_loss_epsilon": 0.002,
+  "early_stopping_api": "xgboost 3.4.0: early_stopping_rounds passed as an XGBClassifier constructor keyword + fit(eval_set=[(inner_early_stop)])",
+  "early_stopping_rounds": 100,
+  "n_estimators_cap_during_cv": 2000,
+  "inner_early_stop_fraction": 0.175,
+  "n_candidates": 40,
+  "n_anchor_candidates": 10,
+  "n_random_candidates": 30,
+  "cv_folds_artifact": "data/modeling/random_forest_cv_folds_v2.csv",
+  "tuning_results_artifact": "reports/tables/xgboost_tuning_v2.csv",
+  "tuning_version": "1.0.0",
+  "selection_timestamp_utc": "2026-08-10T06:46:11.868087+00:00",
+  "main_validation_used_in_selection": false
+}

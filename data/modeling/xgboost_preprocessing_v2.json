@@ -1,0 +1,95 @@
+{
+  "version": "1.0.0",
+  "original_model_feature_names": [
+    "elo_diff",
+    "overall_win_rate_diff",
+    "win_rate_last_5_diff",
+    "win_rate_last_10_diff",
+    "format_win_rate_diff",
+    "avg_series_margin_last_5_diff",
+    "avg_series_margin_last_10_diff",
+    "matches_last_30_days_diff",
+    "days_since_last_match_diff",
+    "total_matches_before_diff",
+    "history_matches_min",
+    "history_matches_sum",
+    "both_teams_have_history",
+    "both_teams_have_5_matches",
+    "both_teams_have_10_matches",
+    "bestOf",
+    "tier"
+  ],
+  "transformed_feature_names": [
+    "elo_diff",
+    "overall_win_rate_diff",
+    "win_rate_last_5_diff",
+    "win_rate_last_10_diff",
+    "format_win_rate_diff",
+    "avg_series_margin_last_5_diff",
+    "avg_series_margin_last_10_diff",
+    "matches_last_30_days_diff",
+    "days_since_last_match_diff",
+    "total_matches_before_diff",
+    "history_matches_min",
+    "history_matches_sum",
+    "both_teams_have_history",
+    "both_teams_have_5_matches",
+    "both_teams_have_10_matches",
+    "bestOf_BO3",
+    "bestOf_BO5",
+    "tier_tier2",
+    "tier_tier3"
+  ],
+  "missing_value_policy": "preserve_nan_native_xgboost",
+  "scaling_applied": false,
+  "imputation_applied": false,
+  "train_medians_unused_reference": {
+    "elo_diff": 0.0,
+    "overall_win_rate_diff": 0.0,
+    "win_rate_last_5_diff": 0.0,
+    "win_rate_last_10_diff": 0.0,
+    "format_win_rate_diff": 0.0,
+    "avg_series_margin_last_5_diff": 0.0,
+    "avg_series_margin_last_10_diff": 0.0,
+    "matches_last_30_days_diff": 0.0,
+    "days_since_last_match_diff": 0.0,
+    "total_matches_before_diff": 0.0,
+    "history_matches_min": 21.0,
+    "history_matches_sum": 78.0
+  },
+  "categorical": {
+    "bestOf": {
+      "reference": 1,
+      "dummies": [
+        3,
+        5
+      ]
+    },
+    "tier": {
+      "reference": "tier1",
+      "dummies": [
+        "tier2",
+        "tier3"
+      ]
+    }
+  },
+  "binary_features": [
+    "both_teams_have_history",
+    "both_teams_have_5_matches",
+    "both_teams_have_10_matches"
+  ],
+  "continuous_unscaled_features": [
+    "elo_diff",
+    "overall_win_rate_diff",
+    "win_rate_last_5_diff",
+    "win_rate_last_10_diff",
+    "format_win_rate_diff",
+    "avg_series_margin_last_5_diff",
+    "avg_series_margin_last_10_diff",
+    "matches_last_30_days_diff",
+    "days_since_last_match_diff",
+    "total_matches_before_diff",
+    "history_matches_min",
+    "history_matches_sum"
+  ]
+}
