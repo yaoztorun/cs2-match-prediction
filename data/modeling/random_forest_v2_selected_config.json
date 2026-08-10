@@ -1,0 +1,25 @@
+{
+  "candidate_id": "random_009",
+  "params": {
+    "n_estimators": 300,
+    "max_depth": 8,
+    "min_samples_leaf": 20,
+    "min_samples_split": 10,
+    "max_features": "sqrt",
+    "bootstrap": true,
+    "criterion": "gini"
+  },
+  "selection_stage": "secondary (log-loss tie within epsilon, resolved by highest mean CV ROC-AUC)",
+  "log_loss_epsilon": 0.002,
+  "mean_cv_log_loss": 0.6637550401735266,
+  "std_cv_log_loss": 0.00748061825505915,
+  "mean_cv_roc_auc": 0.628990521678824,
+  "std_cv_roc_auc": 0.015349185600196488,
+  "mean_cv_train_val_acc_gap": 0.059041440889484154,
+  "mean_cv_train_val_auc_gap": 0.10274731401727041,
+  "n_candidates_evaluated": 50,
+  "n_anchor_candidates": 10,
+  "n_random_candidates": 40,
+  "cv_folds_artifact": "data/modeling/random_forest_cv_folds_v2.csv",
+  "tuning_results_artifact": "reports/tables/random_forest_tuning_v2.csv"
+}
