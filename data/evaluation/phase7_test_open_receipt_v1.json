@@ -1,0 +1,43 @@
+{
+  "protocol_hash": "83a6dba818f0253b2ac5a008bf58e37de53905bbfe9f20b7cde4cd1aac10ce0c",
+  "input_artifact_hashes": {
+    "final_model": "e8bc38a2b42d4c321ea972849da81b2a82e6d67f390135894bb5727cbd3d4904",
+    "final_model_metadata": "65eb6c3ae3f6d8d189e49f5e22bcd5e53d66a0a876ab1eafbc66c8b58c6bab21",
+    "final_preprocessing": "ac2892e1a6065c5bb2e651aa0d4a073f6bae6d610ac7416ddc67ee9edda5e422",
+    "final_xgb_config": "f0da2f254ec29c1b6855345fb19aad23ce69e2fdad4fb96847d4f62b23b8098b",
+    "v3_feature_config": "de9e71dfbaa13f63fc09ab6a3e4d86ee1f0b406605822183707e6b038212e2db",
+    "v3_feature_parquet": "7d2ccbd9eb10e34f0892dcd5e23bc8fa6774e119b4a3c2832d573f69213688bd",
+    "test_split_manifest": "8fa8191ebc7f71b140af242a1d024d3ac1a5cbc88a81e1e8f66c0c7db5fbfd75"
+  },
+  "prediction_artifact_hash": "072e9c3f407f9dd2b7f345f2f6642640cd0d2717f301e346bbcf96955fde02d4",
+  "prediction_artifact_path": "data/evaluation/map_test_predictions_v1.parquet",
+  "test_row_count": 1427,
+  "distinct_match_count": 688,
+  "probability_range": {
+    "p_xgb_v3_final": [
+      0.24134370684623718,
+      0.7709195613861084
+    ],
+    "p_constant_05": [
+      0.5,
+      0.5
+    ],
+    "p_overall_elo": [
+      0.12206628921031717,
+      0.9759450053454952
+    ],
+    "p_map_elo": [
+      0.1190733614566815,
+      0.9190117297030869
+    ],
+    "p_xgb_v3_mirrored": [
+      0.23134194314479828,
+      0.7698341012001038
+    ]
+  },
+  "target_balance": {
+    "team1_wins": 813,
+    "team2_wins": 614,
+    "team1_win_rate": 0.5697266993693062
+  }
+}
