@@ -477,15 +477,25 @@ def check_determinism():
     }
     before = {k: sha256(p) for k, p in targets.items()}
     env_scripts = str(ROOT / "scripts")
+    all_ok = True
     for script in ["build_map_features_v1.py", "build_series_features_v2_map_pool.py",
                    "build_pre_cologne_map_state_v1.py"]:
         r = subprocess.run([sys.executable, str(ROOT / "scripts" / script)],
                            capture_output=True, text=True,
                            env={**__import__("os").environ, "PYTHONPATH": env_scripts,
                                 "PYTHONIOENCODING": "utf-8"})
-        check(f"re-run succeeded: {script}", r.returncode == 0)
-        if r.returncode != 0:
-            print(r.stdout[-2000:], r.stderr[-2000:])
+        ok = r.returncode == 0
+        check(f"re-run succeeded: {script}", ok)
+        if not ok:
+            all_ok = False
+            print(f"    --- stdout ({script}) ---\n{r.stdout}")
+            print(f"    --- stderr ({script}) ---\n{r.stderr}")
+
+    if not all_ok:
+        for k in targets:
+            check(f"byte-identical after re-run: {k} (skipped: rebuild failed)", False)
+        return
+
     after = {k: sha256(p) for k, p in targets.items()}
     for k in targets:
         check(f"byte-identical after re-run: {k}", before[k] == after[k])
