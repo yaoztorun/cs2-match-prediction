@@ -1,0 +1,72 @@
+{
+  "selected_candidate_id": "A1_less_l2",
+  "is_A0_phase6b_reference_structure": false,
+  "params": {
+    "learning_rate": 0.03,
+    "max_depth": 2,
+    "min_child_weight": 10,
+    "subsample": 0.75,
+    "colsample_bytree": 0.85,
+    "gamma": 5.0,
+    "reg_alpha": 0.01,
+    "reg_lambda": 5.0
+  },
+  "fixed_params": {
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "tree_method": "hist",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "selection_stage": "secondary (log-loss tie within epsilon, resolved by highest mean ROC-AUC)",
+  "selection_rule": "1) PRIMARY: lowest mean outer-fold log loss. 2) EQUIVALENCE: within 0.002 of the best mean log loss counts as tied. 3) highest mean ROC-AUC. 4) lowest mean Brier. 5) lowest mean ABSOLUTE train-validation AUC gap (mean over folds of |train_auc - val_auc|). 6) highest mean accuracy. 7) lower log-loss standard deviation. 8) COMPLEXITY (deterministic): lower max_depth -> higher min_child_weight -> higher gamma -> higher reg_lambda -> higher reg_alpha -> lower median effective tree count -> candidate_id. subsample/colsample_bytree are deliberately NOT used as a complexity ranking. Fit time never participates in selection.",
+  "log_loss_epsilon": 0.002,
+  "n_equivalent_candidates": 14,
+  "equivalent_candidate_ids": [
+    "A0_phase6b_reference_structure",
+    "A1_less_l2",
+    "A3_stronger_child_constraint",
+    "A4_less_gamma",
+    "A6_depth3_strongly_regularized",
+    "A7_depth4_controlled_check",
+    "local_001",
+    "local_002",
+    "local_004",
+    "local_005",
+    "local_006",
+    "local_007",
+    "local_009",
+    "local_013"
+  ],
+  "cv_mean_log_loss": 0.6701844994107334,
+  "cv_std_log_loss": 0.007903970385733712,
+  "cv_mean_roc_auc": 0.6193386560073507,
+  "cv_mean_brier": 0.23878440633416176,
+  "cv_mean_accuracy": 0.5888149501108015,
+  "cv_mean_abs_train_val_auc_gap": 0.04584440767927567,
+  "best_iterations_by_fold": [
+    67,
+    439,
+    59,
+    168
+  ],
+  "median_best_iteration": 117.5,
+  "final_n_estimators": 118,
+  "final_n_estimators_rule": "round(median(best_iteration + 1 across the 4 outer folds)) of the SELECTED candidate's own fold best-iterations",
+  "n_folds_improving_vs_A0_diagnostic_only": {
+    "log_loss": 2,
+    "roc_auc": 3,
+    "brier": 2,
+    "accuracy": 3
+  },
+  "n_candidates": 24,
+  "n_anchor_candidates": 8,
+  "n_random_candidates": 16,
+  "transformed_feature_count": 131,
+  "cv_folds_artifact": "data/modeling/map_cv_folds_v1.csv",
+  "tuning_results_artifact": "reports/tables/map_xgboost_v3_final_tuning.csv",
+  "search_plan_artifact": "data/modeling/map_xgboost_v3_final_search_plan.json",
+  "search_plan_hash": "2aaf6f78c698e9c82867fd4b15472428d3aa1d2b7cc40272a65a656e0d5879e0",
+  "main_validation_used_in_selection": false,
+  "note_on_A0": "A0 carries the Phase 6B structural hyperparameters but its tree count is derived by THIS script's own inner-early-stop procedure per fold - not the frozen 124-tree count used for the Phase 6C Stage B 'old V3 reference' comparison arm."
+}

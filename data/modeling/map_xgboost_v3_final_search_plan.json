@@ -1,0 +1,345 @@
+{
+  "model": "map_xgboost_v3_final",
+  "seed": 42,
+  "n_folds": 4,
+  "log_loss_equivalence_epsilon": 0.002,
+  "n_estimators_cap": 2000,
+  "early_stopping_rounds": 120,
+  "inner_early_stop_fraction": 0.15,
+  "fixed_params": {
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "tree_method": "hist",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "search_space": {
+    "learning_rate": [
+      "0.02",
+      "0.03",
+      "0.04",
+      "0.05"
+    ],
+    "max_depth": [
+      "2",
+      "3"
+    ],
+    "min_child_weight": [
+      "5",
+      "10",
+      "20",
+      "40"
+    ],
+    "subsample": [
+      "0.7",
+      "0.75",
+      "0.85",
+      "0.9",
+      "1.0"
+    ],
+    "colsample_bytree": [
+      "0.7",
+      "0.85",
+      "1.0"
+    ],
+    "gamma": [
+      "2.0",
+      "5.0",
+      "8.0"
+    ],
+    "reg_alpha": [
+      "0.0",
+      "0.01",
+      "0.1",
+      "0.5"
+    ],
+    "reg_lambda": [
+      "5.0",
+      "10.0",
+      "20.0",
+      "30.0"
+    ]
+  },
+  "candidates": [
+    {
+      "candidate_id": "A0_phase6b_reference_structure",
+      "learning_rate": 0.03,
+      "max_depth": 2,
+      "min_child_weight": 10,
+      "subsample": 0.75,
+      "colsample_bytree": 0.85,
+      "gamma": 5.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 10.0
+    },
+    {
+      "candidate_id": "A1_less_l2",
+      "learning_rate": 0.03,
+      "max_depth": 2,
+      "min_child_weight": 10,
+      "subsample": 0.75,
+      "colsample_bytree": 0.85,
+      "gamma": 5.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 5.0
+    },
+    {
+      "candidate_id": "A2_more_l2",
+      "learning_rate": 0.03,
+      "max_depth": 2,
+      "min_child_weight": 10,
+      "subsample": 0.75,
+      "colsample_bytree": 0.85,
+      "gamma": 5.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 20.0
+    },
+    {
+      "candidate_id": "A3_stronger_child_constraint",
+      "learning_rate": 0.03,
+      "max_depth": 2,
+      "min_child_weight": 20,
+      "subsample": 0.75,
+      "colsample_bytree": 0.85,
+      "gamma": 5.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 10.0
+    },
+    {
+      "candidate_id": "A4_less_gamma",
+      "learning_rate": 0.03,
+      "max_depth": 2,
+      "min_child_weight": 10,
+      "subsample": 0.75,
+      "colsample_bytree": 0.85,
+      "gamma": 2.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 10.0
+    },
+    {
+      "candidate_id": "A5_more_sampling",
+      "learning_rate": 0.03,
+      "max_depth": 2,
+      "min_child_weight": 10,
+      "subsample": 0.9,
+      "colsample_bytree": 1.0,
+      "gamma": 5.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 10.0
+    },
+    {
+      "candidate_id": "A6_depth3_strongly_regularized",
+      "learning_rate": 0.03,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "subsample": 0.75,
+      "colsample_bytree": 0.85,
+      "gamma": 5.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 10.0
+    },
+    {
+      "candidate_id": "A7_depth4_controlled_check",
+      "learning_rate": 0.03,
+      "max_depth": 4,
+      "min_child_weight": 40,
+      "subsample": 0.75,
+      "colsample_bytree": 0.85,
+      "gamma": 8.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 20.0
+    },
+    {
+      "learning_rate": 0.02,
+      "max_depth": 2,
+      "min_child_weight": 5,
+      "subsample": 0.7,
+      "colsample_bytree": 0.85,
+      "gamma": 2.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 5.0,
+      "candidate_id": "local_001"
+    },
+    {
+      "learning_rate": 0.02,
+      "max_depth": 2,
+      "min_child_weight": 10,
+      "subsample": 0.85,
+      "colsample_bytree": 1.0,
+      "gamma": 5.0,
+      "reg_alpha": 0.0,
+      "reg_lambda": 20.0,
+      "candidate_id": "local_002"
+    },
+    {
+      "learning_rate": 0.02,
+      "max_depth": 2,
+      "min_child_weight": 40,
+      "subsample": 0.9,
+      "colsample_bytree": 0.85,
+      "gamma": 2.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 10.0,
+      "candidate_id": "local_003"
+    },
+    {
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 40,
+      "subsample": 0.7,
+      "colsample_bytree": 1.0,
+      "gamma": 8.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 20.0,
+      "candidate_id": "local_004"
+    },
+    {
+      "learning_rate": 0.03,
+      "max_depth": 2,
+      "min_child_weight": 40,
+      "subsample": 0.7,
+      "colsample_bytree": 0.7,
+      "gamma": 8.0,
+      "reg_alpha": 0.1,
+      "reg_lambda": 10.0,
+      "candidate_id": "local_005"
+    },
+    {
+      "learning_rate": 0.03,
+      "max_depth": 2,
+      "min_child_weight": 40,
+      "subsample": 0.9,
+      "colsample_bytree": 0.7,
+      "gamma": 8.0,
+      "reg_alpha": 0.5,
+      "reg_lambda": 5.0,
+      "candidate_id": "local_006"
+    },
+    {
+      "learning_rate": 0.03,
+      "max_depth": 3,
+      "min_child_weight": 5,
+      "subsample": 0.9,
+      "colsample_bytree": 1.0,
+      "gamma": 5.0,
+      "reg_alpha": 0.1,
+      "reg_lambda": 30.0,
+      "candidate_id": "local_007"
+    },
+    {
+      "learning_rate": 0.03,
+      "max_depth": 3,
+      "min_child_weight": 10,
+      "subsample": 1.0,
+      "colsample_bytree": 0.7,
+      "gamma": 5.0,
+      "reg_alpha": 0.0,
+      "reg_lambda": 20.0,
+      "candidate_id": "local_008"
+    },
+    {
+      "learning_rate": 0.04,
+      "max_depth": 2,
+      "min_child_weight": 20,
+      "subsample": 0.85,
+      "colsample_bytree": 0.85,
+      "gamma": 5.0,
+      "reg_alpha": 0.1,
+      "reg_lambda": 10.0,
+      "candidate_id": "local_009"
+    },
+    {
+      "learning_rate": 0.04,
+      "max_depth": 2,
+      "min_child_weight": 20,
+      "subsample": 1.0,
+      "colsample_bytree": 0.7,
+      "gamma": 8.0,
+      "reg_alpha": 0.5,
+      "reg_lambda": 30.0,
+      "candidate_id": "local_010"
+    },
+    {
+      "learning_rate": 0.04,
+      "max_depth": 3,
+      "min_child_weight": 5,
+      "subsample": 0.9,
+      "colsample_bytree": 1.0,
+      "gamma": 5.0,
+      "reg_alpha": 0.01,
+      "reg_lambda": 20.0,
+      "candidate_id": "local_011"
+    },
+    {
+      "learning_rate": 0.05,
+      "max_depth": 2,
+      "min_child_weight": 40,
+      "subsample": 0.75,
+      "colsample_bytree": 0.85,
+      "gamma": 5.0,
+      "reg_alpha": 0.5,
+      "reg_lambda": 5.0,
+      "candidate_id": "local_012"
+    },
+    {
+      "learning_rate": 0.05,
+      "max_depth": 2,
+      "min_child_weight": 40,
+      "subsample": 0.85,
+      "colsample_bytree": 0.7,
+      "gamma": 2.0,
+      "reg_alpha": 0.1,
+      "reg_lambda": 30.0,
+      "candidate_id": "local_013"
+    },
+    {
+      "learning_rate": 0.05,
+      "max_depth": 3,
+      "min_child_weight": 5,
+      "subsample": 0.9,
+      "colsample_bytree": 0.7,
+      "gamma": 2.0,
+      "reg_alpha": 0.5,
+      "reg_lambda": 30.0,
+      "candidate_id": "local_014"
+    },
+    {
+      "learning_rate": 0.05,
+      "max_depth": 3,
+      "min_child_weight": 10,
+      "subsample": 0.7,
+      "colsample_bytree": 1.0,
+      "gamma": 2.0,
+      "reg_alpha": 0.1,
+      "reg_lambda": 30.0,
+      "candidate_id": "local_015"
+    },
+    {
+      "learning_rate": 0.05,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "subsample": 0.75,
+      "colsample_bytree": 1.0,
+      "gamma": 2.0,
+      "reg_alpha": 0.1,
+      "reg_lambda": 5.0,
+      "candidate_id": "local_016"
+    }
+  ],
+  "selection_rule": "1) PRIMARY: lowest mean outer-fold log loss. 2) EQUIVALENCE: within 0.002 of the best mean log loss counts as tied. 3) highest mean ROC-AUC. 4) lowest mean Brier. 5) lowest mean ABSOLUTE train-validation AUC gap (mean over folds of |train_auc - val_auc|). 6) highest mean accuracy. 7) lower log-loss standard deviation. 8) COMPLEXITY (deterministic): lower max_depth -> higher min_child_weight -> higher gamma -> higher reg_lambda -> higher reg_alpha -> lower median effective tree count -> candidate_id. subsample/colsample_bytree are deliberately NOT used as a complexity ranking. Fit time never participates in selection.",
+  "artifact_hashes": {
+    "config/map_features_v3_modern_map.yaml": "de9e71dfbaa13f63fc09ab6a3e4d86ee1f0b406605822183707e6b038212e2db",
+    "data/features/map_features_v3_modern_map.parquet": "7d2ccbd9eb10e34f0892dcd5e23bc8fa6774e119b4a3c2832d573f69213688bd",
+    "data/modeling/map_cv_folds_v1.csv": "94dde09d1247ef09a5e428a0a84747ca5dab9339a7c464d12187ecd14a21bf99"
+  },
+  "package_versions": {
+    "numpy": "2.4.2",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.8.0",
+    "xgboost": "3.4.0"
+  },
+  "cv_manifest": "data/modeling/map_cv_folds_v1.csv",
+  "main_validation_used_in_selection": false,
+  "main_validation_status": "consumed_in_phase_6b_not_reopened",
+  "plan_hash": "2aaf6f78c698e9c82867fd4b15472428d3aa1d2b7cc40272a65a656e0d5879e0"
+}
