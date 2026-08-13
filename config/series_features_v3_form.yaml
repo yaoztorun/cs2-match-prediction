@@ -1,0 +1,171 @@
+# Phase 5B.2 - PRE-VETO series feature whitelist
+# (data/features/series_features_v3_form.parquet).
+#
+# Single source of truth for which columns are legitimate model inputs.
+# scripts/validate_phase5b2.py checks the real parquet against this file.
+# Hand-specified whitelist - NEVER "every numeric column".
+
+metadata:
+  task_id: series_features_v3_form
+  prediction_task: pre_veto_series  # documentation/config metadata, NOT a predictive feature
+  form_engine_version: "1.0.0"
+  granularity: one row per series (match_id) - the same 9,456 match_ids as V1/V2
+  description: >
+    Extends V2 (series_features_v2_map_pool) with leakage-safe opponent-adjusted,
+    recency-weighted team-form features: strength-of-schedule (average pre-match
+    ELO of recent TRUSTED opponents), ELO-expectation performance residuals
+    (win/loss vs. what pre-match ELO predicted, computed strictly BEFORE any
+    ELO update), and a fixed 60-day exponential time-decay weighting of win
+    rate / performance residual / normalized series margin. Everything is
+    strictly prior to the target series; no target-series information enters.
+  relationship_to_v2: >
+    Strict superset of series_features_v2_map_pool: identical match_id
+    universe, identical targets, identical row ordering, every V2 feature
+    column preserved unchanged. New team-form columns are appended.
+  prediction_cutoff: datetime
+
+target:
+  team1_series_win
+
+# ---------------------------------------------------------------------------
+# TRUSTED-OPPONENT GATING - do not describe the two populations interchangeably
+# ---------------------------------------------------------------------------
+feature_family_semantics:
+  trusted_population: >
+    avg_opponent_elo_last_5/10, performance_residual_last_5/10/all, and
+    time_weighted_performance_residual are computed ONLY over a team's own
+    history entries where opponent_identity_trusted == True. Opponent-adjusted
+    information depends on a reliable, persistent opponent identity and ELO
+    trajectory, which an identity-ineligible opponent does not have.
+  all_population: >
+    time_weighted_win_rate and time_weighted_normalized_series_margin use ALL
+    of a team's own eligible history (trusted or not) - they describe the
+    team's own result/margin, not who they played, so they do not depend on
+    persistent opponent identity. time_weighted_history_mass (the confidence
+    companion for these two) is likewise computed over the "all" population.
+  confidence_flags_count_trusted_only: >
+    opponent_adjusted_history_min, both_teams_have_5_adjusted_matches and
+    both_teams_have_10_adjusted_matches count only TRUSTED opponent-adjusted
+    observations, never all history - so they can never overstate the
+    evidence behind the trusted-population stats above.
+
+# Directional features - negate exactly under a Team1<->Team2 swap.
+directional_features:
+  # --- new: opponent-adjusted / recency-aware form (Phase 5B.2) ---
+  - avg_opponent_elo_last_5_diff
+  - avg_opponent_elo_last_10_diff
+  - performance_residual_last_5_diff
+  - performance_residual_last_10_diff
+  - performance_residual_all_diff
+  - time_weighted_win_rate_diff
+  - time_weighted_performance_residual_diff
+  - time_weighted_series_margin_diff
+  # --- inherited Phase 5A map-pool (family A: pool depth / order statistics) ---
+  - map_pool_size_diff
+  - map_pool_total_matches_diff
+  - map_pool_experienced_maps_diff
+  - map_pool_mean_elo_diff
+  - map_pool_best_elo_diff
+  - map_pool_second_best_elo_diff
+  - map_pool_third_best_elo_diff
+  - map_pool_worst_elo_diff
+  - map_pool_mean_smoothed_wr_diff
+  - map_pool_best_smoothed_wr_diff
+  - map_pool_second_best_smoothed_wr_diff
+  - map_pool_third_best_smoothed_wr_diff
+  - map_pool_worst_smoothed_wr_diff
+  - map_pool_mean_normalized_margin_diff
+  # --- inherited Phase 5A map-pool (family B: same-map matchup) ---
+  - map_matchup_mean_elo_advantage
+  - map_matchup_median_elo_advantage
+  - map_matchup_midrange_elo_advantage
+  - map_matchup_positive_advantage_balance
+  - map_matchup_mean_smoothed_wr_advantage
+  - map_matchup_median_smoothed_wr_advantage
+  # --- inherited Phase 3 V1 (unchanged) ---
+  - elo_diff
+  - overall_win_rate_diff
+  - win_rate_last_5_diff
+  - win_rate_last_10_diff
+  - format_win_rate_diff
+  - avg_series_margin_last_5_diff
+  - avg_series_margin_last_10_diff
+  - matches_last_30_days_diff
+  - days_since_last_match_diff
+  - total_matches_before_diff
+
+# Symmetric features - IDENTICAL under a Team1<->Team2 swap.
+symmetric_features:
+  # --- new: opponent-adjusted / recency confidence (Phase 5B.2) ---
+  - opponent_adjusted_history_min
+  - both_teams_have_5_adjusted_matches
+  - both_teams_have_10_adjusted_matches
+  - time_weighted_history_mass_min
+  # --- inherited Phase 5A map-pool confidence ---
+  - map_pool_size_min
+  - map_pool_total_matches_min
+  - both_teams_have_map_pool_history
+  - both_teams_have_3_recent_maps
+  - both_teams_have_5_experienced_maps
+  - union_map_count
+  - shared_recent_map_count
+  - shared_experienced_map_count
+  - map_matchup_shared_coverage
+  - map_matchup_elo_advantage_range
+  # --- inherited Phase 3 V1 (unchanged) ---
+  - history_matches_min
+  - history_matches_sum
+  - both_teams_have_history
+  - both_teams_have_5_matches
+  - both_teams_have_10_matches
+
+categorical_context:
+  - bestOf
+  - tier
+
+metadata_columns:
+  - match_id
+  - datetime
+  - tournament
+  - team1
+  - team2
+  - team1_canonical
+  - team2_canonical
+  - source
+  - canonical_match_uid
+
+# ---------------------------------------------------------------------------
+# Feature-engineering constants (fixed by design, NOT tuned in Phase 5B.2)
+# ---------------------------------------------------------------------------
+constants:
+  form_half_life_days: 60.0          # fixed engineering constant - NEVER tuned against any metric
+  elo_k: 32.0                        # unchanged from Phase 3 - no K tuning
+  map_pool_lookback_days: 180        # inherited from V2, restated for lineage
+  experienced_map_min_matches: 5     # inherited from V2, restated for lineage
+  beta_prior: [2, 2]                 # inherited from V1/V2, restated for lineage
+
+cold_start:
+  avg_opponent_elo: 1500.0           # == ELO_INITIAL - neutral opponent assumption, no evidence
+  performance_residual: 0.0          # neutral - no evidence of over/under-performance
+  time_weighted_win_rate: 0.5
+  time_weighted_performance_residual: 0.0
+  time_weighted_normalized_series_margin: 0.0
+  time_weighted_history_mass: 0.0    # zero effective evidence, not "neutral" - a true absence
+  confidence_flags: 0
+  no_fabrication: >
+    A team with zero (trusted) prior history never has opponent history
+    invented for it - it receives the documented neutral value AND a
+    confidence flag of 0, so a neutral value is never mistaken for evidence.
+
+# Columns that must NEVER appear in this dataset - they would leak the veto
+# or the target series.
+forbidden_columns:
+  - map_name
+  - map_id
+  - the list, count or order of maps selected in the target match
+  - score1_game
+  - score2_game
+  - any per-map result of the target series
+  - any player statistic from the target series
+  - any score, result or opponent-identity information from the TARGET series
+    (only strictly-prior history may feed opponent-adjusted/recency features)
