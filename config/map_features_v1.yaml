@@ -1,0 +1,109 @@
+# Phase 5A - MAP-SPECIFIC feature whitelist (data/features/map_features_v1.parquet).
+#
+# Single source of truth for which columns are legitimate model inputs.
+# scripts/validate_phase5a.py checks the real parquet against this file.
+# Hand-specified whitelist - NEVER "every numeric column".
+
+metadata:
+  task_id: map_features_v1
+  prediction_task: known_map        # documentation/config metadata, NOT a predictive feature
+  map_engine_version: "1.0.0"
+  granularity: one row per historical map (match_id + game_id)
+  description: >
+    Predicts the winner of a SINGLE map whose identity is already known.
+    Because the map being played is given, `map_name` and every map-specific
+    historical statistic are LEGITIMATE inputs for this task. This is the
+    decisive difference from series_features_v2_map_pool, where the maps of the
+    target match are forbidden.
+  prediction_cutoff: >
+    series_datetime - the start of the containing series. All maps of a series
+    share one cutoff and one pre-series state snapshot; nothing that happened
+    inside the series (including earlier maps of that same series) is visible.
+
+target:
+  team1_map_win                     # re-asserted from score1_game > score2_game
+
+# ---------------------------------------------------------------------------
+# Directional features - negate exactly under a Team1<->Team2 swap.
+# Group 1: map-specific, i.e. both teams compared ON THE MAP BEING PREDICTED.
+# ---------------------------------------------------------------------------
+directional_features:
+  - map_elo_diff
+  - map_smoothed_win_rate_diff
+  - map_win_rate_last_5_diff
+  - map_win_rate_last_10_diff
+  - map_normalized_margin_all_diff
+  - map_normalized_margin_last_5_diff
+  - map_normalized_margin_last_10_diff
+  - map_matches_before_diff
+  - days_since_map_played_diff
+  # Group 2: the Phase 3 SERIES-level features, joined by match_id. Legitimate
+  # here because they are strictly prior to the same series cutoff.
+  - elo_diff
+  - overall_win_rate_diff
+  - win_rate_last_5_diff
+  - win_rate_last_10_diff
+  - format_win_rate_diff
+  - avg_series_margin_last_5_diff
+  - avg_series_margin_last_10_diff
+  - matches_last_30_days_diff
+  - days_since_last_match_diff
+  - total_matches_before_diff
+
+# Symmetric features - IDENTICAL under a Team1<->Team2 swap.
+symmetric_features:
+  - map_matches_before_min
+  - map_matches_before_sum
+  - both_teams_have_map_history
+  - both_teams_have_5_map_matches
+  - both_teams_have_10_map_matches
+  - history_matches_min
+  - history_matches_sum
+  - both_teams_have_history
+  - both_teams_have_5_matches
+  - both_teams_have_10_matches
+
+categorical_context:
+  - map_name                        # LEGITIMATE for this task - the map is known pre-match
+  - bestOf
+  - tier
+
+metadata_columns:
+  - match_id
+  - game_id
+  - series_datetime
+  - map_datetime
+  - tournament
+  - team1
+  - team2
+  - team1_canonical
+  - team2_canonical
+  - evaluation_group
+  # AUDIT ONLY - per-side prior-map counts, kept so coverage/cold-start can be
+  # reported by side. They are NOT in directional_features or symmetric_features
+  # and must never be fed to a model: the model sees only their diff, min and sum,
+  # which are the orientation-safe forms.
+  - team1_map_matches_before
+  - team2_map_matches_before
+
+# ---------------------------------------------------------------------------
+# Cold-start contract (applies identically at training time and at inference)
+# ---------------------------------------------------------------------------
+cold_start:
+  map_elo: 1500.0                   # == ELO_INITIAL from the Phase 3 engine
+  map_smoothed_win_rate: 0.5        # Beta(2,2) with zero observations
+  map_win_rate_last_5: 0.5
+  map_win_rate_last_10: 0.5
+  map_normalized_margin: 0.0
+  map_matches_before: 0
+  days_since_map_played: null       # genuinely MISSING (NaN) - never a sentinel number
+  confidence_flags: 0
+  unknown_map_category: __UNKNOWN_MAP__   # reserved for map identities unseen in training
+
+# Columns that must NEVER appear as predictors in this dataset.
+forbidden_columns:
+  - score1_game                     # the current map's own score == the target
+  - score2_game
+  - map_id
+  - any player-level boxscore column (kills, deaths, assists, adr, kast, rating, hs, flash, clutch)
+  - any statistic derived from the current map or any later map

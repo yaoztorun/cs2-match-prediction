@@ -1,0 +1,156 @@
+# Phase 5A - PRE-VETO series feature whitelist
+# (data/features/series_features_v2_map_pool.parquet).
+#
+# Single source of truth for which columns are legitimate model inputs.
+# scripts/validate_phase5a.py checks the real parquet against this file.
+# Hand-specified whitelist - NEVER "every numeric column".
+
+metadata:
+  task_id: series_features_v2_map_pool
+  prediction_task: pre_veto_series  # documentation/config metadata, NOT a predictive feature
+  map_engine_version: "1.0.0"
+  granularity: one row per series (match_id) - the same 9,456 match_ids as V1
+  description: >
+    Predicts the series winner BEFORE the veto. The maps that will actually be
+    played are therefore UNKNOWN and strictly forbidden. Map knowledge enters
+    only as summaries of what the two teams have historically played, drawn
+    from their own prior map results.
+  relationship_to_v1: >
+    Strict superset of series_features_v1: identical match_id universe, identical
+    targets, identical row ordering, and every V1 feature column preserved
+    unchanged. Map-pool columns are appended.
+  prediction_cutoff: series_datetime
+
+target:
+  team1_series_win
+
+# ---------------------------------------------------------------------------
+# TWO DISTINCT MAP-POOL FEATURE FAMILIES - do not describe them interchangeably
+# ---------------------------------------------------------------------------
+feature_family_semantics:
+  A_pool_depth_order_statistics: >
+    "map_pool_*" - each team's own recent pool is summarized independently
+    (size, depth, best/2nd/3rd/worst strength) and only then subtracted. The
+    two sides' k-th-best entries MAY REFER TO DIFFERENT MAP IDENTITIES: this
+    family describes the shape and depth of each pool, not a head-to-head
+    comparison. "Team1's best map is stronger than Team2's best map" says
+    nothing about whether those are the same map.
+  B_same_map_matchup: >
+    "map_matchup_*" - computed across union(pool1, pool2); for each map identity
+    the two teams are compared ON THAT SAME MAP (cold-start defaults where a
+    side lacks history), then summarized. These ARE head-to-head, per-map
+    comparisons.
+  why_mean_median_midrange_and_not_kth_best: >
+    Mirrored augmentation needs each directional feature to negate under a side
+    swap. Swapping negates the per-map advantage list, and the k-th LARGEST of a
+    negated list is minus the k-th SMALLEST of the original - so "2nd best
+    advantage" is antisymmetric only when PAIRED with "2nd worst". mean, median
+    and midrange are each self-antisymmetric; the spread they lose is carried by
+    the swap-INVARIANT range, declared symmetric below. Family A keeps its
+    order statistics because each side's statistic is computed over its OWN pool
+    before subtraction, so the diff negates cleanly.
+
+# Directional features - negate exactly under a Team1<->Team2 swap.
+directional_features:
+  # --- family A: pool depth / order statistics (may compare different maps) ---
+  - map_pool_size_diff
+  - map_pool_total_matches_diff
+  - map_pool_experienced_maps_diff
+  - map_pool_mean_elo_diff
+  - map_pool_best_elo_diff
+  - map_pool_second_best_elo_diff
+  - map_pool_third_best_elo_diff
+  - map_pool_worst_elo_diff
+  - map_pool_mean_smoothed_wr_diff
+  - map_pool_best_smoothed_wr_diff
+  - map_pool_second_best_smoothed_wr_diff
+  - map_pool_third_best_smoothed_wr_diff
+  - map_pool_worst_smoothed_wr_diff
+  - map_pool_mean_normalized_margin_diff
+  # --- family B: same-map matchup advantages ---
+  - map_matchup_mean_elo_advantage
+  - map_matchup_median_elo_advantage
+  - map_matchup_midrange_elo_advantage
+  - map_matchup_positive_advantage_balance
+  - map_matchup_mean_smoothed_wr_advantage
+  - map_matchup_median_smoothed_wr_advantage
+  # --- inherited Phase 3 V1 directional features (unchanged) ---
+  - elo_diff
+  - overall_win_rate_diff
+  - win_rate_last_5_diff
+  - win_rate_last_10_diff
+  - format_win_rate_diff
+  - avg_series_margin_last_5_diff
+  - avg_series_margin_last_10_diff
+  - matches_last_30_days_diff
+  - days_since_last_match_diff
+  - total_matches_before_diff
+
+# Symmetric features - IDENTICAL under a Team1<->Team2 swap.
+symmetric_features:
+  - map_pool_size_min
+  - map_pool_total_matches_min
+  - both_teams_have_map_pool_history
+  - both_teams_have_3_recent_maps
+  - both_teams_have_5_experienced_maps
+  - union_map_count
+  - shared_recent_map_count           # |pool1 n pool2|
+  - shared_experienced_map_count      # maps where BOTH teams have >= 5 prior maps
+  - map_matchup_shared_coverage       # |pool1 n pool2| / |pool1 u pool2|
+  - map_matchup_elo_advantage_range   # swap-invariant spread
+  # --- inherited Phase 3 V1 symmetric features (unchanged) ---
+  - history_matches_min
+  - history_matches_sum
+  - both_teams_have_history
+  - both_teams_have_5_matches
+  - both_teams_have_10_matches
+
+categorical_context:
+  - bestOf
+  - tier
+
+metadata_columns:
+  - match_id
+  - datetime
+  - tournament
+  - team1
+  - team2
+  - team1_canonical
+  - team2_canonical
+  - source
+  - canonical_match_uid
+
+# ---------------------------------------------------------------------------
+# Feature-engineering constants (fixed by design, NOT tuned in Phase 5A)
+# ---------------------------------------------------------------------------
+constants:
+  map_pool_lookback_days: 180        # recent pool = maps played in [T-180d, T)
+  experienced_map_min_matches: 5     # threshold for "experienced" on a map
+  elo_k: 32.0                        # unchanged from Phase 3 - no K tuning
+  beta_prior: [2, 2]
+
+cold_start:
+  map_elo: 1500.0
+  map_smoothed_win_rate: 0.5
+  map_normalized_margin: 0.0
+  pool_size: 0
+  confidence_flags: 0
+  shallow_pool_kth_slot: >
+    When a pool has fewer than k maps, the k-th-best slot falls back to the
+    NEUTRAL cold-start value (elo 1500 / win rate 0.5), never to an extreme
+    sentinel. The thin-evidence signal is carried by the confidence features
+    (map_pool_size_min, both_teams_have_3_recent_maps, ...), not by a distorted
+    strength value.
+  empty_union: >
+    When union(pool1, pool2) is empty, every map_matchup_* advantage is 0.0
+    (neutral) and map_matchup_shared_coverage is 0.0.
+
+# Columns that must NEVER appear in this dataset - they would leak the veto.
+forbidden_columns:
+  - map_name
+  - map_id
+  - the list, count or order of maps selected in the target match
+  - score1_game
+  - score2_game
+  - any per-map result of the target series
+  - any player statistic from the target series
