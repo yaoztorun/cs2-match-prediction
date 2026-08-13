@@ -2,7 +2,7 @@
 __pycache__/
 data/interim/
 data/processed/
-models/
+/models/
 output/
 .ipynb_checkpoints/
 reports/

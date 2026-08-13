@@ -1,0 +1,275 @@
+# Phase 6C - MODERN SELECTED-MAP feature whitelist (data/features/map_features_v3_modern_map.parquet).
+#
+# Single source of truth for which columns are legitimate model inputs.
+# scripts/validate_phase6c.py checks the real parquet against this file.
+# Hand-specified whitelist - NEVER "every numeric column".
+
+metadata:
+  task_id: map_features_v3_modern_map
+  prediction_task: known_map   # documentation/config metadata, NOT a predictive feature
+  modern_map_engine_version: "1.0.0"
+  granularity: one row per historical map (match_id + game_id) - the same 10,318 rows as map_features_v2_rich
+  description: >
+    Extends map_features_v2_rich (Phase 6A) with RECENT/opponent-adjusted
+    selected-map performance, selected-map strength relative to a team's
+    general strength, and CURRENT-inferred-roster experience on the selected
+    map - the response to Phase 6B's finding that the known-map model relied
+    more on broad strength/form than on exact selected-map history. Every
+    map_features_v2_rich column is preserved value-for-value; 25 new features
+    are appended (18 directional + 7 symmetric/confidence). No `map_slot`
+    context is added - the Phase 6C map-order audit found no independent
+    signal (every map of a series shares one identical raw `datetime` in this
+    dataset) against which `game_id` order could be verified as true
+    chronological play order; see reports/phase6c_modern_map_feature_engineering.md.
+  relationship_to_map_v2: >
+    Every map_features_v2_rich row is preserved: same 10,318 rows, same
+    order, same target, every V2 column unchanged. Nothing is dropped or
+    recomputed.
+  prediction_cutoff: >
+    series_datetime - unchanged from V2. Every new feature here is filtered
+    strictly prior to this cutoff, using either a properly time-batched
+    replay of the frozen map_feature_engine.MapStateStore (raw per-team
+    map_elo, needed for the map-vs-overall/map-vs-pool comparisons) or
+    query-time `< as_of` filtering over flat, order-independent ledgers (the
+    two new player/team selected-map history stores) - see
+    scripts/modern_map_feature_engine.py's module docstring for the proof.
+
+target:
+  team1_map_win
+
+# ---------------------------------------------------------------------------
+# SCHEMA COUNT (exact): 80 directional + 37 symmetric/confidence +
+# 3 categorical context = 120 PREDICTIVE INPUTS (95 inherited from V2 rich +
+# 25 new: 18 directional + 7 symmetric). Categorical context is PART OF the
+# 120, not additional to it. NO map_slot - see metadata.description above.
+# ---------------------------------------------------------------------------
+directional_features:
+  # === inherited from map_features_v2_rich (62) ===
+  - map_elo_diff
+  - map_smoothed_win_rate_diff
+  - map_win_rate_last_5_diff
+  - map_win_rate_last_10_diff
+  - map_normalized_margin_all_diff
+  - map_normalized_margin_last_5_diff
+  - map_normalized_margin_last_10_diff
+  - map_matches_before_diff
+  - days_since_map_played_diff
+  - map_pool_size_diff
+  - map_pool_total_matches_diff
+  - map_pool_experienced_maps_diff
+  - map_pool_mean_elo_diff
+  - map_pool_best_elo_diff
+  - map_pool_second_best_elo_diff
+  - map_pool_third_best_elo_diff
+  - map_pool_worst_elo_diff
+  - map_pool_mean_smoothed_wr_diff
+  - map_pool_best_smoothed_wr_diff
+  - map_pool_second_best_smoothed_wr_diff
+  - map_pool_third_best_smoothed_wr_diff
+  - map_pool_worst_smoothed_wr_diff
+  - map_pool_mean_normalized_margin_diff
+  - map_matchup_mean_elo_advantage
+  - map_matchup_median_elo_advantage
+  - map_matchup_midrange_elo_advantage
+  - map_matchup_positive_advantage_balance
+  - map_matchup_mean_smoothed_wr_advantage
+  - map_matchup_median_smoothed_wr_advantage
+  - avg_opponent_elo_last_5_diff
+  - avg_opponent_elo_last_10_diff
+  - performance_residual_last_5_diff
+  - performance_residual_last_10_diff
+  - performance_residual_all_diff
+  - time_weighted_win_rate_diff
+  - time_weighted_performance_residual_diff
+  - time_weighted_series_margin_diff
+  - roster_mean_adr_diff
+  - roster_top_adr_diff
+  - roster_bottom_adr_diff
+  - roster_mean_kast_diff
+  - roster_top_kast_diff
+  - roster_bottom_kast_diff
+  - roster_mean_kd_balance_diff
+  - roster_top_kd_balance_diff
+  - roster_bottom_kd_balance_diff
+  - roster_mean_assists_per_round_diff
+  - recent_unique_players_10_maps_diff
+  - recent_unique_players_20_maps_diff
+  - core5_appearance_concentration_90d_diff
+  - core5_continuity_last_10_diff
+  - roster_mean_player_history_mass_diff
+  - elo_diff
+  - overall_win_rate_diff
+  - win_rate_last_5_diff
+  - win_rate_last_10_diff
+  - format_win_rate_diff
+  - avg_series_margin_last_5_diff
+  - avg_series_margin_last_10_diff
+  - matches_last_30_days_diff
+  - days_since_last_match_diff
+  - total_matches_before_diff
+  # === Phase 6C new (18) ===
+  # --- team-level recent / opponent-adjusted selected-map form (5) ---
+  - time_weighted_map_wr_diff
+  - time_weighted_map_margin_diff
+  - time_weighted_map_performance_residual_diff
+  - time_weighted_map_opponent_elo_diff
+  - map_recent_history_mass_diff
+  # --- map specialization relative to general team strength (4, DIFFERENCES not ratios) ---
+  - selected_map_elo_vs_overall_diff
+  - selected_map_elo_vs_pool_mean_diff
+  - selected_map_wr_vs_pool_mean_diff
+  - selected_map_rank_percentile_diff
+  # --- current-roster selected-map performance (6) ---
+  - roster_map_mean_kast_diff
+  - roster_map_bottom_kast_diff
+  - roster_map_mean_adr_diff
+  - roster_map_mean_kd_balance_diff
+  - roster_map_mean_history_mass_diff
+  - roster_map_players_with_history_diff
+  # --- player map specialization (1, DIFFERENCE not ratio) ---
+  - roster_map_kast_specialization_diff
+  # --- current-core selected-map continuity (2) ---
+  - current_core_map_continuity_diff
+  - current_core_map_history_mass_diff
+
+symmetric_features:
+  # === inherited from map_features_v2_rich (30) ===
+  - map_matches_before_min
+  - map_matches_before_sum
+  - both_teams_have_map_history
+  - both_teams_have_5_map_matches
+  - both_teams_have_10_map_matches
+  - map_pool_size_min
+  - map_pool_total_matches_min
+  - both_teams_have_map_pool_history
+  - both_teams_have_3_recent_maps
+  - both_teams_have_5_experienced_maps
+  - union_map_count
+  - shared_recent_map_count
+  - shared_experienced_map_count
+  - map_matchup_shared_coverage
+  - map_matchup_elo_advantage_range
+  - opponent_adjusted_history_min
+  - both_teams_have_5_adjusted_matches
+  - both_teams_have_10_adjusted_matches
+  - time_weighted_history_mass_min
+  - roster_size_min
+  - both_teams_have_5_inferred_players
+  - roster_min_player_history_mass
+  - roster_core_concentration_min
+  - roster_core_continuity_last10_min
+  - roster_form_players_min
+  - history_matches_min
+  - history_matches_sum
+  - both_teams_have_history
+  - both_teams_have_5_matches
+  - both_teams_have_10_matches
+  # === Phase 6C new (7) ===
+  - map_recent_history_mass_min
+  - both_teams_have_recent_selected_map_history
+  - map_adjusted_history_mass_min
+  - selected_map_in_both_recent_pools
+  - roster_map_players_with_history_min
+  - roster_map_history_mass_min
+  - current_core_map_continuity_min
+
+categorical_context:
+  - map_name
+  - bestOf
+  - tier
+
+metadata_columns:
+  - match_id
+  - game_id
+  - series_datetime
+  - map_datetime
+  - tournament
+  - team1
+  - team2
+  - team1_canonical
+  - team2_canonical
+  - evaluation_group
+  - team1_map_matches_before
+  - team2_map_matches_before
+
+# ---------------------------------------------------------------------------
+# Feature-engineering constants (fixed by design, restated for lineage; NOT
+# tuned anywhere in Phase 6C).
+# ---------------------------------------------------------------------------
+constants:
+  elo_k: 32.0
+  map_pool_lookback_days: 180
+  experienced_map_min_matches: 5
+  form_half_life_days: 60.0
+  roster_lookback_days: 90.0
+  player_form_half_life_days: 60.0
+  roster_size: 5
+  min_rounds_for_valid_map: 5
+  map_form_half_life_days: 90.0   # Phase 6C's new selected-map recency constant, NOT tuned
+
+# ---------------------------------------------------------------------------
+# Cold-start contract - restates map_features_v2_rich's contract by reference
+# (unchanged for every inherited column) and documents Phase 6C's own new
+# features. Values are genuinely MISSING (NaN) only where explicitly
+# documented below, NEVER a fabricated neutral number to force finiteness. A
+# feature's NaN must always be explainable by its paired confidence/evidence
+# feature reading zero. DIFFERENCE-style features (never ratios) use 0.0 as
+# their cold-start neutral, per the Phase 6C approval corrections.
+# ---------------------------------------------------------------------------
+cold_start:
+  inherited_v2_contract: see config/map_features_v2_rich.yaml - unchanged for every inherited column
+  weighted_map_wr: 0.5                       # Beta(2,2) smoothing naturally reduces to 0.5 with zero history
+  weighted_map_margin: 0.0
+  weighted_map_performance_residual: 0.0      # trusted-opponent population only; 0.0 = no adjusted evidence
+  weighted_map_opponent_elo: 1500.0           # trusted-opponent population only
+  map_recent_history_mass: 0.0
+  map_adjusted_history_mass: 0.0              # trusted-opponent-only mass (Phase 6C correction #3)
+  selected_map_elo_vs_overall: 0.0            # DIFFERENCE, not a ratio - never NaN, never a ratio fallback
+  selected_map_elo_vs_pool_mean: 0.0          # DIFFERENCE - well-defined even when the pool is empty (both
+                                               # sides default to 1500.0, so the difference is 0.0)
+  selected_map_wr_vs_pool_mean: 0.0           # DIFFERENCE
+  selected_map_rank_percentile: 0.5           # neutral rank when the map is absent from the team's recent
+                                               # pool, or the pool itself is empty - paired with
+                                               # selected_map_in_both_recent_pools
+  roster_map_performance_diffs: null          # genuinely MISSING - NaN exactly where
+                                               # roster_map_players_with_history_min == 0 (roster_map_mean_kast_diff,
+                                               # roster_map_bottom_kast_diff, roster_map_mean_adr_diff,
+                                               # roster_map_mean_kd_balance_diff ONLY)
+  roster_map_mean_history_mass: 0.0
+  roster_map_kast_specialization: 0.0         # DIFFERENCE, per-player neutral 0.0 when either the map-specific
+                                               # or global KAST evidence is missing for that player (never NaN,
+                                               # per the Phase 6C approval corrections) - so the roster-level
+                                               # mean is always finite
+  current_core_map_continuity: 0.0
+  current_core_map_history_mass: 0.0
+  no_fabrication: >
+    No feature in this dataset is ever imputed with a population-wide mean to
+    force finiteness. A cold-start row is always distinguishable from a
+    well-evidenced one via its paired confidence/count/mass feature.
+  no_map_slot: >
+    The Phase 6C map-order audit (reports/phase6c_modern_map_feature_engineering.md)
+    found that every map of a series shares one identical raw `datetime` in
+    this dataset - there is no independent timestamp against which `game_id`
+    order can be validated as true chronological map-play order. Per the
+    Phase 6C approval corrections, map order is therefore reported as
+    "cannot be independently verified" and NO `map_slot` categorical context
+    is added.
+
+# Columns that must NEVER appear as predictors in this dataset. Identical to
+# map_features_v2_rich.yaml's list, restated for lineage.
+forbidden_columns:
+  - score1_game
+  - score2_game
+  - map_id
+  - kills
+  - deaths
+  - assists
+  - adr
+  - kast
+  - kddiff
+  - any player id or player name column
+  - the target series' actual lineup in any form
+  - any per-map result of the target map
+  - any result of the target series
+  - team1_win
+  - team1_series_win (as a predictor - it is V4's own target, never carried through as a feature)
