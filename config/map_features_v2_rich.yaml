@@ -1,0 +1,247 @@
+# Phase 6A - KNOWN-MAP feature whitelist (data/features/map_features_v2_rich.parquet).
+#
+# Single source of truth for which columns are legitimate model inputs.
+# scripts/validate_phase6a.py checks the real parquet against this file.
+# Hand-specified whitelist - NEVER "every numeric column".
+
+metadata:
+  task_id: map_features_v2_rich
+  prediction_task: known_map   # documentation/config metadata, NOT a predictive feature
+  map_engine_version: "1.0.0"
+  granularity: one row per historical map (match_id + game_id) - the same 10,318 rows as map_features_v1
+  description: >
+    Given Team A, Team B, bestOf and a user-selected map, predict the winner
+    of that map. Unlike the pre-veto series task, the map identity is
+    LEGITIMATE input here - the user explicitly selects it. Extends
+    map_features_v1 (Phase 5A map-specific history) with the full pre-series
+    V4 team-level state (original ELO/history + map-pool + opponent-adjusted
+    form + player/roster), broadcast identically to every map of a series via
+    a many-to-one join on match_id - the same-series snapshot contract.
+  relationship_to_map_v1: >
+    Every map_features_v1 row is preserved: same 10,318 rows, same order,
+    same target. map_features_v1's own baked-in copy of the 17 original V1
+    series features (and bestOf/tier) is replaced by series_features_v4_roster's
+    copy of the same columns - verified numerically identical at build time,
+    so nothing is lost, only enriched with V2/V3/V4's additions.
+  prediction_cutoff: >
+    series_datetime - the start of the containing series (inherited unchanged
+    from map_features_v1). Verified at build time to equal
+    series_features_v4_roster's own `datetime` column for every row, which is
+    the formal proof that every joined V4 feature is safe for every map of
+    that series - V4 was frozen before any map of the series was played.
+
+target:
+  team1_map_win
+
+# ---------------------------------------------------------------------------
+# SCHEMA COUNT (exact): 62 directional + 30 symmetric/confidence +
+# 3 categorical context = 95 PREDICTIVE INPUTS. Categorical context is PART
+# OF the 95, not additional to it.
+# ---------------------------------------------------------------------------
+directional_features:
+  # --- map-specific (Phase 5A, 9) ---
+  - map_elo_diff
+  - map_smoothed_win_rate_diff
+  - map_win_rate_last_5_diff
+  - map_win_rate_last_10_diff
+  - map_normalized_margin_all_diff
+  - map_normalized_margin_last_5_diff
+  - map_normalized_margin_last_10_diff
+  - map_matches_before_diff
+  - days_since_map_played_diff
+  # --- V2 map-pool depth / order statistics (Phase 5A, 14) ---
+  - map_pool_size_diff
+  - map_pool_total_matches_diff
+  - map_pool_experienced_maps_diff
+  - map_pool_mean_elo_diff
+  - map_pool_best_elo_diff
+  - map_pool_second_best_elo_diff
+  - map_pool_third_best_elo_diff
+  - map_pool_worst_elo_diff
+  - map_pool_mean_smoothed_wr_diff
+  - map_pool_best_smoothed_wr_diff
+  - map_pool_second_best_smoothed_wr_diff
+  - map_pool_third_best_smoothed_wr_diff
+  - map_pool_worst_smoothed_wr_diff
+  - map_pool_mean_normalized_margin_diff
+  # --- V2 same-map matchup (Phase 5A, 6) ---
+  - map_matchup_mean_elo_advantage
+  - map_matchup_median_elo_advantage
+  - map_matchup_midrange_elo_advantage
+  - map_matchup_positive_advantage_balance
+  - map_matchup_mean_smoothed_wr_advantage
+  - map_matchup_median_smoothed_wr_advantage
+  # --- V3 opponent-strength / residual form (Phase 5B.2, 5) ---
+  - avg_opponent_elo_last_5_diff
+  - avg_opponent_elo_last_10_diff
+  - performance_residual_last_5_diff
+  - performance_residual_last_10_diff
+  - performance_residual_all_diff
+  # --- V3 time-decayed form (Phase 5B.2, 3) ---
+  - time_weighted_win_rate_diff
+  - time_weighted_performance_residual_diff
+  - time_weighted_series_margin_diff
+  # --- V4 player performance (Phase 5C, 10) ---
+  - roster_mean_adr_diff
+  - roster_top_adr_diff
+  - roster_bottom_adr_diff
+  - roster_mean_kast_diff
+  - roster_top_kast_diff
+  - roster_bottom_kast_diff
+  - roster_mean_kd_balance_diff
+  - roster_top_kd_balance_diff
+  - roster_bottom_kd_balance_diff
+  - roster_mean_assists_per_round_diff
+  # --- V4 roster stability (Phase 5C, 4) ---
+  - recent_unique_players_10_maps_diff
+  - recent_unique_players_20_maps_diff
+  - core5_appearance_concentration_90d_diff
+  - core5_continuity_last_10_diff
+  # --- V4 roster evidence (Phase 5C, 1) ---
+  - roster_mean_player_history_mass_diff
+  # --- inherited Phase 3 V1 series-level (10) ---
+  - elo_diff
+  - overall_win_rate_diff
+  - win_rate_last_5_diff
+  - win_rate_last_10_diff
+  - format_win_rate_diff
+  - avg_series_margin_last_5_diff
+  - avg_series_margin_last_10_diff
+  - matches_last_30_days_diff
+  - days_since_last_match_diff
+  - total_matches_before_diff
+
+symmetric_features:
+  # --- map-specific confidence (Phase 5A, 5) ---
+  - map_matches_before_min
+  - map_matches_before_sum
+  - both_teams_have_map_history
+  - both_teams_have_5_map_matches
+  - both_teams_have_10_map_matches
+  # --- V2 map-pool confidence (Phase 5A, 10) ---
+  - map_pool_size_min
+  - map_pool_total_matches_min
+  - both_teams_have_map_pool_history
+  - both_teams_have_3_recent_maps
+  - both_teams_have_5_experienced_maps
+  - union_map_count
+  - shared_recent_map_count
+  - shared_experienced_map_count
+  - map_matchup_shared_coverage
+  - map_matchup_elo_advantage_range
+  # --- V3 form confidence (Phase 5B.2, 4) ---
+  - opponent_adjusted_history_min
+  - both_teams_have_5_adjusted_matches
+  - both_teams_have_10_adjusted_matches
+  - time_weighted_history_mass_min
+  # --- V4 player/roster confidence (Phase 5C, 6) ---
+  - roster_size_min
+  - both_teams_have_5_inferred_players
+  - roster_min_player_history_mass
+  - roster_core_concentration_min
+  - roster_core_continuity_last10_min
+  - roster_form_players_min
+  # --- inherited Phase 3 V1 series-level confidence (5) ---
+  - history_matches_min
+  - history_matches_sum
+  - both_teams_have_history
+  - both_teams_have_5_matches
+  - both_teams_have_10_matches
+
+categorical_context:
+  - map_name
+  - bestOf
+  - tier
+
+metadata_columns:
+  - match_id
+  - game_id
+  - series_datetime
+  - map_datetime
+  - tournament
+  - team1
+  - team2
+  - team1_canonical
+  - team2_canonical
+  - evaluation_group
+  - team1_map_matches_before
+  - team2_map_matches_before
+
+# ---------------------------------------------------------------------------
+# Feature-engineering constants (fixed by design, restated for lineage; NOT
+# tuned anywhere in Phase 6A).
+# ---------------------------------------------------------------------------
+constants:
+  elo_k: 32.0
+  map_pool_lookback_days: 180
+  experienced_map_min_matches: 5
+  form_half_life_days: 60.0
+  roster_lookback_days: 90.0
+  player_form_half_life_days: 60.0
+  roster_size: 5
+  min_rounds_for_valid_map: 5
+
+# ---------------------------------------------------------------------------
+# Cold-start contract - restated from every inherited engine. Values are
+# genuinely MISSING (NaN) where documented, NEVER a fabricated neutral number
+# to force finiteness. A feature's NaN must always be explainable by its
+# paired confidence/evidence feature reading zero.
+# ---------------------------------------------------------------------------
+cold_start:
+  map_elo: 1500.0
+  map_smoothed_win_rate: 0.5
+  map_win_rate_last_5: 0.5
+  map_win_rate_last_10: 0.5
+  map_normalized_margin: 0.0
+  map_matches_before: 0
+  days_since_map_played: null            # genuinely MISSING - NaN exactly when a side has no prior map history
+  days_since_last_match: null            # genuinely MISSING - NaN exactly when a side has no prior series history
+  roster_performance_diffs: null         # genuinely MISSING - NaN exactly where roster_form_players_min == 0 (Phase 5C contract)
+  avg_opponent_elo: 1500.0
+  performance_residual: 0.0
+  time_weighted_win_rate: 0.5
+  time_weighted_history_mass: 0.0
+  confidence_flags: 0
+  unknown_map_category: __UNKNOWN_MAP__
+  unknown_map_note: >
+    Reserved for a map never seen during training (map_feature_engine.py's
+    UNKNOWN_MAP_CATEGORY). Never appears in this historical training parquet
+    (only the 9 known map identities do); it exists for future inference on
+    a map identity outside the training vocabulary. No map-specific history
+    is fabricated for it - map_elo=1500.0, smoothed_wr=0.5, history count=0,
+    confidence flags=0, exactly the standard cold-start row.
+  unknown_tier_category: __UNKNOWN_TIER__
+  unknown_tier_note: >
+    The application asks for two teams, a bestOf and a map - NOT a
+    tournament tier, so a caller may legitimately have no tier value.
+    scripts/rich_map_feature_composer.py emits this reserved category when
+    tier is unavailable (tier=None) rather than silently defaulting to a
+    real competitive tier (tier1/tier2/tier3). tier itself is pure passthrough
+    context in every upstream engine (never used to gate feature computation),
+    so UNKNOWN_TIER never distorts any numeric feature - only the categorical
+    tier context column. Downstream map-model preprocessing (not built in
+    this phase) must treat __UNKNOWN_TIER__ as its own explicit category
+    (e.g. an all-zero tier dummy row under a tier1/tier2/tier3 reference-dummy
+    scheme), never collapsed onto tier1.
+  no_fabrication: >
+    No feature in this dataset is ever imputed with a population-wide mean to
+    force finiteness. A cold-start row is always distinguishable from a
+    well-evidenced one via its paired confidence/count/mass feature.
+
+# Columns that must NEVER appear as predictors in this dataset.
+forbidden_columns:
+  - score1_game
+  - score2_game
+  - map_id
+  - kills
+  - deaths
+  - assists
+  - adr
+  - kast
+  - kddiff
+  - any player id or player name column
+  - the target series' actual lineup in any form
+  - any per-map result of the target map
+  - any result of the target series
+  - team1_win
+  - team1_series_win (as a predictor - it is V4's own target, never carried through as a feature)

@@ -1,0 +1,32 @@
+{
+  "selected_candidate_id": "random_007",
+  "params": {
+    "max_depth": 7,
+    "min_samples_leaf": 5,
+    "min_samples_split": 10,
+    "max_features": "sqrt",
+    "criterion": "log_loss",
+    "n_estimators": 400,
+    "bootstrap": true
+  },
+  "random_state": 42,
+  "selection_stage": "secondary (log-loss tie within epsilon, resolved by highest mean CV ROC-AUC)",
+  "selection_rule": "1) PRIMARY: lowest mean chronological-CV log loss. 2) EQUIVALENCE: candidates within 0.002 of the best mean log loss are treated as essentially equivalent. 3) highest mean ROC-AUC. 4) lowest mean Brier. 5) highest mean accuracy. 6) lower log-loss standard deviation. 7) COMPLEXITY (deterministic): lower max_depth -> higher min_samples_leaf -> higher min_samples_split -> lower effective max_features fraction -> candidate_id. Accuracy is never optimized alone; fit time never participates in selection.",
+  "log_loss_epsilon": 0.002,
+  "cv_mean_log_loss": 0.6680678201735044,
+  "cv_std_log_loss": 0.005359143991362498,
+  "cv_mean_roc_auc": 0.6182274812665618,
+  "cv_std_roc_auc": 0.012535124997526093,
+  "cv_mean_brier": 0.23786554041899902,
+  "cv_mean_accuracy": 0.5836464566881514,
+  "cv_mean_train_val_auc_gap": 0.1627939876402808,
+  "n_candidates": 36,
+  "n_anchor_candidates": 8,
+  "n_random_candidates": 28,
+  "transformed_feature_count": 106,
+  "cv_folds_artifact": "data/modeling/map_cv_folds_v1.csv",
+  "tuning_results_artifact": "reports/tables/map_random_forest_tuning_v1.csv",
+  "search_plan_artifact": "data/modeling/map_rf_search_plan_v1.json",
+  "search_plan_hash": "d1d581fc531b97de8bfc2adf1ad86a4382adf9c426437d8f3389119ade841d10",
+  "main_validation_used_in_selection": false
+}

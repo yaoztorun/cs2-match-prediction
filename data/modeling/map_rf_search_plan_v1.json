@@ -1,0 +1,416 @@
+{
+  "model": "map_random_forest_v1",
+  "seed": 42,
+  "n_folds": 4,
+  "log_loss_equivalence_epsilon": 0.002,
+  "candidates": [
+    {
+      "candidate_id": "anchor_series_rf_v2_structure",
+      "max_depth": 8,
+      "min_samples_leaf": 20,
+      "min_samples_split": 10,
+      "max_features": "sqrt",
+      "criterion": "gini",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "candidate_id": "anchor_shallow_high_regularization",
+      "max_depth": 5,
+      "min_samples_leaf": 80,
+      "min_samples_split": 40,
+      "max_features": "sqrt",
+      "criterion": "gini",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "candidate_id": "anchor_moderate_depth8_leaf10",
+      "max_depth": 8,
+      "min_samples_leaf": 10,
+      "min_samples_split": 20,
+      "max_features": "sqrt",
+      "criterion": "gini",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "candidate_id": "anchor_moderate_depth10_leaf20",
+      "max_depth": 10,
+      "min_samples_leaf": 20,
+      "min_samples_split": 20,
+      "max_features": "sqrt",
+      "criterion": "gini",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "candidate_id": "anchor_leaf40_conservative",
+      "max_depth": null,
+      "min_samples_leaf": 40,
+      "min_samples_split": 40,
+      "max_features": "sqrt",
+      "criterion": "gini",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "candidate_id": "anchor_deeper_but_regularized",
+      "max_depth": 12,
+      "min_samples_leaf": 40,
+      "min_samples_split": 40,
+      "max_features": "sqrt",
+      "criterion": "gini",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "candidate_id": "anchor_fractional_max_features",
+      "max_depth": 8,
+      "min_samples_leaf": 20,
+      "min_samples_split": 10,
+      "max_features": 0.4,
+      "criterion": "gini",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "candidate_id": "anchor_log_loss_criterion",
+      "max_depth": 8,
+      "min_samples_leaf": 20,
+      "min_samples_split": 10,
+      "max_features": "sqrt",
+      "criterion": "log_loss",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 5,
+      "min_samples_leaf": 20,
+      "min_samples_split": 10,
+      "max_features": "sqrt",
+      "criterion": "log_loss",
+      "candidate_id": "random_001",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 5,
+      "min_samples_leaf": 20,
+      "min_samples_split": 20,
+      "max_features": 0.6,
+      "criterion": "log_loss",
+      "candidate_id": "random_002",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 5,
+      "min_samples_leaf": 20,
+      "min_samples_split": 40,
+      "max_features": "sqrt",
+      "criterion": "log_loss",
+      "candidate_id": "random_003",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 5,
+      "min_samples_leaf": 40,
+      "min_samples_split": 20,
+      "max_features": "sqrt",
+      "criterion": "log_loss",
+      "candidate_id": "random_004",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 5,
+      "min_samples_leaf": 40,
+      "min_samples_split": 20,
+      "max_features": 0.4,
+      "criterion": "gini",
+      "candidate_id": "random_005",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 5,
+      "min_samples_leaf": 40,
+      "min_samples_split": 20,
+      "max_features": 0.6,
+      "criterion": "gini",
+      "candidate_id": "random_006",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 7,
+      "min_samples_leaf": 5,
+      "min_samples_split": 10,
+      "max_features": "sqrt",
+      "criterion": "log_loss",
+      "candidate_id": "random_007",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 7,
+      "min_samples_leaf": 40,
+      "min_samples_split": 40,
+      "max_features": "sqrt",
+      "criterion": "log_loss",
+      "candidate_id": "random_008",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 7,
+      "min_samples_leaf": 40,
+      "min_samples_split": 40,
+      "max_features": 0.25,
+      "criterion": "log_loss",
+      "candidate_id": "random_009",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 7,
+      "min_samples_leaf": 80,
+      "min_samples_split": 10,
+      "max_features": "sqrt",
+      "criterion": "gini",
+      "candidate_id": "random_010",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 7,
+      "min_samples_leaf": 80,
+      "min_samples_split": 20,
+      "max_features": "sqrt",
+      "criterion": "gini",
+      "candidate_id": "random_011",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 8,
+      "min_samples_leaf": 5,
+      "min_samples_split": 20,
+      "max_features": "sqrt",
+      "criterion": "gini",
+      "candidate_id": "random_012",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 8,
+      "min_samples_leaf": 40,
+      "min_samples_split": 10,
+      "max_features": 0.6,
+      "criterion": "log_loss",
+      "candidate_id": "random_013",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 8,
+      "min_samples_leaf": 80,
+      "min_samples_split": 10,
+      "max_features": 0.25,
+      "criterion": "gini",
+      "candidate_id": "random_014",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 10,
+      "min_samples_leaf": 10,
+      "min_samples_split": 20,
+      "max_features": 0.6,
+      "criterion": "log_loss",
+      "candidate_id": "random_015",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 10,
+      "min_samples_leaf": 20,
+      "min_samples_split": 10,
+      "max_features": "sqrt",
+      "criterion": "log_loss",
+      "candidate_id": "random_016",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 10,
+      "min_samples_leaf": 40,
+      "min_samples_split": 20,
+      "max_features": 0.25,
+      "criterion": "gini",
+      "candidate_id": "random_017",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 10,
+      "min_samples_leaf": 40,
+      "min_samples_split": 20,
+      "max_features": 0.25,
+      "criterion": "log_loss",
+      "candidate_id": "random_018",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 10,
+      "min_samples_leaf": 40,
+      "min_samples_split": 20,
+      "max_features": 0.4,
+      "criterion": "log_loss",
+      "candidate_id": "random_019",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 10,
+      "min_samples_leaf": 80,
+      "min_samples_split": 20,
+      "max_features": 0.6,
+      "criterion": "log_loss",
+      "candidate_id": "random_020",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 12,
+      "min_samples_leaf": 10,
+      "min_samples_split": 20,
+      "max_features": "sqrt",
+      "criterion": "gini",
+      "candidate_id": "random_021",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 12,
+      "min_samples_leaf": 10,
+      "min_samples_split": 40,
+      "max_features": 0.25,
+      "criterion": "gini",
+      "candidate_id": "random_022",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 12,
+      "min_samples_leaf": 10,
+      "min_samples_split": 40,
+      "max_features": 0.25,
+      "criterion": "log_loss",
+      "candidate_id": "random_023",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": 12,
+      "min_samples_leaf": 20,
+      "min_samples_split": 40,
+      "max_features": 0.6,
+      "criterion": "log_loss",
+      "candidate_id": "random_024",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": null,
+      "min_samples_leaf": 5,
+      "min_samples_split": 40,
+      "max_features": 0.25,
+      "criterion": "log_loss",
+      "candidate_id": "random_025",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": null,
+      "min_samples_leaf": 20,
+      "min_samples_split": 20,
+      "max_features": 0.25,
+      "criterion": "log_loss",
+      "candidate_id": "random_026",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": null,
+      "min_samples_leaf": 40,
+      "min_samples_split": 20,
+      "max_features": 0.4,
+      "criterion": "log_loss",
+      "candidate_id": "random_027",
+      "n_estimators": 400,
+      "bootstrap": true
+    },
+    {
+      "max_depth": null,
+      "min_samples_leaf": 80,
+      "min_samples_split": 20,
+      "max_features": 0.25,
+      "criterion": "gini",
+      "candidate_id": "random_028",
+      "n_estimators": 400,
+      "bootstrap": true
+    }
+  ],
+  "artifact_hashes": {
+    "config/map_features_v2_rich.yaml": "784f25a9db20e66f3627ad076144cdc614fa7d822e9639c7568edc648bea9e53",
+    "data/features/map_features_v2_rich.parquet": "94328b87675a4bc9d51e5b6ebcac9dad2939ba7d0f083fc5c9ab78d504140cab",
+    "data/modeling/map_cv_folds_v1.csv": "94dde09d1247ef09a5e428a0a84747ca5dab9339a7c464d12187ecd14a21bf99"
+  },
+  "package_versions": {
+    "numpy": "2.4.2",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.8.0",
+    "xgboost": "3.4.0"
+  },
+  "n_estimators_fixed": 400,
+  "search_space": {
+    "max_depth": [
+      "5",
+      "7",
+      "8",
+      "10",
+      "12",
+      "None"
+    ],
+    "min_samples_leaf": [
+      "5",
+      "10",
+      "20",
+      "40",
+      "80"
+    ],
+    "min_samples_split": [
+      "10",
+      "20",
+      "40"
+    ],
+    "max_features": [
+      "sqrt",
+      "0.25",
+      "0.4",
+      "0.6"
+    ],
+    "criterion": [
+      "gini",
+      "log_loss"
+    ]
+  },
+  "selection_rule": "1) PRIMARY: lowest mean chronological-CV log loss. 2) EQUIVALENCE: candidates within 0.002 of the best mean log loss are treated as essentially equivalent. 3) highest mean ROC-AUC. 4) lowest mean Brier. 5) highest mean accuracy. 6) lower log-loss standard deviation. 7) COMPLEXITY (deterministic): lower max_depth -> higher min_samples_leaf -> higher min_samples_split -> lower effective max_features fraction -> candidate_id. Accuracy is never optimized alone; fit time never participates in selection.",
+  "cv_manifest": "data/modeling/map_cv_folds_v1.csv",
+  "main_validation_used_in_selection": false,
+  "plan_hash": "d1d581fc531b97de8bfc2adf1ad86a4382adf9c426437d8f3389119ade841d10"
+}

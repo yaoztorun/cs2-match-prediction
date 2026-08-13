@@ -1,0 +1,55 @@
+{
+  "formula": "p_ensemble = w * p_rf + (1 - w) * p_xgb",
+  "weight_rf": 0.6,
+  "weight_xgb": 0.4,
+  "candidate_weights": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "selection_stage": "secondary (log-loss tie within epsilon, resolved by highest ROC-AUC)",
+  "selection_rule": "PRIMARY lowest pooled TRAIN-only OOF log loss; within 0.001 log loss: higher ROC-AUC -> lower Brier -> higher accuracy -> weight closest to 0.5 -> lower weight",
+  "log_loss_epsilon": 0.001,
+  "selected_from": "data/modeling/map_selected_models_oof_v1.parquet (TRAIN-only)",
+  "main_validation_used_in_selection": false,
+  "oof_metrics": {
+    "rf": {
+      "n": 6541,
+      "accuracy": 0.5833970340926464,
+      "precision": 0.5948951225676017,
+      "recall": 0.6772151898734177,
+      "f1": 0.633391631911745,
+      "roc_auc": 0.6178526911170891,
+      "log_loss": 0.6682473412535994,
+      "brier": 0.2379514883632491
+    },
+    "xgb": {
+      "n": 6541,
+      "accuracy": 0.5843143250267543,
+      "precision": 0.5956049507451376,
+      "recall": 0.6783659378596087,
+      "f1": 0.6342972427706792,
+      "roc_auc": 0.6164489381393176,
+      "log_loss": 0.6695289996047291,
+      "brier": 0.2384762167930603
+    },
+    "ensemble": {
+      "n": 6541,
+      "accuracy": 0.584620088671457,
+      "precision": 0.596100278551532,
+      "recall": 0.6772151898734177,
+      "f1": 0.6340740740740741,
+      "roc_auc": 0.6184421444085475,
+      "log_loss": 0.6683018764697555,
+      "brier": 0.23794180074612856
+    }
+  }
+}
