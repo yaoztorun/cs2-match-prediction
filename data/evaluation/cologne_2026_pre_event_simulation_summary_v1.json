@@ -1,0 +1,176 @@
+{
+  "event_id": "iem_cologne_major_2026",
+  "n_simulations": 50000,
+  "base_seed": 42,
+  "expected_total_matches": 5300000,
+  "actual_total_matches": 5300000,
+  "champion_counts": {
+    "Team Vitality": 14848,
+    "Astralis": 389,
+    "MOUZ": 3877,
+    "Natus Vincere": 5710,
+    "PARIVISION": 818,
+    "Team Spirit": 9476,
+    "Team Falcons": 4465,
+    "G2 Esports": 822,
+    "BetBoom Team": 1054,
+    "The Mongolz": 1752,
+    "FURIA Esports": 1861,
+    "Sinners Esports": 152,
+    "Aurora Gaming": 1358,
+    "Legacy": 894,
+    "FlyQuest": 95,
+    "Heroic": 63,
+    "Monte": 226,
+    "FUT Esports": 460,
+    "BIG": 455,
+    "GamerLegion": 453,
+    "B8 Esports": 253,
+    "paiN Gaming": 170,
+    "9z Team": 128,
+    "M80": 35,
+    "Lynn Vision Gaming": 22,
+    "THUNDERdOWNUNDER": 2,
+    "MIBR": 85,
+    "Gaimin Gladiators": 10,
+    "Sharks Esports": 15,
+    "TYLOO": 35,
+    "Team Liquid": 17
+  },
+  "accounting": {
+    "total_matches_expected": 5300000,
+    "total_matches_actual": 5300000,
+    "champion_sum_equals_n": true,
+    "playoff_sum_equals_8n": true,
+    "semifinal_sum_equals_4n": true,
+    "final_sum_equals_2n": true,
+    "stage_advance_sums": {
+      "stage_1": 400000,
+      "stage_2": 400000,
+      "stage_3": 400000
+    },
+    "stage_advance_sums_equal_8n": true,
+    "champion_sum": 50000,
+    "playoff_sum": 400000,
+    "semifinal_sum": 200000,
+    "final_sum": 100000,
+    "total_matches": 5300000,
+    "all_pass": true
+  },
+  "rematch_fallback_report": {
+    "total_swiss_pairing_events": 4950000,
+    "zero_rematch_pairing_events": 4950000,
+    "rematch_events": 0,
+    "total_unavoidable_rematches": 0,
+    "pool_level_fallback_events_total": 0,
+    "max_rematches_in_any_one_pairing_event": 0,
+    "breakdown_by_stage": {
+      "stage_1": {
+        "total_matches": 1650000,
+        "zero_rematch_matches": 1650000,
+        "rematch_matches": 0,
+        "pool_level_fallback_events": 0,
+        "max_rematches_in_any_one_pairing_event": 0
+      },
+      "stage_2": {
+        "total_matches": 1650000,
+        "zero_rematch_matches": 1650000,
+        "rematch_matches": 0,
+        "pool_level_fallback_events": 0,
+        "max_rematches_in_any_one_pairing_event": 0
+      },
+      "stage_3": {
+        "total_matches": 1650000,
+        "zero_rematch_matches": 1650000,
+        "rematch_matches": 0,
+        "pool_level_fallback_events": 0,
+        "max_rematches_in_any_one_pairing_event": 0
+      }
+    },
+    "breakdown_by_stage_round": {
+      "stage_1_round_1": {
+        "total_matches": 400000,
+        "zero_rematch_matches": 400000,
+        "rematch_matches": 0
+      },
+      "stage_1_round_2": {
+        "total_matches": 400000,
+        "zero_rematch_matches": 400000,
+        "rematch_matches": 0
+      },
+      "stage_1_round_3": {
+        "total_matches": 400000,
+        "zero_rematch_matches": 400000,
+        "rematch_matches": 0
+      },
+      "stage_1_round_4": {
+        "total_matches": 300000,
+        "zero_rematch_matches": 300000,
+        "rematch_matches": 0
+      },
+      "stage_1_round_5": {
+        "total_matches": 150000,
+        "zero_rematch_matches": 150000,
+        "rematch_matches": 0
+      },
+      "stage_2_round_1": {
+        "total_matches": 400000,
+        "zero_rematch_matches": 400000,
+        "rematch_matches": 0
+      },
+      "stage_2_round_2": {
+        "total_matches": 400000,
+        "zero_rematch_matches": 400000,
+        "rematch_matches": 0
+      },
+      "stage_2_round_3": {
+        "total_matches": 400000,
+        "zero_rematch_matches": 400000,
+        "rematch_matches": 0
+      },
+      "stage_2_round_4": {
+        "total_matches": 300000,
+        "zero_rematch_matches": 300000,
+        "rematch_matches": 0
+      },
+      "stage_2_round_5": {
+        "total_matches": 150000,
+        "zero_rematch_matches": 150000,
+        "rematch_matches": 0
+      },
+      "stage_3_round_1": {
+        "total_matches": 400000,
+        "zero_rematch_matches": 400000,
+        "rematch_matches": 0
+      },
+      "stage_3_round_2": {
+        "total_matches": 400000,
+        "zero_rematch_matches": 400000,
+        "rematch_matches": 0
+      },
+      "stage_3_round_3": {
+        "total_matches": 400000,
+        "zero_rematch_matches": 400000,
+        "rematch_matches": 0
+      },
+      "stage_3_round_4": {
+        "total_matches": 300000,
+        "zero_rematch_matches": 300000,
+        "rematch_matches": 0
+      },
+      "stage_3_round_5": {
+        "total_matches": 150000,
+        "zero_rematch_matches": 150000,
+        "rematch_matches": 0
+      }
+    }
+  },
+  "orientation_diagnostic": {
+    "n_unordered_pairs_by_format": 1488,
+    "mean": 0.009354414255565217,
+    "median": 0.007802124449080572,
+    "p95": 0.023332399785134714,
+    "max": 0.0431383105098998
+  },
+  "bo5_data_sparsity_caveat": "RF V2's preprocessing and model structurally support bestOf=5 (see BO1/3/5 inference-contract validation), but BO5 was substantially less common in the historical training data than BO1/BO3. This is recorded as a limitation only - the Cologne Grand Final still uses the frozen RF V2 with bestOf=5 unmodified."
+}

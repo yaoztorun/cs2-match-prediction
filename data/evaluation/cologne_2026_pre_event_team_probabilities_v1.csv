@@ -1,0 +1,321 @@
+canonical_model_name,display_name,starting_stage,metric,denominator_type,numerator_count,denominator_count,probability,mc_standard_error,mc_ci95_low,mc_ci95_high
+GamerLegion,GamerLegion,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+GamerLegion,GamerLegion,stage_1,participate_stage_2,unconditional_n_simulations,37627,50000,0.75254,0.00192988884861279,0.7487574178567189,0.7563225821432811
+GamerLegion,GamerLegion,stage_1,participate_stage_3,unconditional_n_simulations,21732,50000,0.43464,0.002216881008985372,0.4302949132223887,0.43898508677761133
+GamerLegion,GamerLegion,stage_1,reach_playoffs,unconditional_n_simulations,8596,50000,0.17192,0.0016873856322725993,0.1686127241607457,0.1752272758392543
+GamerLegion,GamerLegion,stage_1,reach_semifinal,unconditional_n_simulations,3438,50000,0.06876,0.0011316542086697685,0.06654195775100726,0.07097804224899275
+GamerLegion,GamerLegion,stage_1,reach_final,unconditional_n_simulations,1292,50000,0.02584,0.000709539208218968,0.02444930315189082,0.027230696848109175
+GamerLegion,GamerLegion,stage_1,win_tournament,unconditional_n_simulations,453,50000,0.00906,0.00042374323357429556,0.00822946326219438,0.00989053673780562
+GamerLegion,GamerLegion,stage_1,advance_from_stage_1,conditional_on_stage_participation,37627,50000,0.75254,0.00192988884861279,0.7487574178567189,0.7563225821432811
+GamerLegion,GamerLegion,stage_1,advance_from_stage_2,conditional_on_stage_participation,21732,37627,0.5775639833098573,0.002546424031324452,0.5725729922084614,0.5825549744112531
+GamerLegion,GamerLegion,stage_1,advance_from_stage_3,conditional_on_stage_participation,8596,21732,0.39554573900239276,0.0033168835827644813,0.3890446471801744,0.4020468308246111
+B8 Esports,B8,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+B8 Esports,B8,stage_1,participate_stage_2,unconditional_n_simulations,33050,50000,0.661,0.0021169742558661405,0.6568507304585024,0.6651492695414977
+B8 Esports,B8,stage_1,participate_stage_3,unconditional_n_simulations,15556,50000,0.31112,0.0020703832765939737,0.3070620487778758,0.3151779512221242
+B8 Esports,B8,stage_1,reach_playoffs,unconditional_n_simulations,5044,50000,0.10088,0.0013468721216210544,0.09824013064162274,0.10351986935837726
+B8 Esports,B8,stage_1,reach_semifinal,unconditional_n_simulations,1827,50000,0.03654,0.0008391046227974197,0.03489535493931706,0.03818464506068295
+B8 Esports,B8,stage_1,reach_final,unconditional_n_simulations,691,50000,0.01382,0.0005220920914934452,0.012796699500672849,0.014843300499327153
+B8 Esports,B8,stage_1,win_tournament,unconditional_n_simulations,253,50000,0.00506,0.0003173136114319712,0.004438065321593337,0.005681934678406664
+B8 Esports,B8,stage_1,advance_from_stage_1,conditional_on_stage_participation,33050,50000,0.661,0.0021169742558661405,0.6568507304585024,0.6651492695414977
+B8 Esports,B8,stage_1,advance_from_stage_2,conditional_on_stage_participation,15556,33050,0.4706807866868381,0.002745594098005832,0.4652994222547467,0.4760621511189295
+B8 Esports,B8,stage_1,advance_from_stage_3,conditional_on_stage_participation,5044,15556,0.3242478786320391,0.003753041038605326,0.31689191819637264,0.3316038390677055
+Heroic,HEROIC,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Heroic,HEROIC,stage_1,participate_stage_2,unconditional_n_simulations,28230,50000,0.5646,0.002217326498285717,0.56025404006336,0.56894595993664
+Heroic,HEROIC,stage_1,participate_stage_3,unconditional_n_simulations,10680,50000,0.2136,0.001832894104960786,0.21000752755427687,0.21719247244572315
+Heroic,HEROIC,stage_1,reach_playoffs,unconditional_n_simulations,2630,50000,0.0526,0.0009983310072315694,0.050643271225826125,0.05455672877417388
+Heroic,HEROIC,stage_1,reach_semifinal,unconditional_n_simulations,854,50000,0.01708,0.0005794527349145917,0.0159442726395674,0.0182157273604326
+Heroic,HEROIC,stage_1,reach_final,unconditional_n_simulations,253,50000,0.00506,0.0003173136114319712,0.004438065321593337,0.005681934678406664
+Heroic,HEROIC,stage_1,win_tournament,unconditional_n_simulations,63,50000,0.00126,0.0001586450377414938,0.0009490557260266722,0.0015709442739733279
+Heroic,HEROIC,stage_1,advance_from_stage_1,conditional_on_stage_participation,28230,50000,0.5646,0.002217326498285717,0.56025404006336,0.56894595993664
+Heroic,HEROIC,stage_1,advance_from_stage_2,conditional_on_stage_participation,10680,28230,0.3783209351753454,0.002886408996717211,0.37266357354177965,0.3839782968089111
+Heroic,HEROIC,stage_1,advance_from_stage_3,conditional_on_stage_participation,2630,10680,0.24625468164794007,0.0041688755951624626,0.23808368548142164,0.2544256778144585
+BetBoom Team,BetBoom Team,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+BetBoom Team,BetBoom Team,stage_1,participate_stage_2,unconditional_n_simulations,39714,50000,0.79428,0.0018077570721753517,0.7907367961385363,0.7978232038614637
+BetBoom Team,BetBoom Team,stage_1,participate_stage_3,unconditional_n_simulations,25881,50000,0.51762,0.0022346791071650536,0.5132400289499565,0.5219999710500435
+BetBoom Team,BetBoom Team,stage_1,reach_playoffs,unconditional_n_simulations,12569,50000,0.25138,0.0019400417294481067,0.2475775182102817,0.2551824817897183
+BetBoom Team,BetBoom Team,stage_1,reach_semifinal,unconditional_n_simulations,5771,50000,0.11542,0.0014289732229821523,0.11261921248295498,0.11822078751704501
+BetBoom Team,BetBoom Team,stage_1,reach_final,unconditional_n_simulations,2518,50000,0.05036,0.000977996629851044,0.04844312660549196,0.052276873394508046
+BetBoom Team,BetBoom Team,stage_1,win_tournament,unconditional_n_simulations,1054,50000,0.02108,0.0006424271725261938,0.01982084274184866,0.022339157258151342
+BetBoom Team,BetBoom Team,stage_1,advance_from_stage_1,conditional_on_stage_participation,39714,50000,0.79428,0.0018077570721753517,0.7907367961385363,0.7978232038614637
+BetBoom Team,BetBoom Team,stage_1,advance_from_stage_2,conditional_on_stage_participation,25881,39714,0.6516845444931259,0.002390745063163503,0.6469986841693254,0.6563704048169263
+BetBoom Team,BetBoom Team,stage_1,advance_from_stage_3,conditional_on_stage_participation,12569,25881,0.48564584057803023,0.003106708019249489,0.4795566928603012,0.49173498829575923
+BIG,BIG,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+BIG,BIG,stage_1,participate_stage_2,unconditional_n_simulations,35867,50000,0.71734,0.0020137692241168053,0.713393012320731,0.7212869876792689
+BIG,BIG,stage_1,participate_stage_3,unconditional_n_simulations,19739,50000,0.39478,0.0021859952040203566,0.3904954494001201,0.39906455059987994
+BIG,BIG,stage_1,reach_playoffs,unconditional_n_simulations,7885,50000,0.1577,0.0016299123289306085,0.154505371835296,0.160894628164704
+BIG,BIG,stage_1,reach_semifinal,unconditional_n_simulations,3189,50000,0.06378,0.0010928139054752187,0.06163808474526857,0.06592191525473143
+BIG,BIG,stage_1,reach_final,unconditional_n_simulations,1201,50000,0.02402,0.0006847341031378531,0.022677921157849806,0.025362078842150193
+BIG,BIG,stage_1,win_tournament,unconditional_n_simulations,455,50000,0.0091,0.0004246690476123731,0.008267648666679749,0.009932351333320252
+BIG,BIG,stage_1,advance_from_stage_1,conditional_on_stage_participation,35867,50000,0.71734,0.0020137692241168053,0.713393012320731,0.7212869876792689
+BIG,BIG,stage_1,advance_from_stage_2,conditional_on_stage_participation,19739,35867,0.550338751498592,0.002626698655115387,0.5451904221345658,0.5554870808626182
+BIG,BIG,stage_1,advance_from_stage_3,conditional_on_stage_participation,7885,19739,0.39946299204620295,0.0034861461467888526,0.3926301455984968,0.4062958384939091
+M80,M80,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+M80,M80,stage_1,participate_stage_2,unconditional_n_simulations,26164,50000,0.52328,0.0022336429508764376,0.5189020598162821,0.5276579401837178
+M80,M80,stage_1,participate_stage_3,unconditional_n_simulations,8351,50000,0.16702,0.0016680786528218627,0.16375056584046915,0.17028943415953085
+M80,M80,stage_1,reach_playoffs,unconditional_n_simulations,1537,50000,0.03074,0.0007719462727418275,0.02922698530542602,0.032253014694573985
+M80,M80,stage_1,reach_semifinal,unconditional_n_simulations,455,50000,0.0091,0.0004246690476123731,0.008267648666679749,0.009932351333320252
+M80,M80,stage_1,reach_final,unconditional_n_simulations,124,50000,0.00248,0.0002224342419682725,0.002044028885742186,0.002915971114257814
+M80,M80,stage_1,win_tournament,unconditional_n_simulations,35,50000,0.0007,0.00011828017585377525,0.0004681708553266005,0.0009318291446733995
+M80,M80,stage_1,advance_from_stage_1,conditional_on_stage_participation,26164,50000,0.52328,0.0022336429508764376,0.5189020598162821,0.5276579401837178
+M80,M80,stage_1,advance_from_stage_2,conditional_on_stage_participation,8351,26164,0.3191790246139734,0.0028819176386776944,0.3135304660421651,0.3248275831857817
+M80,M80,stage_1,advance_from_stage_3,conditional_on_stage_participation,1537,8351,0.1840498143934858,0.00424062893992814,0.17573818167122665,0.19236144711574496
+MIBR,MIBR,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+MIBR,MIBR,stage_1,participate_stage_2,unconditional_n_simulations,30427,50000,0.60854,0.0021827462903415964,0.6042618172709304,0.6128181827290695
+MIBR,MIBR,stage_1,participate_stage_3,unconditional_n_simulations,11267,50000,0.22534,0.0018684853994612857,0.2216777686170559,0.22900223138294412
+MIBR,MIBR,stage_1,reach_playoffs,unconditional_n_simulations,2659,50000,0.05318,0.0010035127064467095,0.05121311509536445,0.05514688490463555
+MIBR,MIBR,stage_1,reach_semifinal,unconditional_n_simulations,870,50000,0.0174,0.0005847604637798284,0.016253869490991536,0.01854613050900846
+MIBR,MIBR,stage_1,reach_final,unconditional_n_simulations,276,50000,0.00552,0.0003313466342065361,0.004870560596955189,0.006169439403044811
+MIBR,MIBR,stage_1,win_tournament,unconditional_n_simulations,85,50000,0.0017,0.0001842340902221953,0.001338901183164497,0.002061098816835503
+MIBR,MIBR,stage_1,advance_from_stage_1,conditional_on_stage_participation,30427,50000,0.60854,0.0021827462903415964,0.6042618172709304,0.6128181827290695
+MIBR,MIBR,stage_1,advance_from_stage_2,conditional_on_stage_participation,11267,30427,0.3702961185788937,0.002768300287282772,0.36487025001581946,0.375721987141968
+MIBR,MIBR,stage_1,advance_from_stage_3,conditional_on_stage_participation,2659,11267,0.23599893494275317,0.004000348764956902,0.22815825136343765,0.2438396185220687
+Sinners Esports,SINNERS Esports,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Sinners Esports,SINNERS Esports,stage_1,participate_stage_2,unconditional_n_simulations,30867,50000,0.61734,0.0021736205943080314,0.6130797036351563,0.6216002963648437
+Sinners Esports,SINNERS Esports,stage_1,participate_stage_3,unconditional_n_simulations,14439,50000,0.28878,0.0020267516453675322,0.2848075667750796,0.29275243322492034
+Sinners Esports,SINNERS Esports,stage_1,reach_playoffs,unconditional_n_simulations,4218,50000,0.08436,0.0012429271129072693,0.08192386285870176,0.08679613714129825
+Sinners Esports,SINNERS Esports,stage_1,reach_semifinal,unconditional_n_simulations,1520,50000,0.0304,0.0007677999739515494,0.028895112051054963,0.031904887948945033
+Sinners Esports,SINNERS Esports,stage_1,reach_final,unconditional_n_simulations,491,50000,0.00982,0.0004409890610888211,0.00895566144026591,0.01068433855973409
+Sinners Esports,SINNERS Esports,stage_1,win_tournament,unconditional_n_simulations,152,50000,0.00304,0.0002462014784683471,0.00255744510220204,0.0035225548977979603
+Sinners Esports,SINNERS Esports,stage_1,advance_from_stage_1,conditional_on_stage_participation,30867,50000,0.61734,0.0021736205943080314,0.6130797036351563,0.6216002963648437
+Sinners Esports,SINNERS Esports,stage_1,advance_from_stage_2,conditional_on_stage_participation,14439,30867,0.46778112547380696,0.002840006096824758,0.46221471352403043,0.4733475374235835
+Sinners Esports,SINNERS Esports,stage_1,advance_from_stage_3,conditional_on_stage_participation,4218,14439,0.2921254934552254,0.0037843762410855555,0.28470811602269774,0.2995428708877531
+NRG Esports,NRG,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+NRG Esports,NRG,stage_1,participate_stage_2,unconditional_n_simulations,12464,50000,0.24928,0.0019346290683229176,0.24548812702608708,0.2530718729739129
+NRG Esports,NRG,stage_1,participate_stage_3,unconditional_n_simulations,2043,50000,0.04086,0.000885329999491715,0.03912475320099624,0.04259524679900376
+NRG Esports,NRG,stage_1,reach_playoffs,unconditional_n_simulations,188,50000,0.00376,0.00027371015326436103,0.003223528099601852,0.004296471900398147
+NRG Esports,NRG,stage_1,reach_semifinal,unconditional_n_simulations,33,50000,0.00066,0.00011485333255939942,0.00043488746818357715,0.0008851125318164229
+NRG Esports,NRG,stage_1,reach_final,unconditional_n_simulations,5,50000,0.0001,4.47191234261138e-05,1.2350518084816952e-05,0.00018764948191518307
+NRG Esports,NRG,stage_1,win_tournament,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+NRG Esports,NRG,stage_1,advance_from_stage_1,conditional_on_stage_participation,12464,50000,0.24928,0.0019346290683229176,0.24548812702608708,0.2530718729739129
+NRG Esports,NRG,stage_1,advance_from_stage_2,conditional_on_stage_participation,2043,12464,0.16391206675224648,0.00331590989538484,0.1574128833572922,0.17041125014720077
+NRG Esports,NRG,stage_1,advance_from_stage_3,conditional_on_stage_participation,188,2043,0.09202153695545766,0.0063951146036516785,0.07948711233230037,0.10455596157861495
+TYLOO,TYLOO,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+TYLOO,TYLOO,stage_1,participate_stage_2,unconditional_n_simulations,22232,50000,0.44464,0.0022223198257676595,0.4402842531414954,0.4489957468585046
+TYLOO,TYLOO,stage_1,participate_stage_3,unconditional_n_simulations,6570,50000,0.1314,0.001510854327855601,0.128438725517403,0.13436127448259697
+TYLOO,TYLOO,stage_1,reach_playoffs,unconditional_n_simulations,1170,50000,0.0234,0.0006760538440094842,0.02207493446574141,0.02472506553425859
+TYLOO,TYLOO,stage_1,reach_semifinal,unconditional_n_simulations,369,50000,0.00738,0.0003827671772762132,0.006629776332538622,0.008130223667461378
+TYLOO,TYLOO,stage_1,reach_final,unconditional_n_simulations,108,50000,0.00216,0.00020762150177667052,0.0017530618565177259,0.002566938143482274
+TYLOO,TYLOO,stage_1,win_tournament,unconditional_n_simulations,35,50000,0.0007,0.00011828017585377525,0.0004681708553266005,0.0009318291446733995
+TYLOO,TYLOO,stage_1,advance_from_stage_1,conditional_on_stage_participation,22232,50000,0.44464,0.0022223198257676595,0.4402842531414954,0.4489957468585046
+TYLOO,TYLOO,stage_1,advance_from_stage_2,conditional_on_stage_participation,6570,22232,0.29551997121266643,0.003060120258157084,0.28952213550667855,0.3015178069186543
+TYLOO,TYLOO,stage_1,advance_from_stage_3,conditional_on_stage_participation,1170,6570,0.1780821917808219,0.00471999736783974,0.168830996939856,0.1873333866217878
+Sharks Esports,Sharks Esports,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Sharks Esports,Sharks Esports,stage_1,participate_stage_2,unconditional_n_simulations,18110,50000,0.3622,0.002149470446412325,0.35798703792503184,0.3664129620749682
+Sharks Esports,Sharks Esports,stage_1,participate_stage_3,unconditional_n_simulations,4654,50000,0.09308,0.0012993545597718892,0.09053326506284709,0.0956267349371529
+Sharks Esports,Sharks Esports,stage_1,reach_playoffs,unconditional_n_simulations,799,50000,0.01598,0.0005607965691763814,0.014880838724414293,0.01707916127558571
+Sharks Esports,Sharks Esports,stage_1,reach_semifinal,unconditional_n_simulations,230,50000,0.0046,0.00030261658910244826,0.004006871485359201,0.005193128514640799
+Sharks Esports,Sharks Esports,stage_1,reach_final,unconditional_n_simulations,66,50000,0.00132,0.00016237349537409114,0.0010017479490667814,0.0016382520509332186
+Sharks Esports,Sharks Esports,stage_1,win_tournament,unconditional_n_simulations,15,50000,0.0003,7.744804710255772e-05,0.00014820182767898686,0.0004517981723210131
+Sharks Esports,Sharks Esports,stage_1,advance_from_stage_1,conditional_on_stage_participation,18110,50000,0.3622,0.002149470446412325,0.35798703792503184,0.3664129620749682
+Sharks Esports,Sharks Esports,stage_1,advance_from_stage_2,conditional_on_stage_participation,4654,18110,0.25698509110988405,0.003247083847008669,0.2506208067697471,0.263349375450021
+Sharks Esports,Sharks Esports,stage_1,advance_from_stage_3,conditional_on_stage_participation,799,4654,0.17168027503223035,0.005527719696628692,0.1608459444268381,0.1825146056376226
+Gaimin Gladiators,Gaimin Gladiators,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Gaimin Gladiators,Gaimin Gladiators,stage_1,participate_stage_2,unconditional_n_simulations,13693,50000,0.27386,0.0019942953662885547,0.26995118108207444,0.27776881891792554
+Gaimin Gladiators,Gaimin Gladiators,stage_1,participate_stage_3,unconditional_n_simulations,2842,50000,0.05684,0.0010354633204512848,0.05481049189191548,0.05886950810808452
+Gaimin Gladiators,Gaimin Gladiators,stage_1,reach_playoffs,unconditional_n_simulations,364,50000,0.00728,0.00038018420798344583,0.006534838952352446,0.008025161047647554
+Gaimin Gladiators,Gaimin Gladiators,stage_1,reach_semifinal,unconditional_n_simulations,99,50000,0.00198,0.000198800382293395,0.0015903512507049458,0.002369648749295054
+Gaimin Gladiators,Gaimin Gladiators,stage_1,reach_final,unconditional_n_simulations,31,50000,0.00062,0.00011132076176527,0.00040181130694007076,0.0008381886930599292
+Gaimin Gladiators,Gaimin Gladiators,stage_1,win_tournament,unconditional_n_simulations,10,50000,0.0002,6.323922833178785e-05,7.605111246969582e-05,0.0003239488875303042
+Gaimin Gladiators,Gaimin Gladiators,stage_1,advance_from_stage_1,conditional_on_stage_participation,13693,50000,0.27386,0.0019942953662885547,0.26995118108207444,0.27776881891792554
+Gaimin Gladiators,Gaimin Gladiators,stage_1,advance_from_stage_2,conditional_on_stage_participation,2842,13693,0.20755130358577376,0.003465764159995406,0.20075840583218277,0.21434420133936474
+Gaimin Gladiators,Gaimin Gladiators,stage_1,advance_from_stage_3,conditional_on_stage_participation,364,2842,0.12807881773399016,0.0062685231266424914,0.11579251240577088,0.14036512306220944
+Team Liquid,Team Liquid,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Team Liquid,Team Liquid,stage_1,participate_stage_2,unconditional_n_simulations,19736,50000,0.39472,0.0021859374263688337,0.3904355626443171,0.3990044373556829
+Team Liquid,Team Liquid,stage_1,participate_stage_3,unconditional_n_simulations,5727,50000,0.11454,0.0014242232156512547,0.11174852249732355,0.11733147750267646
+Team Liquid,Team Liquid,stage_1,reach_playoffs,unconditional_n_simulations,1042,50000,0.02084,0.0006388379199765775,0.01958787767684591,0.022092122323154093
+Team Liquid,Team Liquid,stage_1,reach_semifinal,unconditional_n_simulations,300,50000,0.006,0.00034536936748935914,0.005323076039720856,0.006676923960279144
+Team Liquid,Team Liquid,stage_1,reach_final,unconditional_n_simulations,79,50000,0.00158,0.00017762339935943123,0.0012318581372555149,0.0019281418627444852
+Team Liquid,Team Liquid,stage_1,win_tournament,unconditional_n_simulations,17,50000,0.00034,8.244809276144598e-05,0.0001784017381875659,0.0005015982618124342
+Team Liquid,Team Liquid,stage_1,advance_from_stage_1,conditional_on_stage_participation,19736,50000,0.39472,0.0021859374263688337,0.3904355626443171,0.3990044373556829
+Team Liquid,Team Liquid,stage_1,advance_from_stage_2,conditional_on_stage_participation,5727,19736,0.2901803810295906,0.0032305647833109053,0.28384847405430125,0.29651228800487994
+Team Liquid,Team Liquid,stage_1,advance_from_stage_3,conditional_on_stage_participation,1042,5727,0.1819451719923171,0.005097977124970219,0.17195313682737548,0.19193720715725873
+Lynn Vision Gaming,Lynn Vision Gaming,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Lynn Vision Gaming,Lynn Vision Gaming,stage_1,participate_stage_2,unconditional_n_simulations,18130,50000,0.3626,0.00214998251155678,0.35838603427734866,0.3668139657226513
+Lynn Vision Gaming,Lynn Vision Gaming,stage_1,participate_stage_3,unconditional_n_simulations,4399,50000,0.08798,0.0012668032175519608,0.08549706569359816,0.09046293430640184
+Lynn Vision Gaming,Lynn Vision Gaming,stage_1,reach_playoffs,unconditional_n_simulations,699,50000,0.01398,0.0005250630362156529,0.01295087644901732,0.015009123550982679
+Lynn Vision Gaming,Lynn Vision Gaming,stage_1,reach_semifinal,unconditional_n_simulations,184,50000,0.00368,0.0002707935597461653,0.0031492446228975164,0.004210755377102484
+Lynn Vision Gaming,Lynn Vision Gaming,stage_1,reach_final,unconditional_n_simulations,55,50000,0.0011,0.0001482423691122076,0.0008094449565400732,0.001390555043459927
+Lynn Vision Gaming,Lynn Vision Gaming,stage_1,win_tournament,unconditional_n_simulations,22,50000,0.00044,9.378767509646457e-05,0.00025617615681092947,0.0006238238431890706
+Lynn Vision Gaming,Lynn Vision Gaming,stage_1,advance_from_stage_1,conditional_on_stage_participation,18130,50000,0.3626,0.00214998251155678,0.35838603427734866,0.3668139657226513
+Lynn Vision Gaming,Lynn Vision Gaming,stage_1,advance_from_stage_2,conditional_on_stage_participation,4399,18130,0.2426365140650855,0.00318369428926396,0.23639647325812813,0.24887655487204285
+Lynn Vision Gaming,Lynn Vision Gaming,stage_1,advance_from_stage_3,conditional_on_stage_participation,699,4399,0.1588997499431689,0.005511991090855565,0.148096247405092,0.16970325248124582
+THUNDERdOWNUNDER,THUNDERdOWNUNDER,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+THUNDERdOWNUNDER,THUNDERdOWNUNDER,stage_1,participate_stage_2,unconditional_n_simulations,8889,50000,0.17778,0.0017098202923114462,0.17442875222706955,0.18113124777293044
+THUNDERdOWNUNDER,THUNDERdOWNUNDER,stage_1,participate_stage_3,unconditional_n_simulations,1251,50000,0.02502,0.0006984840671053278,0.02365097122847356,0.026389028771526442
+THUNDERdOWNUNDER,THUNDERdOWNUNDER,stage_1,reach_playoffs,unconditional_n_simulations,155,50000,0.0031,0.0002486117454988802,0.0026127209788221945,0.0035872790211778052
+THUNDERdOWNUNDER,THUNDERdOWNUNDER,stage_1,reach_semifinal,unconditional_n_simulations,43,50000,0.00086,0.00013109236438481076,0.0006030589658057709,0.001116941034194229
+THUNDERdOWNUNDER,THUNDERdOWNUNDER,stage_1,reach_final,unconditional_n_simulations,9,50000,0.00018,5.999459975697813e-05,6.241058447632287e-05,0.00029758941552367717
+THUNDERdOWNUNDER,THUNDERdOWNUNDER,stage_1,win_tournament,unconditional_n_simulations,2,50000,4e-05,2.8283705556379983e-05,0.0,9.543606289050477e-05
+THUNDERdOWNUNDER,THUNDERdOWNUNDER,stage_1,advance_from_stage_1,conditional_on_stage_participation,8889,50000,0.17778,0.0017098202923114462,0.17442875222706955,0.18113124777293044
+THUNDERdOWNUNDER,THUNDERdOWNUNDER,stage_1,advance_from_stage_2,conditional_on_stage_participation,1251,8889,0.14073574080323997,0.0036884094204178586,0.13350645833922098,0.14796502326725897
+THUNDERdOWNUNDER,THUNDERdOWNUNDER,stage_1,advance_from_stage_3,conditional_on_stage_participation,155,1251,0.12390087929656275,0.009315049383061475,0.10564338250576226,0.14215837608736326
+FlyQuest,FlyQuest,stage_1,participate_stage_1,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+FlyQuest,FlyQuest,stage_1,participate_stage_2,unconditional_n_simulations,24800,50000,0.496,0.0022359964221796065,0.49161744701252796,0.500382552987472
+FlyQuest,FlyQuest,stage_1,participate_stage_3,unconditional_n_simulations,9476,50000,0.18952,0.0017527245625026198,0.18608465985749487,0.19295534014250512
+FlyQuest,FlyQuest,stage_1,reach_playoffs,unconditional_n_simulations,2352,50000,0.04704,0.0009468604796906458,0.04518415345980633,0.04889584654019367
+FlyQuest,FlyQuest,stage_1,reach_semifinal,unconditional_n_simulations,773,50000,0.01546,0.0005517424834105128,0.014378584732515395,0.016541415267484604
+FlyQuest,FlyQuest,stage_1,reach_final,unconditional_n_simulations,243,50000,0.00486,0.00031101062361276344,0.004250419177718984,0.005469580822281016
+FlyQuest,FlyQuest,stage_1,win_tournament,unconditional_n_simulations,95,50000,0.0019,0.000194750609755143,0.0015182888048799197,0.0022817111951200803
+FlyQuest,FlyQuest,stage_1,advance_from_stage_1,conditional_on_stage_participation,24800,50000,0.496,0.0022359964221796065,0.49161744701252796,0.500382552987472
+FlyQuest,FlyQuest,stage_1,advance_from_stage_2,conditional_on_stage_participation,9476,24800,0.38209677419354837,0.003085468211871428,0.37604925649828036,0.3881442918888164
+FlyQuest,FlyQuest,stage_1,advance_from_stage_3,conditional_on_stage_participation,2352,9476,0.24820599409033348,0.004437547716590315,0.23950840056581646,0.2569035876148505
+FUT Esports,FUT Esports,stage_2,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+FUT Esports,FUT Esports,stage_2,participate_stage_2,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+FUT Esports,FUT Esports,stage_2,participate_stage_3,unconditional_n_simulations,28926,50000,0.57852,0.0022083233893612593,0.574191686156852,0.5828483138431481
+FUT Esports,FUT Esports,stage_2,reach_playoffs,unconditional_n_simulations,10338,50000,0.20676,0.0018111339122218433,0.20321017753204518,0.21030982246795482
+FUT Esports,FUT Esports,stage_2,reach_semifinal,unconditional_n_simulations,3926,50000,0.07852,0.00120295145039191,0.07616221515723186,0.08087778484276816
+FUT Esports,FUT Esports,stage_2,reach_final,unconditional_n_simulations,1406,50000,0.02812,0.0007393140821058395,0.026670944399072555,0.029569055600927444
+FUT Esports,FUT Esports,stage_2,win_tournament,unconditional_n_simulations,460,50000,0.0092,0.000426974472304844,0.008363130034282506,0.010036869965717494
+FUT Esports,FUT Esports,stage_2,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+FUT Esports,FUT Esports,stage_2,advance_from_stage_2,conditional_on_stage_participation,28926,50000,0.57852,0.0022083233893612593,0.574191686156852,0.5828483138431481
+FUT Esports,FUT Esports,stage_2,advance_from_stage_3,conditional_on_stage_participation,10338,28926,0.3573947313835304,0.002817747174846361,0.3518719469208315,0.3629175158462293
+Team Spirit,Team Spirit,stage_2,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Team Spirit,Team Spirit,stage_2,participate_stage_2,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Team Spirit,Team Spirit,stage_2,participate_stage_3,unconditional_n_simulations,45354,50000,0.90708,0.0012983518290509703,0.9045352304150601,0.9096247695849399
+Team Spirit,Team Spirit,stage_2,reach_playoffs,unconditional_n_simulations,37684,50000,0.75368,0.0019268962483745718,0.7499032833531859,0.7574567166468141
+Team Spirit,Team Spirit,stage_2,reach_semifinal,unconditional_n_simulations,25339,50000,0.50678,0.002235862391114444,0.5023977097134157,0.5111622902865843
+Team Spirit,Team Spirit,stage_2,reach_final,unconditional_n_simulations,16035,50000,0.3207,0.0020873500425180247,0.31660879391666463,0.32479120608333534
+Team Spirit,Team Spirit,stage_2,win_tournament,unconditional_n_simulations,9476,50000,0.18952,0.0017527245625026198,0.18608465985749487,0.19295534014250512
+Team Spirit,Team Spirit,stage_2,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+Team Spirit,Team Spirit,stage_2,advance_from_stage_2,conditional_on_stage_participation,45354,50000,0.90708,0.0012983518290509703,0.9045352304150601,0.9096247695849399
+Team Spirit,Team Spirit,stage_2,advance_from_stage_3,conditional_on_stage_participation,37684,45354,0.8308859196542753,0.0017601625882427828,0.8274360009813194,0.8343358383272311
+Astralis,Astralis,stage_2,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Astralis,Astralis,stage_2,participate_stage_2,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Astralis,Astralis,stage_2,participate_stage_3,unconditional_n_simulations,29304,50000,0.58608,0.0022026812461180124,0.5817627447576087,0.5903972552423914
+Astralis,Astralis,stage_2,reach_playoffs,unconditional_n_simulations,9971,50000,0.19942,0.001786906061324993,0.195917664119803,0.20292233588019698
+Astralis,Astralis,stage_2,reach_semifinal,unconditional_n_simulations,3680,50000,0.0736,0.00116775887922122,0.07131119259672641,0.07588880740327358
+Astralis,Astralis,stage_2,reach_final,unconditional_n_simulations,1268,50000,0.02536,0.0007030913226601506,0.023981941007586105,0.026738058992413896
+Astralis,Astralis,stage_2,win_tournament,unconditional_n_simulations,389,50000,0.00778,0.00039292420643172394,0.007009868555393821,0.008550131444606179
+Astralis,Astralis,stage_2,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+Astralis,Astralis,stage_2,advance_from_stage_2,conditional_on_stage_participation,29304,50000,0.58608,0.0022026812461180124,0.5817627447576087,0.5903972552423914
+Astralis,Astralis,stage_2,advance_from_stage_3,conditional_on_stage_participation,9971,29304,0.3402607152607153,0.00276776125263535,0.33483590320555,0.34568552731588054
+G2 Esports,G2 Esports,stage_2,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+G2 Esports,G2 Esports,stage_2,participate_stage_2,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+G2 Esports,G2 Esports,stage_2,participate_stage_3,unconditional_n_simulations,33607,50000,0.67214,0.002099370478976972,0.668025233861205,0.6762547661387949
+G2 Esports,G2 Esports,stage_2,reach_playoffs,unconditional_n_simulations,14308,50000,0.28616,0.0020212493878786954,0.2821983511997578,0.29012164880024227
+G2 Esports,G2 Esports,stage_2,reach_semifinal,unconditional_n_simulations,5842,50000,0.11684,0.0014365821549775703,0.11402429897624396,0.11965570102375604
+G2 Esports,G2 Esports,stage_2,reach_final,unconditional_n_simulations,2226,50000,0.04452,0.000922366191921625,0.04271216226383361,0.04632783773616638
+G2 Esports,G2 Esports,stage_2,win_tournament,unconditional_n_simulations,822,50000,0.01644,0.0005686778771853184,0.015325391360716777,0.017554608639283223
+G2 Esports,G2 Esports,stage_2,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+G2 Esports,G2 Esports,stage_2,advance_from_stage_2,conditional_on_stage_participation,33607,50000,0.67214,0.002099370478976972,0.668025233861205,0.6762547661387949
+G2 Esports,G2 Esports,stage_2,advance_from_stage_3,conditional_on_stage_participation,14308,33607,0.4257446365340554,0.0026971944031903223,0.4204581355038024,0.43103113756430844
+Legacy,Legacy,stage_2,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Legacy,Legacy,stage_2,participate_stage_2,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Legacy,Legacy,stage_2,participate_stage_3,unconditional_n_simulations,32182,50000,0.64364,0.0021418102175496316,0.6394420519736027,0.6478379480263973
+Legacy,Legacy,stage_2,reach_playoffs,unconditional_n_simulations,13873,50000,0.27746,0.002002378327889113,0.2735353384773373,0.28138466152266267
+Legacy,Legacy,stage_2,reach_semifinal,unconditional_n_simulations,5806,50000,0.11612,0.0014327326729016827,0.1133118439611127,0.1189281560388873
+Legacy,Legacy,stage_2,reach_final,unconditional_n_simulations,2302,50000,0.04604,0.0009372333583478556,0.0442030226176382,0.047876977382361796
+Legacy,Legacy,stage_2,win_tournament,unconditional_n_simulations,894,50000,0.01788,0.0005926264523289524,0.016718452153435252,0.019041547846564748
+Legacy,Legacy,stage_2,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+Legacy,Legacy,stage_2,advance_from_stage_2,conditional_on_stage_participation,32182,50000,0.64364,0.0021418102175496316,0.6394420519736027,0.6478379480263973
+Legacy,Legacy,stage_2,advance_from_stage_3,conditional_on_stage_participation,13873,32182,0.431079485426636,0.0027605648873038984,0.42566877824752036,0.4364901926057516
+paiN Gaming,paiN Gaming,stage_2,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+paiN Gaming,paiN Gaming,stage_2,participate_stage_2,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+paiN Gaming,paiN Gaming,stage_2,participate_stage_3,unconditional_n_simulations,23760,50000,0.4752,0.002233315741224245,0.4708227011472005,0.47957729885279954
+paiN Gaming,paiN Gaming,stage_2,reach_playoffs,unconditional_n_simulations,5867,50000,0.11734,0.0014392451104659,0.11451907958348684,0.12016092041651316
+paiN Gaming,paiN Gaming,stage_2,reach_semifinal,unconditional_n_simulations,1969,50000,0.03938,0.0008698185511932934,0.037675155639661145,0.04108484436033885
+paiN Gaming,paiN Gaming,stage_2,reach_final,unconditional_n_simulations,581,50000,0.01162,0.00047926976954529483,0.010680631251691223,0.012559368748308777
+paiN Gaming,paiN Gaming,stage_2,win_tournament,unconditional_n_simulations,170,50000,0.0034,0.00026032441299271184,0.0028897641505342847,0.0039102358494657145
+paiN Gaming,paiN Gaming,stage_2,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+paiN Gaming,paiN Gaming,stage_2,advance_from_stage_2,conditional_on_stage_participation,23760,50000,0.4752,0.002233315741224245,0.4708227011472005,0.47957729885279954
+paiN Gaming,paiN Gaming,stage_2,advance_from_stage_3,conditional_on_stage_participation,5867,23760,0.24692760942760944,0.002797563612997926,0.2414443847461335,0.2524108341090854
+Monte,Monte,stage_2,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Monte,Monte,stage_2,participate_stage_2,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Monte,Monte,stage_2,participate_stage_3,unconditional_n_simulations,22010,50000,0.4402,0.0022200178377661745,0.43584876503797826,0.4445512349620217
+Monte,Monte,stage_2,reach_playoffs,unconditional_n_simulations,5967,50000,0.11934,0.0014498135355969057,0.11649836547023007,0.12218163452976993
+Monte,Monte,stage_2,reach_semifinal,unconditional_n_simulations,2045,50000,0.0409,0.0008857447713647538,0.039163940248125084,0.042636059751874913
+Monte,Monte,stage_2,reach_final,unconditional_n_simulations,663,50000,0.01326,0.0005115500444726791,0.012257361912833548,0.01426263808716645
+Monte,Monte,stage_2,win_tournament,unconditional_n_simulations,226,50000,0.00452,0.00029998565299027216,0.003932028120139066,0.0051079718798609335
+Monte,Monte,stage_2,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+Monte,Monte,stage_2,advance_from_stage_2,conditional_on_stage_participation,22010,50000,0.4402,0.0022200178377661745,0.43584876503797826,0.4445512349620217
+Monte,Monte,stage_2,advance_from_stage_3,conditional_on_stage_participation,5967,22010,0.27110404361653795,0.0029963376187366842,0.26523122188381404,0.27697686534926186
+9z Team,9z Team,stage_2,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+9z Team,9z Team,stage_2,participate_stage_2,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+9z Team,9z Team,stage_2,participate_stage_3,unconditional_n_simulations,20250,50000,0.405,0.002195335965177084,0.4006971415082529,0.40930285849174713
+9z Team,9z Team,stage_2,reach_playoffs,unconditional_n_simulations,4917,50000,0.09834,0.0013316849807668478,0.09572989743769697,0.10095010256230302
+9z Team,9z Team,stage_2,reach_semifinal,unconditional_n_simulations,1626,50000,0.03252,0.0007932521616737014,0.030965225763119546,0.034074774236880455
+9z Team,9z Team,stage_2,reach_final,unconditional_n_simulations,489,50000,0.00978,0.0004400988888874863,0.008917406177780527,0.010642593822219474
+9z Team,9z Team,stage_2,win_tournament,unconditional_n_simulations,128,50000,0.00256,0.00022598435344067517,0.0021170706672562767,0.0030029293327437237
+9z Team,9z Team,stage_2,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+9z Team,9z Team,stage_2,advance_from_stage_2,conditional_on_stage_participation,20250,50000,0.405,0.002195335965177084,0.4006971415082529,0.40930285849174713
+9z Team,9z Team,stage_2,advance_from_stage_3,conditional_on_stage_participation,4917,20250,0.24281481481481482,0.003013187316367688,0.23690896767473416,0.24872066195489548
+Team Vitality,Team Vitality,stage_3,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Team Vitality,Team Vitality,stage_3,participate_stage_2,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Team Vitality,Team Vitality,stage_3,participate_stage_3,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Team Vitality,Team Vitality,stage_3,reach_playoffs,unconditional_n_simulations,43997,50000,0.87994,0.0014535858860074279,0.8770909716634255,0.8827890283365746
+Team Vitality,Team Vitality,stage_3,reach_semifinal,unconditional_n_simulations,31449,50000,0.62898,0.002160389592642957,0.6247456363984197,0.6332143636015802
+Team Vitality,Team Vitality,stage_3,reach_final,unconditional_n_simulations,21899,50000,0.43798,0.0022187993131421325,0.4336311533462414,0.44232884665375855
+Team Vitality,Team Vitality,stage_3,win_tournament,unconditional_n_simulations,14848,50000,0.29696,0.002043402840362125,0.2929549304328902,0.3009650695671098
+Team Vitality,Team Vitality,stage_3,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+Team Vitality,Team Vitality,stage_3,advance_from_stage_2,conditional_on_stage_participation,0,0,,,,
+Team Vitality,Team Vitality,stage_3,advance_from_stage_3,conditional_on_stage_participation,43997,50000,0.87994,0.0014535858860074279,0.8770909716634255,0.8827890283365746
+Natus Vincere,Natus Vincere,stage_3,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Natus Vincere,Natus Vincere,stage_3,participate_stage_2,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Natus Vincere,Natus Vincere,stage_3,participate_stage_3,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Natus Vincere,Natus Vincere,stage_3,reach_playoffs,unconditional_n_simulations,37248,50000,0.74496,0.0019493311591415145,0.7411393109280826,0.7487806890719173
+Natus Vincere,Natus Vincere,stage_3,reach_semifinal,unconditional_n_simulations,21740,50000,0.4348,0.002216975236668195,0.43045472853613037,0.43914527146386967
+Natus Vincere,Natus Vincere,stage_3,reach_final,unconditional_n_simulations,11969,50000,0.23938,0.0019082830796294348,0.23563976516392632,0.2431202348360737
+Natus Vincere,Natus Vincere,stage_3,win_tournament,unconditional_n_simulations,5710,50000,0.1142,0.0014223808210180563,0.11141213359080461,0.11698786640919538
+Natus Vincere,Natus Vincere,stage_3,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+Natus Vincere,Natus Vincere,stage_3,advance_from_stage_2,conditional_on_stage_participation,0,0,,,,
+Natus Vincere,Natus Vincere,stage_3,advance_from_stage_3,conditional_on_stage_participation,37248,50000,0.74496,0.0019493311591415145,0.7411393109280826,0.7487806890719173
+Team Falcons,Team Falcons,stage_3,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Team Falcons,Team Falcons,stage_3,participate_stage_2,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Team Falcons,Team Falcons,stage_3,participate_stage_3,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Team Falcons,Team Falcons,stage_3,reach_playoffs,unconditional_n_simulations,34301,50000,0.68602,0.0020755556345229582,0.681951910956335,0.6900880890436649
+Team Falcons,Team Falcons,stage_3,reach_semifinal,unconditional_n_simulations,18851,50000,0.37702,0.002167375923092254,0.3727719431907392,0.38126805680926085
+Team Falcons,Team Falcons,stage_3,reach_final,unconditional_n_simulations,9676,50000,0.19352,0.0017667484801182087,0.19005717297896832,0.19698282702103168
+Team Falcons,Team Falcons,stage_3,win_tournament,unconditional_n_simulations,4465,50000,0.0893,0.001275347090011186,0.08680031970357809,0.09179968029642192
+Team Falcons,Team Falcons,stage_3,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+Team Falcons,Team Falcons,stage_3,advance_from_stage_2,conditional_on_stage_participation,0,0,,,,
+Team Falcons,Team Falcons,stage_3,advance_from_stage_3,conditional_on_stage_participation,34301,50000,0.68602,0.0020755556345229582,0.681951910956335,0.6900880890436649
+The Mongolz,The MongolZ,stage_3,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+The Mongolz,The MongolZ,stage_3,participate_stage_2,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+The Mongolz,The MongolZ,stage_3,participate_stage_3,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+The Mongolz,The MongolZ,stage_3,reach_playoffs,unconditional_n_simulations,26942,50000,0.53884,0.0022293113483764443,0.5344705497571821,0.5432094502428179
+The Mongolz,The MongolZ,stage_3,reach_semifinal,unconditional_n_simulations,11816,50000,0.23632,0.0018998571398923657,0.23259628000581098,0.24004371999418903
+The Mongolz,The MongolZ,stage_3,reach_final,unconditional_n_simulations,4746,50000,0.09492,0.0013108027586177869,0.09235082659310914,0.09748917340689087
+The Mongolz,The MongolZ,stage_3,win_tournament,unconditional_n_simulations,1752,50000,0.03504,0.0008223405425977732,0.033428212536508364,0.03665178746349164
+The Mongolz,The MongolZ,stage_3,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+The Mongolz,The MongolZ,stage_3,advance_from_stage_2,conditional_on_stage_participation,0,0,,,,
+The Mongolz,The MongolZ,stage_3,advance_from_stage_3,conditional_on_stage_participation,26942,50000,0.53884,0.0022293113483764443,0.5344705497571821,0.5432094502428179
+PARIVISION,PARIVISION,stage_3,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+PARIVISION,PARIVISION,stage_3,participate_stage_2,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+PARIVISION,PARIVISION,stage_3,participate_stage_3,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+PARIVISION,PARIVISION,stage_3,reach_playoffs,unconditional_n_simulations,18788,50000,0.37576,0.002165938237346578,0.3715147610548007,0.3800052389451993
+PARIVISION,PARIVISION,stage_3,reach_semifinal,unconditional_n_simulations,6790,50000,0.1358,0.0015320467355795645,0.13279718839826407,0.13880281160173594
+PARIVISION,PARIVISION,stage_3,reach_final,unconditional_n_simulations,2328,50000,0.04656,0.0009422543860338353,0.04471318140337368,0.048406818596626315
+PARIVISION,PARIVISION,stage_3,win_tournament,unconditional_n_simulations,818,50000,0.01636,0.0005673156158612241,0.015248061392912,0.017471938607087997
+PARIVISION,PARIVISION,stage_3,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+PARIVISION,PARIVISION,stage_3,advance_from_stage_2,conditional_on_stage_participation,0,0,,,,
+PARIVISION,PARIVISION,stage_3,advance_from_stage_3,conditional_on_stage_participation,18788,50000,0.37576,0.002165938237346578,0.3715147610548007,0.3800052389451993
+Aurora Gaming,Aurora Gaming,stage_3,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Aurora Gaming,Aurora Gaming,stage_3,participate_stage_2,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+Aurora Gaming,Aurora Gaming,stage_3,participate_stage_3,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+Aurora Gaming,Aurora Gaming,stage_3,reach_playoffs,unconditional_n_simulations,22934,50000,0.45868,0.0022284194291021606,0.4543122979189597,0.46304770208104024
+Aurora Gaming,Aurora Gaming,stage_3,reach_semifinal,unconditional_n_simulations,9622,50000,0.19244,0.0017629909041172052,0.1889845378279303,0.1958954621720697
+Aurora Gaming,Aurora Gaming,stage_3,reach_final,unconditional_n_simulations,3662,50000,0.07324,0.0011651257648854908,0.07095635350082444,0.07552364649917556
+Aurora Gaming,Aurora Gaming,stage_3,win_tournament,unconditional_n_simulations,1358,50000,0.02716,0.0007269433870666959,0.025735190961349276,0.028584809038650724
+Aurora Gaming,Aurora Gaming,stage_3,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+Aurora Gaming,Aurora Gaming,stage_3,advance_from_stage_2,conditional_on_stage_participation,0,0,,,,
+Aurora Gaming,Aurora Gaming,stage_3,advance_from_stage_3,conditional_on_stage_participation,22934,50000,0.45868,0.0022284194291021606,0.4543122979189597,0.46304770208104024
+FURIA Esports,FURIA,stage_3,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+FURIA Esports,FURIA,stage_3,participate_stage_2,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+FURIA Esports,FURIA,stage_3,participate_stage_3,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+FURIA Esports,FURIA,stage_3,reach_playoffs,unconditional_n_simulations,26700,50000,0.534,0.0022308921982023247,0.5296274512915234,0.5383725487084766
+FURIA Esports,FURIA,stage_3,reach_semifinal,unconditional_n_simulations,11658,50000,0.23316,0.0018910125033959981,0.22945361549334384,0.23686638450665617
+FURIA Esports,FURIA,stage_3,reach_final,unconditional_n_simulations,4665,50000,0.0933,0.0013007314096307508,0.09075056643712372,0.09584943356287627
+FURIA Esports,FURIA,stage_3,win_tournament,unconditional_n_simulations,1861,50000,0.03722,0.0008465774813919869,0.035560708136471705,0.0388792918635283
+FURIA Esports,FURIA,stage_3,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+FURIA Esports,FURIA,stage_3,advance_from_stage_2,conditional_on_stage_participation,0,0,,,,
+FURIA Esports,FURIA,stage_3,advance_from_stage_3,conditional_on_stage_participation,26700,50000,0.534,0.0022308921982023247,0.5296274512915234,0.5383725487084766
+MOUZ,MOUZ,stage_3,participate_stage_1,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+MOUZ,MOUZ,stage_3,participate_stage_2,unconditional_n_simulations,0,50000,0.0,0.0,0.0,0.0
+MOUZ,MOUZ,stage_3,participate_stage_3,unconditional_n_simulations,50000,50000,1.0,0.0,1.0,1.0
+MOUZ,MOUZ,stage_3,reach_playoffs,unconditional_n_simulations,34258,50000,0.68516,0.002077093037877697,0.6810888976457597,0.6892311023542402
+MOUZ,MOUZ,stage_3,reach_semifinal,unconditional_n_simulations,17886,50000,0.35772,0.0021436249746632453,0.35351849504966004,0.3619215049503399
+MOUZ,MOUZ,stage_3,reach_final,unconditional_n_simulations,8643,50000,0.17286,0.0016910317584244241,0.16954557775348814,0.1761744222465119
+MOUZ,MOUZ,stage_3,win_tournament,unconditional_n_simulations,3877,50000,0.07754,0.0011960564234182265,0.07519572941010028,0.07988427058989972
+MOUZ,MOUZ,stage_3,advance_from_stage_1,conditional_on_stage_participation,0,0,,,,
+MOUZ,MOUZ,stage_3,advance_from_stage_2,conditional_on_stage_participation,0,0,,,,
+MOUZ,MOUZ,stage_3,advance_from_stage_3,conditional_on_stage_participation,34258,50000,0.68516,0.002077093037877697,0.6810888976457597,0.6892311023542402

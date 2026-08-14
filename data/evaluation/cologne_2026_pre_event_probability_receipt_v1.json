@@ -1,0 +1,98 @@
+{
+  "event_id": "iem_cologne_major_2026",
+  "artifact": "cologne_2026_pre_event_matchup_probabilities_v1.parquet",
+  "row_count": 2976,
+  "model_id": "series_random_forest_v2",
+  "prediction_cutoff": "2026-06-02T13:30:00",
+  "tier": "tier1",
+  "model_contract": {
+    "classes_": [
+      0.0,
+      1.0
+    ],
+    "classes_are_0_1_with_class1_meaning_team_a_wins": true,
+    "raw_feature_count": 17,
+    "raw_feature_count_is_17": true,
+    "transformed_feature_count": 19,
+    "transformed_feature_count_is_19": true,
+    "transformed_names_match_expected_order": true,
+    "n_features_in_": 19,
+    "n_features_in_matches_transformed_count": true,
+    "no_missing_or_unexpected_transformed_feature": true,
+    "all_checks_pass": true
+  },
+  "bo_support_validation": {
+    "1": {
+      "transformed_one_hot_pattern": {
+        "bestOf_BO3": 0.0,
+        "bestOf_BO5": 0.0
+      },
+      "pattern_matches_expected": true,
+      "probability_team_a": 0.5342697851324947,
+      "finite": true,
+      "in_unit_interval": true
+    },
+    "3": {
+      "transformed_one_hot_pattern": {
+        "bestOf_BO3": 1.0,
+        "bestOf_BO5": 0.0
+      },
+      "pattern_matches_expected": true,
+      "probability_team_a": 0.5514844569667672,
+      "finite": true,
+      "in_unit_interval": true
+    },
+    "5": {
+      "transformed_one_hot_pattern": {
+        "bestOf_BO3": 0.0,
+        "bestOf_BO5": 1.0
+      },
+      "pattern_matches_expected": true,
+      "probability_team_a": 0.5342208081087524,
+      "finite": true,
+      "in_unit_interval": true
+    }
+  },
+  "tier_representation_validation": {
+    "tier": "tier1",
+    "tier_tier2": 0.0,
+    "tier_tier3": 0.0,
+    "is_reference_category": true
+  },
+  "matrix_validation_report": {
+    "row_count": 2976,
+    "unique_keys": 2976,
+    "exact_zero_count": 0,
+    "exact_one_count": 0,
+    "max_complement_violation": 0.0,
+    "all_checks_pass": true
+  },
+  "orientation_diagnostic": {
+    "n_unordered_pairs_by_format": 1488,
+    "mean": 0.009354414255565217,
+    "median": 0.007802124449080572,
+    "p95": 0.023332399785134714,
+    "max": 0.0431383105098998
+  },
+  "protocol_hash": "ec0d57aa98fa63521ec04d7fa4d3c6fa2a4e24a371a42a0c1bed51359e50a7a3",
+  "pipeline_hashes": {
+    "model": "e26e97fd8f1ea7676659605af2d9abd4d4e4cb0c5b767d1df506fb0a9cfac4a9",
+    "preprocessing": "8415859db8d238f48bc04426872c8f97d8487678a4b8f0ab7706f8502e3c0111",
+    "selected_config": "3666622740fe27a8cb51647133d2707e421010e865ecc56ce04916ed2b422934",
+    "series_features_v1_yaml": "31f71bea039fc9b64fd8abc29eaac2aca4a407700b1dadfec833ac576c08481f",
+    "feature_engine": "9650fc15d36a212520af1810b14cc40c80ce298c54113090dc7db42a6cbd7f29",
+    "preprocessing_random_forest_v1": "f00051e35024f5a58947b36a0e492b7ce42b992a72289d7c014a8e46b8e362da",
+    "strict_pre_cologne_state": "7d021bad35277fa09cff413899f47027eb20b2a4723a0a279615fdb9f3679caa",
+    "predictor_adapter": "a243a88f12830a0b8cec86ed121b682ce6ff0284dd70996381fd3dff59a261ef",
+    "tournament_yaml": "e481ca4dc3ab5bdf63636ad53eeeba8d3677305b643ecb98b7391e6419383ba3",
+    "tournament_engine": "012bd58e7792f7cce1e888d8f233fab274d798d4c3728f5b237f041fb73dd665"
+  },
+  "matrix_sha256": "5cf8002a76fdb2e41d93483067fe99f8a15daafe920e151c1ac32f0297199101",
+  "environment_versions": {
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.4.2",
+    "pandas": "3.0.5",
+    "sklearn": "1.8.0",
+    "joblib": "1.5.3"
+  }
+}

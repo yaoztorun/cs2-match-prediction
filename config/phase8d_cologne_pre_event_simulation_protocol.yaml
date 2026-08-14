@@ -1,0 +1,142 @@
+artifact_paths:
+  favorite_path: data/evaluation/cologne_2026_pre_event_favorite_path_v1.json
+  figures_dir: reports/figures/phase8d
+  matchup_frequencies: data/evaluation/cologne_2026_pre_event_matchup_frequencies_v1.csv
+  playoff_seed_distributions: data/evaluation/cologne_2026_pre_event_playoff_seed_distributions_v1.csv
+  probability_matrix: data/evaluation/cologne_2026_pre_event_matchup_probabilities_v1.parquet
+  probability_receipt: data/evaluation/cologne_2026_pre_event_probability_receipt_v1.json
+  protocol: config/phase8d_cologne_pre_event_simulation_protocol.yaml
+  sample_traces: data/evaluation/cologne_2026_pre_event_sample_traces_v1.json
+  simulation_receipt: data/evaluation/cologne_2026_pre_event_simulation_receipt_v1.json
+  simulation_summary: data/evaluation/cologne_2026_pre_event_simulation_summary_v1.json
+  swiss_record_distributions: data/evaluation/cologne_2026_pre_event_swiss_record_distributions_v1.csv
+  team_probabilities: data/evaluation/cologne_2026_pre_event_team_probabilities_v1.csv
+bo5_data_sparsity_caveat:
+  note: RF V2's preprocessing and model structurally support bestOf=5 (see BO1/3/5
+    inference-contract validation), but BO5 was substantially less common in the historical
+    training data than BO1/BO3. This is recorded as a limitation only - the Cologne
+    Grand Final still uses the frozen RF V2 with bestOf=5 unmodified.
+deterministic_favorite_path:
+  forbidden_name: most likely bracket
+  name: deterministic favorite-wins path
+  tie_policy: 'if P(team_a) >= 0.5: team_a wins; else team_b wins. Exact p=0.5 resolves
+    to team_a (the tournament engine''s deterministically-oriented seed).'
+event_id: iem_cologne_major_2026
+frozen_inputs:
+  determinism_note: 'RandomForestClassifier.predict_proba parallelizes cross-tree
+    averaging when n_jobs=-1 (as trained); parallel float summation order is not guaranteed
+    deterministic across calls (observed: 1-ULP jitter on repeated identical queries).
+    The predictor adapter forces model.n_jobs=1 after loading - a pure inference-time
+    execution setting, not retraining/refitting/calibration - so repeated identical
+    queries are byte-identical.'
+  environment_versions:
+    joblib: 1.5.3
+    numpy: 2.4.2
+    pandas: 3.0.5
+    python: 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit
+      (AMD64)]
+    sklearn: 1.8.0
+  model_id: series_random_forest_v2
+  pipeline_hashes:
+    feature_engine: 9650fc15d36a212520af1810b14cc40c80ce298c54113090dc7db42a6cbd7f29
+    model: e26e97fd8f1ea7676659605af2d9abd4d4e4cb0c5b767d1df506fb0a9cfac4a9
+    predictor_adapter: a243a88f12830a0b8cec86ed121b682ce6ff0284dd70996381fd3dff59a261ef
+    preprocessing: 8415859db8d238f48bc04426872c8f97d8487678a4b8f0ab7706f8502e3c0111
+    preprocessing_random_forest_v1: f00051e35024f5a58947b36a0e492b7ce42b992a72289d7c014a8e46b8e362da
+    selected_config: 3666622740fe27a8cb51647133d2707e421010e865ecc56ce04916ed2b422934
+    series_features_v1_yaml: 31f71bea039fc9b64fd8abc29eaac2aca4a407700b1dadfec833ac576c08481f
+    strict_pre_cologne_state: 7d021bad35277fa09cff413899f47027eb20b2a4723a0a279615fdb9f3679caa
+    tournament_engine: 012bd58e7792f7cce1e888d8f233fab274d798d4c3728f5b237f041fb73dd665
+    tournament_yaml: e481ca4dc3ab5bdf63636ad53eeeba8d3677305b643ecb98b7391e6419383ba3
+  prediction_cutoff: '2026-06-02T13:30:00'
+  prediction_mode: pre_veto
+  tier: tier1
+  tier_rationale: 'Only tier1/tier2/tier3 are known preprocessing categories, with
+    tier1 as the reference (no ''unknown'' category exists - any other value silently
+    collapses to tier1). Resolved to tier1 on two grounds requiring no Cologne-result
+    inspection: (1) the repository''s own tier scheme is unambiguous from OTHER tournaments''
+    names alone - tier1 contains top-tier LAN/Major-caliber events (e.g. IEM Atlanta,
+    PGL Astana, PGL Bucharest, IEM Rio), tier2 contains clearly lower-caliber events
+    (e.g. regional cups, online leagues); (2) IEM Cologne Major 2026 is a Valve-sponsored
+    Major Championship, definitionally the highest tier of competition that exists.
+    Frozen as a hardcoded constant here - never re-derived from raw data at run time.'
+monte_carlo:
+  base_seed: 42
+  conditional_denominator_policy: Unconditional probabilities (e.g. championship,
+    reach_playoffs) use N=50,000. Conditional probabilities (e.g. P(record | participated
+    in stage), P(seed=k | reaches playoffs)) use the actual number of conditioning
+    events for that team as the denominator, never the global 50,000. If the denominator
+    is 0, probability/SE/interval are null/not_applicable.
+  counts_are_source_of_truth: true
+  expected_matches_per_tournament: 106
+  expected_total_matches: 5300000
+  max_expected_mc_standard_error_unconditional: 0.00223606797749979
+  n_simulations: 50000
+  rng_derivation: np.random.default_rng(np.random.SeedSequence([BASE_SEED, simulation_index]))
+    - one independent generator per simulation index, no shared/global RNG state.
+no_map_input_policy:
+  maps_used_as_prediction_input: false
+no_network_access_policy:
+  network_access_permitted: false
+  note: Phase 8B already froze every real-world tournament fact needed; Phase 8D requires
+    zero web research. No Phase 8D script imports requests/urllib/http.client or any
+    browser/API client.
+no_results_access_policy:
+  allowlisted_inputs:
+  - model
+  - preprocessing
+  - selected_config
+  - series_features_v1_yaml
+  - feature_engine
+  - preprocessing_random_forest_v1
+  - strict_pre_cologne_state
+  - predictor_adapter
+  - tournament_yaml
+  - tournament_engine
+  forbidden_paths:
+  - data/interim/series_base.parquet
+  - data/interim/map_base.parquet
+  - data/evaluation/map_test_predictions_v1.parquet
+  - data/raw/cs2_tier1_games.csv
+  - data/raw/cs2_tier2_games.csv
+  - data/raw/cs2_tier3_games.csv
+  note: File access is allowlisted, not discovered by recursive scanning of data/raw,
+    data/interim, or data/evaluation.
+no_state_update_policy:
+  note: The StateStore is loaded once, read-only, and never mutated - every one of
+    the 50,000 simulations queries the SAME frozen probability matrix, not a live
+    model.
+  state_source: data/features/pre_cologne_team_state_v1_full.json
+  state_updates_during_simulation: false
+orientation_policy:
+  diagnostic_only_reverse_orientation: true
+  orientation_used_for_simulation: engine-deterministic (team_a/team_b as generated
+    by tournament_engine.py's pairing functions)
+  rule: team_a = better (lower-numbered) current tournament-engine seed, team_b =
+    worse. feature_engine's team1/team2 map 1:1 onto team_a/team_b with no reorientation,
+    averaging, or symmetrization anywhere in the pipeline.
+phase: phase8d_pre_event_simulation
+purpose: What would the frozen prediction system have believed immediately before
+  IEM Cologne Major 2026 began? No Cologne result of any kind is used.
+rematch_fallback_reporting:
+  note: Phase 8C's deterministic minimum-rematch fallback is reused unmodified. Phase
+    8D aggregates its real-run frequency (total pairing events, zero-rematch events,
+    fallback events, total/maximum unavoidable rematches, broken down by stage/round)
+    for the realism audit. Fallback behavior itself is never changed based on what
+    is observed.
+reproducibility:
+  fixed_sample_trace_indices:
+  - 0
+  - 1
+  - 42
+  - 999
+  note: Chosen here, before execution, never selected after viewing outcomes. A separate
+    reproducibility check reruns simulations 0-999 twice and requires an identical
+    canonical hash.
+transactional_lifecycle:
+  commit_marker: simulation_receipt
+  note: All Phase 8D outputs are generated into a staging directory first, validated
+    in full, then promoted atomically (os.replace) in a fixed order with the simulation
+    receipt written LAST. A partially-promoted run without a valid final receipt is
+    never silently treated as complete.
+  staging_directory: data/evaluation/.phase8d_staging/
