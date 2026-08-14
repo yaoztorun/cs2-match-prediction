@@ -1,0 +1,335 @@
+# IEM Cologne Major 2026 -- Frozen Pre-Event Tournament Definition (Phase 8B)
+#
+# Zero outcome data. Every field below is knowable from sources dated
+# strictly before the tournament's first match: 2026-06-02T13:30:00, the
+# repository's established Cologne cutoff (scripts/map_stream_common.cologne_cutoff()).
+# No match winner, score, standing, qualifier, champion, map result, player
+# statistic, or result-derived seed calculation appears anywhere in this file.
+#
+# Full source audit: reports/phase8b_cologne_tournament_definition.md
+# Machine-readable source manifest: data/tournaments/iem_cologne_major_2026_sources.json
+#
+# COLOGNE RESULTS = UNOPENED
+# TOURNAMENT DEFINITION = FROZEN PRE-EVENT INFORMATION ONLY
+
+metadata:
+  event_id: iem_cologne_major_2026
+  name: IEM Cologne Major 2026
+  location: Cologne, Germany
+  start_date: "2026-06-02"
+  end_date: "2026-06-21"
+  prediction_cutoff: "2026-06-02T13:30:00"
+  structure: [Stage 1, Stage 2, Stage 3, Playoffs]
+  total_teams: 32
+  teams_per_swiss_stage: 16
+  advancers_per_swiss_stage: 8
+  playoff_teams: 8
+  status: FROZEN_PRE_EVENT_INFORMATION_ONLY
+
+# ---------------------------------------------------------------------------
+# Historical rulebook revision (amendment #1) and VRS date distinction (#2)
+# ---------------------------------------------------------------------------
+sources_summary:
+  historical_valve_rulebook:
+    repository: ValveSoftware/counter-strike_rules_and_regs
+    file_path: major-supplemental-rulebook.md
+    commit_sha: a22f91da503d3afc00045fdad339bc6a3cd19c98
+    commit_date: "2025-08-05T21:40:53Z"
+    commit_url: https://github.com/ValveSoftware/counter-strike_rules_and_regs/commit/a22f91da503d3afc00045fdad339bc6a3cd19c98
+    content_sha256: 6bcbef90a81eb20cc1be0e728a2a4b32ded06c63874b907c8b2d3f799150f3b0
+    selection_rationale: >-
+      Most recent commit touching major-supplemental-rulebook.md strictly
+      before the 2026-06-02T13:30:00 Cologne cutoff, per
+      `gh api repos/ValveSoftware/counter-strike_rules_and_regs/commits?path=major-supplemental-rulebook.md&until=2026-06-02T13:30:00Z`.
+      No later pre-cutoff commit exists, so this is the correct historical
+      revision to pin; today's live `main` is NOT used.
+    sections_used:
+      - Invitations / Regional Standing (VRS)
+      - Major Format (stage structure)
+      - Swiss Bracket (advancement/elimination, rematch avoidance, Round 2/3 rule, Round 4/5 priority table)
+      - Initial Swiss Match-ups (1v9...8v16)
+      - Single Elimination Bracket (playoff bracket seeding, generic best-of-three)
+      - Map Pick-Ban (Bo1 and Bo3 veto procedures)
+      - Seeding (Pre-event Seeding, Stage Seeding, Mid-stage Seed Calculation, Difficulty Score / Buchholz)
+    caveat: >-
+      This pinned revision does NOT distinguish a Grand Final format from
+      other single-elimination matches -- it states all playoff matches are
+      best-of-three, with no Grand Final exception. The Cologne Grand Final
+      Bo5 format is therefore explicitly NOT derived from this document; it
+      is frozen below as a Cologne/Major-era event-specific override with
+      its own separate dated source (see match_formats.playoffs.grand_final).
+
+  invitation_vrs_date: "2026-04-06"
+  seeding_vrs_date: "2026-05-04"
+  vrs_date_note: >-
+    Two distinct Valve Regional Standings snapshots -- never collapsed into
+    one. invitation_vrs_date (2026-04-06) determined which 32 rosters were
+    invited and to which stage. seeding_vrs_date (2026-05-04) is the
+    snapshot used to seed each team within its opening stage. Both exist as
+    independent, separately dated primary files in Valve's own
+    ValveSoftware/counter-strike_regional_standings GitHub repository
+    (invitation/2026/standings_global_2026_04_06.md and
+    invitation/2026/standings_global_2026_05_04.md respectively) -- this is
+    not an inference, both files were directly confirmed to exist. The
+    2026-05-04 file's global rank order was used to independently
+    cross-validate every seed table below with full agreement.
+
+# ---------------------------------------------------------------------------
+# 32-team roster: pre-event stage-entry assignment + identity resolution
+# (amendments #4, #6). All 32 independently source-verified against the
+# tournament's official participant list -- 32/32 agreement with the
+# originally supplied stage-entry hypothesis, no conflicts.
+# ---------------------------------------------------------------------------
+participants:
+  stage_3_direct_entrants:
+    - {display_name: Team Vitality, canonical_model_name: Team Vitality, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 1, seeding_vrs_global_rank: 1}
+    - {display_name: Natus Vincere, canonical_model_name: Natus Vincere, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 2, seeding_vrs_global_rank: 2}
+    - {display_name: Team Falcons, canonical_model_name: Team Falcons, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 3, seeding_vrs_global_rank: 3}
+    - {display_name: The MongolZ, canonical_model_name: The Mongolz, resolution_method: case_normalization, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 4, seeding_vrs_global_rank: 7}
+    - {display_name: PARIVISION, canonical_model_name: PARIVISION, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 5, seeding_vrs_global_rank: 8}
+    - {display_name: Aurora Gaming, canonical_model_name: Aurora Gaming, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 6, seeding_vrs_global_rank: 9, notes: "policy file flags a possible same-org identity-collision caveat (KEEP_AS_SINGLE_TEAM); does not block resolution, carried as footnote only"}
+    - {display_name: FURIA, canonical_model_name: FURIA Esports, resolution_method: manual_roster_disambiguation, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 7, seeding_vrs_global_rank: 10, notes: "policy file has 3 FURIA-family candidates (FURIA Academy / FURIA Esports / FURIA Esports Female); tournament roster (yuurih, KSCERATO, FalleN, molodoy, YEKINDAR) is FURIA's premier male CS2 lineup, uniquely matching FURIA Esports per the policy's own 'do not merge with academy/female' note -- not resolved by string distance"}
+    - {display_name: MOUZ, canonical_model_name: MOUZ, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 8, seeding_vrs_global_rank: 11}
+
+  stage_2_direct_entrants:
+    - {display_name: FUT Esports, canonical_model_name: FUT Esports, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 1, seeding_vrs_global_rank: 4}
+    - {display_name: Team Spirit, canonical_model_name: Team Spirit, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 2, seeding_vrs_global_rank: 5, notes: "policy file flags a possible same-org identity-collision caveat (KEEP_AS_SINGLE_TEAM); does not block resolution, carried as footnote only"}
+    - {display_name: Astralis, canonical_model_name: Astralis, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 3, seeding_vrs_global_rank: 6}
+    - {display_name: G2 Esports, canonical_model_name: G2 Esports, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 4, seeding_vrs_global_rank: 12}
+    - {display_name: Legacy, canonical_model_name: Legacy, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 5, seeding_vrs_global_rank: 14}
+    - {display_name: paiN Gaming, canonical_model_name: paiN Gaming, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 6, seeding_vrs_global_rank: 17}
+    - {display_name: Monte, canonical_model_name: Monte, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 7, seeding_vrs_global_rank: 18}
+    - {display_name: 9z Team, canonical_model_name: 9z Team, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 8, seeding_vrs_global_rank: 19}
+
+  stage_1_entrants:
+    - {display_name: GamerLegion, canonical_model_name: GamerLegion, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 1, seeding_vrs_global_rank: 13}
+    - {display_name: B8, canonical_model_name: B8 Esports, resolution_method: manual_suffix_expansion, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 2, seeding_vrs_global_rank: 16, notes: "policy file's only B8-family candidate is 'B8 Esports' (no academy/alternate B8 entries); tournament display name omits the generic 'Esports' suffix -- single unambiguous candidate, not a string-distance match"}
+    - {display_name: HEROIC, canonical_model_name: Heroic, resolution_method: case_normalization, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 3, seeding_vrs_global_rank: 20, notes: "policy file flags a possible same-org identity-collision caveat (KEEP_AS_SINGLE_TEAM); does not block resolution, carried as footnote only"}
+    - {display_name: BetBoom Team, canonical_model_name: BetBoom Team, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 4, seeding_vrs_global_rank: 21}
+    - {display_name: BIG, canonical_model_name: BIG, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 5, seeding_vrs_global_rank: 23}
+    - {display_name: M80, canonical_model_name: M80, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 6, seeding_vrs_global_rank: 24}
+    - {display_name: MIBR, canonical_model_name: MIBR, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 7, seeding_vrs_global_rank: 27}
+    - {display_name: SINNERS Esports, canonical_model_name: Sinners Esports, resolution_method: case_normalization, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 8, seeding_vrs_global_rank: 30}
+    - {display_name: NRG, canonical_model_name: NRG Esports, resolution_method: manual_suffix_expansion, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 9, seeding_vrs_global_rank: 31, notes: "policy file's only NRG-family candidate is 'NRG Esports'; single unambiguous candidate, not a string-distance match"}
+    - {display_name: TYLOO, canonical_model_name: TYLOO, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 10, seeding_vrs_global_rank: 34}
+    - {display_name: Sharks Esports, canonical_model_name: Sharks Esports, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 11, seeding_vrs_global_rank: 37}
+    - {display_name: Gaimin Gladiators, canonical_model_name: Gaimin Gladiators, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 12, seeding_vrs_global_rank: 40}
+    - {display_name: Team Liquid, canonical_model_name: Team Liquid, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 13, seeding_vrs_global_rank: 47}
+    - {display_name: Lynn Vision Gaming, canonical_model_name: Lynn Vision Gaming, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 14, seeding_vrs_global_rank: 49}
+    - {display_name: THUNDERdOWNUNDER, canonical_model_name: THUNDERdOWNUNDER, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 15, seeding_vrs_global_rank: 56}
+    - {display_name: FlyQuest, canonical_model_name: FlyQuest, resolution_method: exact, identity_feature_eligible: true, resolution_status: confirmed, pre_event_seed: 16, seeding_vrs_global_rank: 74}
+
+  resolution_summary:
+    total_teams: 32
+    resolution_status_confirmed: 32
+    resolution_methods_used: [exact, case_normalization, manual_suffix_expansion, manual_roster_disambiguation]
+    fuzzy_or_edit_distance_matching_used: false
+
+# ---------------------------------------------------------------------------
+# Swiss format rules (generic Valve rule; frozen verbatim/derived, nothing
+# implemented as a running engine)
+# ---------------------------------------------------------------------------
+swiss_rules:
+  teams_per_stage: 16
+  advancement_wins: 3
+  elimination_losses: 3
+  rematch_avoidance: "teams are not to play the same opponent twice in the same stage, if possible"
+  initial_matchup_rule: "1v9, 2v10, 3v11, 4v12, 5v13, 6v14, 7v15, 8v16 (seed within the stage)"
+  round_2_3_rule: "highest seeded team faces the lowest seeded team available that does not result in a rematch within the stage"
+  round_4_plus_rule: "select the top-most row of the priority table below that does not result in a rematch"
+  round_4_plus_priority_table_note: "Each row's three pair labels (e.g. 1v6) refer to the relative rank of teams remaining within a same-record pod at that point in the stage, not to stage-entry seed numbers."
+  round_4_plus_priority_table:
+    # Verbatim from the pinned Valve rulebook. Reference metadata only --
+    # not implemented as a running Swiss engine in Phase 8B.
+    - {priority: 1, pairs: ["1v6", "2v5", "3v4"]}
+    - {priority: 2, pairs: ["1v6", "2v4", "3v5"]}
+    - {priority: 3, pairs: ["1v5", "2v6", "3v4"]}
+    - {priority: 4, pairs: ["1v5", "2v4", "3v6"]}
+    - {priority: 5, pairs: ["1v4", "2v6", "3v5"]}
+    - {priority: 6, pairs: ["1v4", "2v5", "3v6"]}
+    - {priority: 7, pairs: ["1v6", "2v3", "4v5"]}
+    - {priority: 8, pairs: ["1v5", "2v3", "4v6"]}
+    - {priority: 9, pairs: ["1v3", "2v6", "4v5"]}
+    - {priority: 10, pairs: ["1v3", "2v5", "4v6"]}
+    - {priority: 11, pairs: ["1v4", "2v3", "5v6"]}
+    - {priority: 12, pairs: ["1v3", "2v4", "5v6"]}
+    - {priority: 13, pairs: ["1v2", "3v6", "4v5"]}
+    - {priority: 14, pairs: ["1v2", "3v5", "4v6"]}
+    - {priority: 15, pairs: ["1v2", "3v4", "5v6"]}
+
+# ---------------------------------------------------------------------------
+# Stage-1 initial pairing validation (amendment #3): the 1v9...8v16 rule
+# applied to the Stage-1 seed table above reproduces all 8 publicly
+# announced Round 1 opening matchups exactly. Seed/team columns only --
+# no score, map, or winner data extracted.
+# ---------------------------------------------------------------------------
+stage1_opening_pairing_validation:
+  rule_applied: "seed N vs seed N+8, for N = 1..8"
+  required_agreement: "8/8"
+  actual_agreement: "8/8"
+  rows:
+    - {seed: 1, team: GamerLegion, opponent_seed: 9, expected_opponent: NRG, published_opening_opponent: NRG, match: true}
+    - {seed: 2, team: B8, opponent_seed: 10, expected_opponent: TYLOO, published_opening_opponent: TYLOO, match: true}
+    - {seed: 3, team: HEROIC, opponent_seed: 11, expected_opponent: Sharks Esports, published_opening_opponent: Sharks Esports, match: true}
+    - {seed: 4, team: BetBoom Team, opponent_seed: 12, expected_opponent: Gaimin Gladiators, published_opening_opponent: Gaimin Gladiators, match: true}
+    - {seed: 5, team: BIG, opponent_seed: 13, expected_opponent: Team Liquid, published_opening_opponent: Team Liquid, match: true}
+    - {seed: 6, team: M80, opponent_seed: 14, expected_opponent: Lynn Vision Gaming, published_opening_opponent: Lynn Vision Gaming, match: true}
+    - {seed: 7, team: MIBR, opponent_seed: 15, expected_opponent: THUNDERdOWNUNDER, published_opening_opponent: THUNDERdOWNUNDER, match: true}
+    - {seed: 8, team: SINNERS Esports, opponent_seed: 16, expected_opponent: FlyQuest, published_opening_opponent: FlyQuest, match: true}
+  source: "Liquipedia Intel_Extreme_Masters/2026/Cologne/Stage_1, Round 1 Matchlist opponent fields (schedule/pairing data only, no score/map/winner fields read)"
+
+# ---------------------------------------------------------------------------
+# Stage seeding contract (generic Valve rule)
+# ---------------------------------------------------------------------------
+stage_seeding:
+  stage_1: "all 16 teams use their pre-event seed (seeding_vrs_date snapshot)"
+  stage_2: "8 direct invitees are seeds 1-8 (pre-event seed); 8 Stage-1 advancers are seeds 9-16 (final Stage-1 seed, via Mid-stage Seed Calculation) -- NOT knowable pre-event, left unassigned here"
+  stage_3: "8 direct invitees are seeds 1-8 (pre-event seed); 8 Stage-2 advancers are seeds 9-16 (final Stage-2 seed, via Mid-stage Seed Calculation) -- NOT knowable pre-event, left unassigned here"
+  playoffs: "all 8 teams use their final Stage-3 seed (via Mid-stage Seed Calculation) -- NOT knowable pre-event, left unassigned here"
+  mid_stage_seed_calculation_order:
+    - "current W-L record in the stage"
+    - "Difficulty Score in the current stage"
+    - "initial seeding of the current stage"
+  difficulty_score:
+    also_known_as: Buchholz
+    definition: "sum of current wins minus sum of current losses, summed over every opponent a team has faced in the stage"
+    worked_example: >-
+      Team A's prior opponents are 2-0 and 1-1: Difficulty Score = (3 wins - 1 loss) = 2.
+      Team B's prior opponents are both 1-1: Difficulty Score = (2 wins - 2 losses) = 0.
+      If A and B share the same record, A gets the higher seed (played tougher opponents).
+    implemented: false
+    note: "frozen as a rule for reference only; not computed in Phase 8B, since it requires in-stage results"
+
+# ---------------------------------------------------------------------------
+# Match formats (amendments #7, #8)
+# ---------------------------------------------------------------------------
+match_formats:
+  stage_1:
+    default: bo1
+    override_rule: "best-of-3 iff this match's winner would advance (3rd win) OR this match's loser would be eliminated (3rd loss)"
+    source_type: generic_valve_rule
+  stage_2:
+    default: bo1
+    override_rule: "best-of-3 iff this match's winner would advance (3rd win) OR this match's loser would be eliminated (3rd loss)"
+    source_type: generic_valve_rule
+  stage_3:
+    default: bo3
+    override_rule: "ALL matches are best-of-3, regardless of record stakes"
+    source_type: cologne_event_override
+    source_note: >-
+      NOT present in the pinned generic Valve rulebook (which has no
+      stage-specific carve-out). Confirmed via 4 independently dated
+      pre-event sources published before the 2026-06-02T13:30:00 cutoff --
+      see data/tournaments/iem_cologne_major_2026_sources.json
+      (fact_id: cologne_stage3_bo3_override).
+  playoffs:
+    quarterfinal: {best_of: 3, source_type: generic_valve_rule}
+    semifinal: {best_of: 3, source_type: generic_valve_rule}
+    grand_final:
+      best_of: 5
+      source_type: cologne_event_override
+      source_note: >-
+        NOT present in the pinned generic Valve rulebook (which treats all
+        single-elimination matches, including the final, as best-of-three
+        with no Grand Final exception). This is an event/Major-era-specific
+        override -- best-of-5 Grand Finals were used for the first time at
+        the immediately preceding Major (StarLadder Budapest Major 2025)
+        and continued at Cologne. Confirmed via a dated pre-event source
+        (escharts.com, published 2026-05-26, before the cutoff) that states
+        the complete stage-by-stage and playoff format including
+        "The Grand Final is Bo5" -- see
+        data/tournaments/iem_cologne_major_2026_sources.json
+        (fact_id: cologne_grand_final_bo5_override). This fact is required
+        for simulation and is NOT left unresolved.
+    third_place_match: none
+
+# ---------------------------------------------------------------------------
+# Playoff bracket seeding (generic Valve rule, no reseeding between rounds)
+# ---------------------------------------------------------------------------
+playoff_bracket:
+  bracket_a: ["1v8", "4v5"]
+  bracket_b: ["2v7", "3v6"]
+  reseeding_between_rounds: false
+  source_type: generic_valve_rule
+
+# ---------------------------------------------------------------------------
+# Map pool (amendment #5) -- metadata only, NOT a prediction input for the
+# pre-veto series simulation.
+# ---------------------------------------------------------------------------
+map_pool:
+  maps: [Ancient, Anubis, Dust2, Inferno, Mirage, Nuke, Overpass]
+  count: 7
+  required_agreement: "7/7"
+  actual_agreement: "7/7"
+  used_as_prediction_input: false
+  note: >-
+    Standard CS2 Active Duty group at the time of the event (Anubis
+    replaced Train in the Active Duty pool ahead of this Major); not a
+    Cologne-specific map selection.
+
+# ---------------------------------------------------------------------------
+# Map veto procedures -- reference metadata only, not implemented as a
+# running veto engine.
+# ---------------------------------------------------------------------------
+veto_procedures:
+  bo1:
+    steps:
+      - "higher seed team chooses to be Team A or Team B"
+      - "Team A removes 2 maps"
+      - "Team B removes 3 maps"
+      - "Team A removes 1 map"
+      - "Team B chooses starting side"
+    source_type: generic_valve_rule
+  bo3:
+    steps:
+      - "higher seed team chooses to be Team A or Team B"
+      - "Team A removes 1 map"
+      - "Team B removes 1 map"
+      - "Team A picks map 1"
+      - "Team B chooses starting side on map 1"
+      - "Team B picks map 2"
+      - "Team A chooses starting side on map 2"
+      - "Team B removes one map"
+      - "Team A removes one map"
+      - "Team B chooses starting side on map 3"
+    source_type: generic_valve_rule
+  bo5:
+    status: not_implemented
+    source_required: true
+    note: "No Cologne-specific or generic BO5 veto procedure was found in any sourced document. Per the approved plan, this does not block the tournament-definition freeze or the pre-veto series simulation (which never consumes veto/map data as a prediction input)."
+
+# ---------------------------------------------------------------------------
+# Prediction-engine contract (Phase 8A audit + user correction: pre_veto_series,
+# not known_map_preferred)
+# ---------------------------------------------------------------------------
+prediction_engine_contract:
+  prediction_engine: pre_veto_series
+  historical_prediction_mode: pre_veto
+  model_id: series_random_forest_v2
+  model_artifact: models/random_forest_v2.joblib
+  preprocessing_artifact: data/modeling/random_forest_preprocessing_v2.json
+  config_artifact: data/modeling/random_forest_v2_selected_config.json
+  maps_used_as_prediction_input: false
+  state_policy: frozen_pre_event
+  state_source: data/features/pre_cologne_team_state_v1_full.json
+  state_updates_during_simulation: false
+  actual_results_available_to_predictor: false
+
+# ---------------------------------------------------------------------------
+# Simulation time policy (Phase 8A lifecycle, stage A: before simulation)
+# ---------------------------------------------------------------------------
+simulation_time_policy:
+  frozen_state_throughout_simulation: true
+  incremental_elo_updates_from_simulated_results: false
+  incremental_elo_updates_from_real_results: false
+  incremental_form_roster_map_updates: false
+  note: >-
+    This YAML defines tournament STRUCTURE only. No Swiss engine, match
+    simulator, or model call happens in Phase 8B. Simulation (Phase 8C+)
+    must consume this frozen structure and the frozen pre-event team state
+    without any mid-simulation state mutation, per the Phase 8A five-stage
+    Cologne evaluation lifecycle (stage A: before simulation).
+
+phase_8b_scope_note: >-
+  MODEL = UNCHANGED. PHASE 7 = UNCHANGED. NO SIMULATION YET. NO PWA YET.
+  This file freezes pre-event tournament structure only.

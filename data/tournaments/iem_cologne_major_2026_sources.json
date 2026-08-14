@@ -1,0 +1,172 @@
+{
+  "event_id": "iem_cologne_major_2026",
+  "cutoff": "2026-06-02T13:30:00",
+  "note": "One record per sourced fact used to freeze config/tournaments/iem_cologne_major_2026_pre_event.yaml. No Cologne result information (winner, score, standing, qualifier, champion, map result, player stat, result-derived seed) is recorded anywhere in this file. A fact may have more than one corroborating source; each is a separate record sharing the same fact_id.",
+  "facts": [
+    {
+      "fact_id": "valve_major_rulebook",
+      "field": "swiss_rules, stage_seeding, playoff_bracket, veto_procedures.bo1, veto_procedures.bo3, match_formats.*.source_type=generic_valve_rule",
+      "source_category": "valve_primary_document",
+      "publisher": "Valve / ValveSoftware GitHub org",
+      "publication_date": "2025-08-05",
+      "source_reference": "https://github.com/ValveSoftware/counter-strike_rules_and_regs/commit/a22f91da503d3afc00045fdad339bc6a3cd19c98 (major-supplemental-rulebook.md)",
+      "historical_revision": "commit a22f91da503d3afc00045fdad339bc6a3cd19c98, dated 2025-08-05T21:40:53Z; content SHA-256 6bcbef90a81eb20cc1be0e728a2a4b32ded06c63874b907c8b2d3f799150f3b0",
+      "known_before_cutoff": true,
+      "notes": "Most recent commit touching this file strictly before the 2026-06-02T13:30:00 cutoff (verified via GitHub commits API with until= filter). Does not contain a Grand Final format exception -- see cologne_grand_final_bo5_override."
+    },
+    {
+      "fact_id": "cologne_invitation_vrs",
+      "field": "sources_summary.invitation_vrs_date",
+      "source_category": "valve_primary_document",
+      "publisher": "Valve / ValveSoftware GitHub org",
+      "publication_date": "2026-04-06",
+      "source_reference": "https://github.com/ValveSoftware/counter-strike_regional_standings/blob/main/invitation/2026/standings_global_2026_04_06.md",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "File existence directly confirmed via GitHub API directory listing of invitation/2026/. Cross-corroborated by Liquipedia's inline {{VRS|eu|20260406}} qualification tag for Team Vitality and by independent WebSearch reporting of the April 6, 2026 invitation cutoff."
+    },
+    {
+      "fact_id": "cologne_seeding_vrs",
+      "field": "sources_summary.seeding_vrs_date",
+      "source_category": "valve_primary_document",
+      "publisher": "Valve / ValveSoftware GitHub org",
+      "publication_date": "2026-05-04",
+      "source_reference": "https://github.com/ValveSoftware/counter-strike_regional_standings/blob/main/invitation/2026/standings_global_2026_05_04.md",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "File fetched directly (364 lines, global rank 1-300+). Liquipedia's overview page explicitly links this exact file as the seeding basis ('All teams will be seeded solely based on Valve's Global Standings within their opening stage'). This file's rank order independently reproduces every derived seed table below with full agreement, which is strong convergent confirmation that 2026-05-04 is the correct seeding snapshot (not merely Liquipedia's unverified claim)."
+    },
+    {
+      "fact_id": "cologne_stage_entry_assignments",
+      "field": "participants.stage_1_entrants, participants.stage_2_direct_entrants, participants.stage_3_direct_entrants",
+      "source_category": "other_documented_source",
+      "publisher": "Liquipedia (Counter-Strike Wiki)",
+      "publication_date": "unspecified (live wiki page reflecting pre-event participant announcements); cross-validated against the primary 2026-05-04 Valve standings file",
+      "source_reference": "https://liquipedia.net/counterstrike/index.php?title=Intel_Extreme_Masters/2026/Cologne&action=raw (Participants section)",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "32/32 agreement with the originally supplied stage-entry hypothesis list, no conflicts. Raw wikitext fetched directly (not through a summarizing intermediary) to avoid name-hallucination risk. Every team's presence in the correct Valve global-standings rank band for its invited group was independently cross-checked."
+    },
+    {
+      "fact_id": "cologne_stage1_seed_table",
+      "field": "participants.stage_1_entrants[*].pre_event_seed",
+      "source_category": "other_documented_source",
+      "publisher": "Liquipedia (Counter-Strike Wiki)",
+      "publication_date": "unspecified (live wiki page); cross-validated against the primary 2026-05-04 Valve standings file",
+      "source_reference": "https://liquipedia.net/counterstrike/index.php?title=Intel_Extreme_Masters/2026/Cologne/Stage_1&action=raw (SwissStandings tiebreaker fields only -- no score/map/winner fields read)",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "Liquipedia's numeric 'tiebreaker' field runs in ascending worst-to-best order (seed = 17 - tiebreaker for this 16-team stage); this direction was independently confirmed by reproducing the exact same 16-team order from the primary Valve global-standings file's rank column (16/16 agreement), resolving an otherwise genuine ambiguity in field semantics."
+    },
+    {
+      "fact_id": "cologne_stage1_opening_matchups",
+      "field": "stage1_opening_pairing_validation.rows",
+      "source_category": "other_documented_source",
+      "publisher": "Liquipedia (Counter-Strike Wiki)",
+      "publication_date": "unspecified (live wiki page reflecting the published pre-event Round 1 schedule)",
+      "source_reference": "https://liquipedia.net/counterstrike/index.php?title=Intel_Extreme_Masters/2026/Cologne/Stage_1&action=raw (Round 1 Matchlist opponent1/opponent2 fields only)",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "Only the pairing (which two teams played) was extracted; every score, map, VOD, and HLTV match-ID field on the same page was ignored. Used solely to validate the 1v9...8v16 rule (8/8 exact agreement), never to derive seeds from results."
+    },
+    {
+      "fact_id": "cologne_stage2_seed_table",
+      "field": "participants.stage_2_direct_entrants[*].pre_event_seed",
+      "source_category": "other_documented_source",
+      "publisher": "Liquipedia (Counter-Strike Wiki)",
+      "publication_date": "unspecified (live wiki page); cross-validated against the primary 2026-05-04 Valve standings file",
+      "source_reference": "https://liquipedia.net/counterstrike/index.php?title=Intel_Extreme_Masters/2026/Cologne/Stage_2&action=raw (SwissStandings tiebreaker fields, direct-entrant teams only -- seeds 9-16, the Stage-1 advancer seeds, are result-derived and intentionally NOT recorded)",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "8/8 direct-entrant order agreement against the primary Valve global-standings file's rank column."
+    },
+    {
+      "fact_id": "cologne_stage3_seed_table",
+      "field": "participants.stage_3_direct_entrants[*].pre_event_seed",
+      "source_category": "other_documented_source",
+      "publisher": "Liquipedia (Counter-Strike Wiki)",
+      "publication_date": "unspecified (live wiki page); cross-validated against the primary 2026-05-04 Valve standings file",
+      "source_reference": "https://liquipedia.net/counterstrike/index.php?title=Intel_Extreme_Masters/2026/Cologne/Stage_3&action=raw (SwissStandings tiebreaker fields, direct-entrant teams only -- seeds 9-16, the Stage-2 advancer seeds, are result-derived and intentionally NOT recorded)",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "8/8 direct-entrant order agreement against the primary Valve global-standings file's rank column."
+    },
+    {
+      "fact_id": "cologne_stage3_bo3_override",
+      "field": "match_formats.stage_3",
+      "source_category": "dated_pre_event_hltv_report",
+      "publisher": "HLTV.org",
+      "publication_date": "2026-02-23",
+      "source_reference": "https://www.hltv.org/news/43947/iem-cologne-major-to-use-no-bo1s-in-stage-3",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "Dedicated format-announcement article; no match results present. Quote: 'Stage 3 of the IEM Cologne Major will feature only BO3 matches, eliminating BO1s from the stage entirely.' Also states Stage 1/2 format is unchanged."
+    },
+    {
+      "fact_id": "cologne_stage3_bo3_override",
+      "field": "match_formats.stage_3",
+      "source_category": "other_documented_source",
+      "publisher": "csgo.com",
+      "publication_date": "2026-02-23",
+      "source_reference": "https://csgo.com/news/139952-stage-3-of-iem-cologne-major-2026-will-be-held-without-bo1-format",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "Corroborating second dated pre-event source, same day as the HLTV article. Confirms Stage 1/2 format unchanged and Swiss format used at every stage."
+    },
+    {
+      "fact_id": "cologne_stage3_bo3_override",
+      "field": "match_formats.stage_3",
+      "source_category": "other_documented_source",
+      "publisher": "strafe.com",
+      "publication_date": "2026-05-01",
+      "source_reference": "https://www.strafe.com/news/read/iem-cologne-major-2026-to-feature-no-more-bo1s-for-stage-3-matches/",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "Third, later-dated corroborating pre-event source; also confirms Stage 1-3/Playoffs date schedule matching the pinned metadata dates."
+    },
+    {
+      "fact_id": "cologne_grand_final_bo5_override",
+      "field": "match_formats.playoffs.grand_final",
+      "source_category": "other_documented_source",
+      "publisher": "escharts.com",
+      "publication_date": "2026-05-26",
+      "source_reference": "https://escharts.com/news/how-watch-iem-cologne-major-2026",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "Dated pre-event article giving the complete stage-by-stage and playoff format: 'Single-Elimination bracket. All matches (excl. Grand Final) are Bo3. The Grand Final is Bo5.' Not derivable from the pinned generic Valve rulebook (which has no Grand Final exception). Corroborated by Liquipedia's raw wikitext (same wording) and by the precedent that Bo5 grand finals were introduced the previous Major (StarLadder Budapest Major 2025) and continued at Cologne. This fact is required for simulation and was successfully resolved -- not left unresolved."
+    },
+    {
+      "fact_id": "cologne_map_pool",
+      "field": "map_pool.maps",
+      "source_category": "other_documented_source",
+      "publisher": "escharts.com / multiple corroborating outlets",
+      "publication_date": "2026-05-26",
+      "source_reference": "https://escharts.com/news/how-watch-iem-cologne-major-2026 ; corroborated by Liquipedia overview page and multiple independently-searched outlets",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "7/7 agreement across sources: Ancient, Anubis, Dust2, Inferno, Mirage, Nuke, Overpass. Consistent with the CS2 Active Duty map group in effect at the time (Anubis replaced Train ahead of this Major); not a Cologne-specific map selection."
+    },
+    {
+      "fact_id": "cologne_identity_furia",
+      "field": "participants.stage_3_direct_entrants[FURIA].canonical_model_name",
+      "source_category": "other_documented_source",
+      "publisher": "Liquipedia (Counter-Strike Wiki)",
+      "publication_date": "unspecified (live wiki page, participant roster listing)",
+      "source_reference": "https://liquipedia.net/counterstrike/index.php?title=Intel_Extreme_Masters/2026/Cologne&action=raw (FURIA player roster: yuurih, KSCERATO, FalleN, molodoy, YEKINDAR)",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "Resolved to FURIA Esports (not FURIA Academy or FURIA Esports Female) via known top-tier player roster identity, per the identity policy's own explicit 'do not merge with academy/female' distinction -- not a string-distance match."
+    },
+    {
+      "fact_id": "cologne_identity_b8_nrg_suffix",
+      "field": "participants[B8].canonical_model_name, participants[NRG].canonical_model_name",
+      "source_category": "internal_repository_artifact",
+      "publisher": "repository team_identity_policy.csv (pre-existing, Phase 2.5)",
+      "publication_date": null,
+      "source_reference": "data/interim/team_identity_policy.csv",
+      "historical_revision": null,
+      "known_before_cutoff": true,
+      "notes": "B8 -> B8 Esports and NRG -> NRG Esports: each is the single unambiguous policy-file candidate for that org (no academy/alternate variant exists), the tournament display name merely omits the generic 'Esports' suffix. Manual one-to-one mapping, not edit-distance matching."
+    }
+  ]
+}
