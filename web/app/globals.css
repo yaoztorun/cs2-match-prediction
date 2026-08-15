@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens — single dark-first theme. Every color in the app derives
+   from these variables; no per-component colors.
+   --------------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+
+  /* background layers */
+  --canvas: #0b0d12; /* page */
+  --panel: #12151d; /* primary surface */
+  --panel-2: #181c26; /* raised surface */
+  --panel-glass: rgba(19, 23, 32, 0.78);
+
+  /* lines */
+  --line: #222836;
+  --line-strong: #303a4e;
+
+  /* text */
+  --ink: #e9edf5;
+  --ink-2: #a3adc0;
+  --ink-3: #67718a;
+
+  /* semantic */
+  --team-a: #56c8ff; /* Team A — cool cyan */
+  --team-a-deep: #163243;
+  --team-b: #f5a962; /* Team B — warm amber */
+  --team-b-deep: #3d2c1a;
+  --accent: #7d97ff;
+  --accent-deep: #232c4d;
+  --warn: #e0bb5e;
+  --danger: #e57069;
+  --neutral-mid: #8a93a6; /* 50/50 probability midpoint */
+
+  /* radii */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-team-a: var(--team-a);
+  --color-team-a-deep: var(--team-a-deep);
+  --color-team-b: var(--team-b);
+  --color-team-b-deep: var(--team-b-deep);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-neutral-mid: var(--neutral-mid);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius-lg);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography scale — one system, applied consistently */
+.t-display {
+  font-size: 1.75rem;
+  line-height: 1.15;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.t-heading {
+  font-size: 1.075rem;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.t-body {
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.t-label {
+  font-size: 0.72rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.t-meta {
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: var(--ink-3);
+}
+/* analytical numerics: mono + tabular */
+.t-stat {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Panels */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+.panel-2 {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Focus visibility (a11y) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Probability bar transition — disabled under reduced motion below */
+.prob-fill {
+  transition: width 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prob-fill {
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile bottom navigation safe-area reservation */
+.pb-nav {
+  padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 768px) {
+  .pb-nav {
+    padding-bottom: 2rem;
+  }
+}
+.bottom-nav-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
