@@ -1,0 +1,95 @@
+{
+  "event_id": "iem_cologne_major_2026",
+  "phase": "phase8e_actual_result_provenance",
+  "note": "Provenance data only, not model input. Records the external sources used to independently corroborate the 106-row canonical actual-results table derived primarily from the dataset's own score1_match/score2_match fields. Does NOT modify data/tournaments/iem_cologne_major_2026_sources.json (Phase 8B's PRE-EVENT source manifest, which remains untouched). Sourced at the granularity actually used - per-stage/per-page raw structured data, not 106 fabricated individual match URLs.",
+  "sources": [
+    {
+      "source": "Liquipedia (Counter-Strike Wiki), Stage 1 page, raw wikitext",
+      "field_supported": "Stage 1 Round 1-5 team pairings and per-round dates (33 matches)",
+      "retrieval_method": "action=raw wikitext fetch (structured Match template lines, not rendered-page prose)",
+      "url": "https://liquipedia.net/counterstrike/index.php?title=Intel_Extreme_Masters/2026/Cologne/Stage_1&action=raw",
+      "retrieval_date": "2026-08-15",
+      "notes": "8/8/8/6/3 match-per-round shape matches EXPECTED_GROUPS_BY_ROUND exactly; Round 1 pairings independently match the already-frozen Phase 8B pre-event validation table 8/8; Round 1 raw wikitext dates show '12:30 CEST', corroborating the Phase 8D.1 timestamp-offset finding."
+    },
+    {
+      "source": "Liquipedia (Counter-Strike Wiki), Stage 2 page, raw wikitext",
+      "field_supported": "Stage 2 Round 1-5 team pairings and per-round dates (33 matches)",
+      "retrieval_method": "action=raw wikitext fetch",
+      "url": "https://liquipedia.net/counterstrike/index.php?title=Intel_Extreme_Masters/2026/Cologne/Stage_2&action=raw",
+      "retrieval_date": "2026-08-15",
+      "notes": "Round 1 pairings (8/8) independently cross-checked against the dataset's June 6 rows - exact match."
+    },
+    {
+      "source": "Liquipedia (Counter-Strike Wiki), Stage 3 page, raw wikitext",
+      "field_supported": "Stage 3 Round 1-5 team pairings and per-round dates (33 matches)",
+      "retrieval_method": "action=raw wikitext fetch",
+      "url": "https://liquipedia.net/counterstrike/index.php?title=Intel_Extreme_Masters/2026/Cologne/Stage_3&action=raw",
+      "retrieval_date": "2026-08-15",
+      "notes": "All 5 rounds (8/8/8/6/3) independently cross-checked against the dataset's June 11-15 rows - exact match on every pairing."
+    },
+    {
+      "source": "Liquipedia (Counter-Strike Wiki), Playoffs page, raw wikitext",
+      "field_supported": "Quarterfinal/semifinal/Grand-Final pairings and dates (7 matches)",
+      "retrieval_method": "action=raw wikitext fetch",
+      "url": "https://liquipedia.net/counterstrike/index.php?title=Intel_Extreme_Masters/2026/Cologne/Playoffs&action=raw",
+      "retrieval_date": "2026-08-15",
+      "notes": "A separate rendered-page fetch of this same URL earlier produced an internally-contradictory semifinal-winner statement (see reports/phase8e_cologne_simulation_vs_reality.md section R). The raw-wikitext fetch used for this manifest was internally consistent and used only for structural pairings, not for scores/winners."
+    },
+    {
+      "source": "HLTV.org match page",
+      "field_supported": "Identity and format of the excluded 107th dataset row (Team Germany vs Team Poland)",
+      "retrieval_method": "WebFetch",
+      "url": "https://www.hltv.org/matches/2395350/team-germany-vs-team-poland-showmatch-cs",
+      "retrieval_date": "2026-08-15",
+      "notes": "Page title itself is 'Team Germany vs. Team Poland at Showmatch CS' - primary evidence the row is a non-tournament exhibition."
+    },
+    {
+      "source": "cryptobriefing.com",
+      "field_supported": "Corroboration that the Germany/Poland match was a national showmatch separate from the official bracket, plus general event recap context",
+      "retrieval_method": "WebFetch",
+      "url": "https://cryptobriefing.com/iem-cologne-showmatch-germany-poland-crypto-sponsors/",
+      "retrieval_date": "2026-08-15",
+      "notes": "Independent second source explicitly describing the match as a showmatch distinct from the main Major competition."
+    },
+    {
+      "source": "vpesports.com",
+      "field_supported": "Champion confirmation (Team Falcons defeated FURIA 3-0 in the Grand Final)",
+      "retrieval_method": "WebSearch result summary",
+      "url": "https://vpesports.com/more-esports/falcons-are-iem-cologne-major-2026-champions",
+      "retrieval_date": "2026-08-15",
+      "notes": "One of five independent press sources returned by search, all agreeing on the champion; used only as corroboration, never as the primary score source (dataset score1_match/score2_match remained authoritative)."
+    },
+    {
+      "source": "esports.gg",
+      "field_supported": "Champion confirmation and event recap",
+      "retrieval_method": "WebSearch result summary",
+      "url": "https://esports.gg/news/counter-strike-2/winners-cologne-major-2026-overview/",
+      "retrieval_date": "2026-08-15",
+      "notes": "Corroborating source for champion only."
+    },
+    {
+      "source": "rewardly.gg",
+      "field_supported": "Champion, prize pool, MVP confirmation",
+      "retrieval_method": "WebSearch result summary",
+      "url": "https://rewardly.gg/blog/iem-cologne-2026-results/",
+      "retrieval_date": "2026-08-15",
+      "notes": "Corroborating source for champion only."
+    },
+    {
+      "source": "ESL Pro Tour (pro.eslgaming.com)",
+      "field_supported": "Champion confirmation (official ESL tour page)",
+      "retrieval_method": "WebSearch result listing",
+      "url": "https://pro.eslgaming.com/tour/cs/cologne/",
+      "retrieval_date": "2026-08-15",
+      "notes": "Highest-preference source category (official ESL/event source) among those returned; corroborates champion only, page content itself not deep-fetched beyond the search listing."
+    },
+    {
+      "source": "dataset (kaggle_ektarr)",
+      "field_supported": "Authoritative score1_match/score2_match for all 106 official matches - the actual winner-derivation source used throughout, per the preferred-hierarchy's lowest-priority fallback tier but the only source providing exact per-match numeric scores at all 106 rows",
+      "retrieval_method": "already present in data/interim/series_base.parquet (Phase 2 canonicalization)",
+      "url": null,
+      "retrieval_date": null,
+      "notes": "Never overridden by any external source in this phase; external sources were used only for structural cross-validation (stage/round pairings) and champion corroboration, exactly as declared in the Phase 8E protocol's reconciliation_policy.winner_derivation rule."
+    }
+  ]
+}

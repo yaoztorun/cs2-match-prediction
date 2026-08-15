@@ -1,0 +1,150 @@
+{
+  "event_id": "iem_cologne_major_2026",
+  "phase": "phase9a_post_cologne_deployment_state",
+  "committed": true,
+  "cutoffs": {
+    "historical_evaluation_cutoff": "pre_cologne (2026-06-02T13:30:00, see Phase 8D/8D.1)",
+    "deployment_history_cutoff": "2026-06-28 20:00:00",
+    "real_world_current_date": null,
+    "note": "The dataset's latest locally available historical state ends at deployment_history_cutoff. This is NOT the real-world current date and must never be interpreted as live/current state by any later API code."
+  },
+  "deployment_history": {
+    "total_raw_rows": 9923,
+    "included": 9800,
+    "excluded_showmatch": 1,
+    "excluded_existing_reject": 122,
+    "official_cologne_rows_included": 106,
+    "post_cologne_rows_included": 32,
+    "latest_included_match_id": 7303015,
+    "latest_included_tournament": "Super DraculaN Season 1"
+  },
+  "consumption_by_engine": {
+    "form": {
+      "candidate_rows": 9800,
+      "eligible_rows": 9788,
+      "consumed_rows": 9788,
+      "eligible_but_not_consumed": 0
+    },
+    "map": {
+      "candidate_rows": 9800,
+      "eligible_rows": 5121,
+      "consumed_rows": 5121,
+      "eligible_but_not_consumed": 0
+    },
+    "modern_map": {
+      "candidate_rows": 9800,
+      "eligible_rows": 5121,
+      "consumed_rows": 5121,
+      "eligible_but_not_consumed": 0
+    },
+    "roster": {
+      "candidate_rows": 9800,
+      "eligible_rows": 5110,
+      "consumed_rows": 5110,
+      "eligible_but_not_consumed": 0
+    },
+    "series": {
+      "candidate_rows": 9800,
+      "eligible_rows": 9788,
+      "consumed_rows": 9788,
+      "eligible_but_not_consumed": 0
+    }
+  },
+  "active_map_pool_limitation": "Deployment history ends 2026-06-28, predating any later Active Duty change (e.g. a Cache re-addition). The modern-map state contains no legitimate post-change map experience. The engine itself has no map-name allowlist (any map_name string is accepted generically) - this is a data-coverage limitation, not an engine mechanism, and is NOT fixed in Phase 9A.",
+  "historical_replay_unchanged_within_run": true,
+  "hashes": {
+    "historical_replay_record": {
+      "phase8d_protocol": "46f628b5837c01dc7611fcca0ce1a14bbbbb3fbd67af6126f3b7b105f67b91f6",
+      "phase8d_probability_matrix": "5cf8002a76fdb2e41d93483067fe99f8a15daafe920e151c1ac32f0297199101",
+      "phase8d_probability_receipt": "5e8a5712008b204e3829b6b89fd22fbfbce252521348960dc6d74f5441ede742",
+      "phase8d_simulation_receipt": "050ce55150832c1aac5a0359e22fd096dc16be259f0ea7e788346d068ed2ad22",
+      "phase8d_team_probabilities": "790937d70b1877357f6d81d3c39560f13c8659b21962dc63617b606e84f3b29f",
+      "phase8d_swiss_record_distributions": "f43ec7022f7faa4638560767ad3d1107eb5db48dec9315f234ab5e32459dca4b",
+      "phase8d_playoff_seed_distributions": "db920eda30dccc89d375cbbad7dcbf6517b6bec26b8bd98ef6cc65eb8cc78f9c",
+      "phase8d_matchup_frequencies": "2c075bea2db9d02c5961151828dcc08d9251f79d1bc1ec7fefb43b6ac6021d68",
+      "phase8d_favorite_path": "8e23e21385c424e3aa04d96571b39dcc84f2bb6aadfbee6f846402f6e3f296b6",
+      "phase8b_tournament_yaml": "e481ca4dc3ab5bdf63636ad53eeeba8d3677305b643ecb98b7391e6419383ba3",
+      "phase8c_tournament_engine": "012bd58e7792f7cce1e888d8f233fab274d798d4c3728f5b237f041fb73dd665",
+      "rf_v2_model": "e26e97fd8f1ea7676659605af2d9abd4d4e4cb0c5b767d1df506fb0a9cfac4a9",
+      "strict_pre_cologne_series_state": "7d021bad35277fa09cff413899f47027eb20b2a4723a0a279615fdb9f3679caa",
+      "phase8d1_provenance_report": "fd9ab18d8ae856ad5c7a99f32499262f261691a24dd15b7b9d3d269684cb2032",
+      "phase8d1_provenance_json": "759261d95cbc56daf478d61738eb871f1575b4f957d11bbab4fa666c4c91920b",
+      "phase8e_protocol": "36e896e59002945fc0cb757289b9094e0a8766b63c2d2d195b540a34c4443a70",
+      "phase8e_reconciliation": "c8fa9091aa3c9a8cd497eaa04bde1d3a5cd29dcc0da09e5467990cc3d11f67de",
+      "phase8e_canonical_actual_results": "53f10a8a25fb21bac4a90a7edf8d5694167d7e4554e54a2b5a6c87b508fe53ab",
+      "phase8e_actual_match_predictions": "15845acbab682baa4905f41fd994477858622f713c5b5040702c3376e9d85d98",
+      "phase8e_milestone_comparison": "336b576bb6b1408e02c2d3de8b8d0c9486aa2d9d69e553002fa7c242c88fef82",
+      "phase8e_summary": "8dcb0e2c640a2c134beec5cbb00ad1b1e3653c7b29b520202ccac576a843ff6a",
+      "phase8e_receipt": "aa3309e282d873c0ac7906013b7b97c1b333a5254d1f4028959480d555c1efe1",
+      "strict_pre_cologne_map_state": "bd239a1b5b221aed4aa268926b781018bfbdf1dfe84d43ff2f5133119d5dcb79",
+      "strict_pre_cologne_form_state": "cce1da5b7f51731d5201e628aac00bf7fceffd075f76cb834072b1f08c3c9678",
+      "strict_pre_cologne_roster_state": "5438a333590cdc0f3a7546495482faf23629b0b8d03b31ff353ab4e32fa8f2f3",
+      "strict_pre_cologne_modern_map_state": "54e4cba8fed871798e9365dbb16ec4935ae303f02ee3d4b4bf351ceb133632ac",
+      "known_map_xgb_v3_model": "e8bc38a2b42d4c321ea972849da81b2a82e6d67f390135894bb5727cbd3d4904",
+      "known_map_xgb_v3_metadata": "65eb6c3ae3f6d8d189e49f5e22bcd5e53d66a0a876ab1eafbc66c8b58c6bab21",
+      "series_split_v1": "fe1b947a3dd9829f1fd9b3e8ac8cc8ae796b8426ef728f609523ae8c48c0c253",
+      "map_split_v1": "8fa8191ebc7f71b140af242a1d024d3ac1a5cbc88a81e1e8f66c0c7db5fbfd75",
+      "map_cv_folds_v1": "94dde09d1247ef09a5e428a0a84747ca5dab9339a7c464d12187ecd14a21bf99",
+      "random_forest_cv_folds_v2": "152864c64ef558139af8b588d80e94102a13f52786275dc386357b52ac524247",
+      "phase7_test_protocol": "b95f0423a7ddca6040e33b1163c3ad1f6aed6cf704bf1b95d8260dd352b99160",
+      "phase7_test_open_receipt": "b5da733969d24bf0fcc78f17a85e52dbdb2f68ba4bea7d92e2e87b6f93815f8c",
+      "map_test_predictions": "072e9c3f407f9dd2b7f345f2f6642640cd0d2717f301e346bbcf96955fde02d4",
+      "random_forest_v2_selected_config": "3666622740fe27a8cb51647133d2707e421010e865ecc56ce04916ed2b422934",
+      "xgboost_v2_selected_config": "7cd50900c23551f11d9aeffa7cfcf1bb52dc0c409c5d9629cb875711e9b5ded2",
+      "logistic_regression_v2_selected_config": "2574aa09b90df56b6d0e703e4ab2b86b7d76b67915fe2c07a8497c62fc6ec62c",
+      "map_random_forest_v1_selected_config": "6f4b6f74b6c9a4b96c0aa490b9a954b0d9cc11c6455b47fc36be1766645fbc82",
+      "map_xgboost_v1_selected_config": "26e0b3ac95ef9b478df5f867850764c651ff334b8e9ecc3c534e82e69d55c3c6",
+      "map_xgboost_v3_final_selected_config": "aafc246d9ee65f712676663dd72a22ee9584160075973a2cd7590b228defbd0b"
+    },
+    "deployment_build_inputs": {
+      "data": {
+        "evaluation_manifest": "fdc6c62ab1bd4e52c2d36e1d88a817447fd5fc9e9075a05eed85b8052cde2c03",
+        "series_base": "c76248cf2329db0c635fb4d29013779ac37b36c48bfe7039fe4e6e21a75ef608",
+        "map_base": "c9008a94f13e1c9d1437d17bac4c241129e9592ca46ee5e2e491f95c6164ad83",
+        "rejected_series_rows": "6772d0abec8c847bbbae8038dd192ad75923b3f28e9921fc1e3dc35b0923c932",
+        "team_identity_policy": "1a7ffda00928ef3d342c859eeb939f28ed07ae385f25b2b5a726a2bda8a596d8",
+        "series_team_form_states_v1": "b43864911bafc1d41a8f5ed0ac53048bc3c880976a325011d95c0e4c0b2885f9",
+        "phase8e_reconciliation": "c8fa9091aa3c9a8cd497eaa04bde1d3a5cd29dcc0da09e5467990cc3d11f67de",
+        "phase8e_canonical_actual_results": "53f10a8a25fb21bac4a90a7edf8d5694167d7e4554e54a2b5a6c87b508fe53ab"
+      },
+      "code": {
+        "feature_engine": "9650fc15d36a212520af1810b14cc40c80ce298c54113090dc7db42a6cbd7f29",
+        "build_series_features_v1": "d09cf33db6e80466bc16fb8eeacd8bb761cf2da0dc50d861f14d1529b293227b",
+        "map_feature_engine": "accf69edbf06259ce2e77bca1ce4f836db5d099cfbc3d9e491a9ee6919602ac9",
+        "map_stream_common": "e76b32c61bf8b1af8174ac3dd5ac5d582ec70051f4ecf31db039933249d02128",
+        "team_form_engine": "122614c70b71466ddd5b96bbb14e5d3b8163dd2c2ac8c13e6e6aacfcb9355049",
+        "team_form_stream_common": "095ae99f12f6308e49943f78371a9237008a5e40ac8bdb1c85fcd6bcc3d78111",
+        "player_roster_feature_engine": "4e819200dbee4909eeb4442977137e7fa881dad74f097bd9a255ffe250ada7b1",
+        "player_roster_stream_common": "c1b57f4f78b1d12d0f07cc71d1c8400efaf23365ffdec6ba6bbc46049a972166",
+        "modern_map_feature_engine": "2453745703779a5bb835624e197142e202d198f98e776b2d3d651101e3ccb9cd",
+        "modern_map_stream_common": "af2756303d9373270bdaae0186977bb77eea3ab1c77540ac9780722bc70a1272",
+        "phase9a_common": "4c436af7e566fe5e7d0a546515d0cab51654a5e187810e8f0d88e9be42bb430f",
+        "build_deployment_history_manifest": "2d6aa451e015f3894ddda054202fc8c7984d1223eda90ff94e470a429a486c02",
+        "build_deployment_series_state": "3ac902b09c49ad436060fa6797be10fbe1719710bc1ec9c5e3ff10aaaeb298dc",
+        "build_deployment_map_state": "e1e35d6d0db237c23928515411ce1e3567aa713c7559cd0931b9e4f23111af64",
+        "build_deployment_form_state": "3f0461700b8854b839c0e3dc77b737a2256ef90b6f23de16370467acdc799867",
+        "build_deployment_roster_state": "cf158a86635b0bf7ed279b13c3b04489863b1e382b8c19ed6c552e3a1b0f0e59",
+        "build_deployment_modern_map_state": "4af02547c8e02578ac9d28191d7d195b8b72be65054410796a0f28f852fc3918"
+      }
+    },
+    "new_deployment_artifacts": {
+      "deployment_history_manifest": "29b6d8fd201736f9d94d5c114c3f4d2a6415a8bc0fca65937a8c6ea6a0e2aa5a",
+      "deployment_state_consumption_audit": "44d730fdbb187df44e24e9b012ba05afbee5f64c6a0099f68911294788e7c423",
+      "series_state": "27a6ee6d3da7a377fa271556705a5445bd3fda0b68f1cd7c94e991249a48b540",
+      "map_state": "9acbf7cf047b5269db58cc38129a6cb42bb0e506dec3a88419cfb2c2de883ede",
+      "form_state": "1e7ad42f23f1fc4d9d56671c29afa8929460148b5411c4c1ffde722966c80669",
+      "roster_state": "62158c84ed384bc766e0d3ad3020983b158aa6fea7c67988f22707b62039bd1d",
+      "modern_map_state": "8ff268eed3fd03bc53ded3bbc305b7be9d7198427a6b681766b090f48a969746"
+    }
+  },
+  "policy_declarations": {
+    "no_model_fitting": true,
+    "no_retraining": true,
+    "no_calibration": true,
+    "no_train_set_modification": true,
+    "no_phase7_test_reopening": true,
+    "no_historical_replay_modification": true,
+    "rf_v2_unchanged": true,
+    "known_map_xgb_v3_unchanged": true
+  }
+}

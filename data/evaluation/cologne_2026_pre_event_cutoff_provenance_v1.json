@@ -1,0 +1,68 @@
+{
+  "phase": "8D.1",
+  "purpose": "Pre-result provenance audit of the frozen Phase 8D prediction cutoff timestamp. Additive artifact only - does not modify any Phase 8D/8B frozen/hash-checked file.",
+  "no_cologne_result_data_read": true,
+  "repository_cutoff": {
+    "raw_value": "2026-06-02T13:30:00",
+    "source_derivation": "map_stream_common.cologne_cutoff(): min(series_datetime) over evaluation_manifest.csv rows tagged evaluation_group == 'cologne_2026', read from series_base.parquet['datetime']. Reconfirmed by direct re-execution.",
+    "dtype": "datetime64[us], tzinfo=None",
+    "timezone_documented_in_repository": false,
+    "repository_wide_timezone_handling_code_found": false,
+    "open_question_precedent": "reports/data_audit.md section 14, Open Question 1: datetime semantics (even start-vs-scrape-time) explicitly flagged as unverified against source."
+  },
+  "hypotheses_tested": [
+    {
+      "name": "naive_utc",
+      "description": "Repository naive value read literally as UTC (Z-suffixed).",
+      "repository_cutoff_utc": "2026-06-02T13:30:00Z",
+      "difference_seconds_vs_first_match_utc": 10800,
+      "interpretation": "repository cutoff 3h00m LATER than true first-match instant",
+      "supporting_evidence": "Weak/ad hoc: reports/phase8b_cologne_tournament_definition.md line 34 appended 'Z' to this same string once, only to satisfy the GitHub commits API's required input format - not a documented dataset property."
+    },
+    {
+      "name": "utc_plus_3_wall_clock",
+      "description": "Repository naive value is local wall-clock time in a UTC+3 zone.",
+      "repository_cutoff_utc": "2026-06-02T10:30:00Z",
+      "difference_seconds_vs_first_match_utc": 0,
+      "interpretation": "exact match with true first-match instant",
+      "supporting_evidence": "Unique offset that reconciles repo cutoff (13:30) with public schedule (12:30 CEST = UTC+2) exactly. Not contradicted anywhere in repository. Not independently documented anywhere in repository either."
+    }
+  ],
+  "first_match_schedule": {
+    "raw": "2026-06-02T12:30:00",
+    "timezone": "CEST (UTC+2)",
+    "utc": "2026-06-02T10:30:00Z",
+    "provenance": "given by task instructions (public/pre-event scheduling), not independently re-derived in this phase to avoid any risk of touching post-event/result-bearing live pages"
+  },
+  "verdict": {
+    "timezone_basis_proven": false,
+    "best_supported_basis": "utc_plus_3_wall_clock",
+    "equivalent_instant": "indeterminate_from_repository_evidence_alone; best-supported answer is true",
+    "case": "A (provenance clarification only) - not escalated to Case B because no hypothesis is proven, and state leakage safety holds under both",
+    "phase_8d_regeneration_required": false
+  },
+  "state_leakage_reconfirmation": {
+    "method": "independently recomputed by scanning every embedded 'dt'/'datetime' field in data/features/pre_cologne_team_state_v1_full.json (18,984 values found), not read from any prior frozen report",
+    "max_state_datetime": "2026-05-30T19:30:00",
+    "min_state_datetime": "2023-01-10T09:30:00",
+    "matches_frozen_phase8a_phase8d_claim": true,
+    "margin_before_true_first_match_instant": {
+      "under_naive_utc_hypothesis_hours": 63,
+      "under_utc_plus_3_hypothesis_hours": 66
+    },
+    "state_strictly_pre_event": true
+  },
+  "time_derived_feature_sensitivity": {
+    "feature": "days_since_last_match (feature_engine.py)",
+    "computation": "(as_of - hist[-1].dt).total_seconds() / 86400.0, continuous not day-rounded",
+    "shift_under_ambiguity_days": 0.125,
+    "note": "bounded, small, constant additive shift; not re-verified against live model inference in this phase per protocol (no model calls, no new predictions)"
+  },
+  "artifacts_left_unmodified": [
+    "reports/phase8d_cologne_pre_event_simulation.md",
+    "config/tournaments/iem_cologne_major_2026_pre_event.yaml",
+    "data/evaluation/cologne_2026_pre_event_simulation_receipt_v1.json",
+    "data/evaluation/cologne_2026_pre_event_probability_receipt_v1.json",
+    "config/phase8d_cologne_pre_event_simulation_protocol.yaml"
+  ]
+}

@@ -1,0 +1,609 @@
+{
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "MapPredictionRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "best_of": {
+            "title": "Best Of",
+            "type": "integer"
+          },
+          "context_id": {
+            "minLength": 1,
+            "title": "Context Id",
+            "type": "string"
+          },
+          "explanation_detail": {
+            "default": "summary",
+            "enum": [
+              "summary",
+              "full"
+            ],
+            "title": "Explanation Detail",
+            "type": "string"
+          },
+          "include_explanation": {
+            "default": true,
+            "title": "Include Explanation",
+            "type": "boolean"
+          },
+          "map_name": {
+            "minLength": 1,
+            "title": "Map Name",
+            "type": "string"
+          },
+          "prediction_datetime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prediction Datetime"
+          },
+          "team_a": {
+            "minLength": 1,
+            "title": "Team A",
+            "type": "string"
+          },
+          "team_b": {
+            "minLength": 1,
+            "title": "Team B",
+            "type": "string"
+          },
+          "tier": {
+            "anyOf": [
+              {
+                "enum": [
+                  "tier1",
+                  "tier2",
+                  "tier3"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tier"
+          }
+        },
+        "required": [
+          "context_id",
+          "team_a",
+          "team_b",
+          "map_name",
+          "best_of"
+        ],
+        "title": "MapPredictionRequest",
+        "type": "object"
+      },
+      "PredictionEnvelope": {
+        "properties": {
+          "api_version": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "explanation": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explanation"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ResponseMetadata"
+          },
+          "prediction": {
+            "additionalProperties": true,
+            "title": "Prediction",
+            "type": "object"
+          },
+          "request_id": {
+            "title": "Request Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "request_id",
+          "api_version",
+          "prediction",
+          "metadata"
+        ],
+        "title": "PredictionEnvelope",
+        "type": "object"
+      },
+      "ResponseMetadata": {
+        "properties": {
+          "context_id": {
+            "title": "Context Id",
+            "type": "string"
+          },
+          "explanation_version": {
+            "title": "Explanation Version",
+            "type": "string"
+          },
+          "prediction_contract": {
+            "title": "Prediction Contract",
+            "type": "string"
+          },
+          "state_data_through": {
+            "title": "State Data Through",
+            "type": "string"
+          },
+          "state_is_live": {
+            "title": "State Is Live",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "context_id",
+          "state_data_through",
+          "state_is_live",
+          "prediction_contract",
+          "explanation_version"
+        ],
+        "title": "ResponseMetadata",
+        "type": "object"
+      },
+      "SeriesPredictionRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "best_of": {
+            "description": "Must be 1, 3, or 5. Strictly typed - a bool is never accepted.",
+            "title": "Best Of",
+            "type": "integer"
+          },
+          "context_id": {
+            "description": "Registered inference context id (see GET /api/v1/contexts).",
+            "minLength": 1,
+            "title": "Context Id",
+            "type": "string"
+          },
+          "explanation_detail": {
+            "default": "summary",
+            "description": "'summary' (default) omits the full 19/131-feature low-level arrays. 'full' returns the complete Phase 9C attribution payload.",
+            "enum": [
+              "summary",
+              "full"
+            ],
+            "title": "Explanation Detail",
+            "type": "string"
+          },
+          "include_explanation": {
+            "default": true,
+            "title": "Include Explanation",
+            "type": "boolean"
+          },
+          "mode": {
+            "description": "'pre_veto' = RF V2 only, map order unknown, ordered_maps must be null. 'known_maps' = XGB V3 + dynamic-program series composition, exact ordered_maps required.",
+            "enum": [
+              "pre_veto",
+              "known_maps"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "ordered_maps": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ordered Maps"
+          },
+          "prediction_datetime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "ISO-8601 datetime, passed through unmodified (no HTTP-layer timezone conversion). Historical context: omit, or supply exactly the locked cutoff. Deployment context: omit to default to the state cutoff; a value after the cutoff is accepted only as a hypothetical stale-snapshot projection.",
+            "title": "Prediction Datetime"
+          },
+          "team_a": {
+            "minLength": 1,
+            "title": "Team A",
+            "type": "string"
+          },
+          "team_b": {
+            "minLength": 1,
+            "title": "Team B",
+            "type": "string"
+          },
+          "tier": {
+            "anyOf": [
+              {
+                "enum": [
+                  "tier1",
+                  "tier2",
+                  "tier3"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tier"
+          }
+        },
+        "required": [
+          "context_id",
+          "mode",
+          "team_a",
+          "team_b",
+          "best_of"
+        ],
+        "title": "SeriesPredictionRequest",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Read-only HTTP API over the frozen Phase 9B prediction core and Phase 9C explanation core. Two prediction modes exist and are never blended: `pre_veto` (RF V2, unknown maps) and `known_maps` (XGB V3 + a generic best-of-N dynamic program, exact map order known). Explanations are deterministic, model-grounded feature attributions - NOT causal claims. The default context (`deployment_post_cologne_v1`) is the latest locally available application state (data through 2026-06-28), never a live/current claim.",
+    "title": "CS2 Match Prediction Application API",
+    "version": "v1"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/contexts": {
+      "get": {
+        "operationId": "get_contexts_api_v1_contexts_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List all registered inference contexts"
+      }
+    },
+    "/api/v1/contexts/{context_id}": {
+      "get": {
+        "operationId": "get_context_by_id_api_v1_contexts__context_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "context_id",
+            "required": true,
+            "schema": {
+              "title": "Context Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Metadata for one registered inference context"
+      }
+    },
+    "/api/v1/health/live": {
+      "get": {
+        "operationId": "health_live_api_v1_health_live_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Liveness - process is up"
+      }
+    },
+    "/api/v1/health/ready": {
+      "get": {
+        "operationId": "health_ready_api_v1_health_ready_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Readiness - contract verified and default context can serve"
+      }
+    },
+    "/api/v1/maps": {
+      "get": {
+        "operationId": "get_maps_api_v1_maps_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "context_id",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "title": "Context Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Structured map support metadata (never the current Active Duty pool)"
+      }
+    },
+    "/api/v1/meta": {
+      "get": {
+        "operationId": "get_meta_api_v1_meta_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Safe public metadata"
+      }
+    },
+    "/api/v1/predict/map": {
+      "post": {
+        "operationId": "predict_map_api_v1_predict_map_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MapPredictionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictionEnvelope"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Single-map prediction (XGB V3 known-map)"
+      }
+    },
+    "/api/v1/predict/series": {
+      "post": {
+        "operationId": "predict_series_api_v1_predict_series_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SeriesPredictionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictionEnvelope"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Series-level prediction: pre_veto (RF V2) or known_maps (XGB V3 + DP), never blended"
+      }
+    },
+    "/api/v1/teams": {
+      "get": {
+        "operationId": "get_teams_api_v1_teams_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "context_id",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "title": "Context Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Case-insensitive substring filter on canonical_name.",
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive substring filter on canonical_name.",
+              "title": "Q"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maximum": 200,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Deterministic substring team search (UI discovery only)"
+      }
+    }
+  }
+}

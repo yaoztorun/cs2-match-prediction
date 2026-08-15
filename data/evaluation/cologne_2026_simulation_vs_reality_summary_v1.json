@@ -1,0 +1,65 @@
+{
+  "event_id": "iem_cologne_major_2026",
+  "actual_champion": "Team Falcons",
+  "actual_champion_pre_event_probability": 0.0893,
+  "actual_champion_pre_event_rank": 4,
+  "predicted_favorite": "Team Vitality",
+  "predicted_favorite_championship_probability": 0.29696,
+  "favorite_won_tournament": false,
+  "actual_playoff_teams": [
+    "9z Team",
+    "Aurora Gaming",
+    "BetBoom Team",
+    "FURIA Esports",
+    "G2 Esports",
+    "Team Falcons",
+    "Team Spirit",
+    "Team Vitality"
+  ],
+  "predicted_top8_playoff_teams": [
+    "Aurora Gaming",
+    "FURIA Esports",
+    "MOUZ",
+    "Natus Vincere",
+    "Team Falcons",
+    "Team Spirit",
+    "Team Vitality",
+    "The Mongolz"
+  ],
+  "playoff_overlap_count": 5,
+  "playoff_jaccard": 0.45454545454545453,
+  "actual_semifinalists": [
+    "Aurora Gaming",
+    "FURIA Esports",
+    "Team Falcons",
+    "Team Spirit"
+  ],
+  "predicted_top4_semifinalists": [
+    "Natus Vincere",
+    "Team Falcons",
+    "Team Spirit",
+    "Team Vitality"
+  ],
+  "semifinal_overlap_count": 2,
+  "actual_finalists": [
+    "FURIA Esports",
+    "Team Falcons"
+  ],
+  "predicted_top2_finalists": [
+    "Team Spirit",
+    "Team Vitality"
+  ],
+  "final_overlap_count": 0,
+  "match_n": 106,
+  "match_accuracy": 0.6415094339622641,
+  "match_auc": 0.6967857142857142,
+  "match_log_loss": 0.6316325912381936,
+  "match_brier": 0.2208301964010727,
+  "baseline_log_loss": 0.6931471805599453,
+  "baseline_brier": 0.25,
+  "favorite_path_champion": "Team Vitality",
+  "favorite_path_champion_correct": false,
+  "showmatch_excluded": true,
+  "original_cologne_tagged_rows": 107,
+  "official_major_rows": 106
+}

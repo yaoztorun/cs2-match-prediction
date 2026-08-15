@@ -1,0 +1,100 @@
+# Phase 9C explanation fixture manifest - PREDECLARED before any explanation
+# output was computed (amendment #22). No outcome labels. Purpose labels
+# describe WHY each fixture was chosen structurally, not by inspecting
+# attribution results first.
+
+fixtures:
+  unknown_map:
+    - id: um_history_rich_favorite
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      best_of: 3
+      purpose: >-
+        history-rich matchup between two teams with deep historical state (both played the
+        full Cologne run) - a straightforward, well-supported explanation case.
+    - id: um_near_even
+      context_id: deployment_post_cologne_v1
+      team_a: Team Spirit
+      team_b: Team Vitality
+      best_of: 3
+      purpose: >-
+        a matchup between two other high-history top teams, selected structurally (both
+        Cologne semifinal/playoff-caliber teams) as a candidate for a closer prediction, not
+        chosen after inspecting attribution output.
+    - id: um_historical_cold_start
+      context_id: historical_cologne_pre_event
+      team_a: THUNDERdOWNUNDER
+      team_b: MOUZ
+      best_of: 3
+      purpose: >-
+        historical context cold-start case - THUNDERdOWNUNDER has zero pre-Cologne history
+        (Phase 8D/9A finding), a required lifecycle fixture.
+    - id: um_deployment_thunderdownunder
+      context_id: deployment_post_cologne_v1
+      team_a: THUNDERdOWNUNDER
+      team_b: MOUZ
+      best_of: 3
+      purpose: >-
+        deployment-context counterpart of um_historical_cold_start - THUNDERdOWNUNDER now has
+        4 legitimate matches (Phase 9A finding), the direct before/after lifecycle pair.
+
+  known_map:
+    - id: km_favors_a_candidate
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      map_name: Mirage
+      best_of: 3
+      purpose: >-
+        known-map case on a Cologne-competitive-pool map between two history-rich teams.
+    - id: km_favors_b_candidate
+      context_id: deployment_post_cologne_v1
+      team_a: Team Falcons
+      team_b: Team Vitality
+      map_name: Inferno
+      best_of: 3
+      purpose: >-
+        same pair, teams swapped and a different map, selected structurally (orientation-swap
+        + map-swap of the prior fixture) rather than chosen after seeing which side attribution
+        favors.
+    - id: km_partial_state_fallback
+      context_id: deployment_post_cologne_v1
+      team_a: THUNDERdOWNUNDER
+      team_b: MOUZ
+      map_name: Mirage
+      best_of: 3
+      purpose: >-
+        a team with only 4 total legitimate matches (THUNDERdOWNUNDER) - a structurally-guaranteed
+        partial/thin-state case for surfacing state_support/fallbacks_used metadata.
+
+  known_series:
+    - id: ks_bo1
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      best_of: 1
+      ordered_maps: [Mirage]
+      purpose: >-
+        minimal BO1 case - single map, reach probability trivially 1.0.
+    - id: ks_bo3
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      best_of: 3
+      ordered_maps: [Mirage, Inferno, Nuke]
+      purpose: >-
+        standard BO3 case - exercises the map-3-reached-only-if-split reach-probability contract.
+    - id: ks_bo5
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      best_of: 5
+      ordered_maps: [Mirage, Inferno, Nuke, Ancient, Overpass]
+      purpose: >-
+        full BO5 case (Cologne Grand-Final format) - exercises the full reach-probability decay
+        and the last-map leverage==reach identity.
+
+note: >-
+  No actual match outcome labels are stored anywhere for these fixtures - only model-generated
+  prediction/explanation output, computed AFTER this manifest was frozen.

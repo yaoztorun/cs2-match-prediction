@@ -1,0 +1,1067 @@
+config_version: application_explanation_feature_groups_v1
+note: Every transformed feature actually consumed by each frozen model maps to exactly
+  one product factor_group - no silently unmapped model features (verified programmatically
+  before this file was written, not asserted).
+rf_v2:
+  model_id: series_random_forest_v2
+  raw_feature_count: 17
+  transformed_feature_count: 19
+  product_factor_groups:
+    overall_strength: Overall team strength (ELO, all-time win rate).
+    recent_performance: Recent-form performance, activity, and rest.
+    historical_experience: How much historical data exists for this matchup.
+    event_context: Series format and tournament tier context.
+  factor_groups_not_applicable_to_this_model:
+  - opponent_strength
+  - map_pool
+  - selected_map_strength
+  - map_experience
+  - player_strength
+  - roster_stability
+  - roster_map_familiarity
+  features:
+  - model_id: series_random_forest_v2
+    raw_feature: elo_diff
+    transformed_feature: elo_diff
+    factor_group: overall_strength
+    display_label: ELO rating difference
+    description: Difference in each team's overall ELO rating.
+    direction_semantics: higher_favors_team_a
+  - model_id: series_random_forest_v2
+    raw_feature: overall_win_rate_diff
+    transformed_feature: overall_win_rate_diff
+    factor_group: overall_strength
+    display_label: Overall win-rate difference
+    description: Difference in each team's smoothed all-time win rate.
+    direction_semantics: higher_favors_team_a
+  - model_id: series_random_forest_v2
+    raw_feature: win_rate_last_5_diff
+    transformed_feature: win_rate_last_5_diff
+    factor_group: recent_performance
+    display_label: Last-5-match win-rate difference
+    description: Difference in each team's win rate over its last 5 series.
+    direction_semantics: higher_favors_team_a
+  - model_id: series_random_forest_v2
+    raw_feature: win_rate_last_10_diff
+    transformed_feature: win_rate_last_10_diff
+    factor_group: recent_performance
+    display_label: Last-10-match win-rate difference
+    description: Difference in each team's win rate over its last 10 series.
+    direction_semantics: higher_favors_team_a
+  - model_id: series_random_forest_v2
+    raw_feature: format_win_rate_diff
+    transformed_feature: format_win_rate_diff
+    factor_group: recent_performance
+    display_label: Format-specific win-rate difference
+    description: Difference in each team's win rate at this series' best-of format.
+    direction_semantics: higher_favors_team_a
+  - model_id: series_random_forest_v2
+    raw_feature: avg_series_margin_last_5_diff
+    transformed_feature: avg_series_margin_last_5_diff
+    factor_group: recent_performance
+    display_label: Last-5 average series margin difference
+    description: Difference in each team's average map-score margin over its last
+      5 series.
+    direction_semantics: higher_favors_team_a
+  - model_id: series_random_forest_v2
+    raw_feature: avg_series_margin_last_10_diff
+    transformed_feature: avg_series_margin_last_10_diff
+    factor_group: recent_performance
+    display_label: Last-10 average series margin difference
+    description: Difference in each team's average map-score margin over its last
+      10 series.
+    direction_semantics: higher_favors_team_a
+  - model_id: series_random_forest_v2
+    raw_feature: matches_last_30_days_diff
+    transformed_feature: matches_last_30_days_diff
+    factor_group: recent_performance
+    display_label: Recent activity difference
+    description: Difference in how many series each team played in the last 30 days.
+    direction_semantics: context_dependent
+  - model_id: series_random_forest_v2
+    raw_feature: days_since_last_match_diff
+    transformed_feature: days_since_last_match_diff
+    factor_group: recent_performance
+    display_label: Rest/inactivity difference
+    description: Difference in days since each team's last series.
+    direction_semantics: context_dependent
+  - model_id: series_random_forest_v2
+    raw_feature: total_matches_before_diff
+    transformed_feature: total_matches_before_diff
+    factor_group: historical_experience
+    display_label: Total prior match-count difference
+    description: Difference in each team's total historical series count.
+    direction_semantics: context_dependent
+  - model_id: series_random_forest_v2
+    raw_feature: history_matches_min
+    transformed_feature: history_matches_min
+    factor_group: historical_experience
+    display_label: Minimum historical match count
+    description: The smaller of the two teams' historical series counts (data-sufficiency
+      signal, not team-specific).
+    direction_semantics: neutral_confidence
+  - model_id: series_random_forest_v2
+    raw_feature: history_matches_sum
+    transformed_feature: history_matches_sum
+    factor_group: historical_experience
+    display_label: Combined historical match count
+    description: The sum of both teams' historical series counts (data-sufficiency
+      signal).
+    direction_semantics: neutral_confidence
+  - model_id: series_random_forest_v2
+    raw_feature: both_teams_have_history
+    transformed_feature: both_teams_have_history
+    factor_group: historical_experience
+    display_label: Both teams have any history
+    description: Whether both teams have at least one prior series (confidence flag).
+    direction_semantics: neutral_confidence
+  - model_id: series_random_forest_v2
+    raw_feature: both_teams_have_5_matches
+    transformed_feature: both_teams_have_5_matches
+    factor_group: historical_experience
+    display_label: Both teams have >=5 matches
+    description: Whether both teams have at least 5 prior series (confidence flag).
+    direction_semantics: neutral_confidence
+  - model_id: series_random_forest_v2
+    raw_feature: both_teams_have_10_matches
+    transformed_feature: both_teams_have_10_matches
+    factor_group: historical_experience
+    display_label: Both teams have >=10 matches
+    description: Whether both teams have at least 10 prior series (confidence flag).
+    direction_semantics: neutral_confidence
+  - model_id: series_random_forest_v2
+    raw_feature: bestOf
+    transformed_feature: bestOf_BO3
+    factor_group: event_context
+    display_label: Series format
+    description: The series best-of format (1/3/5).
+    direction_semantics: categorical
+  - model_id: series_random_forest_v2
+    raw_feature: bestOf
+    transformed_feature: bestOf_BO5
+    factor_group: event_context
+    display_label: Series format
+    description: The series best-of format (1/3/5).
+    direction_semantics: categorical
+  - model_id: series_random_forest_v2
+    raw_feature: tier
+    transformed_feature: tier_tier2
+    factor_group: event_context
+    display_label: Tournament tier
+    description: The series' tournament tier.
+    direction_semantics: categorical
+  - model_id: series_random_forest_v2
+    raw_feature: tier
+    transformed_feature: tier_tier3
+    factor_group: event_context
+    display_label: Tournament tier
+    description: The series' tournament tier.
+    direction_semantics: categorical
+map_xgboost_v3_final:
+  model_id: map_xgboost_v3_final
+  transformed_feature_count: 131
+  source_family_taxonomy: reports/tables/map_xgboost_v3_final_feature_importance.csv
+    + reports/tables/map_xgboost_v3_final_group_importance.csv (Phase 6D, reused unmodified)
+  product_factor_groups:
+  - event_context
+  - map_experience
+  - map_pool
+  - opponent_strength
+  - overall_strength
+  - player_strength
+  - recent_form
+  - roster_map_familiarity
+  - roster_stability
+  - selected_map_strength
+  family_to_product_group:
+    A: overall_strength
+    B: map_pool
+    C: map_pool
+    D: map_pool
+    E: opponent_strength
+    F: recent_form
+    G: recent_form
+    H: player_strength
+    I: roster_stability
+    J: roster_stability
+    K: selected_map_strength
+    L: event_context
+    M: map_experience
+    N: map_experience
+    O: roster_map_familiarity
+    P: roster_map_familiarity
+  features:
+  - model_id: map_xgboost_v3_final
+    transformed_feature: elo_diff
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_mean_kast_diff
+    family: H
+    family_label: player performance
+    factor_group: player_strength
+    factor_group_rationale: individual player performance statistics (ADR/KAST/KD/assists).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: avg_opponent_elo_last_10_diff
+    family: E
+    family_label: opponent-strength / residual form
+    factor_group: opponent_strength
+    factor_group_rationale: opponent-strength / residual form (strength of schedule,
+      over/under-performance vs. ELO-expected outcome).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: time_weighted_map_opponent_elo_diff
+    family: M
+    family_label: recent/opponent-adjusted selected-map team features
+    factor_group: map_experience
+    factor_group_rationale: recency- and opponent-adjusted selected-map TEAM features
+      - a comparative/contextual view of map performance, distinct from K's raw strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_best_elo_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_total_matches_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: avg_opponent_elo_last_5_diff
+    family: E
+    family_label: opponent-strength / residual form
+    factor_group: opponent_strength
+    factor_group_rationale: opponent-strength / residual form (strength of schedule,
+      over/under-performance vs. ELO-expected outcome).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_map_mean_history_mass_diff
+    family: O
+    family_label: current-roster selected-map player performance
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-roster player performance ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_top_kd_balance_diff
+    family: H
+    family_label: player performance
+    factor_group: player_strength
+    factor_group_rationale: individual player performance statistics (ADR/KAST/KD/assists).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: time_weighted_series_margin_diff
+    family: F
+    family_label: time-decayed form
+    factor_group: recent_form
+    factor_group_rationale: time-decayed (recency-weighted) form.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: total_matches_before_diff
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_elo_diff
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: current_core_map_history_mass_diff
+    family: P
+    family_label: current-core selected-map continuity
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-core lineup continuity ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_mean_kd_balance_diff
+    family: H
+    family_label: player performance
+    factor_group: player_strength
+    factor_group_rationale: individual player performance statistics (ADR/KAST/KD/assists).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_recent_history_mass_diff
+    family: M
+    family_label: recent/opponent-adjusted selected-map team features
+    factor_group: map_experience
+    factor_group_rationale: recency- and opponent-adjusted selected-map TEAM features
+      - a comparative/contextual view of map performance, distinct from K's raw strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: overall_win_rate_diff
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_experienced_maps_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_top_kast_diff
+    family: H
+    family_label: player performance
+    factor_group: player_strength
+    factor_group_rationale: individual player performance statistics (ADR/KAST/KD/assists).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matchup_median_smoothed_wr_advantage
+    family: C
+    family_label: same-map matchup advantage
+    factor_group: map_pool
+    factor_group_rationale: same-map matchup advantage across the pool.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: time_weighted_performance_residual_diff
+    family: F
+    family_label: time-decayed form
+    factor_group: recent_form
+    factor_group_rationale: time-decayed (recency-weighted) form.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_second_best_elo_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_map_mean_kast_diff
+    family: O
+    family_label: current-roster selected-map player performance
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-roster player performance ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_map_mean_kd_balance_diff
+    family: O
+    family_label: current-roster selected-map player performance
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-roster player performance ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: avg_series_margin_last_10_diff
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_bottom_kast_diff
+    family: H
+    family_label: player performance
+    factor_group: player_strength
+    factor_group_rationale: individual player performance statistics (ADR/KAST/KD/assists).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_adjusted_history_mass_min
+    family: M
+    family_label: recent/opponent-adjusted selected-map team features
+    factor_group: map_experience
+    factor_group_rationale: recency- and opponent-adjusted selected-map TEAM features
+      - a comparative/contextual view of map performance, distinct from K's raw strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matches_before_min
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: avg_series_margin_last_5_diff
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_map_mean_adr_diff
+    family: O
+    family_label: current-roster selected-map player performance
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-roster player performance ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_worst_elo_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_total_matches_min
+    family: D
+    family_label: map-pool confidence
+    factor_group: map_pool
+    factor_group_rationale: map-pool confidence/coverage flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_bottom_adr_diff
+    family: H
+    family_label: player performance
+    factor_group: player_strength
+    factor_group_rationale: individual player performance statistics (ADR/KAST/KD/assists).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: performance_residual_all_diff
+    family: E
+    family_label: opponent-strength / residual form
+    factor_group: opponent_strength
+    factor_group_rationale: opponent-strength / residual form (strength of schedule,
+      over/under-performance vs. ELO-expected outcome).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_mean_assists_per_round_diff
+    family: H
+    family_label: player performance
+    factor_group: player_strength
+    factor_group_rationale: individual player performance statistics (ADR/KAST/KD/assists).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_normalized_margin_last_5_diff
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: time_weighted_map_wr_diff
+    family: M
+    family_label: recent/opponent-adjusted selected-map team features
+    factor_group: map_experience
+    factor_group_rationale: recency- and opponent-adjusted selected-map TEAM features
+      - a comparative/contextual view of map performance, distinct from K's raw strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: selected_map_rank_percentile_diff
+    family: N
+    family_label: map specialization (relative to overall/pool strength)
+    factor_group: map_experience
+    factor_group_rationale: map specialization relative to the team's overall/pool
+      strength - also a comparative view, grouped with M rather than K's raw-strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matches_before_diff
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_mean_normalized_margin_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_map_bottom_kast_diff
+    family: O
+    family_label: current-roster selected-map player performance
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-roster player performance ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_bottom_kd_balance_diff
+    family: H
+    family_label: player performance
+    factor_group: player_strength
+    factor_group_rationale: individual player performance statistics (ADR/KAST/KD/assists).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: current_core_map_continuity_diff
+    family: P
+    family_label: current-core selected-map continuity
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-core lineup continuity ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matchup_midrange_elo_advantage
+    family: C
+    family_label: same-map matchup advantage
+    factor_group: map_pool
+    factor_group_rationale: same-map matchup advantage across the pool.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matchup_mean_smoothed_wr_advantage
+    family: C
+    family_label: same-map matchup advantage
+    factor_group: map_pool
+    factor_group_rationale: same-map matchup advantage across the pool.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_win_rate_last_10_diff
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: selected_map_elo_vs_pool_mean_diff
+    family: N
+    family_label: map specialization (relative to overall/pool strength)
+    factor_group: map_experience
+    factor_group_rationale: map specialization relative to the team's overall/pool
+      strength - also a comparative view, grouped with M rather than K's raw-strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: days_since_map_played_diff
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: time_weighted_win_rate_diff
+    family: F
+    family_label: time-decayed form
+    factor_group: recent_form
+    factor_group_rationale: time-decayed (recency-weighted) form.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: time_weighted_history_mass_min
+    family: G
+    family_label: form confidence
+    factor_group: recent_form
+    factor_group_rationale: form confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_third_best_smoothed_wr_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: tier_tier2
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matches_before_sum
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_third_best_elo_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_map_players_with_history_diff
+    family: O
+    family_label: current-roster selected-map player performance
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-roster player performance ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: core5_continuity_last_10_diff
+    family: I
+    family_label: roster stability
+    factor_group: roster_stability
+    factor_group_rationale: roster/lineup stability and continuity.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matchup_elo_advantage_range
+    family: D
+    family_label: map-pool confidence
+    factor_group: map_pool
+    factor_group_rationale: map-pool confidence/coverage flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_best_smoothed_wr_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_normalized_margin_last_10_diff
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_mean_smoothed_wr_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: history_matches_min
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_name_Ancient
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_5_adjusted_matches
+    family: G
+    family_label: form confidence
+    factor_group: recent_form
+    factor_group_rationale: form confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_recent_selected_map_history
+    family: M
+    family_label: recent/opponent-adjusted selected-map team features
+    factor_group: map_experience
+    factor_group_rationale: recency- and opponent-adjusted selected-map TEAM features
+      - a comparative/contextual view of map performance, distinct from K's raw strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_10_map_matches
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: bestOf_BO3
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: bestOf_BO5
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_10_adjusted_matches
+    family: G
+    family_label: form confidence
+    factor_group: recent_form
+    factor_group_rationale: form confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: time_weighted_map_performance_residual_diff
+    family: M
+    family_label: recent/opponent-adjusted selected-map team features
+    factor_group: map_experience
+    factor_group_rationale: recency- and opponent-adjusted selected-map TEAM features
+      - a comparative/contextual view of map performance, distinct from K's raw strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: time_weighted_map_margin_diff
+    family: M
+    family_label: recent/opponent-adjusted selected-map team features
+    factor_group: map_experience
+    factor_group_rationale: recency- and opponent-adjusted selected-map TEAM features
+      - a comparative/contextual view of map performance, distinct from K's raw strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: tier___UNKNOWN_TIER__
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: tier_tier3
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: shared_recent_map_count
+    family: D
+    family_label: map-pool confidence
+    factor_group: map_pool
+    factor_group_rationale: map-pool confidence/coverage flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: win_rate_last_5_diff
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: selected_map_in_both_recent_pools
+    family: N
+    family_label: map specialization (relative to overall/pool strength)
+    factor_group: map_experience
+    factor_group_rationale: map specialization relative to the team's overall/pool
+      strength - also a comparative view, grouped with M rather than K's raw-strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: shared_experienced_map_count
+    family: D
+    family_label: map-pool confidence
+    factor_group: map_pool
+    factor_group_rationale: map-pool confidence/coverage flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: recent_unique_players_20_maps_diff
+    family: I
+    family_label: roster stability
+    factor_group: roster_stability
+    factor_group_rationale: roster/lineup stability and continuity.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_core_concentration_min
+    family: J
+    family_label: roster / player confidence
+    factor_group: roster_stability
+    factor_group_rationale: roster/player confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: opponent_adjusted_history_min
+    family: G
+    family_label: form confidence
+    factor_group: recent_form
+    factor_group_rationale: form confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_name_Anubis
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_name_Nuke
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_size_min
+    family: D
+    family_label: map-pool confidence
+    factor_group: map_pool
+    factor_group_rationale: map-pool confidence/coverage flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matchup_shared_coverage
+    family: D
+    family_label: map-pool confidence
+    factor_group: map_pool
+    factor_group_rationale: map-pool confidence/coverage flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_name___UNKNOWN_MAP__
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matchup_mean_elo_advantage
+    family: C
+    family_label: same-map matchup advantage
+    factor_group: map_pool
+    factor_group_rationale: same-map matchup advantage across the pool.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matchup_positive_advantage_balance
+    family: C
+    family_label: same-map matchup advantage
+    factor_group: map_pool
+    factor_group_rationale: same-map matchup advantage across the pool.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_map_history
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_map_pool_history
+    family: D
+    family_label: map-pool confidence
+    factor_group: map_pool
+    factor_group_rationale: map-pool confidence/coverage flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_history
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_5_matches
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_5_map_matches
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_5_inferred_players
+    family: J
+    family_label: roster / player confidence
+    factor_group: roster_stability
+    factor_group_rationale: roster/player confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_10_matches
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_3_recent_maps
+    family: D
+    family_label: map-pool confidence
+    factor_group: map_pool
+    factor_group_rationale: map-pool confidence/coverage flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_name_Dust2
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_name_Inferno
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_name_Train
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_name_Overpass
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_name_Vertigo
+    family: L
+    family_label: categorical map / bestOf / tier context
+    factor_group: event_context
+    factor_group_rationale: categorical map/bestOf/tier context.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: performance_residual_last_10_diff
+    family: E
+    family_label: opponent-strength / residual form
+    factor_group: opponent_strength
+    factor_group_rationale: opponent-strength / residual form (strength of schedule,
+      over/under-performance vs. ELO-expected outcome).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_form_players_min
+    family: J
+    family_label: roster / player confidence
+    factor_group: roster_stability
+    factor_group_rationale: roster/player confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_size_min
+    family: J
+    family_label: roster / player confidence
+    factor_group: roster_stability
+    factor_group_rationale: roster/player confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_map_players_with_history_min
+    family: O
+    family_label: current-roster selected-map player performance
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-roster player performance ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_matchup_median_elo_advantage
+    family: C
+    family_label: same-map matchup advantage
+    factor_group: map_pool
+    factor_group_rationale: same-map matchup advantage across the pool.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_mean_adr_diff
+    family: H
+    family_label: player performance
+    factor_group: player_strength
+    factor_group_rationale: individual player performance statistics (ADR/KAST/KD/assists).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: current_core_map_continuity_min
+    family: P
+    family_label: current-core selected-map continuity
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-core lineup continuity ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: performance_residual_last_5_diff
+    family: E
+    family_label: opponent-strength / residual form
+    factor_group: opponent_strength
+    factor_group_rationale: opponent-strength / residual form (strength of schedule,
+      over/under-performance vs. ELO-expected outcome).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_win_rate_last_5_diff
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: history_matches_sum
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_min_player_history_mass
+    family: J
+    family_label: roster / player confidence
+    factor_group: roster_stability
+    factor_group_rationale: roster/player confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_size_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_worst_smoothed_wr_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: union_map_count
+    family: D
+    family_label: map-pool confidence
+    factor_group: map_pool
+    factor_group_rationale: map-pool confidence/coverage flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: recent_unique_players_10_maps_diff
+    family: I
+    family_label: roster stability
+    factor_group: roster_stability
+    factor_group_rationale: roster/lineup stability and continuity.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: selected_map_wr_vs_pool_mean_diff
+    family: N
+    family_label: map specialization (relative to overall/pool strength)
+    factor_group: map_experience
+    factor_group_rationale: map specialization relative to the team's overall/pool
+      strength - also a comparative view, grouped with M rather than K's raw-strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: both_teams_have_5_experienced_maps
+    family: D
+    family_label: map-pool confidence
+    factor_group: map_pool
+    factor_group_rationale: map-pool confidence/coverage flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_second_best_smoothed_wr_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_pool_mean_elo_diff
+    family: B
+    family_label: map-pool depth and order statistics
+    factor_group: map_pool
+    factor_group_rationale: map-pool depth and order statistics (breadth/quality of
+      the team's map pool).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_core_continuity_last10_min
+    family: J
+    family_label: roster / player confidence
+    factor_group: roster_stability
+    factor_group_rationale: roster/player confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_recent_history_mass_min
+    family: M
+    family_label: recent/opponent-adjusted selected-map team features
+    factor_group: map_experience
+    factor_group_rationale: recency- and opponent-adjusted selected-map TEAM features
+      - a comparative/contextual view of map performance, distinct from K's raw strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_normalized_margin_all_diff
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: core5_appearance_concentration_90d_diff
+    family: I
+    family_label: roster stability
+    factor_group: roster_stability
+    factor_group_rationale: roster/lineup stability and continuity.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: format_win_rate_diff
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: win_rate_last_10_diff
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: days_since_last_match_diff
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_map_history_mass_min
+    family: O
+    family_label: current-roster selected-map player performance
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-roster player performance ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_map_kast_specialization_diff
+    family: O
+    family_label: current-roster selected-map player performance
+    factor_group: roster_map_familiarity
+    factor_group_rationale: current-roster player performance ON the selected map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_top_adr_diff
+    family: H
+    family_label: player performance
+    factor_group: player_strength
+    factor_group_rationale: individual player performance statistics (ADR/KAST/KD/assists).
+  - model_id: map_xgboost_v3_final
+    transformed_feature: map_smoothed_win_rate_diff
+    family: K
+    family_label: map-specific historical strength (selected map)
+    factor_group: selected_map_strength
+    factor_group_rationale: the team's own RAW historical performance on the specific
+      selected map (map ELO, win rate, margin, recency-of-last-play, rank-percentile
+      vs. own pool) - the direct strength signal on this map.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: roster_mean_player_history_mass_diff
+    family: J
+    family_label: roster / player confidence
+    factor_group: roster_stability
+    factor_group_rationale: roster/player confidence flags.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: selected_map_elo_vs_overall_diff
+    family: N
+    family_label: map specialization (relative to overall/pool strength)
+    factor_group: map_experience
+    factor_group_rationale: map specialization relative to the team's overall/pool
+      strength - also a comparative view, grouped with M rather than K's raw-strength
+      numbers.
+  - model_id: map_xgboost_v3_final
+    transformed_feature: matches_last_30_days_diff
+    family: A
+    family_label: original series V1 (ELO / win rate / activity)
+    factor_group: overall_strength
+    factor_group_rationale: original series V1 signal (ELO/win-rate/activity), reused
+      unchanged as raw input to the known-map model.

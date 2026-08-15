@@ -1,0 +1,110 @@
+{
+  "event_id": "iem_cologne_major_2026",
+  "phase": "phase8e_simulation_vs_reality",
+  "committed": true,
+  "phase8d_simulation_receipt_reference": {
+    "path": "data/evaluation/cologne_2026_pre_event_simulation_receipt_v1.json",
+    "protocol_hash": "ec0d57aa98fa63521ec04d7fa4d3c6fa2a4e24a371a42a0c1bed51359e50a7a3",
+    "n_simulations": 50000,
+    "created_before_results_opened": true,
+    "cologne_results_status_at_phase8d_time": "UNOPENED",
+    "own_file_hash": "050ce55150832c1aac5a0359e22fd096dc16be259f0ea7e788346d068ed2ad22"
+  },
+  "reconciliation": {
+    "original_rows": 107,
+    "official_rows": 106,
+    "excluded_row": "Team Germany vs Team Poland showmatch, 2026-06-21"
+  },
+  "engine_replay": {
+    "total_matched": "106/106",
+    "unused": 0,
+    "duplicate": 0,
+    "ambiguous": 0,
+    "missing": 0
+  },
+  "hashes": {
+    "immutable_pre_event_record": {
+      "phase8d_protocol": "46f628b5837c01dc7611fcca0ce1a14bbbbb3fbd67af6126f3b7b105f67b91f6",
+      "phase8d_probability_matrix": "5cf8002a76fdb2e41d93483067fe99f8a15daafe920e151c1ac32f0297199101",
+      "phase8d_probability_receipt": "5e8a5712008b204e3829b6b89fd22fbfbce252521348960dc6d74f5441ede742",
+      "phase8d_simulation_receipt": "050ce55150832c1aac5a0359e22fd096dc16be259f0ea7e788346d068ed2ad22",
+      "phase8d_team_probabilities": "790937d70b1877357f6d81d3c39560f13c8659b21962dc63617b606e84f3b29f",
+      "phase8d_swiss_record_distributions": "f43ec7022f7faa4638560767ad3d1107eb5db48dec9315f234ab5e32459dca4b",
+      "phase8d_playoff_seed_distributions": "db920eda30dccc89d375cbbad7dcbf6517b6bec26b8bd98ef6cc65eb8cc78f9c",
+      "phase8d_matchup_frequencies": "2c075bea2db9d02c5961151828dcc08d9251f79d1bc1ec7fefb43b6ac6021d68",
+      "phase8d_favorite_path": "8e23e21385c424e3aa04d96571b39dcc84f2bb6aadfbee6f846402f6e3f296b6",
+      "phase8b_tournament_yaml": "e481ca4dc3ab5bdf63636ad53eeeba8d3677305b643ecb98b7391e6419383ba3",
+      "phase8c_tournament_engine": "012bd58e7792f7cce1e888d8f233fab274d798d4c3728f5b237f041fb73dd665",
+      "rf_v2_model": "e26e97fd8f1ea7676659605af2d9abd4d4e4cb0c5b767d1df506fb0a9cfac4a9",
+      "strict_pre_cologne_state": "7d021bad35277fa09cff413899f47027eb20b2a4723a0a279615fdb9f3679caa",
+      "phase8d1_provenance_report": "fd9ab18d8ae856ad5c7a99f32499262f261691a24dd15b7b9d3d269684cb2032",
+      "phase8d1_provenance_json": "759261d95cbc56daf478d61738eb871f1575b4f957d11bbab4fa666c4c91920b"
+    },
+    "evaluation_artifacts": {
+      "protocol": "36e896e59002945fc0cb757289b9094e0a8766b63c2d2d195b540a34c4443a70",
+      "result_source_manifest": "3c83466817363d609a489c220f0fb017550a2c4d584403a48b576117386d040e",
+      "result_source_snapshot": "36e26b2ab74fe4e86d99d692f31da9e33fb3aa98df6d3c24f49dbadc0672a3ff",
+      "reconciliation_table": "c8fa9091aa3c9a8cd497eaa04bde1d3a5cd29dcc0da09e5467990cc3d11f67de",
+      "actual_series_results": "53f10a8a25fb21bac4a90a7edf8d5694167d7e4554e54a2b5a6c87b508fe53ab",
+      "gate2_replay_artifact": "425f002569bf3350b25f804ff0759fe6c31fec49b571e7f0984e606c231edcee",
+      "actual_match_predictions": "15845acbab682baa4905f41fd994477858622f713c5b5040702c3376e9d85d98",
+      "milestone_comparison": "336b576bb6b1408e02c2d3de8b8d0c9486aa2d9d69e553002fa7c242c88fef82",
+      "metrics_detail": "9275a99bc3f5f24832ec339e667a13a7783cf7ad20011255cb70a45d0f590e45",
+      "simulation_vs_reality_summary": "8dcb0e2c640a2c134beec5cbb00ad1b1e3653c7b29b520202ccac576a843ff6a",
+      "report": "6d7b01b0c4f6b34632b25817ded68d3e490e89e899940653c64b676d2c64bbdc"
+    },
+    "evaluation_scripts": {
+      "scripts/build_phase8e_protocol.py": "c5e4368616c17c5def101b674f0d4ae3b050510c323b1723726094700e60f7c5",
+      "scripts/phase8e_common.py": "a89251a3ed3312b49e0b04336807cc540a1f364d1178271e5d37c6bee1134a04",
+      "scripts/reconcile_cologne_actual_results.py": "052c6a2d861d4ffcb28e91ded27d59e1c12e236aeb103af292b9ba983c576551",
+      "scripts/phase8e_actual_outcome_provider.py": "e55136c62b0a2514446768f22a41ace4731238b13174c6cf73446d19e1bd0134",
+      "scripts/build_phase8e_gate2_artifact.py": "355b2f545e8c1660dffa47799fee9fbd150ac8b5716f7c44d902a83465bc6919",
+      "scripts/build_phase8e_predictions.py": "20ee2d577e85b188198c2e92dcc206a44c328b7f3338becc93f45b3915b62f38",
+      "scripts/phase8e_metrics.py": "d8171c740506fc276474a7f8cb0f863ff8cf48e79cb6b735e80ac07ec25fb8fa",
+      "scripts/build_phase8e_summary.py": "2c7f576ab239f7bd43ae4c24a82332318d17ab33c0019d0c124ddea8d46b9604",
+      "scripts/build_phase8e_source_snapshot.py": "03ece090920ae0c9e074f7d651ed6ed520e3375a5594d0626c54aa5e93b1235b",
+      "scripts/build_phase8e_metrics_detail.py": "95eb769555f2cf46d82a58a225d3c193e06ebbd6db5ce3b9927cd40a7cef3df0",
+      "scripts/phase8e_figures.py": "eda258d88b324f0b9fed486bc9808cbf187b1c547e240e076fbf61c6f7e7f437",
+      "scripts/validate_phase8e.py": "bef64f525939ebbaaf58b36633d1c530836f9cade62bb0db48d50e80453f70ce",
+      "scripts/build_phase8e_receipt.py": "b2eb084a6da6b063b439130e20fe0e78e39dabc70dcc3e09e7c09d0e2d540baa"
+    },
+    "figures": {
+      "01_championship_probability_actual_champion.pdf": "d79380d989e70e3ea9794cf39a42ca7693a98d1ccf40555a789eda618465662e",
+      "01_championship_probability_actual_champion.png": "f70b118361cbbfebff85f65317539cfd25324e90d10cf078483250b30e994f52",
+      "02_playoff_probability_actual_teams.pdf": "4b3a660593807655b6a795dbf801ca7ca9cbd8f76bfdcb44dfcf5a8005c3334d",
+      "02_playoff_probability_actual_teams.png": "a1d9e757e62692085b1355360224a1102002fca3f9937f58bbe4d7852dcb2b9f",
+      "03_predicted_vs_actual_progression.pdf": "b8212ba5bdfc8fad5228adfb3043f2a3c7ec916aa1696c344c75f083a020cff0",
+      "03_predicted_vs_actual_progression.png": "1f6b30d4c8d355cee3af882240a3ed5cca022cb627ed65eeed12324ce5d7150c",
+      "04_top8_playoff_prediction_vs_actual.pdf": "2dadc29187a51f7d376d71e2b1500399669fbf2e04ee29e5b454a40752f6283d",
+      "04_top8_playoff_prediction_vs_actual.png": "2b70cfca1b369ce98e5649da8b84de7aac4696586eaa961d75bb3d83a1903ee7",
+      "05_match_confusion_matrix.pdf": "8828d6ab44460e00d17a42f75541659e6f2f9a9ff0e4922283ffd98390bd645c",
+      "05_match_confusion_matrix.png": "01be762ded6a3c3d7d2c9a98fcb75a00848ccbcdf70c5085d546d3f37c5cc01b",
+      "06_match_roc_curve.pdf": "690a703b6f01bf83d5d14240f8f5107396b1dee65db2c6a05d994b8b5f1a229b",
+      "06_match_roc_curve.png": "fdd954d096fdcbea308f5c92ba2e2cf4b2bd9502b904f2ac790a7f065714df35",
+      "07_actual_winner_probability_distribution.pdf": "1f3bc84f1a12c3fafe608efba07f9691444947219874a9d7230689add8e6126e",
+      "07_actual_winner_probability_distribution.png": "dfe3b062eda9b7bcb68b08e0c8d0b1d4ea756484adbb0f9cc2c139c66333589e",
+      "08_match_metrics_by_stage.pdf": "7e012c2b6e488333b0e80be867c1f5ebcd3f0104fefe0fc970e41bfec893e017",
+      "08_match_metrics_by_stage.png": "cc16b8e987f1746d504e569dfb601c0f5c9b37f79665f429ac553aaa2d13c1f5",
+      "09_stage_advancement_vs_reality.pdf": "e263cb1f0b385e741c2164c3bc5ba10422f44fb1256aae79866da800b09b656e",
+      "09_stage_advancement_vs_reality.png": "62179bfaad1e1255ff922acccfeee254c5ea7dc99bc866af595958e6ca9f3523",
+      "10_swiss_realized_record_probability.pdf": "6173831048d15c7ad4524b5c018151d4dbf74208c4aa8d65687bd06f0ea52ee7",
+      "10_swiss_realized_record_probability.png": "cbe07c98da7cb56c334ef5b930e04aa7b13bcf69da547c4fa117c39957db97c5",
+      "11_favorite_path_vs_actual_progression.pdf": "e27949a46536d50ca97e13b024ad2bf7451955c5b272b66cc883720af83e33d9",
+      "11_favorite_path_vs_actual_progression.png": "223a55b01c24dce642e9c6bb84a8aff079b03f53fa8c336b97c233ccf83bf834",
+      "12_simulation_vs_reality_summary_card.pdf": "8554b2b4ecfd011991501cd016770fafad44c34c302663af62d8d3a00d451244",
+      "12_simulation_vs_reality_summary_card.png": "493fc901ce1d3133bef0c9e095ec41cdc3dbbb213bbef17cb728665766cc098d"
+    }
+  },
+  "policy_declarations": {
+    "no_retraining": true,
+    "no_recalibration": true,
+    "no_feature_engineering": true,
+    "no_threshold_adjustment": true,
+    "no_model_replacement": true,
+    "no_state_update": true,
+    "no_cologne_training_ingestion_yet": true,
+    "no_api_yet": true,
+    "no_pwa_yet": true,
+    "rf_v2_never_loaded_in_phase8e": true
+  }
+}

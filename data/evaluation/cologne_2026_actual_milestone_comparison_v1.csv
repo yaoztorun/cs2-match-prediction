@@ -1,0 +1,33 @@
+team,actual_reached_playoffs,predicted_p_playoffs,actual_reached_semifinal,predicted_p_semifinal,actual_reached_final,predicted_p_final,actual_champion,predicted_p_champion
+9z Team,True,0.09834,False,0.03252,False,0.00978,False,0.00256
+Astralis,False,0.19942,False,0.0736,False,0.02536,False,0.00778
+Aurora Gaming,True,0.45868,True,0.19244,False,0.07324,False,0.02716
+B8 Esports,False,0.10088,False,0.03654,False,0.01382,False,0.00506
+BIG,False,0.1577,False,0.06378,False,0.02402,False,0.0091
+BetBoom Team,True,0.25138,False,0.11542,False,0.05036,False,0.02108
+FURIA Esports,True,0.534,True,0.23316,True,0.0933,False,0.03722
+FUT Esports,False,0.20676,False,0.07852,False,0.02812,False,0.0092
+FlyQuest,False,0.04704,False,0.01546,False,0.00486,False,0.0019
+G2 Esports,True,0.28616,False,0.11684,False,0.04452,False,0.01644
+Gaimin Gladiators,False,0.00728,False,0.00198,False,0.00062,False,0.0002
+GamerLegion,False,0.17192,False,0.06876,False,0.02584,False,0.00906
+Heroic,False,0.0526,False,0.01708,False,0.00506,False,0.00126
+Legacy,False,0.27746,False,0.11612,False,0.04604,False,0.01788
+Lynn Vision Gaming,False,0.01398,False,0.00368,False,0.0011,False,0.00044
+M80,False,0.03074,False,0.0091,False,0.00248,False,0.0007
+MIBR,False,0.05318,False,0.0174,False,0.00552,False,0.0017
+MOUZ,False,0.68516,False,0.35772,False,0.17286,False,0.07754
+Monte,False,0.11934,False,0.0409,False,0.01326,False,0.00452
+NRG Esports,False,0.00376,False,0.00066,False,0.0001,False,0.0
+Natus Vincere,False,0.74496,False,0.4348,False,0.23938,False,0.1142
+PARIVISION,False,0.37576,False,0.1358,False,0.04656,False,0.01636
+Sharks Esports,False,0.01598,False,0.0046,False,0.00132,False,0.0003
+Sinners Esports,False,0.08436,False,0.0304,False,0.00982,False,0.00304
+THUNDERdOWNUNDER,False,0.0031,False,0.00086,False,0.00018,False,4e-05
+TYLOO,False,0.0234,False,0.00738,False,0.00216,False,0.0007
+Team Falcons,True,0.68602,True,0.37702,True,0.19352,True,0.0893
+Team Liquid,False,0.02084,False,0.006,False,0.00158,False,0.00034
+Team Spirit,True,0.75368,True,0.50678,False,0.3207,False,0.18952
+Team Vitality,True,0.87994,False,0.62898,False,0.43798,False,0.29696
+The Mongolz,False,0.53884,False,0.23632,False,0.09492,False,0.03504
+paiN Gaming,False,0.11734,False,0.03938,False,0.01162,False,0.0034

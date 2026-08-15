@@ -1,0 +1,3434 @@
+[
+  {
+    "fixture_id": "um_history_rich_favorite",
+    "purpose": "history-rich matchup between two teams with deep historical state (both played the full Cologne run) - a straightforward, well-supported explanation case.",
+    "result": {
+      "prediction": {
+        "prediction_mode": "pre_veto",
+        "team_a": "Team Vitality",
+        "team_b": "Team Falcons",
+        "best_of": 3,
+        "tier": "tier1",
+        "tier_source": "application_default",
+        "probability_team_a": 0.5523408433787343,
+        "probability_team_b": 0.44765915662126565,
+        "favored_team": "Team Vitality",
+        "prediction_is_tied": false,
+        "model_id": "series_random_forest_v2",
+        "context_id": "deployment_post_cologne_v1",
+        "state_cutoff": "2026-06-28 20:00:00",
+        "prediction_datetime": "2026-06-28 20:00:00",
+        "data_freshness": {
+          "state_data_through": "2026-06-28 20:00:00",
+          "state_is_live": false,
+          "requested_prediction_datetime": "2026-06-28 20:00:00",
+          "staleness_days": 0.0,
+          "snapshot_id": "deployment_post_cologne_v1"
+        },
+        "team_a_history": {
+          "identity_known": true,
+          "available": true,
+          "cold_start": false,
+          "matches": 196
+        },
+        "team_b_history": {
+          "identity_known": true,
+          "available": true,
+          "cold_start": false,
+          "matches": 199
+        }
+      },
+      "explanation": {
+        "explanation_type": "model_feature_attribution",
+        "causal": false,
+        "attribution_method": "saabas_path_decomposition",
+        "attribution_output_space": "probability",
+        "base_value": 0.4997240267915597,
+        "feature_contributions": [
+          {
+            "transformed_feature": "elo_diff",
+            "raw_feature": "elo_diff",
+            "raw_value": 54.4549118119337,
+            "transformed_value": 54.4549118119337,
+            "contribution": 0.0451924091348461,
+            "factor_group": "overall_strength",
+            "display_label": "ELO rating difference"
+          },
+          {
+            "transformed_feature": "overall_win_rate_diff",
+            "raw_feature": "overall_win_rate_diff",
+            "raw_value": 0.2432019704433498,
+            "transformed_value": 0.2432019704433498,
+            "contribution": 0.023231674864029217,
+            "factor_group": "overall_strength",
+            "display_label": "Overall win-rate difference"
+          },
+          {
+            "transformed_feature": "win_rate_last_5_diff",
+            "raw_feature": "win_rate_last_5_diff",
+            "raw_value": -0.4,
+            "transformed_value": -0.4,
+            "contribution": -0.004543402262144167,
+            "factor_group": "recent_performance",
+            "display_label": "Last-5-match win-rate difference"
+          },
+          {
+            "transformed_feature": "win_rate_last_10_diff",
+            "raw_feature": "win_rate_last_10_diff",
+            "raw_value": -0.20000000000000007,
+            "transformed_value": -0.20000000000000007,
+            "contribution": -0.007233121094376466,
+            "factor_group": "recent_performance",
+            "display_label": "Last-10-match win-rate difference"
+          },
+          {
+            "transformed_feature": "format_win_rate_diff",
+            "raw_feature": "format_win_rate_diff",
+            "raw_value": 0.1969696969696969,
+            "transformed_value": 0.1969696969696969,
+            "contribution": 0.017728304350947268,
+            "factor_group": "recent_performance",
+            "display_label": "Format-specific win-rate difference"
+          },
+          {
+            "transformed_feature": "avg_series_margin_last_5_diff",
+            "raw_feature": "avg_series_margin_last_5_diff",
+            "raw_value": -0.9999999999999999,
+            "transformed_value": -0.9999999999999999,
+            "contribution": -0.016174968561907036,
+            "factor_group": "recent_performance",
+            "display_label": "Last-5 average series margin difference"
+          },
+          {
+            "transformed_feature": "avg_series_margin_last_10_diff",
+            "raw_feature": "avg_series_margin_last_10_diff",
+            "raw_value": -0.09999999999999998,
+            "transformed_value": -0.09999999999999998,
+            "contribution": -0.013081964143295561,
+            "factor_group": "recent_performance",
+            "display_label": "Last-10 average series margin difference"
+          },
+          {
+            "transformed_feature": "matches_last_30_days_diff",
+            "raw_feature": "matches_last_30_days_diff",
+            "raw_value": -2,
+            "transformed_value": -2.0,
+            "contribution": -0.006003085552539803,
+            "factor_group": "recent_performance",
+            "display_label": "Recent activity difference"
+          },
+          {
+            "transformed_feature": "days_since_last_match_diff",
+            "raw_feature": "days_since_last_match_diff",
+            "raw_value": 1.8159722222222223,
+            "transformed_value": 1.8159722222222223,
+            "contribution": -0.007427074571806244,
+            "factor_group": "recent_performance",
+            "display_label": "Rest/inactivity difference"
+          },
+          {
+            "transformed_feature": "total_matches_before_diff",
+            "raw_feature": "total_matches_before_diff",
+            "raw_value": -3,
+            "transformed_value": -3.0,
+            "contribution": -0.02498240506605145,
+            "factor_group": "historical_experience",
+            "display_label": "Total prior match-count difference"
+          },
+          {
+            "transformed_feature": "history_matches_min",
+            "raw_feature": "history_matches_min",
+            "raw_value": 196,
+            "transformed_value": 196.0,
+            "contribution": 0.02164967990909577,
+            "factor_group": "historical_experience",
+            "display_label": "Minimum historical match count"
+          },
+          {
+            "transformed_feature": "history_matches_sum",
+            "raw_feature": "history_matches_sum",
+            "raw_value": 395,
+            "transformed_value": 395.0,
+            "contribution": 0.019056041825865195,
+            "factor_group": "historical_experience",
+            "display_label": "Combined historical match count"
+          },
+          {
+            "transformed_feature": "both_teams_have_history",
+            "raw_feature": "both_teams_have_history",
+            "raw_value": 1,
+            "transformed_value": 1.0,
+            "contribution": 0.00025457731837792783,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have any history"
+          },
+          {
+            "transformed_feature": "both_teams_have_5_matches",
+            "raw_feature": "both_teams_have_5_matches",
+            "raw_value": 1,
+            "transformed_value": 1.0,
+            "contribution": 0.001850728079620616,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have >=5 matches"
+          },
+          {
+            "transformed_feature": "both_teams_have_10_matches",
+            "raw_feature": "both_teams_have_10_matches",
+            "raw_value": 1,
+            "transformed_value": 1.0,
+            "contribution": 0.0011949595578104348,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have >=10 matches"
+          },
+          {
+            "transformed_feature": "bestOf_BO3",
+            "raw_feature": "bestOf",
+            "raw_value": 3,
+            "transformed_value": 1.0,
+            "contribution": 0.0005586805840765367,
+            "factor_group": "event_context",
+            "display_label": "Series format"
+          },
+          {
+            "transformed_feature": "bestOf_BO5",
+            "raw_feature": "bestOf",
+            "raw_value": 3,
+            "transformed_value": 0.0,
+            "contribution": -5.448392147899457e-06,
+            "factor_group": "event_context",
+            "display_label": "Series format"
+          },
+          {
+            "transformed_feature": "tier_tier2",
+            "raw_feature": "tier",
+            "raw_value": "tier1",
+            "transformed_value": 0.0,
+            "contribution": 0.0013073782828141494,
+            "factor_group": "event_context",
+            "display_label": "Tournament tier"
+          },
+          {
+            "transformed_feature": "tier_tier3",
+            "raw_feature": "tier",
+            "raw_value": "tier1",
+            "transformed_value": 0.0,
+            "contribution": 4.3852323960579066e-05,
+            "factor_group": "event_context",
+            "display_label": "Tournament tier"
+          }
+        ],
+        "grouped_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": 0.06842408399887531,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": 54.4549118119337,
+                "transformed_value": 54.4549118119337,
+                "contribution": 0.0451924091348461,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": 0.2432019704433498,
+                "transformed_value": 0.2432019704433498,
+                "contribution": 0.023231674864029217,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.06842408399887531,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": -0.03673531183512201,
+            "supporting_features": [
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": 0.1969696969696969,
+                "transformed_value": 0.1969696969696969,
+                "contribution": 0.017728304350947268,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": -0.9999999999999999,
+                "transformed_value": -0.9999999999999999,
+                "contribution": -0.016174968561907036,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": -0.09999999999999998,
+                "transformed_value": -0.09999999999999998,
+                "contribution": -0.013081964143295561,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": 1.8159722222222223,
+                "transformed_value": 1.8159722222222223,
+                "contribution": -0.007427074571806244,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": -0.20000000000000007,
+                "transformed_value": -0.20000000000000007,
+                "contribution": -0.007233121094376466,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": -2,
+                "transformed_value": -2.0,
+                "contribution": -0.006003085552539803,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": -0.4,
+                "transformed_value": -0.4,
+                "contribution": -0.004543402262144167,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.03673531183512201,
+            "attribution_output_space": "probability",
+            "rank": 2
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": 0.01902358162471849,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": -3,
+                "transformed_value": -3.0,
+                "contribution": -0.02498240506605145,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 196,
+                "transformed_value": 196.0,
+                "contribution": 0.02164967990909577,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 395,
+                "transformed_value": 395.0,
+                "contribution": 0.019056041825865195,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 0.001850728079620616,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 0.0011949595578104348,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 0.00025457731837792783,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.01902358162471849,
+            "attribution_output_space": "probability",
+            "rank": 3
+          },
+          {
+            "factor_group": "event_context",
+            "signed_contribution": 0.0019044627987033658,
+            "supporting_features": [
+              {
+                "transformed_feature": "tier_tier2",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": 0.0013073782828141494,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO3",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 1.0,
+                "contribution": 0.0005586805840765367,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              },
+              {
+                "transformed_feature": "tier_tier3",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": 4.3852323960579066e-05,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO5",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 0.0,
+                "contribution": -5.448392147899457e-06,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.0019044627987033658,
+            "attribution_output_space": "probability",
+            "rank": 4
+          }
+        ],
+        "team_a_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": 0.06842408399887531,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": 54.4549118119337,
+                "transformed_value": 54.4549118119337,
+                "contribution": 0.0451924091348461,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": 0.2432019704433498,
+                "transformed_value": 0.2432019704433498,
+                "contribution": 0.023231674864029217,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.06842408399887531,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": 0.01902358162471849,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": -3,
+                "transformed_value": -3.0,
+                "contribution": -0.02498240506605145,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 196,
+                "transformed_value": 196.0,
+                "contribution": 0.02164967990909577,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 395,
+                "transformed_value": 395.0,
+                "contribution": 0.019056041825865195,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 0.001850728079620616,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 0.0011949595578104348,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 0.00025457731837792783,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.01902358162471849,
+            "attribution_output_space": "probability",
+            "rank": 3
+          },
+          {
+            "factor_group": "event_context",
+            "signed_contribution": 0.0019044627987033658,
+            "supporting_features": [
+              {
+                "transformed_feature": "tier_tier2",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": 0.0013073782828141494,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO3",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 1.0,
+                "contribution": 0.0005586805840765367,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              },
+              {
+                "transformed_feature": "tier_tier3",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": 4.3852323960579066e-05,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO5",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 0.0,
+                "contribution": -5.448392147899457e-06,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.0019044627987033658,
+            "attribution_output_space": "probability",
+            "rank": 4
+          }
+        ],
+        "team_b_factors": [
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": -0.03673531183512201,
+            "supporting_features": [
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": 0.1969696969696969,
+                "transformed_value": 0.1969696969696969,
+                "contribution": 0.017728304350947268,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": -0.9999999999999999,
+                "transformed_value": -0.9999999999999999,
+                "contribution": -0.016174968561907036,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": -0.09999999999999998,
+                "transformed_value": -0.09999999999999998,
+                "contribution": -0.013081964143295561,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": 1.8159722222222223,
+                "transformed_value": 1.8159722222222223,
+                "contribution": -0.007427074571806244,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": -0.20000000000000007,
+                "transformed_value": -0.20000000000000007,
+                "contribution": -0.007233121094376466,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": -2,
+                "transformed_value": -2.0,
+                "contribution": -0.006003085552539803,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": -0.4,
+                "transformed_value": -0.4,
+                "contribution": -0.004543402262144167,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.03673531183512201,
+            "attribution_output_space": "probability",
+            "rank": 2
+          }
+        ],
+        "neutral_factors": [],
+        "top_positive_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": 0.06842408399887531,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": 54.4549118119337,
+                "transformed_value": 54.4549118119337,
+                "contribution": 0.0451924091348461,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": 0.2432019704433498,
+                "transformed_value": 0.2432019704433498,
+                "contribution": 0.023231674864029217,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.06842408399887531,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": 0.01902358162471849,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": -3,
+                "transformed_value": -3.0,
+                "contribution": -0.02498240506605145,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 196,
+                "transformed_value": 196.0,
+                "contribution": 0.02164967990909577,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 395,
+                "transformed_value": 395.0,
+                "contribution": 0.019056041825865195,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 0.001850728079620616,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 0.0011949595578104348,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 0.00025457731837792783,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.01902358162471849,
+            "attribution_output_space": "probability",
+            "rank": 3
+          },
+          {
+            "factor_group": "event_context",
+            "signed_contribution": 0.0019044627987033658,
+            "supporting_features": [
+              {
+                "transformed_feature": "tier_tier2",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": 0.0013073782828141494,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO3",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 1.0,
+                "contribution": 0.0005586805840765367,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              },
+              {
+                "transformed_feature": "tier_tier3",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": 4.3852323960579066e-05,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO5",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 0.0,
+                "contribution": -5.448392147899457e-06,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.0019044627987033658,
+            "attribution_output_space": "probability",
+            "rank": 4
+          }
+        ],
+        "top_negative_factors": [
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": -0.03673531183512201,
+            "supporting_features": [
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": 0.1969696969696969,
+                "transformed_value": 0.1969696969696969,
+                "contribution": 0.017728304350947268,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": -0.9999999999999999,
+                "transformed_value": -0.9999999999999999,
+                "contribution": -0.016174968561907036,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": -0.09999999999999998,
+                "transformed_value": -0.09999999999999998,
+                "contribution": -0.013081964143295561,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": 1.8159722222222223,
+                "transformed_value": 1.8159722222222223,
+                "contribution": -0.007427074571806244,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": -0.20000000000000007,
+                "transformed_value": -0.20000000000000007,
+                "contribution": -0.007233121094376466,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": -2,
+                "transformed_value": -2.0,
+                "contribution": -0.006003085552539803,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": -0.4,
+                "transformed_value": -0.4,
+                "contribution": -0.004543402262144167,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.03673531183512201,
+            "attribution_output_space": "probability",
+            "rank": 2
+          }
+        ],
+        "human_readable_summary": [
+          "Overall team strength features were the largest factor pushing the model's prediction toward Team A.",
+          "Historical experience features were the third-largest factor pushing the model's prediction toward Team A.",
+          "Series format/tier context features were a factor pushing the model's prediction toward Team A.",
+          "Recent performance features were the second-largest factor pushing the model's prediction toward Team B."
+        ],
+        "input_provenance": {
+          "team_a_cold_start": false,
+          "team_b_cold_start": false,
+          "notes": []
+        },
+        "reconstruction_check": {
+          "reconstructed_probability_team_a": 0.5523408433787349,
+          "predicted_probability_team_a": 0.5523408433787343,
+          "tolerance": 1e-06,
+          "passed": true
+        }
+      }
+    }
+  },
+  {
+    "fixture_id": "um_near_even",
+    "purpose": "a matchup between two other high-history top teams, selected structurally (both Cologne semifinal/playoff-caliber teams) as a candidate for a closer prediction, not chosen after inspecting attribution output.",
+    "result": {
+      "prediction": {
+        "prediction_mode": "pre_veto",
+        "team_a": "Team Spirit",
+        "team_b": "Team Vitality",
+        "best_of": 3,
+        "tier": "tier1",
+        "tier_source": "application_default",
+        "probability_team_a": 0.47229360866210707,
+        "probability_team_b": 0.527706391337893,
+        "favored_team": "Team Vitality",
+        "prediction_is_tied": false,
+        "model_id": "series_random_forest_v2",
+        "context_id": "deployment_post_cologne_v1",
+        "state_cutoff": "2026-06-28 20:00:00",
+        "prediction_datetime": "2026-06-28 20:00:00",
+        "data_freshness": {
+          "state_data_through": "2026-06-28 20:00:00",
+          "state_is_live": false,
+          "requested_prediction_datetime": "2026-06-28 20:00:00",
+          "staleness_days": 0.0,
+          "snapshot_id": "deployment_post_cologne_v1"
+        },
+        "team_a_history": {
+          "identity_known": true,
+          "available": true,
+          "cold_start": false,
+          "matches": 208
+        },
+        "team_b_history": {
+          "identity_known": true,
+          "available": true,
+          "cold_start": false,
+          "matches": 196
+        }
+      },
+      "explanation": {
+        "explanation_type": "model_feature_attribution",
+        "causal": false,
+        "attribution_method": "saabas_path_decomposition",
+        "attribution_output_space": "probability",
+        "base_value": 0.4997240267915597,
+        "feature_contributions": [
+          {
+            "transformed_feature": "elo_diff",
+            "raw_feature": "elo_diff",
+            "raw_value": -33.539754650008945,
+            "transformed_value": -33.539754650008945,
+            "contribution": -0.04542232581906404,
+            "factor_group": "overall_strength",
+            "display_label": "ELO rating difference"
+          },
+          {
+            "transformed_feature": "overall_win_rate_diff",
+            "raw_feature": "overall_win_rate_diff",
+            "raw_value": -0.04471698113207556,
+            "transformed_value": -0.04471698113207556,
+            "contribution": -0.014575319471900583,
+            "factor_group": "overall_strength",
+            "display_label": "Overall win-rate difference"
+          },
+          {
+            "transformed_feature": "win_rate_last_5_diff",
+            "raw_feature": "win_rate_last_5_diff",
+            "raw_value": 0.20000000000000007,
+            "transformed_value": 0.20000000000000007,
+            "contribution": 0.0037984934605396216,
+            "factor_group": "recent_performance",
+            "display_label": "Last-5-match win-rate difference"
+          },
+          {
+            "transformed_feature": "win_rate_last_10_diff",
+            "raw_feature": "win_rate_last_10_diff",
+            "raw_value": 0.30000000000000004,
+            "transformed_value": 0.30000000000000004,
+            "contribution": 0.01717149571502143,
+            "factor_group": "recent_performance",
+            "display_label": "Last-10-match win-rate difference"
+          },
+          {
+            "transformed_feature": "format_win_rate_diff",
+            "raw_feature": "format_win_rate_diff",
+            "raw_value": -0.05192373169901254,
+            "transformed_value": -0.05192373169901254,
+            "contribution": -0.005714724889035268,
+            "factor_group": "recent_performance",
+            "display_label": "Format-specific win-rate difference"
+          },
+          {
+            "transformed_feature": "avg_series_margin_last_5_diff",
+            "raw_feature": "avg_series_margin_last_5_diff",
+            "raw_value": 0.4,
+            "transformed_value": 0.4,
+            "contribution": 0.008151470019708852,
+            "factor_group": "recent_performance",
+            "display_label": "Last-5 average series margin difference"
+          },
+          {
+            "transformed_feature": "avg_series_margin_last_10_diff",
+            "raw_feature": "avg_series_margin_last_10_diff",
+            "raw_value": 0.7000000000000001,
+            "transformed_value": 0.7000000000000001,
+            "contribution": 0.013013619213405991,
+            "factor_group": "recent_performance",
+            "display_label": "Last-10 average series margin difference"
+          },
+          {
+            "transformed_feature": "matches_last_30_days_diff",
+            "raw_feature": "matches_last_30_days_diff",
+            "raw_value": 3,
+            "transformed_value": 3.0,
+            "contribution": 0.004809035371586302,
+            "factor_group": "recent_performance",
+            "display_label": "Recent activity difference"
+          },
+          {
+            "transformed_feature": "days_since_last_match_diff",
+            "raw_feature": "days_since_last_match_diff",
+            "raw_value": -0.8993055555555554,
+            "transformed_value": -0.8993055555555554,
+            "contribution": 0.009103835945551697,
+            "factor_group": "recent_performance",
+            "display_label": "Rest/inactivity difference"
+          },
+          {
+            "transformed_feature": "total_matches_before_diff",
+            "raw_feature": "total_matches_before_diff",
+            "raw_value": 12,
+            "transformed_value": 12.0,
+            "contribution": 0.0329216989205009,
+            "factor_group": "historical_experience",
+            "display_label": "Total prior match-count difference"
+          },
+          {
+            "transformed_feature": "history_matches_min",
+            "raw_feature": "history_matches_min",
+            "raw_value": 196,
+            "transformed_value": 196.0,
+            "contribution": -0.024359865540105306,
+            "factor_group": "historical_experience",
+            "display_label": "Minimum historical match count"
+          },
+          {
+            "transformed_feature": "history_matches_sum",
+            "raw_feature": "history_matches_sum",
+            "raw_value": 404,
+            "transformed_value": 404.0,
+            "contribution": -0.020720795640353347,
+            "factor_group": "historical_experience",
+            "display_label": "Combined historical match count"
+          },
+          {
+            "transformed_feature": "both_teams_have_history",
+            "raw_feature": "both_teams_have_history",
+            "raw_value": 1,
+            "transformed_value": 1.0,
+            "contribution": -8.633426484876694e-05,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have any history"
+          },
+          {
+            "transformed_feature": "both_teams_have_5_matches",
+            "raw_feature": "both_teams_have_5_matches",
+            "raw_value": 1,
+            "transformed_value": 1.0,
+            "contribution": -0.0023539066946940443,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have >=5 matches"
+          },
+          {
+            "transformed_feature": "both_teams_have_10_matches",
+            "raw_feature": "both_teams_have_10_matches",
+            "raw_value": 1,
+            "transformed_value": 1.0,
+            "contribution": -0.0020157748821264974,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have >=10 matches"
+          },
+          {
+            "transformed_feature": "bestOf_BO3",
+            "raw_feature": "bestOf",
+            "raw_value": 3,
+            "transformed_value": 1.0,
+            "contribution": 0.0004090877664096428,
+            "factor_group": "event_context",
+            "display_label": "Series format"
+          },
+          {
+            "transformed_feature": "bestOf_BO5",
+            "raw_feature": "bestOf",
+            "raw_value": 3,
+            "transformed_value": 0.0,
+            "contribution": -3.791123830918508e-06,
+            "factor_group": "event_context",
+            "display_label": "Series format"
+          },
+          {
+            "transformed_feature": "tier_tier2",
+            "raw_feature": "tier",
+            "raw_value": "tier1",
+            "transformed_value": 0.0,
+            "contribution": -0.0014346676371720538,
+            "factor_group": "event_context",
+            "display_label": "Tournament tier"
+          },
+          {
+            "transformed_feature": "tier_tier3",
+            "raw_feature": "tier",
+            "raw_value": "tier1",
+            "transformed_value": 0.0,
+            "contribution": -0.00012164857904592819,
+            "factor_group": "event_context",
+            "display_label": "Tournament tier"
+          }
+        ],
+        "grouped_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": -0.05999764529096462,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": -33.539754650008945,
+                "transformed_value": -33.539754650008945,
+                "contribution": -0.04542232581906404,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": -0.04471698113207556,
+                "transformed_value": -0.04471698113207556,
+                "contribution": -0.014575319471900583,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.05999764529096462,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": 0.05033322483677862,
+            "supporting_features": [
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": 0.30000000000000004,
+                "transformed_value": 0.30000000000000004,
+                "contribution": 0.01717149571502143,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": 0.7000000000000001,
+                "transformed_value": 0.7000000000000001,
+                "contribution": 0.013013619213405991,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": -0.8993055555555554,
+                "transformed_value": -0.8993055555555554,
+                "contribution": 0.009103835945551697,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": 0.4,
+                "transformed_value": 0.4,
+                "contribution": 0.008151470019708852,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": -0.05192373169901254,
+                "transformed_value": -0.05192373169901254,
+                "contribution": -0.005714724889035268,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": 3,
+                "transformed_value": 3.0,
+                "contribution": 0.004809035371586302,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": 0.20000000000000007,
+                "transformed_value": 0.20000000000000007,
+                "contribution": 0.0037984934605396216,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.05033322483677862,
+            "attribution_output_space": "probability",
+            "rank": 2
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": -0.016614978101627063,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": 12,
+                "transformed_value": 12.0,
+                "contribution": 0.0329216989205009,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 196,
+                "transformed_value": 196.0,
+                "contribution": -0.024359865540105306,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 404,
+                "transformed_value": 404.0,
+                "contribution": -0.020720795640353347,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": -0.0023539066946940443,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": -0.0020157748821264974,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": -8.633426484876694e-05,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.016614978101627063,
+            "attribution_output_space": "probability",
+            "rank": 3
+          },
+          {
+            "factor_group": "event_context",
+            "signed_contribution": -0.0011510195736392577,
+            "supporting_features": [
+              {
+                "transformed_feature": "tier_tier2",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.0014346676371720538,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO3",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 1.0,
+                "contribution": 0.0004090877664096428,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              },
+              {
+                "transformed_feature": "tier_tier3",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.00012164857904592819,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO5",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 0.0,
+                "contribution": -3.791123830918508e-06,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.0011510195736392577,
+            "attribution_output_space": "probability",
+            "rank": 4
+          }
+        ],
+        "team_a_factors": [
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": 0.05033322483677862,
+            "supporting_features": [
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": 0.30000000000000004,
+                "transformed_value": 0.30000000000000004,
+                "contribution": 0.01717149571502143,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": 0.7000000000000001,
+                "transformed_value": 0.7000000000000001,
+                "contribution": 0.013013619213405991,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": -0.8993055555555554,
+                "transformed_value": -0.8993055555555554,
+                "contribution": 0.009103835945551697,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": 0.4,
+                "transformed_value": 0.4,
+                "contribution": 0.008151470019708852,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": -0.05192373169901254,
+                "transformed_value": -0.05192373169901254,
+                "contribution": -0.005714724889035268,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": 3,
+                "transformed_value": 3.0,
+                "contribution": 0.004809035371586302,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": 0.20000000000000007,
+                "transformed_value": 0.20000000000000007,
+                "contribution": 0.0037984934605396216,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.05033322483677862,
+            "attribution_output_space": "probability",
+            "rank": 2
+          }
+        ],
+        "team_b_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": -0.05999764529096462,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": -33.539754650008945,
+                "transformed_value": -33.539754650008945,
+                "contribution": -0.04542232581906404,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": -0.04471698113207556,
+                "transformed_value": -0.04471698113207556,
+                "contribution": -0.014575319471900583,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.05999764529096462,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": -0.016614978101627063,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": 12,
+                "transformed_value": 12.0,
+                "contribution": 0.0329216989205009,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 196,
+                "transformed_value": 196.0,
+                "contribution": -0.024359865540105306,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 404,
+                "transformed_value": 404.0,
+                "contribution": -0.020720795640353347,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": -0.0023539066946940443,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": -0.0020157748821264974,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": -8.633426484876694e-05,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.016614978101627063,
+            "attribution_output_space": "probability",
+            "rank": 3
+          },
+          {
+            "factor_group": "event_context",
+            "signed_contribution": -0.0011510195736392577,
+            "supporting_features": [
+              {
+                "transformed_feature": "tier_tier2",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.0014346676371720538,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO3",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 1.0,
+                "contribution": 0.0004090877664096428,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              },
+              {
+                "transformed_feature": "tier_tier3",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.00012164857904592819,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO5",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 0.0,
+                "contribution": -3.791123830918508e-06,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.0011510195736392577,
+            "attribution_output_space": "probability",
+            "rank": 4
+          }
+        ],
+        "neutral_factors": [],
+        "top_positive_factors": [
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": 0.05033322483677862,
+            "supporting_features": [
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": 0.30000000000000004,
+                "transformed_value": 0.30000000000000004,
+                "contribution": 0.01717149571502143,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": 0.7000000000000001,
+                "transformed_value": 0.7000000000000001,
+                "contribution": 0.013013619213405991,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": -0.8993055555555554,
+                "transformed_value": -0.8993055555555554,
+                "contribution": 0.009103835945551697,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": 0.4,
+                "transformed_value": 0.4,
+                "contribution": 0.008151470019708852,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": -0.05192373169901254,
+                "transformed_value": -0.05192373169901254,
+                "contribution": -0.005714724889035268,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": 3,
+                "transformed_value": 3.0,
+                "contribution": 0.004809035371586302,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": 0.20000000000000007,
+                "transformed_value": 0.20000000000000007,
+                "contribution": 0.0037984934605396216,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              }
+            ],
+            "direction": "team_a",
+            "absolute_importance": 0.05033322483677862,
+            "attribution_output_space": "probability",
+            "rank": 2
+          }
+        ],
+        "top_negative_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": -0.05999764529096462,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": -33.539754650008945,
+                "transformed_value": -33.539754650008945,
+                "contribution": -0.04542232581906404,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": -0.04471698113207556,
+                "transformed_value": -0.04471698113207556,
+                "contribution": -0.014575319471900583,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.05999764529096462,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": -0.016614978101627063,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": 12,
+                "transformed_value": 12.0,
+                "contribution": 0.0329216989205009,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 196,
+                "transformed_value": 196.0,
+                "contribution": -0.024359865540105306,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 404,
+                "transformed_value": 404.0,
+                "contribution": -0.020720795640353347,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": -0.0023539066946940443,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": -0.0020157748821264974,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": -8.633426484876694e-05,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.016614978101627063,
+            "attribution_output_space": "probability",
+            "rank": 3
+          },
+          {
+            "factor_group": "event_context",
+            "signed_contribution": -0.0011510195736392577,
+            "supporting_features": [
+              {
+                "transformed_feature": "tier_tier2",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.0014346676371720538,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO3",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 1.0,
+                "contribution": 0.0004090877664096428,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              },
+              {
+                "transformed_feature": "tier_tier3",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.00012164857904592819,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO5",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 0.0,
+                "contribution": -3.791123830918508e-06,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.0011510195736392577,
+            "attribution_output_space": "probability",
+            "rank": 4
+          }
+        ],
+        "human_readable_summary": [
+          "Recent performance features were the second-largest factor pushing the model's prediction toward Team A.",
+          "Overall team strength features were the largest factor pushing the model's prediction toward Team B.",
+          "Historical experience features were the third-largest factor pushing the model's prediction toward Team B.",
+          "Series format/tier context features were a factor pushing the model's prediction toward Team B."
+        ],
+        "input_provenance": {
+          "team_a_cold_start": false,
+          "team_b_cold_start": false,
+          "notes": []
+        },
+        "reconstruction_check": {
+          "reconstructed_probability_team_a": 0.4722936086621074,
+          "predicted_probability_team_a": 0.47229360866210707,
+          "tolerance": 1e-06,
+          "passed": true
+        }
+      }
+    }
+  },
+  {
+    "fixture_id": "um_historical_cold_start",
+    "purpose": "historical context cold-start case - THUNDERdOWNUNDER has zero pre-Cologne history (Phase 8D/9A finding), a required lifecycle fixture.",
+    "result": {
+      "prediction": {
+        "prediction_mode": "pre_veto",
+        "team_a": "THUNDERdOWNUNDER",
+        "team_b": "MOUZ",
+        "best_of": 3,
+        "tier": "tier1",
+        "tier_source": "application_default",
+        "probability_team_a": 0.26473292200209203,
+        "probability_team_b": 0.735267077997908,
+        "favored_team": "MOUZ",
+        "prediction_is_tied": false,
+        "model_id": "series_random_forest_v2",
+        "context_id": "historical_cologne_pre_event",
+        "state_cutoff": "2026-06-02 13:30:00",
+        "prediction_datetime": "2026-06-02 13:30:00",
+        "data_freshness": {
+          "state_data_through": "2026-06-02 13:30:00",
+          "state_is_live": false,
+          "requested_prediction_datetime": "2026-06-02 13:30:00",
+          "staleness_days": 0.0,
+          "snapshot_id": "historical_cologne_pre_event"
+        },
+        "team_a_history": {
+          "identity_known": true,
+          "available": false,
+          "cold_start": true,
+          "matches": 0
+        },
+        "team_b_history": {
+          "identity_known": true,
+          "available": true,
+          "cold_start": false,
+          "matches": 208
+        }
+      },
+      "explanation": {
+        "explanation_type": "model_feature_attribution",
+        "causal": false,
+        "attribution_method": "saabas_path_decomposition",
+        "attribution_output_space": "probability",
+        "base_value": 0.4997240267915597,
+        "feature_contributions": [
+          {
+            "transformed_feature": "elo_diff",
+            "raw_feature": "elo_diff",
+            "raw_value": -364.87857023394827,
+            "transformed_value": -364.87857023394827,
+            "contribution": -0.12569050063846685,
+            "factor_group": "overall_strength",
+            "display_label": "ELO rating difference"
+          },
+          {
+            "transformed_feature": "overall_win_rate_diff",
+            "raw_feature": "overall_win_rate_diff",
+            "raw_value": -0.14622641509433965,
+            "transformed_value": -0.14622641509433965,
+            "contribution": -0.02588012192465227,
+            "factor_group": "overall_strength",
+            "display_label": "Overall win-rate difference"
+          },
+          {
+            "transformed_feature": "win_rate_last_5_diff",
+            "raw_feature": "win_rate_last_5_diff",
+            "raw_value": -0.30000000000000004,
+            "transformed_value": -0.30000000000000004,
+            "contribution": -0.005050996441530951,
+            "factor_group": "recent_performance",
+            "display_label": "Last-5-match win-rate difference"
+          },
+          {
+            "transformed_feature": "win_rate_last_10_diff",
+            "raw_feature": "win_rate_last_10_diff",
+            "raw_value": -0.19999999999999996,
+            "transformed_value": -0.19999999999999996,
+            "contribution": -7.450290376464589e-06,
+            "factor_group": "recent_performance",
+            "display_label": "Last-10-match win-rate difference"
+          },
+          {
+            "transformed_feature": "format_win_rate_diff",
+            "raw_feature": "format_win_rate_diff",
+            "raw_value": -0.15384615384615385,
+            "transformed_value": -0.15384615384615385,
+            "contribution": -0.016761310276802614,
+            "factor_group": "recent_performance",
+            "display_label": "Format-specific win-rate difference"
+          },
+          {
+            "transformed_feature": "avg_series_margin_last_5_diff",
+            "raw_feature": "avg_series_margin_last_5_diff",
+            "raw_value": -1.2,
+            "transformed_value": -1.2,
+            "contribution": -0.003113461832600176,
+            "factor_group": "recent_performance",
+            "display_label": "Last-5 average series margin difference"
+          },
+          {
+            "transformed_feature": "avg_series_margin_last_10_diff",
+            "raw_feature": "avg_series_margin_last_10_diff",
+            "raw_value": -0.8,
+            "transformed_value": -0.8,
+            "contribution": -0.007605124773260936,
+            "factor_group": "recent_performance",
+            "display_label": "Last-10 average series margin difference"
+          },
+          {
+            "transformed_feature": "matches_last_30_days_diff",
+            "raw_feature": "matches_last_30_days_diff",
+            "raw_value": -15,
+            "transformed_value": -15.0,
+            "contribution": -0.0055889999719371305,
+            "factor_group": "recent_performance",
+            "display_label": "Recent activity difference"
+          },
+          {
+            "transformed_feature": "days_since_last_match_diff",
+            "raw_feature": "days_since_last_match_diff",
+            "raw_value": null,
+            "transformed_value": 0.0,
+            "contribution": 0.0036859852826554057,
+            "factor_group": "recent_performance",
+            "display_label": "Rest/inactivity difference"
+          },
+          {
+            "transformed_feature": "total_matches_before_diff",
+            "raw_feature": "total_matches_before_diff",
+            "raw_value": -208,
+            "transformed_value": -208.0,
+            "contribution": -0.036771901728200815,
+            "factor_group": "historical_experience",
+            "display_label": "Total prior match-count difference"
+          },
+          {
+            "transformed_feature": "history_matches_min",
+            "raw_feature": "history_matches_min",
+            "raw_value": 0,
+            "transformed_value": 0.0,
+            "contribution": -0.0034514733979108766,
+            "factor_group": "historical_experience",
+            "display_label": "Minimum historical match count"
+          },
+          {
+            "transformed_feature": "history_matches_sum",
+            "raw_feature": "history_matches_sum",
+            "raw_value": 208,
+            "transformed_value": 208.0,
+            "contribution": -0.0017425408368618703,
+            "factor_group": "historical_experience",
+            "display_label": "Combined historical match count"
+          },
+          {
+            "transformed_feature": "both_teams_have_history",
+            "raw_feature": "both_teams_have_history",
+            "raw_value": 0,
+            "transformed_value": 0.0,
+            "contribution": -0.002863787964759215,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have any history"
+          },
+          {
+            "transformed_feature": "both_teams_have_5_matches",
+            "raw_feature": "both_teams_have_5_matches",
+            "raw_value": 0,
+            "transformed_value": 0.0,
+            "contribution": -0.0010952087298759195,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have >=5 matches"
+          },
+          {
+            "transformed_feature": "both_teams_have_10_matches",
+            "raw_feature": "both_teams_have_10_matches",
+            "raw_value": 0,
+            "transformed_value": 0.0,
+            "contribution": -0.00039605681143011347,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have >=10 matches"
+          },
+          {
+            "transformed_feature": "bestOf_BO3",
+            "raw_feature": "bestOf",
+            "raw_value": 3,
+            "transformed_value": 1.0,
+            "contribution": -8.90197079643489e-05,
+            "factor_group": "event_context",
+            "display_label": "Series format"
+          },
+          {
+            "transformed_feature": "bestOf_BO5",
+            "raw_feature": "bestOf",
+            "raw_value": 3,
+            "transformed_value": 0.0,
+            "contribution": 8.501132425487075e-06,
+            "factor_group": "event_context",
+            "display_label": "Series format"
+          },
+          {
+            "transformed_feature": "tier_tier2",
+            "raw_feature": "tier",
+            "raw_value": "tier1",
+            "transformed_value": 0.0,
+            "contribution": -0.0023540639414244557,
+            "factor_group": "event_context",
+            "display_label": "Tournament tier"
+          },
+          {
+            "transformed_feature": "tier_tier3",
+            "raw_feature": "tier",
+            "raw_value": "tier1",
+            "transformed_value": 0.0,
+            "contribution": -0.00022357193649346556,
+            "factor_group": "event_context",
+            "display_label": "Tournament tier"
+          }
+        ],
+        "grouped_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": -0.15157062256311912,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": -364.87857023394827,
+                "transformed_value": -364.87857023394827,
+                "contribution": -0.12569050063846685,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": -0.14622641509433965,
+                "transformed_value": -0.14622641509433965,
+                "contribution": -0.02588012192465227,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.15157062256311912,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": -0.04632096946903881,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": -208,
+                "transformed_value": -208.0,
+                "contribution": -0.036771901728200815,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.0034514733979108766,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.002863787964759215,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 208,
+                "transformed_value": 208.0,
+                "contribution": -0.0017425408368618703,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.0010952087298759195,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.00039605681143011347,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.04632096946903881,
+            "attribution_output_space": "probability",
+            "rank": 2
+          },
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": -0.034441358303852865,
+            "supporting_features": [
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": -0.15384615384615385,
+                "transformed_value": -0.15384615384615385,
+                "contribution": -0.016761310276802614,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": -0.8,
+                "transformed_value": -0.8,
+                "contribution": -0.007605124773260936,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": -15,
+                "transformed_value": -15.0,
+                "contribution": -0.0055889999719371305,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": -0.30000000000000004,
+                "transformed_value": -0.30000000000000004,
+                "contribution": -0.005050996441530951,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": null,
+                "transformed_value": 0.0,
+                "contribution": 0.0036859852826554057,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": -1.2,
+                "transformed_value": -1.2,
+                "contribution": -0.003113461832600176,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": -0.19999999999999996,
+                "transformed_value": -0.19999999999999996,
+                "contribution": -7.450290376464589e-06,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.034441358303852865,
+            "attribution_output_space": "probability",
+            "rank": 3
+          },
+          {
+            "factor_group": "event_context",
+            "signed_contribution": -0.002658154453456783,
+            "supporting_features": [
+              {
+                "transformed_feature": "tier_tier2",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.0023540639414244557,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "tier_tier3",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.00022357193649346556,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO3",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 1.0,
+                "contribution": -8.90197079643489e-05,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              },
+              {
+                "transformed_feature": "bestOf_BO5",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 0.0,
+                "contribution": 8.501132425487075e-06,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.002658154453456783,
+            "attribution_output_space": "probability",
+            "rank": 4
+          }
+        ],
+        "team_a_factors": [],
+        "team_b_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": -0.15157062256311912,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": -364.87857023394827,
+                "transformed_value": -364.87857023394827,
+                "contribution": -0.12569050063846685,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": -0.14622641509433965,
+                "transformed_value": -0.14622641509433965,
+                "contribution": -0.02588012192465227,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.15157062256311912,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": -0.04632096946903881,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": -208,
+                "transformed_value": -208.0,
+                "contribution": -0.036771901728200815,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.0034514733979108766,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.002863787964759215,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 208,
+                "transformed_value": 208.0,
+                "contribution": -0.0017425408368618703,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.0010952087298759195,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.00039605681143011347,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.04632096946903881,
+            "attribution_output_space": "probability",
+            "rank": 2
+          },
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": -0.034441358303852865,
+            "supporting_features": [
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": -0.15384615384615385,
+                "transformed_value": -0.15384615384615385,
+                "contribution": -0.016761310276802614,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": -0.8,
+                "transformed_value": -0.8,
+                "contribution": -0.007605124773260936,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": -15,
+                "transformed_value": -15.0,
+                "contribution": -0.0055889999719371305,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": -0.30000000000000004,
+                "transformed_value": -0.30000000000000004,
+                "contribution": -0.005050996441530951,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": null,
+                "transformed_value": 0.0,
+                "contribution": 0.0036859852826554057,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": -1.2,
+                "transformed_value": -1.2,
+                "contribution": -0.003113461832600176,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": -0.19999999999999996,
+                "transformed_value": -0.19999999999999996,
+                "contribution": -7.450290376464589e-06,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.034441358303852865,
+            "attribution_output_space": "probability",
+            "rank": 3
+          },
+          {
+            "factor_group": "event_context",
+            "signed_contribution": -0.002658154453456783,
+            "supporting_features": [
+              {
+                "transformed_feature": "tier_tier2",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.0023540639414244557,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "tier_tier3",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.00022357193649346556,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO3",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 1.0,
+                "contribution": -8.90197079643489e-05,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              },
+              {
+                "transformed_feature": "bestOf_BO5",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 0.0,
+                "contribution": 8.501132425487075e-06,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.002658154453456783,
+            "attribution_output_space": "probability",
+            "rank": 4
+          }
+        ],
+        "neutral_factors": [],
+        "top_positive_factors": [],
+        "top_negative_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": -0.15157062256311912,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": -364.87857023394827,
+                "transformed_value": -364.87857023394827,
+                "contribution": -0.12569050063846685,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": -0.14622641509433965,
+                "transformed_value": -0.14622641509433965,
+                "contribution": -0.02588012192465227,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.15157062256311912,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": -0.04632096946903881,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": -208,
+                "transformed_value": -208.0,
+                "contribution": -0.036771901728200815,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.0034514733979108766,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.002863787964759215,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 208,
+                "transformed_value": 208.0,
+                "contribution": -0.0017425408368618703,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.0010952087298759195,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.00039605681143011347,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.04632096946903881,
+            "attribution_output_space": "probability",
+            "rank": 2
+          },
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": -0.034441358303852865,
+            "supporting_features": [
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": -0.15384615384615385,
+                "transformed_value": -0.15384615384615385,
+                "contribution": -0.016761310276802614,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": -0.8,
+                "transformed_value": -0.8,
+                "contribution": -0.007605124773260936,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": -15,
+                "transformed_value": -15.0,
+                "contribution": -0.0055889999719371305,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": -0.30000000000000004,
+                "transformed_value": -0.30000000000000004,
+                "contribution": -0.005050996441530951,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": null,
+                "transformed_value": 0.0,
+                "contribution": 0.0036859852826554057,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": -1.2,
+                "transformed_value": -1.2,
+                "contribution": -0.003113461832600176,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": -0.19999999999999996,
+                "transformed_value": -0.19999999999999996,
+                "contribution": -7.450290376464589e-06,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.034441358303852865,
+            "attribution_output_space": "probability",
+            "rank": 3
+          }
+        ],
+        "human_readable_summary": [
+          "Overall team strength features were the largest factor pushing the model's prediction toward Team B.",
+          "Historical experience features were the second-largest factor pushing the model's prediction toward Team B.",
+          "Recent performance features were the third-largest factor pushing the model's prediction toward Team B."
+        ],
+        "input_provenance": {
+          "team_a_cold_start": true,
+          "team_b_cold_start": false,
+          "notes": [
+            "team_a: cold start - elo_before used the ELO_INITIAL default, win-rate features used their 0.5 defaults, match counts are 0, and days_since_last_match was NaN before preprocessing (median-imputed in the transformed model input). These are INPUT DEFAULTS, not model contributions in themselves."
+          ]
+        },
+        "reconstruction_check": {
+          "reconstructed_probability_team_a": 0.2647329220020921,
+          "predicted_probability_team_a": 0.26473292200209203,
+          "tolerance": 1e-06,
+          "passed": true
+        }
+      }
+    }
+  },
+  {
+    "fixture_id": "um_deployment_thunderdownunder",
+    "purpose": "deployment-context counterpart of um_historical_cold_start - THUNDERdOWNUNDER now has 4 legitimate matches (Phase 9A finding), the direct before/after lifecycle pair.",
+    "result": {
+      "prediction": {
+        "prediction_mode": "pre_veto",
+        "team_a": "THUNDERdOWNUNDER",
+        "team_b": "MOUZ",
+        "best_of": 3,
+        "tier": "tier1",
+        "tier_source": "application_default",
+        "probability_team_a": 0.2248807165366796,
+        "probability_team_b": 0.7751192834633204,
+        "favored_team": "MOUZ",
+        "prediction_is_tied": false,
+        "model_id": "series_random_forest_v2",
+        "context_id": "deployment_post_cologne_v1",
+        "state_cutoff": "2026-06-28 20:00:00",
+        "prediction_datetime": "2026-06-28 20:00:00",
+        "data_freshness": {
+          "state_data_through": "2026-06-28 20:00:00",
+          "state_is_live": false,
+          "requested_prediction_datetime": "2026-06-28 20:00:00",
+          "staleness_days": 0.0,
+          "snapshot_id": "deployment_post_cologne_v1"
+        },
+        "team_a_history": {
+          "identity_known": true,
+          "available": true,
+          "cold_start": false,
+          "matches": 4
+        },
+        "team_b_history": {
+          "identity_known": true,
+          "available": true,
+          "cold_start": false,
+          "matches": 212
+        }
+      },
+      "explanation": {
+        "explanation_type": "model_feature_attribution",
+        "causal": false,
+        "attribution_method": "saabas_path_decomposition",
+        "attribution_output_space": "probability",
+        "base_value": 0.4997240267915597,
+        "feature_contributions": [
+          {
+            "transformed_feature": "elo_diff",
+            "raw_feature": "elo_diff",
+            "raw_value": -338.16497720326447,
+            "transformed_value": -338.16497720326447,
+            "contribution": -0.12827870777601555,
+            "factor_group": "overall_strength",
+            "display_label": "ELO rating difference"
+          },
+          {
+            "transformed_feature": "overall_win_rate_diff",
+            "raw_feature": "overall_win_rate_diff",
+            "raw_value": -0.26388888888888884,
+            "transformed_value": -0.26388888888888884,
+            "contribution": -0.03968613967726524,
+            "factor_group": "overall_strength",
+            "display_label": "Overall win-rate difference"
+          },
+          {
+            "transformed_feature": "win_rate_last_5_diff",
+            "raw_feature": "win_rate_last_5_diff",
+            "raw_value": -0.15000000000000002,
+            "transformed_value": -0.15000000000000002,
+            "contribution": 0.0003734298087690189,
+            "factor_group": "recent_performance",
+            "display_label": "Last-5-match win-rate difference"
+          },
+          {
+            "transformed_feature": "win_rate_last_10_diff",
+            "raw_feature": "win_rate_last_10_diff",
+            "raw_value": -0.35,
+            "transformed_value": -0.35,
+            "contribution": -0.012267694403640273,
+            "factor_group": "recent_performance",
+            "display_label": "Last-10-match win-rate difference"
+          },
+          {
+            "transformed_feature": "format_win_rate_diff",
+            "raw_feature": "format_win_rate_diff",
+            "raw_value": -0.2451612903225806,
+            "transformed_value": -0.2451612903225806,
+            "contribution": -0.021268914012832613,
+            "factor_group": "recent_performance",
+            "display_label": "Format-specific win-rate difference"
+          },
+          {
+            "transformed_feature": "avg_series_margin_last_5_diff",
+            "raw_feature": "avg_series_margin_last_5_diff",
+            "raw_value": -0.95,
+            "transformed_value": -0.95,
+            "contribution": -0.00367658211329647,
+            "factor_group": "recent_performance",
+            "display_label": "Last-5 average series margin difference"
+          },
+          {
+            "transformed_feature": "avg_series_margin_last_10_diff",
+            "raw_feature": "avg_series_margin_last_10_diff",
+            "raw_value": -1.35,
+            "transformed_value": -1.35,
+            "contribution": -0.02537085086947051,
+            "factor_group": "recent_performance",
+            "display_label": "Last-10 average series margin difference"
+          },
+          {
+            "transformed_feature": "matches_last_30_days_diff",
+            "raw_feature": "matches_last_30_days_diff",
+            "raw_value": 0,
+            "transformed_value": 0.0,
+            "contribution": -0.0013546959005431834,
+            "factor_group": "recent_performance",
+            "display_label": "Recent activity difference"
+          },
+          {
+            "transformed_feature": "days_since_last_match_diff",
+            "raw_feature": "days_since_last_match_diff",
+            "raw_value": 9.999999999999998,
+            "transformed_value": 9.999999999999998,
+            "contribution": -0.01098282820488093,
+            "factor_group": "recent_performance",
+            "display_label": "Rest/inactivity difference"
+          },
+          {
+            "transformed_feature": "total_matches_before_diff",
+            "raw_feature": "total_matches_before_diff",
+            "raw_value": -208,
+            "transformed_value": -208.0,
+            "contribution": -0.028693162809528938,
+            "factor_group": "historical_experience",
+            "display_label": "Total prior match-count difference"
+          },
+          {
+            "transformed_feature": "history_matches_min",
+            "raw_feature": "history_matches_min",
+            "raw_value": 4,
+            "transformed_value": 4.0,
+            "contribution": 0.0023138850745631017,
+            "factor_group": "historical_experience",
+            "display_label": "Minimum historical match count"
+          },
+          {
+            "transformed_feature": "history_matches_sum",
+            "raw_feature": "history_matches_sum",
+            "raw_value": 216,
+            "transformed_value": 216.0,
+            "contribution": -0.0028050381810453013,
+            "factor_group": "historical_experience",
+            "display_label": "Combined historical match count"
+          },
+          {
+            "transformed_feature": "both_teams_have_history",
+            "raw_feature": "both_teams_have_history",
+            "raw_value": 1,
+            "transformed_value": 1.0,
+            "contribution": 2.114529453451419e-05,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have any history"
+          },
+          {
+            "transformed_feature": "both_teams_have_5_matches",
+            "raw_feature": "both_teams_have_5_matches",
+            "raw_value": 0,
+            "transformed_value": 0.0,
+            "contribution": 0.00037675408212632135,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have >=5 matches"
+          },
+          {
+            "transformed_feature": "both_teams_have_10_matches",
+            "raw_feature": "both_teams_have_10_matches",
+            "raw_value": 0,
+            "transformed_value": 0.0,
+            "contribution": -0.00013882946304201153,
+            "factor_group": "historical_experience",
+            "display_label": "Both teams have >=10 matches"
+          },
+          {
+            "transformed_feature": "bestOf_BO3",
+            "raw_feature": "bestOf",
+            "raw_value": 3,
+            "transformed_value": 1.0,
+            "contribution": 0.0006006948953258161,
+            "factor_group": "event_context",
+            "display_label": "Series format"
+          },
+          {
+            "transformed_feature": "bestOf_BO5",
+            "raw_feature": "bestOf",
+            "raw_value": 3,
+            "transformed_value": 0.0,
+            "contribution": 0.0,
+            "factor_group": "event_context",
+            "display_label": "Series format"
+          },
+          {
+            "transformed_feature": "tier_tier2",
+            "raw_feature": "tier",
+            "raw_value": "tier1",
+            "transformed_value": 0.0,
+            "contribution": -0.004033934874796644,
+            "factor_group": "event_context",
+            "display_label": "Tournament tier"
+          },
+          {
+            "transformed_feature": "tier_tier3",
+            "raw_feature": "tier",
+            "raw_value": "tier1",
+            "transformed_value": 0.0,
+            "contribution": 2.815887615887432e-05,
+            "factor_group": "event_context",
+            "display_label": "Tournament tier"
+          }
+        ],
+        "grouped_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": -0.16796484745328077,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": -338.16497720326447,
+                "transformed_value": -338.16497720326447,
+                "contribution": -0.12827870777601555,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": -0.26388888888888884,
+                "transformed_value": -0.26388888888888884,
+                "contribution": -0.03968613967726524,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.16796484745328077,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": -0.07454813569589495,
+            "supporting_features": [
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": -1.35,
+                "transformed_value": -1.35,
+                "contribution": -0.02537085086947051,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": -0.2451612903225806,
+                "transformed_value": -0.2451612903225806,
+                "contribution": -0.021268914012832613,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": -0.35,
+                "transformed_value": -0.35,
+                "contribution": -0.012267694403640273,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": 9.999999999999998,
+                "transformed_value": 9.999999999999998,
+                "contribution": -0.01098282820488093,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": -0.95,
+                "transformed_value": -0.95,
+                "contribution": -0.00367658211329647,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.0013546959005431834,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": -0.15000000000000002,
+                "transformed_value": -0.15000000000000002,
+                "contribution": 0.0003734298087690189,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.07454813569589495,
+            "attribution_output_space": "probability",
+            "rank": 2
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": -0.028925246002392314,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": -208,
+                "transformed_value": -208.0,
+                "contribution": -0.028693162809528938,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 216,
+                "transformed_value": 216.0,
+                "contribution": -0.0028050381810453013,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 4,
+                "transformed_value": 4.0,
+                "contribution": 0.0023138850745631017,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": 0.00037675408212632135,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.00013882946304201153,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 2.114529453451419e-05,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.028925246002392314,
+            "attribution_output_space": "probability",
+            "rank": 3
+          },
+          {
+            "factor_group": "event_context",
+            "signed_contribution": -0.0034050811033119535,
+            "supporting_features": [
+              {
+                "transformed_feature": "tier_tier2",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.004033934874796644,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO3",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 1.0,
+                "contribution": 0.0006006948953258161,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              },
+              {
+                "transformed_feature": "tier_tier3",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": 2.815887615887432e-05,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO5",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 0.0,
+                "contribution": 0.0,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.0034050811033119535,
+            "attribution_output_space": "probability",
+            "rank": 4
+          }
+        ],
+        "team_a_factors": [],
+        "team_b_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": -0.16796484745328077,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": -338.16497720326447,
+                "transformed_value": -338.16497720326447,
+                "contribution": -0.12827870777601555,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": -0.26388888888888884,
+                "transformed_value": -0.26388888888888884,
+                "contribution": -0.03968613967726524,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.16796484745328077,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": -0.07454813569589495,
+            "supporting_features": [
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": -1.35,
+                "transformed_value": -1.35,
+                "contribution": -0.02537085086947051,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": -0.2451612903225806,
+                "transformed_value": -0.2451612903225806,
+                "contribution": -0.021268914012832613,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": -0.35,
+                "transformed_value": -0.35,
+                "contribution": -0.012267694403640273,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": 9.999999999999998,
+                "transformed_value": 9.999999999999998,
+                "contribution": -0.01098282820488093,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": -0.95,
+                "transformed_value": -0.95,
+                "contribution": -0.00367658211329647,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.0013546959005431834,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": -0.15000000000000002,
+                "transformed_value": -0.15000000000000002,
+                "contribution": 0.0003734298087690189,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.07454813569589495,
+            "attribution_output_space": "probability",
+            "rank": 2
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": -0.028925246002392314,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": -208,
+                "transformed_value": -208.0,
+                "contribution": -0.028693162809528938,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 216,
+                "transformed_value": 216.0,
+                "contribution": -0.0028050381810453013,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 4,
+                "transformed_value": 4.0,
+                "contribution": 0.0023138850745631017,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": 0.00037675408212632135,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.00013882946304201153,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 2.114529453451419e-05,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.028925246002392314,
+            "attribution_output_space": "probability",
+            "rank": 3
+          },
+          {
+            "factor_group": "event_context",
+            "signed_contribution": -0.0034050811033119535,
+            "supporting_features": [
+              {
+                "transformed_feature": "tier_tier2",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": -0.004033934874796644,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO3",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 1.0,
+                "contribution": 0.0006006948953258161,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              },
+              {
+                "transformed_feature": "tier_tier3",
+                "raw_feature": "tier",
+                "raw_value": "tier1",
+                "transformed_value": 0.0,
+                "contribution": 2.815887615887432e-05,
+                "factor_group": "event_context",
+                "display_label": "Tournament tier"
+              },
+              {
+                "transformed_feature": "bestOf_BO5",
+                "raw_feature": "bestOf",
+                "raw_value": 3,
+                "transformed_value": 0.0,
+                "contribution": 0.0,
+                "factor_group": "event_context",
+                "display_label": "Series format"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.0034050811033119535,
+            "attribution_output_space": "probability",
+            "rank": 4
+          }
+        ],
+        "neutral_factors": [],
+        "top_positive_factors": [],
+        "top_negative_factors": [
+          {
+            "factor_group": "overall_strength",
+            "signed_contribution": -0.16796484745328077,
+            "supporting_features": [
+              {
+                "transformed_feature": "elo_diff",
+                "raw_feature": "elo_diff",
+                "raw_value": -338.16497720326447,
+                "transformed_value": -338.16497720326447,
+                "contribution": -0.12827870777601555,
+                "factor_group": "overall_strength",
+                "display_label": "ELO rating difference"
+              },
+              {
+                "transformed_feature": "overall_win_rate_diff",
+                "raw_feature": "overall_win_rate_diff",
+                "raw_value": -0.26388888888888884,
+                "transformed_value": -0.26388888888888884,
+                "contribution": -0.03968613967726524,
+                "factor_group": "overall_strength",
+                "display_label": "Overall win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.16796484745328077,
+            "attribution_output_space": "probability",
+            "rank": 1
+          },
+          {
+            "factor_group": "recent_performance",
+            "signed_contribution": -0.07454813569589495,
+            "supporting_features": [
+              {
+                "transformed_feature": "avg_series_margin_last_10_diff",
+                "raw_feature": "avg_series_margin_last_10_diff",
+                "raw_value": -1.35,
+                "transformed_value": -1.35,
+                "contribution": -0.02537085086947051,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10 average series margin difference"
+              },
+              {
+                "transformed_feature": "format_win_rate_diff",
+                "raw_feature": "format_win_rate_diff",
+                "raw_value": -0.2451612903225806,
+                "transformed_value": -0.2451612903225806,
+                "contribution": -0.021268914012832613,
+                "factor_group": "recent_performance",
+                "display_label": "Format-specific win-rate difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_10_diff",
+                "raw_feature": "win_rate_last_10_diff",
+                "raw_value": -0.35,
+                "transformed_value": -0.35,
+                "contribution": -0.012267694403640273,
+                "factor_group": "recent_performance",
+                "display_label": "Last-10-match win-rate difference"
+              },
+              {
+                "transformed_feature": "days_since_last_match_diff",
+                "raw_feature": "days_since_last_match_diff",
+                "raw_value": 9.999999999999998,
+                "transformed_value": 9.999999999999998,
+                "contribution": -0.01098282820488093,
+                "factor_group": "recent_performance",
+                "display_label": "Rest/inactivity difference"
+              },
+              {
+                "transformed_feature": "avg_series_margin_last_5_diff",
+                "raw_feature": "avg_series_margin_last_5_diff",
+                "raw_value": -0.95,
+                "transformed_value": -0.95,
+                "contribution": -0.00367658211329647,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5 average series margin difference"
+              },
+              {
+                "transformed_feature": "matches_last_30_days_diff",
+                "raw_feature": "matches_last_30_days_diff",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.0013546959005431834,
+                "factor_group": "recent_performance",
+                "display_label": "Recent activity difference"
+              },
+              {
+                "transformed_feature": "win_rate_last_5_diff",
+                "raw_feature": "win_rate_last_5_diff",
+                "raw_value": -0.15000000000000002,
+                "transformed_value": -0.15000000000000002,
+                "contribution": 0.0003734298087690189,
+                "factor_group": "recent_performance",
+                "display_label": "Last-5-match win-rate difference"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.07454813569589495,
+            "attribution_output_space": "probability",
+            "rank": 2
+          },
+          {
+            "factor_group": "historical_experience",
+            "signed_contribution": -0.028925246002392314,
+            "supporting_features": [
+              {
+                "transformed_feature": "total_matches_before_diff",
+                "raw_feature": "total_matches_before_diff",
+                "raw_value": -208,
+                "transformed_value": -208.0,
+                "contribution": -0.028693162809528938,
+                "factor_group": "historical_experience",
+                "display_label": "Total prior match-count difference"
+              },
+              {
+                "transformed_feature": "history_matches_sum",
+                "raw_feature": "history_matches_sum",
+                "raw_value": 216,
+                "transformed_value": 216.0,
+                "contribution": -0.0028050381810453013,
+                "factor_group": "historical_experience",
+                "display_label": "Combined historical match count"
+              },
+              {
+                "transformed_feature": "history_matches_min",
+                "raw_feature": "history_matches_min",
+                "raw_value": 4,
+                "transformed_value": 4.0,
+                "contribution": 0.0023138850745631017,
+                "factor_group": "historical_experience",
+                "display_label": "Minimum historical match count"
+              },
+              {
+                "transformed_feature": "both_teams_have_5_matches",
+                "raw_feature": "both_teams_have_5_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": 0.00037675408212632135,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=5 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_10_matches",
+                "raw_feature": "both_teams_have_10_matches",
+                "raw_value": 0,
+                "transformed_value": 0.0,
+                "contribution": -0.00013882946304201153,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have >=10 matches"
+              },
+              {
+                "transformed_feature": "both_teams_have_history",
+                "raw_feature": "both_teams_have_history",
+                "raw_value": 1,
+                "transformed_value": 1.0,
+                "contribution": 2.114529453451419e-05,
+                "factor_group": "historical_experience",
+                "display_label": "Both teams have any history"
+              }
+            ],
+            "direction": "team_b",
+            "absolute_importance": 0.028925246002392314,
+            "attribution_output_space": "probability",
+            "rank": 3
+          }
+        ],
+        "human_readable_summary": [
+          "Overall team strength features were the largest factor pushing the model's prediction toward Team B.",
+          "Recent performance features were the second-largest factor pushing the model's prediction toward Team B.",
+          "Historical experience features were the third-largest factor pushing the model's prediction toward Team B."
+        ],
+        "input_provenance": {
+          "team_a_cold_start": false,
+          "team_b_cold_start": false,
+          "notes": []
+        },
+        "reconstruction_check": {
+          "reconstructed_probability_team_a": 0.22488071653667968,
+          "predicted_probability_team_a": 0.2248807165366796,
+          "tolerance": 1e-06,
+          "passed": true
+        }
+      }
+    }
+  }
+]

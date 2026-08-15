@@ -1,0 +1,135 @@
+# Phase 9D API fixture manifest - PREDECLARED before any HTTP response was
+# generated (mirrors the Phase 9C amendment #22 discipline). Purpose labels
+# describe WHY each fixture was chosen structurally, not by inspecting
+# response output first. No outcome labels are stored anywhere.
+
+fixtures:
+  pre_veto:
+    - id: pv_history_rich
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      best_of: 3
+      purpose: >-
+        history-rich RF V2 pre-veto case, deployment context - the straightforward
+        default-shape response.
+    - id: pv_near_even
+      context_id: deployment_post_cologne_v1
+      team_a: Team Spirit
+      team_b: Team Vitality
+      best_of: 3
+      purpose: >-
+        two other high-history top teams, selected structurally as a candidate for
+        a closer prediction, not chosen after inspecting output.
+    - id: pv_cold_start
+      context_id: historical_cologne_pre_event
+      team_a: THUNDERdOWNUNDER
+      team_b: MOUZ
+      best_of: 3
+      purpose: >-
+        historical-context cold-start lifecycle fixture (THUNDERdOWNUNDER has zero
+        pre-Cologne history).
+    - id: pv_bo1
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      best_of: 1
+      purpose: BO1 pre-veto parity case.
+    - id: pv_bo5
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      best_of: 5
+      purpose: BO5 pre-veto parity case.
+
+  known_map:
+    - id: km_history_rich
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      map_name: Mirage
+      best_of: 3
+      purpose: known-map case on a Cologne-competitive-pool map between two history-rich teams.
+    - id: km_partial_support
+      context_id: deployment_post_cologne_v1
+      team_a: THUNDERdOWNUNDER
+      team_b: MOUZ
+      map_name: Mirage
+      best_of: 3
+      purpose: >-
+        structurally-guaranteed partial/thin-state case (THUNDERdOWNUNDER has only
+        4 legitimate matches) for surfacing state_support/fallbacks_used metadata
+        through the HTTP layer.
+
+  known_series:
+    - id: ks_bo1
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      best_of: 1
+      ordered_maps: [Mirage]
+      purpose: minimal BO1 known-series case.
+    - id: ks_bo3
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      best_of: 3
+      ordered_maps: [Mirage, Inferno, Nuke]
+      purpose: standard BO3 known-series case - exercises reach/leverage through HTTP.
+    - id: ks_bo5
+      context_id: deployment_post_cologne_v1
+      team_a: Team Vitality
+      team_b: Team Falcons
+      best_of: 5
+      ordered_maps: [Mirage, Inferno, Nuke, Ancient, Overpass]
+      purpose: full BO5 known-series case (Cologne Grand-Final format).
+
+  expected_errors:
+    - id: err_unknown_context
+      request: {context_id: not_a_real_context, mode: pre_veto, team_a: Team Vitality, team_b: Team Falcons, best_of: 3}
+      expected_error_code: unknown_context
+      expected_http_status: 404
+    - id: err_unknown_team
+      request: {context_id: deployment_post_cologne_v1, mode: pre_veto, team_a: Not A Real Team, team_b: Team Vitality, best_of: 3}
+      expected_error_code: unknown_team
+      expected_http_status: 404
+    - id: err_same_team
+      request: {context_id: deployment_post_cologne_v1, mode: pre_veto, team_a: Team Vitality, team_b: Team Vitality, best_of: 3}
+      expected_error_code: same_team
+      expected_http_status: 422
+    - id: err_bad_best_of
+      request: {context_id: deployment_post_cologne_v1, mode: pre_veto, team_a: Team Vitality, team_b: Team Falcons, best_of: 2}
+      expected_error_code: invalid_best_of
+      expected_http_status: 422
+    - id: err_best_of_bool
+      request: {context_id: deployment_post_cologne_v1, mode: pre_veto, team_a: Team Vitality, team_b: Team Falcons, best_of: true}
+      expected_error_code: schema_validation_error
+      expected_http_status: 422
+    - id: err_unsupported_map
+      request: {context_id: deployment_post_cologne_v1, team_a: Team Vitality, team_b: Team Falcons, map_name: Cache, best_of: 3}
+      expected_error_code: unsupported_map
+      expected_http_status: 422
+    - id: err_ordered_maps_on_pre_veto
+      request: {context_id: deployment_post_cologne_v1, mode: pre_veto, team_a: Team Vitality, team_b: Team Falcons, best_of: 3, ordered_maps: [Mirage, Inferno, Nuke]}
+      expected_error_code: schema_validation_error
+      expected_http_status: 422
+    - id: err_wrong_map_count
+      request: {context_id: deployment_post_cologne_v1, mode: known_maps, team_a: Team Vitality, team_b: Team Falcons, best_of: 3, ordered_maps: [Mirage, Inferno]}
+      expected_error_code: invalid_map_count
+      expected_http_status: 422
+    - id: err_duplicate_map
+      request: {context_id: deployment_post_cologne_v1, mode: known_maps, team_a: Team Vitality, team_b: Team Falcons, best_of: 3, ordered_maps: [Mirage, Mirage, Nuke]}
+      expected_error_code: duplicate_map
+      expected_http_status: 422
+    - id: err_historical_datetime_override
+      request: {context_id: historical_cologne_pre_event, mode: pre_veto, team_a: Team Vitality, team_b: Team Falcons, best_of: 3, prediction_datetime: "2020-01-01T00:00:00"}
+      expected_error_code: historical_context_datetime_locked
+      expected_http_status: 422
+    - id: err_deployment_datetime_before_cutoff
+      request: {context_id: deployment_post_cologne_v1, mode: pre_veto, team_a: Team Vitality, team_b: Team Falcons, best_of: 3, prediction_datetime: "2020-01-01T00:00:00"}
+      expected_error_code: prediction_datetime_before_state_contract
+      expected_http_status: 422
+
+note: >-
+  No actual match outcome labels are stored anywhere for these fixtures - only
+  the request shapes above, predeclared before any response was computed.

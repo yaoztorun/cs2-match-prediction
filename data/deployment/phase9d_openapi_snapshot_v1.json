@@ -1,0 +1,1725 @@
+{
+  "components": {
+    "schemas": {
+      "ChampionshipProbability": {
+        "properties": {
+          "denominator_count": {
+            "title": "Denominator Count",
+            "type": "integer"
+          },
+          "mc_standard_error": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mc Standard Error"
+          },
+          "numerator_count": {
+            "title": "Numerator Count",
+            "type": "integer"
+          },
+          "probability": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Probability"
+          },
+          "team": {
+            "title": "Team",
+            "type": "string"
+          }
+        },
+        "required": [
+          "numerator_count",
+          "denominator_count",
+          "probability",
+          "mc_standard_error",
+          "team"
+        ],
+        "title": "ChampionshipProbability",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "MajorPathRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "default": "deployment_post_cologne_v1",
+            "minLength": 1,
+            "title": "Context Id",
+            "type": "string"
+          },
+          "manual_overrides": {
+            "items": {
+              "$ref": "#/components/schemas/ManualOverride"
+            },
+            "title": "Manual Overrides",
+            "type": "array"
+          },
+          "participants": {
+            "$ref": "#/components/schemas/TournamentParticipants"
+          },
+          "prediction_datetime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prediction Datetime"
+          },
+          "ruleset_id": {
+            "default": "iem_cologne_major_2026_format_v1",
+            "minLength": 1,
+            "title": "Ruleset Id",
+            "type": "string"
+          },
+          "tier": {
+            "anyOf": [
+              {
+                "enum": [
+                  "tier1",
+                  "tier2",
+                  "tier3"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tier"
+          }
+        },
+        "required": [
+          "participants"
+        ],
+        "title": "MajorPathRequest",
+        "type": "object"
+      },
+      "MajorSimulateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "default": "deployment_post_cologne_v1",
+            "minLength": 1,
+            "title": "Context Id",
+            "type": "string"
+          },
+          "manual_overrides": {
+            "items": {
+              "$ref": "#/components/schemas/ManualOverride"
+            },
+            "title": "Manual Overrides",
+            "type": "array"
+          },
+          "participants": {
+            "$ref": "#/components/schemas/TournamentParticipants"
+          },
+          "prediction_datetime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prediction Datetime"
+          },
+          "ruleset_id": {
+            "default": "iem_cologne_major_2026_format_v1",
+            "minLength": 1,
+            "title": "Ruleset Id",
+            "type": "string"
+          },
+          "seed": {
+            "default": 42,
+            "title": "Seed",
+            "type": "integer"
+          },
+          "simulation_count": {
+            "description": "1 <= simulation_count <= 50000.",
+            "title": "Simulation Count",
+            "type": "integer"
+          },
+          "tier": {
+            "anyOf": [
+              {
+                "enum": [
+                  "tier1",
+                  "tier2",
+                  "tier3"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tier"
+          }
+        },
+        "required": [
+          "participants",
+          "simulation_count"
+        ],
+        "title": "MajorSimulateRequest",
+        "type": "object"
+      },
+      "ManualOverride": {
+        "additionalProperties": false,
+        "properties": {
+          "best_of": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional invariant check only - not part of matchup identity matching.",
+            "title": "Best Of"
+          },
+          "playoff_round": {
+            "anyOf": [
+              {
+                "enum": [
+                  "quarterfinal",
+                  "semifinal",
+                  "grand_final"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Required for playoffs. Must be null for stage_1/2/3.",
+            "title": "Playoff Round"
+          },
+          "record_group": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Required for stage_1/2/3 (e.g. '1-0'), part of the Swiss semantic matchup identity so overrides survive rebracketing. Must be null for playoffs.",
+            "title": "Record Group"
+          },
+          "round_number": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Required for stage_1/2/3 (1..5). Must be null for playoffs.",
+            "title": "Round Number"
+          },
+          "stage": {
+            "enum": [
+              "stage_1",
+              "stage_2",
+              "stage_3",
+              "playoffs"
+            ],
+            "title": "Stage",
+            "type": "string"
+          },
+          "team_1": {
+            "minLength": 1,
+            "title": "Team 1",
+            "type": "string"
+          },
+          "team_2": {
+            "minLength": 1,
+            "title": "Team 2",
+            "type": "string"
+          },
+          "winner": {
+            "description": "Must be exactly team_1 or team_2.",
+            "minLength": 1,
+            "title": "Winner",
+            "type": "string"
+          }
+        },
+        "required": [
+          "stage",
+          "team_1",
+          "team_2",
+          "winner"
+        ],
+        "title": "ManualOverride",
+        "type": "object"
+      },
+      "MapPredictionRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "best_of": {
+            "title": "Best Of",
+            "type": "integer"
+          },
+          "context_id": {
+            "minLength": 1,
+            "title": "Context Id",
+            "type": "string"
+          },
+          "explanation_detail": {
+            "default": "summary",
+            "enum": [
+              "summary",
+              "full"
+            ],
+            "title": "Explanation Detail",
+            "type": "string"
+          },
+          "include_explanation": {
+            "default": true,
+            "title": "Include Explanation",
+            "type": "boolean"
+          },
+          "map_name": {
+            "minLength": 1,
+            "title": "Map Name",
+            "type": "string"
+          },
+          "prediction_datetime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prediction Datetime"
+          },
+          "team_a": {
+            "minLength": 1,
+            "title": "Team A",
+            "type": "string"
+          },
+          "team_b": {
+            "minLength": 1,
+            "title": "Team B",
+            "type": "string"
+          },
+          "tier": {
+            "anyOf": [
+              {
+                "enum": [
+                  "tier1",
+                  "tier2",
+                  "tier3"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tier"
+          }
+        },
+        "required": [
+          "context_id",
+          "team_a",
+          "team_b",
+          "map_name",
+          "best_of"
+        ],
+        "title": "MapPredictionRequest",
+        "type": "object"
+      },
+      "MatchOutcome": {
+        "properties": {
+          "best_of": {
+            "title": "Best Of",
+            "type": "integer"
+          },
+          "loser": {
+            "title": "Loser",
+            "type": "string"
+          },
+          "match_id": {
+            "title": "Match Id",
+            "type": "string"
+          },
+          "probability_team_a": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Probability Team A"
+          },
+          "record_group": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Record Group"
+          },
+          "round_number": {
+            "title": "Round Number",
+            "type": "integer"
+          },
+          "selection_source": {
+            "enum": [
+              "model",
+              "user"
+            ],
+            "title": "Selection Source",
+            "type": "string"
+          },
+          "stage": {
+            "title": "Stage",
+            "type": "string"
+          },
+          "team_a": {
+            "title": "Team A",
+            "type": "string"
+          },
+          "team_b": {
+            "title": "Team B",
+            "type": "string"
+          },
+          "winner": {
+            "title": "Winner",
+            "type": "string"
+          }
+        },
+        "required": [
+          "match_id",
+          "stage",
+          "round_number",
+          "record_group",
+          "team_a",
+          "team_b",
+          "best_of",
+          "probability_team_a",
+          "winner",
+          "loser",
+          "selection_source"
+        ],
+        "title": "MatchOutcome",
+        "type": "object"
+      },
+      "MonteCarloMetadata": {
+        "properties": {
+          "elapsed_seconds": {
+            "title": "Elapsed Seconds",
+            "type": "number"
+          },
+          "execution_mode": {
+            "enum": [
+              "synchronous",
+              "process_pool"
+            ],
+            "title": "Execution Mode",
+            "type": "string"
+          },
+          "n_chunks": {
+            "title": "N Chunks",
+            "type": "integer"
+          },
+          "seed": {
+            "title": "Seed",
+            "type": "integer"
+          },
+          "simulation_conditioned_on_manual_overrides": {
+            "title": "Simulation Conditioned On Manual Overrides",
+            "type": "boolean"
+          },
+          "simulation_count": {
+            "title": "Simulation Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "simulation_count",
+          "seed",
+          "execution_mode",
+          "n_chunks",
+          "elapsed_seconds",
+          "simulation_conditioned_on_manual_overrides"
+        ],
+        "title": "MonteCarloMetadata",
+        "type": "object"
+      },
+      "OverrideDiagnostic": {
+        "properties": {
+          "application_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Application Rate"
+          },
+          "conditional_application_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Conditional Application Rate"
+          },
+          "simulations_matchup_reached": {
+            "title": "Simulations Matchup Reached",
+            "type": "integer"
+          },
+          "simulations_not_reached": {
+            "title": "Simulations Not Reached",
+            "type": "integer"
+          },
+          "simulations_override_applied": {
+            "title": "Simulations Override Applied",
+            "type": "integer"
+          },
+          "stage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stage"
+          },
+          "team_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team 1"
+          },
+          "team_2": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team 2"
+          },
+          "winner": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Winner"
+          }
+        },
+        "required": [
+          "stage",
+          "team_1",
+          "team_2",
+          "winner",
+          "simulations_matchup_reached",
+          "simulations_override_applied",
+          "simulations_not_reached",
+          "application_rate",
+          "conditional_application_rate"
+        ],
+        "title": "OverrideDiagnostic",
+        "type": "object"
+      },
+      "OverrideUsageReport": {
+        "properties": {
+          "invalid_overrides": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Invalid Overrides",
+            "type": "array"
+          },
+          "overrides_not_reached": {
+            "title": "Overrides Not Reached",
+            "type": "integer"
+          },
+          "overrides_supplied": {
+            "title": "Overrides Supplied",
+            "type": "integer"
+          },
+          "overrides_used": {
+            "title": "Overrides Used",
+            "type": "integer"
+          },
+          "per_override": {
+            "items": {
+              "$ref": "#/components/schemas/OverrideDiagnostic"
+            },
+            "title": "Per Override",
+            "type": "array"
+          }
+        },
+        "required": [
+          "overrides_supplied",
+          "overrides_used",
+          "overrides_not_reached"
+        ],
+        "title": "OverrideUsageReport",
+        "type": "object"
+      },
+      "PlayoffMatches": {
+        "properties": {
+          "champion": {
+            "title": "Champion",
+            "type": "string"
+          },
+          "matches": {
+            "items": {
+              "$ref": "#/components/schemas/MatchOutcome"
+            },
+            "title": "Matches",
+            "type": "array"
+          },
+          "runner_up": {
+            "title": "Runner Up",
+            "type": "string"
+          }
+        },
+        "required": [
+          "matches",
+          "champion",
+          "runner_up"
+        ],
+        "title": "PlayoffMatches",
+        "type": "object"
+      },
+      "PredictionEnvelope": {
+        "properties": {
+          "api_version": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "explanation": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explanation"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ResponseMetadata"
+          },
+          "prediction": {
+            "additionalProperties": true,
+            "title": "Prediction",
+            "type": "object"
+          },
+          "request_id": {
+            "title": "Request Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "request_id",
+          "api_version",
+          "prediction",
+          "metadata"
+        ],
+        "title": "PredictionEnvelope",
+        "type": "object"
+      },
+      "ProbabilityStat": {
+        "properties": {
+          "denominator_count": {
+            "title": "Denominator Count",
+            "type": "integer"
+          },
+          "mc_standard_error": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mc Standard Error"
+          },
+          "numerator_count": {
+            "title": "Numerator Count",
+            "type": "integer"
+          },
+          "probability": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Probability"
+          }
+        },
+        "required": [
+          "numerator_count",
+          "denominator_count",
+          "probability",
+          "mc_standard_error"
+        ],
+        "title": "ProbabilityStat",
+        "type": "object"
+      },
+      "ResponseMetadata": {
+        "properties": {
+          "context_id": {
+            "title": "Context Id",
+            "type": "string"
+          },
+          "explanation_version": {
+            "title": "Explanation Version",
+            "type": "string"
+          },
+          "prediction_contract": {
+            "title": "Prediction Contract",
+            "type": "string"
+          },
+          "state_data_through": {
+            "title": "State Data Through",
+            "type": "string"
+          },
+          "state_is_live": {
+            "title": "State Is Live",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "context_id",
+          "state_data_through",
+          "state_is_live",
+          "prediction_contract",
+          "explanation_version"
+        ],
+        "title": "ResponseMetadata",
+        "type": "object"
+      },
+      "SeriesPredictionRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "best_of": {
+            "description": "Must be 1, 3, or 5. Strictly typed - a bool is never accepted.",
+            "title": "Best Of",
+            "type": "integer"
+          },
+          "context_id": {
+            "description": "Registered inference context id (see GET /api/v1/contexts).",
+            "minLength": 1,
+            "title": "Context Id",
+            "type": "string"
+          },
+          "explanation_detail": {
+            "default": "summary",
+            "description": "'summary' (default) omits the full 19/131-feature low-level arrays. 'full' returns the complete Phase 9C attribution payload.",
+            "enum": [
+              "summary",
+              "full"
+            ],
+            "title": "Explanation Detail",
+            "type": "string"
+          },
+          "include_explanation": {
+            "default": true,
+            "title": "Include Explanation",
+            "type": "boolean"
+          },
+          "mode": {
+            "description": "'pre_veto' = RF V2 only, map order unknown, ordered_maps must be null. 'known_maps' = XGB V3 + dynamic-program series composition, exact ordered_maps required.",
+            "enum": [
+              "pre_veto",
+              "known_maps"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "ordered_maps": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ordered Maps"
+          },
+          "prediction_datetime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "ISO-8601 datetime, passed through unmodified (no HTTP-layer timezone conversion). Historical context: omit, or supply exactly the locked cutoff. Deployment context: omit to default to the state cutoff; a value after the cutoff is accepted only as a hypothetical stale-snapshot projection.",
+            "title": "Prediction Datetime"
+          },
+          "team_a": {
+            "minLength": 1,
+            "title": "Team A",
+            "type": "string"
+          },
+          "team_b": {
+            "minLength": 1,
+            "title": "Team B",
+            "type": "string"
+          },
+          "tier": {
+            "anyOf": [
+              {
+                "enum": [
+                  "tier1",
+                  "tier2",
+                  "tier3"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tier"
+          }
+        },
+        "required": [
+          "context_id",
+          "mode",
+          "team_a",
+          "team_b",
+          "best_of"
+        ],
+        "title": "SeriesPredictionRequest",
+        "type": "object"
+      },
+      "StageMatches": {
+        "properties": {
+          "matches": {
+            "items": {
+              "$ref": "#/components/schemas/MatchOutcome"
+            },
+            "title": "Matches",
+            "type": "array"
+          },
+          "stage": {
+            "title": "Stage",
+            "type": "string"
+          }
+        },
+        "required": [
+          "stage",
+          "matches"
+        ],
+        "title": "StageMatches",
+        "type": "object"
+      },
+      "TeamAggregate": {
+        "properties": {
+          "advance_from_stage_1": {
+            "$ref": "#/components/schemas/ProbabilityStat"
+          },
+          "advance_from_stage_2": {
+            "$ref": "#/components/schemas/ProbabilityStat"
+          },
+          "advance_from_stage_3": {
+            "$ref": "#/components/schemas/ProbabilityStat"
+          },
+          "participate_stage_1": {
+            "$ref": "#/components/schemas/ProbabilityStat"
+          },
+          "participate_stage_2": {
+            "$ref": "#/components/schemas/ProbabilityStat"
+          },
+          "participate_stage_3": {
+            "$ref": "#/components/schemas/ProbabilityStat"
+          },
+          "playoff_seed_distribution": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ProbabilityStat"
+            },
+            "title": "Playoff Seed Distribution",
+            "type": "object"
+          },
+          "reach_final": {
+            "$ref": "#/components/schemas/ProbabilityStat"
+          },
+          "reach_playoffs": {
+            "$ref": "#/components/schemas/ProbabilityStat"
+          },
+          "reach_semifinal": {
+            "$ref": "#/components/schemas/ProbabilityStat"
+          },
+          "swiss_record_distribution": {
+            "additionalProperties": {
+              "additionalProperties": {
+                "$ref": "#/components/schemas/ProbabilityStat"
+              },
+              "type": "object"
+            },
+            "title": "Swiss Record Distribution",
+            "type": "object"
+          },
+          "team": {
+            "title": "Team",
+            "type": "string"
+          },
+          "win_tournament": {
+            "$ref": "#/components/schemas/ProbabilityStat"
+          }
+        },
+        "required": [
+          "team",
+          "participate_stage_1",
+          "participate_stage_2",
+          "participate_stage_3",
+          "advance_from_stage_1",
+          "advance_from_stage_2",
+          "advance_from_stage_3",
+          "reach_playoffs",
+          "reach_semifinal",
+          "reach_final",
+          "win_tournament",
+          "swiss_record_distribution",
+          "playoff_seed_distribution"
+        ],
+        "title": "TeamAggregate",
+        "type": "object"
+      },
+      "TournamentParticipant": {
+        "additionalProperties": false,
+        "properties": {
+          "seed": {
+            "title": "Seed",
+            "type": "integer"
+          },
+          "team": {
+            "minLength": 1,
+            "title": "Team",
+            "type": "string"
+          }
+        },
+        "required": [
+          "team",
+          "seed"
+        ],
+        "title": "TournamentParticipant",
+        "type": "object"
+      },
+      "TournamentParticipants": {
+        "additionalProperties": false,
+        "properties": {
+          "stage1": {
+            "items": {
+              "$ref": "#/components/schemas/TournamentParticipant"
+            },
+            "maxItems": 16,
+            "minItems": 16,
+            "title": "Stage1",
+            "type": "array"
+          },
+          "stage2_direct": {
+            "items": {
+              "$ref": "#/components/schemas/TournamentParticipant"
+            },
+            "maxItems": 8,
+            "minItems": 8,
+            "title": "Stage2 Direct",
+            "type": "array"
+          },
+          "stage3_direct": {
+            "items": {
+              "$ref": "#/components/schemas/TournamentParticipant"
+            },
+            "maxItems": 8,
+            "minItems": 8,
+            "title": "Stage3 Direct",
+            "type": "array"
+          }
+        },
+        "required": [
+          "stage1",
+          "stage2_direct",
+          "stage3_direct"
+        ],
+        "title": "TournamentParticipants",
+        "type": "object"
+      },
+      "TournamentPathResponse": {
+        "properties": {
+          "api_version": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/TournamentResponseMetadata"
+          },
+          "request_id": {
+            "title": "Request Id",
+            "type": "string"
+          },
+          "result": {
+            "$ref": "#/components/schemas/TournamentPathResult"
+          }
+        },
+        "required": [
+          "request_id",
+          "api_version",
+          "result",
+          "metadata"
+        ],
+        "title": "TournamentPathResponse",
+        "type": "object"
+      },
+      "TournamentPathResult": {
+        "properties": {
+          "canonical_participants": {
+            "additionalProperties": true,
+            "title": "Canonical Participants",
+            "type": "object"
+          },
+          "canonical_trace_hash": {
+            "title": "Canonical Trace Hash",
+            "type": "string"
+          },
+          "champion": {
+            "title": "Champion",
+            "type": "string"
+          },
+          "context_id": {
+            "title": "Context Id",
+            "type": "string"
+          },
+          "override_usage": {
+            "$ref": "#/components/schemas/OverrideUsageReport"
+          },
+          "playoffs": {
+            "$ref": "#/components/schemas/PlayoffMatches"
+          },
+          "prediction_datetime": {
+            "title": "Prediction Datetime",
+            "type": "string"
+          },
+          "probability_matrix_hash": {
+            "title": "Probability Matrix Hash",
+            "type": "string"
+          },
+          "ruleset_id": {
+            "title": "Ruleset Id",
+            "type": "string"
+          },
+          "stage_1": {
+            "$ref": "#/components/schemas/StageMatches"
+          },
+          "stage_2": {
+            "$ref": "#/components/schemas/StageMatches"
+          },
+          "stage_3": {
+            "$ref": "#/components/schemas/StageMatches"
+          },
+          "tier": {
+            "title": "Tier",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ruleset_id",
+          "context_id",
+          "tier",
+          "prediction_datetime",
+          "canonical_participants",
+          "probability_matrix_hash",
+          "stage_1",
+          "stage_2",
+          "stage_3",
+          "playoffs",
+          "champion",
+          "canonical_trace_hash",
+          "override_usage"
+        ],
+        "title": "TournamentPathResult",
+        "type": "object"
+      },
+      "TournamentResponseMetadata": {
+        "properties": {
+          "context_id": {
+            "title": "Context Id",
+            "type": "string"
+          },
+          "historical": {
+            "default": false,
+            "title": "Historical",
+            "type": "boolean"
+          },
+          "immutable": {
+            "default": false,
+            "title": "Immutable",
+            "type": "boolean"
+          },
+          "prediction_contract": {
+            "default": "phase9b",
+            "title": "Prediction Contract",
+            "type": "string"
+          },
+          "probability_matrix_hash": {
+            "title": "Probability Matrix Hash",
+            "type": "string"
+          },
+          "ruleset_id": {
+            "title": "Ruleset Id",
+            "type": "string"
+          },
+          "state_data_through": {
+            "title": "State Data Through",
+            "type": "string"
+          },
+          "state_is_live": {
+            "default": false,
+            "title": "State Is Live",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ruleset_id",
+          "context_id",
+          "probability_matrix_hash",
+          "state_data_through"
+        ],
+        "title": "TournamentResponseMetadata",
+        "type": "object"
+      },
+      "TournamentSimulationResponse": {
+        "properties": {
+          "api_version": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/TournamentResponseMetadata"
+          },
+          "request_id": {
+            "title": "Request Id",
+            "type": "string"
+          },
+          "result": {
+            "$ref": "#/components/schemas/TournamentSimulationResult"
+          }
+        },
+        "required": [
+          "request_id",
+          "api_version",
+          "result",
+          "metadata"
+        ],
+        "title": "TournamentSimulationResponse",
+        "type": "object"
+      },
+      "TournamentSimulationResult": {
+        "properties": {
+          "canonical_participants": {
+            "additionalProperties": true,
+            "title": "Canonical Participants",
+            "type": "object"
+          },
+          "champion_ranking": {
+            "items": {
+              "$ref": "#/components/schemas/ChampionshipProbability"
+            },
+            "title": "Champion Ranking",
+            "type": "array"
+          },
+          "context_id": {
+            "title": "Context Id",
+            "type": "string"
+          },
+          "monte_carlo": {
+            "$ref": "#/components/schemas/MonteCarloMetadata"
+          },
+          "override_usage": {
+            "$ref": "#/components/schemas/OverrideUsageReport"
+          },
+          "prediction_datetime": {
+            "title": "Prediction Datetime",
+            "type": "string"
+          },
+          "probability_matrix_hash": {
+            "title": "Probability Matrix Hash",
+            "type": "string"
+          },
+          "ruleset_id": {
+            "title": "Ruleset Id",
+            "type": "string"
+          },
+          "teams": {
+            "items": {
+              "$ref": "#/components/schemas/TeamAggregate"
+            },
+            "title": "Teams",
+            "type": "array"
+          },
+          "tier": {
+            "title": "Tier",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ruleset_id",
+          "context_id",
+          "tier",
+          "prediction_datetime",
+          "canonical_participants",
+          "probability_matrix_hash",
+          "monte_carlo",
+          "champion_ranking",
+          "teams",
+          "override_usage"
+        ],
+        "title": "TournamentSimulationResult",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Read-only HTTP API over the frozen Phase 9B prediction core and Phase 9C explanation core. Two prediction modes exist and are never blended: `pre_veto` (RF V2, unknown maps) and `known_maps` (XGB V3 + a generic best-of-N dynamic program, exact map order known). Explanations are deterministic, model-grounded feature attributions - NOT causal claims. The default context (`deployment_post_cologne_v1`) is the latest locally available application state (data through 2026-06-28), never a live/current claim.",
+    "title": "CS2 Match Prediction Application API",
+    "version": "v1"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/contexts": {
+      "get": {
+        "operationId": "get_contexts_api_v1_contexts_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List all registered inference contexts"
+      }
+    },
+    "/api/v1/contexts/{context_id}": {
+      "get": {
+        "operationId": "get_context_by_id_api_v1_contexts__context_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "context_id",
+            "required": true,
+            "schema": {
+              "title": "Context Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Metadata for one registered inference context"
+      }
+    },
+    "/api/v1/health/live": {
+      "get": {
+        "operationId": "health_live_api_v1_health_live_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Liveness - process is up"
+      }
+    },
+    "/api/v1/health/ready": {
+      "get": {
+        "description": "`status`/the 503 gate below are governed EXCLUSIVELY by the original\nPhase 9D core contract (prediction_ready and explanation_ready) -\nunchanged from Phase 9D. `subsystems` is purely additive (Phase 9E):\ntournament_engine_ready/historical_cologne_ready are reported here for\nvisibility, but a failure in either never marks the base service\nnot-ready - each /api/v1/major/* route enforces its own required\nsubsystem independently via its own 503.",
+        "operationId": "health_ready_api_v1_health_ready_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Readiness - contract verified and default context can serve"
+      }
+    },
+    "/api/v1/major/historical/cologne-2026": {
+      "get": {
+        "operationId": "get_historical_pre_event_api_v1_major_historical_cologne_2026_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Frozen Phase 8D pre-event Cologne simulation - file-backed view, never re-simulated",
+        "tags": [
+          "major"
+        ]
+      }
+    },
+    "/api/v1/major/historical/cologne-2026/results": {
+      "get": {
+        "operationId": "get_historical_results_api_v1_major_historical_cologne_2026_results_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Frozen Phase 8E simulation-vs-reality evaluation - file-backed view, never recomputed",
+        "tags": [
+          "major"
+        ]
+      }
+    },
+    "/api/v1/major/path": {
+      "post": {
+        "operationId": "post_path_api_v1_major_path_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MajorPathRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TournamentPathResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Deterministic model-favorite tournament path with optional manual (Pick'Em) overrides",
+        "tags": [
+          "major"
+        ]
+      }
+    },
+    "/api/v1/major/rulesets": {
+      "get": {
+        "operationId": "get_rulesets_api_v1_major_rulesets_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List registered tournament rulesets (application/version metadata)",
+        "tags": [
+          "major"
+        ]
+      }
+    },
+    "/api/v1/major/simulate": {
+      "post": {
+        "operationId": "post_simulate_api_v1_major_simulate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MajorSimulateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TournamentSimulationResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Monte Carlo Major simulation - Bernoulli sampling from the frozen RF probability matrix",
+        "tags": [
+          "major"
+        ]
+      }
+    },
+    "/api/v1/maps": {
+      "get": {
+        "operationId": "get_maps_api_v1_maps_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "context_id",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "title": "Context Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Structured map support metadata (never the current Active Duty pool)"
+      }
+    },
+    "/api/v1/meta": {
+      "get": {
+        "operationId": "get_meta_api_v1_meta_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Safe public metadata"
+      }
+    },
+    "/api/v1/predict/map": {
+      "post": {
+        "operationId": "predict_map_api_v1_predict_map_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MapPredictionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictionEnvelope"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Single-map prediction (XGB V3 known-map)"
+      }
+    },
+    "/api/v1/predict/series": {
+      "post": {
+        "operationId": "predict_series_api_v1_predict_series_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SeriesPredictionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictionEnvelope"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Series-level prediction: pre_veto (RF V2) or known_maps (XGB V3 + DP), never blended"
+      }
+    },
+    "/api/v1/teams": {
+      "get": {
+        "operationId": "get_teams_api_v1_teams_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "context_id",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "title": "Context Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Case-insensitive substring filter on canonical_name.",
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive substring filter on canonical_name.",
+              "title": "Q"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maximum": 200,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Deterministic substring team search (UI discovery only)"
+      }
+    }
+  }
+}

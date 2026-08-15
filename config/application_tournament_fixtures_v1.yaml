@@ -1,0 +1,82 @@
+# Phase 9E tournament fixture manifest - PREDECLARED before any response was
+# computed (mirrors the Phase 9C/9D amendment #22 discipline). No outcome
+# labels are stored anywhere; results below are computed AFTER this manifest
+# was frozen.
+
+fixtures:
+  historical_parity:
+    - id: hp_favorite_path
+      description: >-
+        The real 32 Cologne teams/seeds (frozen Phase 8B YAML), the frozen Phase 8D
+        probability matrix (loaded, never rebuilt), zero manual overrides. Hard gate:
+        canonical_trace_hash must equal the frozen Phase 8D favorite-path hash
+        6d96855f4c3f08ec99229bdffe2ab6d7c8285a32db20281973db5f5abe58ed35 exactly.
+    - id: hp_sample_traces
+      description: >-
+        Monte Carlo simulation indices 0, 1, 42, 999 against the frozen Phase 8D
+        matrix with base_seed=42, zero overrides. Hard gate: each canonical_trace_hash
+        and champion must match cologne_2026_pre_event_sample_traces_v1.json exactly.
+
+  custom_participants:
+    - id: cp_real_teams_full_bracket
+      ruleset_id: iem_cologne_major_2026_format_v1
+      context_id: deployment_post_cologne_v1
+      tier: tier1
+      description: >-
+        The same 32 real Cologne teams/seeds, resolved through Phase 9B's
+        deployment_post_cologne_v1 identity policy instead of the frozen historical
+        one - exercises the INTERACTIVE path end-to-end (fresh matrix build, RF V2
+        deployment state) while using a structurally realistic, non-cherry-picked
+        32-team bracket.
+
+  manual_overrides:
+    - id: mo_single_stage1_override
+      description: >-
+        One valid Stage-1 Round-1 override forcing the underdog to win - exercises
+        selection_source=user, override_usage.overrides_used=1, and downstream
+        bracket recomputation.
+    - id: mo_not_reached
+      description: >-
+        A structurally valid override (correct stage/record_group/pair shape) for a
+        record-group combination that provably never occurs for that pair given the
+        baseline bracket - exercises overrides_not_reached=1, not silently applied to
+        a different matchup.
+    - id: mo_duplicate
+      description: two overrides with identical semantic identity and the same winner - must reject as duplicate_override.
+    - id: mo_contradictory
+      description: two overrides with identical semantic identity and different winners - must reject as contradictory_override.
+    - id: mo_playoff_override
+      description: >-
+        A grand_final override forced after running the deterministic path once to
+        discover the actual finalists - exercises playoff-round identity
+        (stage=playoffs, no record_group) rather than ordinal match number.
+
+  monte_carlo_reproducibility:
+    - id: mc_small_n_seed_fixed
+      simulation_count: 300
+      seed: 42
+      description: two identical simulate_tournament calls (same participants/overrides/seed/count) must return byte-identical aggregates.
+    - id: mc_chunking_independence
+      simulation_count: 200
+      seed: 42
+      description: >-
+        the same 200-simulation index range run as one synchronous batch vs four
+        4x50-simulation batches (simulating process-pool chunking) must produce an
+        identical merged aggregate - proves reproducibility is independent of
+        worker/chunk boundaries (amendment #8).
+
+  invalid_participants:
+    - id: ip_wrong_stage1_count
+      description: stage1 with 15 entries instead of 16 - expected error invalid_participant_count.
+    - id: ip_duplicate_team_across_stages
+      description: the same canonical team appearing in both stage1 and stage2_direct - expected error duplicate_team.
+    - id: ip_missing_seed
+      description: stage1 seeds not forming the exact set 1..16 - expected error invalid_seed.
+    - id: ip_unknown_team
+      description: a team name that does not resolve under the deployment identity policy - expected error unknown_team.
+    - id: ip_bad_simulation_count
+      description: simulation_count of 0, a negative value, and 50001 - expected error invalid_simulation_count for each.
+
+note: >-
+  No actual match outcome labels are stored anywhere for these fixtures - only the
+  request shapes/parameters above, predeclared before any response was computed.

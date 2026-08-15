@@ -1,0 +1,19 @@
+{
+  "service_version": "application_tournament_service_v1",
+  "default_prediction_context": "deployment_post_cologne_v1",
+  "historical_cologne_contract": "frozen_phase8d_phase8e",
+  "default_ruleset_id": "iem_cologne_major_2026_format_v1",
+  "committed": true,
+  "hashes": {
+    "application_tournament_service_py": "c2a7f2bcff9f42ca9f1fd3a77a54bcfbe5ae65fa6d8f875d7435843af3f6a144",
+    "application_tournament_router_py": "2b2717f91f01ad34105195bb1e95144370f81df678a632c94bbff1b118412a4f",
+    "ruleset_registry": "7325ab5eeab27bcb4c35c7f51b6702acced4d83d99d6c009c904742dd7c1f530",
+    "fixture_manifest": "28d866dbdb4a0fdb46235ad70686a65a60e3ca395bb3fad70b6fd7d6487f1faa",
+    "tournament_engine_py": "012bd58e7792f7cce1e888d8f233fab274d798d4c3728f5b237f041fb73dd665",
+    "phase9b_context_registry": "041af5643bbb266872d29df0503b0a2a675b60b89e7be0a75438250ccc4303f2",
+    "phase9d_api_receipt": "dce2dcab1bd7c832ee6064a53dee004959f62825778fd64dfb6ca3959d2947de",
+    "phase8d_simulation_receipt": "050ce55150832c1aac5a0359e22fd096dc16be259f0ea7e788346d068ed2ad22",
+    "phase8e_evaluation_receipt": "aa3309e282d873c0ac7906013b7b97c1b333a5254d1f4028959480d555c1efe1",
+    "test_phase9e_py": "6111e4c0f2be11185728ff67c42627ac198b9defbdcbeac9ca3454d40eb93405"
+  }
+}

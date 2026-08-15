@@ -1,0 +1,1103 @@
+{
+  "match_metrics": {
+    "overall": {
+      "n": 106,
+      "log_loss": 0.6316325912381936,
+      "brier": 0.2208301964010727,
+      "accuracy": 0.6415094339622641,
+      "precision": 0.6323529411764706,
+      "recall": 0.7678571428571429,
+      "f1": 0.6935483870967742,
+      "roc_auc": 0.6967857142857142
+    },
+    "baseline_p0_5": {
+      "n": 106,
+      "log_loss": 0.6931471805599453,
+      "brier": 0.25,
+      "accuracy": 0.5283018867924528,
+      "precision": 0.5283018867924528,
+      "recall": 1.0,
+      "f1": 0.691358024691358,
+      "roc_auc": 0.5,
+      "accuracy_note": "with p>=0.5 -> team_a for every match, this 'accuracy' is simply the observed team_a-win prevalence, not a meaningful tuned classifier."
+    },
+    "by_stage": {
+      "playoffs": {
+        "n": 7,
+        "log_loss": 0.6649239985389227,
+        "brier": 0.23748688400913123,
+        "accuracy": 0.5714285714285714,
+        "precision": 0.6,
+        "recall": 0.75,
+        "f1": 0.6666666666666666,
+        "roc_auc": 0.5833333333333334
+      },
+      "stage_1": {
+        "n": 33,
+        "log_loss": 0.6120696620927131,
+        "brier": 0.2112838185393202,
+        "accuracy": 0.696969696969697,
+        "precision": 0.6666666666666666,
+        "recall": 0.8235294117647058,
+        "f1": 0.7368421052631579,
+        "roc_auc": 0.7426470588235294
+      },
+      "stage_2": {
+        "n": 33,
+        "log_loss": 0.6477563753749109,
+        "brier": 0.22925467341158037,
+        "accuracy": 0.5757575757575758,
+        "precision": 0.5789473684210527,
+        "recall": 0.6470588235294118,
+        "f1": 0.6111111111111112,
+        "roc_auc": 0.6727941176470589
+      },
+      "stage_3": {
+        "n": 33,
+        "log_loss": 0.6280099225771053,
+        "brier": 0.21841886048697168,
+        "accuracy": 0.6666666666666666,
+        "precision": 0.6521739130434783,
+        "recall": 0.8333333333333334,
+        "f1": 0.7317073170731707,
+        "roc_auc": 0.7074074074074074
+      }
+    },
+    "by_best_of": {
+      "BO1": {
+        "n": 40,
+        "log_loss": 0.6527592183590648,
+        "brier": 0.23104631683670585,
+        "accuracy": 0.6,
+        "precision": 0.6333333333333333,
+        "recall": 0.7916666666666666,
+        "f1": 0.7037037037037037,
+        "roc_auc": 0.6432291666666667
+      },
+      "BO3": {
+        "n": 65,
+        "log_loss": 0.6200563930189122,
+        "brier": 0.21526962185725218,
+        "accuracy": 0.6615384615384615,
+        "precision": 0.631578947368421,
+        "recall": 0.75,
+        "f1": 0.6857142857142857,
+        "roc_auc": 0.7225378787878788
+      },
+      "BO5": {
+        "n": 1,
+        "log_loss": 0.5390203906566463,
+        "brier": 0.17362272432407527,
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "roc_auc": null,
+        "roc_auc_note": "N/A - only one class present in this group",
+        "warning": "INSUFFICIENT SAMPLE FOR GENERAL INFERENCE"
+      }
+    },
+    "vs_development_validation": {
+      "log_loss": {
+        "cologne": 0.6316325912381936,
+        "dev_validation": 0.6514,
+        "external_event_metric_difference": -0.019767408761806382
+      },
+      "brier": {
+        "cologne": 0.2208301964010727,
+        "dev_validation": 0.2298,
+        "external_event_metric_difference": -0.008969803598927295
+      },
+      "roc_auc": {
+        "cologne": 0.6967857142857142,
+        "dev_validation": 0.6566,
+        "external_event_metric_difference": 0.04018571428571427
+      },
+      "accuracy": {
+        "cologne": 0.6415094339622641,
+        "dev_validation": 0.6068,
+        "external_event_metric_difference": 0.034709433962264113
+      }
+    },
+    "language_note": "Differences above are reported as 'external-event metric differences' only - not improvement/degradation claims and not new model-selection evidence."
+  },
+  "winner_probability_analysis": {
+    "distribution": {
+      "mean": 0.5474695671417835,
+      "median": 0.5531702125778302,
+      "q1": 0.432519063544171,
+      "q3": 0.637754479190758,
+      "min": 0.21828234587313744,
+      "max": 0.7940543775684259
+    },
+    "highest_confidence_correct_prediction": {
+      "actual_match_id": 7302506,
+      "stage": "stage_2",
+      "round": 3,
+      "team_a": "Team Spirit",
+      "team_b": "9z Team",
+      "actual_winner": "Team Spirit",
+      "p_actual_winner": 0.7940543775684259,
+      "best_of": 3
+    },
+    "highest_confidence_incorrect_prediction": {
+      "actual_match_id": 7302612,
+      "stage": "stage_3",
+      "round": 2,
+      "team_a": "Team Vitality",
+      "team_b": "9z Team",
+      "actual_winner": "9z Team",
+      "p_actual_winner": 0.21828234587313744,
+      "best_of": 3
+    },
+    "biggest_model_upset": {
+      "actual_match_id": 7302612,
+      "stage": "stage_3",
+      "round": 2,
+      "team_a": "Team Vitality",
+      "team_b": "9z Team",
+      "actual_winner": "9z Team",
+      "p_actual_winner": 0.21828234587313744,
+      "best_of": 3
+    },
+    "note": "biggest_model_upset is defined as the actual winner with the lowest frozen p_actual_winner; it will typically coincide with the highest-confidence-incorrect row since both select the minimum p_actual_winner."
+  },
+  "realized_path_log_score": {
+    "sum_log_probability_actual_winners": -66.95305467124852,
+    "mean_negative_log_probability": 0.6316325912381936,
+    "equals_match_log_loss": true,
+    "match_log_loss_cross_check": 0.6316325912381936,
+    "naming": "conditional realized-path log probability / realized tournament path log score - conditional on the deterministic pairing rules induced by preceding outcomes, NOT an unconditional probability of the entire Major.",
+    "raw_path_probability_note": "exp(sum_log_probability) is astronomically small and is not foregrounded; the sum stays in log-space."
+  },
+  "champion_analysis": {
+    "actual_champion": "Team Falcons",
+    "championship_probability": 0.0893,
+    "championship_rank": 4,
+    "cumulative_championship_probability_of_teams_ranked_above": 0.60068,
+    "top1": false,
+    "top3": false,
+    "top5": true,
+    "top8": true,
+    "reach_playoffs_probability": 0.68602,
+    "reach_semifinal_probability": 0.37702,
+    "reach_final_probability": 0.19352,
+    "multiclass_champion_log_score": 2.4157537910996836,
+    "note": "The 32-team champion distribution is a single multiclass outcome, not 32 independent binary observations."
+  },
+  "milestone_probability_quality": {
+    "reach_playoffs": {
+      "n": 32,
+      "brier": 0.134134144875,
+      "log_loss": 0.3992415036768705
+    },
+    "reach_semifinal": {
+      "n": 32,
+      "brier": 0.085215890275,
+      "log_loss": 0.25353165080693085
+    },
+    "reach_final": {
+      "n": 32,
+      "brier": 0.058781926075000004,
+      "log_loss": 0.18740069698781067
+    }
+  },
+  "top_k_set_comparisons": {
+    "playoffs_top8": {
+      "overlap_count": 5,
+      "precision": 0.625,
+      "recall": 0.625,
+      "jaccard": 0.45454545454545453,
+      "predicted": [
+        "Aurora Gaming",
+        "FURIA Esports",
+        "MOUZ",
+        "Natus Vincere",
+        "Team Falcons",
+        "Team Spirit",
+        "Team Vitality",
+        "The Mongolz"
+      ],
+      "actual": [
+        "9z Team",
+        "Aurora Gaming",
+        "BetBoom Team",
+        "FURIA Esports",
+        "G2 Esports",
+        "Team Falcons",
+        "Team Spirit",
+        "Team Vitality"
+      ]
+    },
+    "semifinal_top4": {
+      "overlap_count": 2,
+      "precision": 0.5,
+      "recall": 0.5,
+      "jaccard": 0.3333333333333333,
+      "predicted": [
+        "Natus Vincere",
+        "Team Falcons",
+        "Team Spirit",
+        "Team Vitality"
+      ],
+      "actual": [
+        "Aurora Gaming",
+        "FURIA Esports",
+        "Team Falcons",
+        "Team Spirit"
+      ]
+    },
+    "final_top2": {
+      "overlap_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "jaccard": 0.0,
+      "predicted": [
+        "Team Spirit",
+        "Team Vitality"
+      ],
+      "actual": [
+        "FURIA Esports",
+        "Team Falcons"
+      ]
+    },
+    "champion_top1": {
+      "overlap_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "jaccard": 0.0,
+      "predicted": [
+        "Team Vitality"
+      ],
+      "actual": [
+        "Team Falcons"
+      ]
+    }
+  },
+  "stage_advancement_evaluation": {
+    "stage_1": {
+      "metrics": {
+        "n": 16,
+        "brier": 0.15802608285000003,
+        "log_loss": 0.4945975849191765
+      },
+      "n_participants_scored": 16,
+      "top8_vs_actual": {
+        "overlap_count": 6,
+        "precision": 0.75,
+        "recall": 0.75,
+        "jaccard": 0.6,
+        "predicted": [
+          "B8 Esports",
+          "BIG",
+          "BetBoom Team",
+          "GamerLegion",
+          "Heroic",
+          "M80",
+          "MIBR",
+          "Sinners Esports"
+        ],
+        "actual": [
+          "B8 Esports",
+          "BIG",
+          "BetBoom Team",
+          "FlyQuest",
+          "GamerLegion",
+          "M80",
+          "MIBR",
+          "TYLOO"
+        ]
+      }
+    },
+    "stage_2": {
+      "metrics": {
+        "n": 16,
+        "brier": 0.1979843648854985,
+        "log_loss": 0.5784596329197383
+      },
+      "n_participants_scored": 16,
+      "top8_vs_actual": {
+        "overlap_count": 5,
+        "precision": 0.625,
+        "recall": 0.625,
+        "jaccard": 0.45454545454545453,
+        "predicted": [
+          "Astralis",
+          "BIG",
+          "BetBoom Team",
+          "FUT Esports",
+          "G2 Esports",
+          "GamerLegion",
+          "Legacy",
+          "Team Spirit"
+        ],
+        "actual": [
+          "9z Team",
+          "B8 Esports",
+          "BetBoom Team",
+          "FUT Esports",
+          "G2 Esports",
+          "Legacy",
+          "Monte",
+          "Team Spirit"
+        ]
+      }
+    },
+    "stage_3": {
+      "metrics": {
+        "n": 16,
+        "brier": 0.23547424646613768,
+        "log_loss": 0.6606294218740998
+      },
+      "n_participants_scored": 16,
+      "top8_vs_actual": {
+        "overlap_count": 5,
+        "precision": 0.625,
+        "recall": 0.625,
+        "jaccard": 0.45454545454545453,
+        "predicted": [
+          "BetBoom Team",
+          "FURIA Esports",
+          "MOUZ",
+          "Natus Vincere",
+          "Team Falcons",
+          "Team Spirit",
+          "Team Vitality",
+          "The Mongolz"
+        ],
+        "actual": [
+          "9z Team",
+          "Aurora Gaming",
+          "BetBoom Team",
+          "FURIA Esports",
+          "G2 Esports",
+          "Team Falcons",
+          "Team Spirit",
+          "Team Vitality"
+        ]
+      }
+    }
+  },
+  "swiss_terminal_record_summary": {
+    "mean": 0.210386092173255,
+    "median": 0.2165983723820769,
+    "min": 0.06724,
+    "max": 0.42532,
+    "n": 48
+  },
+  "favorite_path_vs_reality": {
+    "structural_set_comparisons": {
+      "stage_1_advancers": {
+        "overlap_count": 6,
+        "precision": 0.75,
+        "recall": 0.75,
+        "jaccard": 0.6,
+        "predicted": [
+          "B8 Esports",
+          "BIG",
+          "BetBoom Team",
+          "FlyQuest",
+          "GamerLegion",
+          "Heroic",
+          "MIBR",
+          "Sinners Esports"
+        ],
+        "actual": [
+          "B8 Esports",
+          "BIG",
+          "BetBoom Team",
+          "FlyQuest",
+          "GamerLegion",
+          "M80",
+          "MIBR",
+          "TYLOO"
+        ]
+      },
+      "stage_2_advancers": {
+        "overlap_count": 4,
+        "precision": 0.5,
+        "recall": 0.5,
+        "jaccard": 0.3333333333333333,
+        "predicted": [
+          "Astralis",
+          "BIG",
+          "BetBoom Team",
+          "G2 Esports",
+          "GamerLegion",
+          "Legacy",
+          "Sinners Esports",
+          "Team Spirit"
+        ],
+        "actual": [
+          "9z Team",
+          "B8 Esports",
+          "BetBoom Team",
+          "FUT Esports",
+          "G2 Esports",
+          "Legacy",
+          "Monte",
+          "Team Spirit"
+        ]
+      },
+      "stage_3_advancers_playoff_teams": {
+        "overlap_count": 4,
+        "precision": 0.5,
+        "recall": 0.5,
+        "jaccard": 0.3333333333333333,
+        "predicted": [
+          "FURIA Esports",
+          "GamerLegion",
+          "MOUZ",
+          "Natus Vincere",
+          "Team Falcons",
+          "Team Spirit",
+          "Team Vitality",
+          "The Mongolz"
+        ],
+        "actual": [
+          "9z Team",
+          "Aurora Gaming",
+          "BetBoom Team",
+          "FURIA Esports",
+          "G2 Esports",
+          "Team Falcons",
+          "Team Spirit",
+          "Team Vitality"
+        ]
+      },
+      "semifinalists": {
+        "overlap_count": 2,
+        "precision": 0.5,
+        "recall": 0.5,
+        "jaccard": 0.3333333333333333,
+        "predicted": [
+          "Natus Vincere",
+          "Team Falcons",
+          "Team Spirit",
+          "Team Vitality"
+        ],
+        "actual": [
+          "Aurora Gaming",
+          "FURIA Esports",
+          "Team Falcons",
+          "Team Spirit"
+        ]
+      },
+      "finalists": {
+        "overlap_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "jaccard": 0.0,
+        "predicted": [
+          "Natus Vincere",
+          "Team Vitality"
+        ],
+        "actual": [
+          "FURIA Esports",
+          "Team Falcons"
+        ]
+      },
+      "champion": {
+        "overlap_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "jaccard": 0.0,
+        "predicted": [
+          "Team Vitality"
+        ],
+        "actual": [
+          "Team Falcons"
+        ]
+      }
+    },
+    "matched_identical_matchups": {
+      "n_shared_matchups_between_favorite_path_and_reality": 12,
+      "n_correct_among_shared": 6,
+      "accuracy_among_shared_matchups_only": 0.5,
+      "detail": [
+        {
+          "stage": "stage_1",
+          "round": 1,
+          "team_a": "GamerLegion",
+          "team_b": "NRG Esports",
+          "favorite_path_predicted_winner": "GamerLegion",
+          "actual_winner": "GamerLegion",
+          "correct": true
+        },
+        {
+          "stage": "stage_1",
+          "round": 1,
+          "team_a": "Heroic",
+          "team_b": "Sharks Esports",
+          "favorite_path_predicted_winner": "Heroic",
+          "actual_winner": "Sharks Esports",
+          "correct": false
+        },
+        {
+          "stage": "stage_1",
+          "round": 1,
+          "team_a": "B8 Esports",
+          "team_b": "TYLOO",
+          "favorite_path_predicted_winner": "B8 Esports",
+          "actual_winner": "B8 Esports",
+          "correct": true
+        },
+        {
+          "stage": "stage_1",
+          "round": 1,
+          "team_a": "BetBoom Team",
+          "team_b": "Gaimin Gladiators",
+          "favorite_path_predicted_winner": "BetBoom Team",
+          "actual_winner": "BetBoom Team",
+          "correct": true
+        },
+        {
+          "stage": "stage_1",
+          "round": 1,
+          "team_a": "MIBR",
+          "team_b": "THUNDERdOWNUNDER",
+          "favorite_path_predicted_winner": "MIBR",
+          "actual_winner": "THUNDERdOWNUNDER",
+          "correct": false
+        },
+        {
+          "stage": "stage_2",
+          "round": 1,
+          "team_a": "9z Team",
+          "team_b": "FlyQuest",
+          "favorite_path_predicted_winner": "9z Team",
+          "actual_winner": "9z Team",
+          "correct": true
+        },
+        {
+          "stage": "stage_3",
+          "round": 3,
+          "team_a": "Aurora Gaming",
+          "team_b": "G2 Esports",
+          "favorite_path_predicted_winner": "G2 Esports",
+          "actual_winner": "Aurora Gaming",
+          "correct": false
+        },
+        {
+          "stage": "stage_1",
+          "round": 1,
+          "team_a": "Sinners Esports",
+          "team_b": "FlyQuest",
+          "favorite_path_predicted_winner": "Sinners Esports",
+          "actual_winner": "FlyQuest",
+          "correct": false
+        },
+        {
+          "stage": "stage_2",
+          "round": 1,
+          "team_a": "Legacy",
+          "team_b": "MIBR",
+          "favorite_path_predicted_winner": "Legacy",
+          "actual_winner": "MIBR",
+          "correct": false
+        },
+        {
+          "stage": "stage_1",
+          "round": 1,
+          "team_a": "BIG",
+          "team_b": "Team Liquid",
+          "favorite_path_predicted_winner": "BIG",
+          "actual_winner": "Team Liquid",
+          "correct": false
+        },
+        {
+          "stage": "stage_1",
+          "round": 1,
+          "team_a": "M80",
+          "team_b": "Lynn Vision Gaming",
+          "favorite_path_predicted_winner": "M80",
+          "actual_winner": "M80",
+          "correct": true
+        },
+        {
+          "stage": "stage_3",
+          "round": 2,
+          "team_a": "Natus Vincere",
+          "team_b": "Legacy",
+          "favorite_path_predicted_winner": "Natus Vincere",
+          "actual_winner": "Natus Vincere",
+          "correct": true
+        }
+      ]
+    },
+    "note": "ACTUAL-MATCH MODEL ACCURACY (see match-level metrics) is kept strictly separate from DETERMINISTIC FAVORITE-PATH SIMILARITY here. Individual predictions are compared only where the exact same (stage, round, unordered team pair) occurs in both paths - divergent downstream favorite-path matchups that never happened in reality are never penalized as wrong predictions."
+  },
+  "playoff_teams": [
+    "9z Team",
+    "Aurora Gaming",
+    "BetBoom Team",
+    "FURIA Esports",
+    "G2 Esports",
+    "Team Falcons",
+    "Team Spirit",
+    "Team Vitality"
+  ],
+  "semifinalists": [
+    "Aurora Gaming",
+    "FURIA Esports",
+    "Team Falcons",
+    "Team Spirit"
+  ],
+  "finalists": [
+    "FURIA Esports",
+    "Team Falcons"
+  ],
+  "champion": "Team Falcons",
+  "swiss_terminal_record_detail": [
+    {
+      "team": "B8 Esports",
+      "stage": "stage_1",
+      "actual_terminal_record": "3-0",
+      "realized_record_probability": 0.19222,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "BetBoom Team",
+      "stage": "stage_1",
+      "actual_terminal_record": "3-0",
+      "realized_record_probability": 0.29074,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "GamerLegion",
+      "stage": "stage_1",
+      "actual_terminal_record": "3-1",
+      "realized_record_probability": 0.2792,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "M80",
+      "stage": "stage_1",
+      "actual_terminal_record": "3-1",
+      "realized_record_probability": 0.19672,
+      "most_probable_terminal_record": "2-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "MIBR",
+      "stage": "stage_1",
+      "actual_terminal_record": "3-1",
+      "realized_record_probability": 0.2312,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "TYLOO",
+      "stage": "stage_1",
+      "actual_terminal_record": "3-2",
+      "realized_record_probability": 0.19824,
+      "most_probable_terminal_record": "2-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "BIG",
+      "stage": "stage_1",
+      "actual_terminal_record": "3-2",
+      "realized_record_probability": 0.22364,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "FlyQuest",
+      "stage": "stage_1",
+      "actual_terminal_record": "3-2",
+      "realized_record_probability": 0.22252,
+      "most_probable_terminal_record": "3-2",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "Team Liquid",
+      "stage": "stage_1",
+      "actual_terminal_record": "2-3",
+      "realized_record_probability": 0.21778,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "NRG Esports",
+      "stage": "stage_1",
+      "actual_terminal_record": "2-3",
+      "realized_record_probability": 0.2188,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Lynn Vision Gaming",
+      "stage": "stage_1",
+      "actual_terminal_record": "2-3",
+      "realized_record_probability": 0.22122,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "THUNDERdOWNUNDER",
+      "stage": "stage_1",
+      "actual_terminal_record": "1-3",
+      "realized_record_probability": 0.31094,
+      "most_probable_terminal_record": "0-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Sharks Esports",
+      "stage": "stage_1",
+      "actual_terminal_record": "1-3",
+      "realized_record_probability": 0.24826,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "Heroic",
+      "stage": "stage_1",
+      "actual_terminal_record": "1-3",
+      "realized_record_probability": 0.15538,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Gaimin Gladiators",
+      "stage": "stage_1",
+      "actual_terminal_record": "0-3",
+      "realized_record_probability": 0.23272,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Sinners Esports",
+      "stage": "stage_1",
+      "actual_terminal_record": "0-3",
+      "realized_record_probability": 0.06724,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "FUT Esports",
+      "stage": "stage_2",
+      "actual_terminal_record": "3-0",
+      "realized_record_probability": 0.15132,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Team Spirit",
+      "stage": "stage_2",
+      "actual_terminal_record": "3-0",
+      "realized_record_probability": 0.42532,
+      "most_probable_terminal_record": "3-0",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "G2 Esports",
+      "stage": "stage_2",
+      "actual_terminal_record": "3-1",
+      "realized_record_probability": 0.26092,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "BetBoom Team",
+      "stage": "stage_2",
+      "actual_terminal_record": "3-1",
+      "realized_record_probability": 0.2578435816085008,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "9z Team",
+      "stage": "stage_2",
+      "actual_terminal_record": "3-1",
+      "realized_record_probability": 0.15262,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Monte",
+      "stage": "stage_2",
+      "actual_terminal_record": "3-2",
+      "realized_record_probability": 0.18568,
+      "most_probable_terminal_record": "2-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "B8 Esports",
+      "stage": "stage_2",
+      "actual_terminal_record": "3-2",
+      "realized_record_probability": 0.2045083207261724,
+      "most_probable_terminal_record": "2-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Legacy",
+      "stage": "stage_2",
+      "actual_terminal_record": "3-2",
+      "realized_record_probability": 0.22194,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "TYLOO",
+      "stage": "stage_2",
+      "actual_terminal_record": "2-3",
+      "realized_record_probability": 0.2182889528607412,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "BIG",
+      "stage": "stage_2",
+      "actual_terminal_record": "2-3",
+      "realized_record_probability": 0.1825912398583656,
+      "most_probable_terminal_record": "3-2",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "paiN Gaming",
+      "stage": "stage_2",
+      "actual_terminal_record": "2-3",
+      "realized_record_probability": 0.21702,
+      "most_probable_terminal_record": "2-3",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "M80",
+      "stage": "stage_2",
+      "actual_terminal_record": "1-3",
+      "realized_record_probability": 0.2651735208683687,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "MIBR",
+      "stage": "stage_2",
+      "actual_terminal_record": "1-3",
+      "realized_record_probability": 0.2444868044828606,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "Astralis",
+      "stage": "stage_2",
+      "actual_terminal_record": "1-3",
+      "realized_record_probability": 0.14858,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "FlyQuest",
+      "stage": "stage_2",
+      "actual_terminal_record": "0-3",
+      "realized_record_probability": 0.1686290322580645,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "GamerLegion",
+      "stage": "stage_2",
+      "actual_terminal_record": "0-3",
+      "realized_record_probability": 0.092380471469955,
+      "most_probable_terminal_record": "3-2",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Team Spirit",
+      "stage": "stage_3",
+      "actual_terminal_record": "3-0",
+      "realized_record_probability": 0.264144287163205,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "FURIA Esports",
+      "stage": "stage_3",
+      "actual_terminal_record": "3-0",
+      "realized_record_probability": 0.11922,
+      "most_probable_terminal_record": "3-2",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Aurora Gaming",
+      "stage": "stage_3",
+      "actual_terminal_record": "3-1",
+      "realized_record_probability": 0.16706,
+      "most_probable_terminal_record": "2-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Team Vitality",
+      "stage": "stage_3",
+      "actual_terminal_record": "3-1",
+      "realized_record_probability": 0.32284,
+      "most_probable_terminal_record": "3-0",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Team Falcons",
+      "stage": "stage_3",
+      "actual_terminal_record": "3-1",
+      "realized_record_probability": 0.26386,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "BetBoom Team",
+      "stage": "stage_3",
+      "actual_terminal_record": "3-2",
+      "realized_record_probability": 0.2113133186507476,
+      "most_probable_terminal_record": "3-2",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "9z Team",
+      "stage": "stage_3",
+      "actual_terminal_record": "3-2",
+      "realized_record_probability": 0.1279506172839506,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "G2 Esports",
+      "stage": "stage_3",
+      "actual_terminal_record": "3-2",
+      "realized_record_probability": 0.2055226589698574,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Natus Vincere",
+      "stage": "stage_3",
+      "actual_terminal_record": "2-3",
+      "realized_record_probability": 0.1318,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "FUT Esports",
+      "stage": "stage_3",
+      "actual_terminal_record": "2-3",
+      "realized_record_probability": 0.2211505220217105,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "The Mongolz",
+      "stage": "stage_3",
+      "actual_terminal_record": "2-3",
+      "realized_record_probability": 0.21614,
+      "most_probable_terminal_record": "2-3",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "MOUZ",
+      "stage": "stage_3",
+      "actual_terminal_record": "1-3",
+      "realized_record_probability": 0.1078,
+      "most_probable_terminal_record": "3-1",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "Monte",
+      "stage": "stage_3",
+      "actual_terminal_record": "1-3",
+      "realized_record_probability": 0.280872330758746,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "Legacy",
+      "stage": "stage_3",
+      "actual_terminal_record": "1-3",
+      "realized_record_probability": 0.2161767447641538,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": true
+    },
+    {
+      "team": "B8 Esports",
+      "stage": "stage_3",
+      "actual_terminal_record": "0-3",
+      "realized_record_probability": 0.1992800205708408,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    },
+    {
+      "team": "PARIVISION",
+      "stage": "stage_3",
+      "actual_terminal_record": "0-3",
+      "realized_record_probability": 0.13928,
+      "most_probable_terminal_record": "1-3",
+      "modal_matched_reality": false
+    }
+  ],
+  "playoff_seed_detail": [
+    {
+      "team": "Team Spirit",
+      "actual_seed": 1,
+      "probability_of_actual_seed": 0.1931854367901496,
+      "most_probable_seed_given_playoffs": 1,
+      "modal_seed_matched_actual": true,
+      "reach_playoffs_probability": 0.75368
+    },
+    {
+      "team": "FURIA Esports",
+      "actual_seed": 2,
+      "probability_of_actual_seed": 0.129812734082397,
+      "most_probable_seed_given_playoffs": 8,
+      "modal_seed_matched_actual": false,
+      "reach_playoffs_probability": 0.534
+    },
+    {
+      "team": "Aurora Gaming",
+      "actual_seed": 3,
+      "probability_of_actual_seed": 0.1096189064271387,
+      "most_probable_seed_given_playoffs": 8,
+      "modal_seed_matched_actual": false,
+      "reach_playoffs_probability": 0.45868
+    },
+    {
+      "team": "Team Vitality",
+      "actual_seed": 4,
+      "probability_of_actual_seed": 0.1223947087301406,
+      "most_probable_seed_given_playoffs": 1,
+      "modal_seed_matched_actual": false,
+      "reach_playoffs_probability": 0.87994
+    },
+    {
+      "team": "Team Falcons",
+      "actual_seed": 5,
+      "probability_of_actual_seed": 0.129354829305268,
+      "most_probable_seed_given_playoffs": 2,
+      "modal_seed_matched_actual": false,
+      "reach_playoffs_probability": 0.68602
+    },
+    {
+      "team": "BetBoom Team",
+      "actual_seed": 6,
+      "probability_of_actual_seed": 0.1370833001829899,
+      "most_probable_seed_given_playoffs": 8,
+      "modal_seed_matched_actual": false,
+      "reach_playoffs_probability": 0.25138
+    },
+    {
+      "team": "9z Team",
+      "actual_seed": 7,
+      "probability_of_actual_seed": 0.1692088671954443,
+      "most_probable_seed_given_playoffs": 8,
+      "modal_seed_matched_actual": false,
+      "reach_playoffs_probability": 0.09834
+    },
+    {
+      "team": "G2 Esports",
+      "actual_seed": 8,
+      "probability_of_actual_seed": 0.1661308358960022,
+      "most_probable_seed_given_playoffs": 8,
+      "modal_seed_matched_actual": true,
+      "reach_playoffs_probability": 0.28616
+    }
+  ]
+}

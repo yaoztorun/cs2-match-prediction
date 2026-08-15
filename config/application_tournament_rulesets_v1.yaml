@@ -1,0 +1,65 @@
+# Phase 9E tournament ruleset registry. Application/version METADATA only -
+# the frozen `tournament_engine.load_frozen_rules()` (Phase 8C) remains the
+# sole EXECUTABLE rules authority. This file is never used to drive
+# simulation logic directly; `application_tournament_service.py` cross-checks
+# every field below against a freshly loaded `te.TournamentRules` at startup
+# and in the validator, so these descriptive facts can never silently drift
+# from what the engine actually executes (amendment #15). No second
+# tournament-rules engine is implemented here.
+#
+# Both pinned hashes were independently re-verified against the live files on
+# disk before this registry was written: tournament_engine.py's SHA-256
+# matches Phase 8D's own recorded value exactly (engine confirmed byte-for-
+# byte unchanged since Phase 8D), and the frozen Cologne YAML's SHA-256
+# matches `tournament_engine.FROZEN_YAML_SHA256`.
+
+registry_version: application_tournament_rulesets_v1
+
+rulesets:
+  iem_cologne_major_2026_format_v1:
+    display_name: "IEM Cologne Major 2026 format"
+    source_type: cologne_2026_frozen_format
+    source_yaml: config/tournaments/iem_cologne_major_2026_pre_event.yaml
+    source_yaml_sha256: e481ca4dc3ab5bdf63636ad53eeeba8d3677305b643ecb98b7391e6419383ba3
+    tournament_engine_py_sha256: 012bd58e7792f7cce1e888d8f233fab274d798d4c3728f5b237f041fb73dd665
+    stage1_teams: 16
+    stage2_direct_entrants: 8
+    stage3_direct_entrants: 8
+    total_participants: 32
+    advancement_wins: 3
+    elimination_losses: 3
+    stage1_default_best_of: 1
+    stage2_default_best_of: 1
+    stage3_all_best_of_3: true
+    playoff_quarterfinal_best_of: 3
+    playoff_semifinal_best_of: 3
+    playoff_grand_final_best_of: 5
+    expected_matches_per_stage: 33
+    expected_playoff_matches: 7
+    expected_total_matches_per_tournament: 106
+    event_specific_overrides:
+      - field: stage3_all_best_of_3
+        note: >-
+          NOT a generic Valve rule - Stage 3 (all matches best-of-3 regardless of record
+          stakes) is a Cologne/Major-era-specific override. See the frozen YAML's
+          match_formats.stage_3.source_note.
+      - field: playoff_grand_final_best_of
+        note: >-
+          NOT a generic Valve rule - the pinned historical rulebook treats all
+          single-elimination matches (including the final) as best-of-three with no
+          Grand Final exception. Best-of-5 Grand Finals is a Major-era-specific
+          override. See the frozen YAML's match_formats.playoffs.grand_final.source_note.
+    generic_valve_rules:
+      - stage1_default_best_of
+      - stage2_default_best_of
+      - playoff_quarterfinal_best_of
+      - playoff_semifinal_best_of
+      - advancement_wins
+      - elimination_losses
+      - Swiss pairing rules (round 1 seed-split, round 2/3 constrained pool, round 4/5 priority table)
+      - playoff bracket seeding (no reseeding between rounds)
+
+note: >-
+  Only one ruleset is registered in V1: the exact format frozen for IEM Cologne Major 2026
+  (Phase 8B/8C). Future Majors with a different format would require a new registered
+  ruleset id here - this registry is never scanned from the filesystem, only read by id.

@@ -1,0 +1,69 @@
+# Phase 9B application map registry.
+#
+# MODEL SUPPORT is the sole frozen fact this file records: whether the frozen
+# known-map XGB V3 preprocessing (data/modeling/map_xgboost_v3_final_preprocessing.json,
+# models/map_xgboost_v3_final_metadata.json) represents this map as a named
+# one-hot category. Copied verbatim from that frozen artifact's
+# categorical_vocabularies.map_name.categories (minus the __UNKNOWN_MAP__
+# sentinel) - never re-derived, never guessed, never expanded.
+#
+# THIS IS NOT AN ACTIVE-DUTY / COMPETITIVE MAP POOL. Train and Vertigo are
+# model_supported (the training data covered them) but are NOT part of the
+# 2026 Cologne competitive pool (Phase 8B's frozen 7-map pool: Ancient,
+# Anubis, Dust2, Inferno, Mirage, Nuke, Overpass - see
+# config/tournaments/iem_cologne_major_2026_pre_event.yaml map_pool). Cache is
+# in neither list - it is not a named frozen-model category at all, so it is
+# application-unsupported regardless of any later real-world Active Duty
+# change. STATE support (does a given context's map/roster/modern-map store
+# actually contain history for this map) and COMPETITIVE/UI selectability are
+# both context/team-dependent facts computed at call time by
+# scripts/application_inference.py, never hardcoded here - see amendment #4's
+# three-layer distinction (model support / state support / competitive
+# selectability) in reports/phase9b_application_inference_core.md.
+
+reference_map_category: Mirage
+unknown_map_sentinel: __UNKNOWN_MAP__
+source_artifact: data/modeling/map_xgboost_v3_final_preprocessing.json
+
+model_supported_maps:
+  - canonical_name: Ancient
+    aliases: []
+    cologne_2026_competitive_pool: true
+  - canonical_name: Anubis
+    aliases: []
+    cologne_2026_competitive_pool: true
+  - canonical_name: Dust2
+    aliases: []
+    cologne_2026_competitive_pool: true
+  - canonical_name: Inferno
+    aliases: []
+    cologne_2026_competitive_pool: true
+  - canonical_name: Mirage
+    aliases: []
+    cologne_2026_competitive_pool: true
+  - canonical_name: Nuke
+    aliases: []
+    cologne_2026_competitive_pool: true
+  - canonical_name: Overpass
+    aliases: []
+    cologne_2026_competitive_pool: true
+  - canonical_name: Train
+    aliases: []
+    cologne_2026_competitive_pool: false
+  - canonical_name: Vertigo
+    aliases: []
+    cologne_2026_competitive_pool: false
+
+explicitly_unsupported_examples:
+  - name: Cache
+    reason: >-
+      not a named category in the frozen XGB V3 preprocessing vocabulary -
+      the frozen composer would accept the string, but the frozen preprocessing
+      layer would silently bucket it into __UNKNOWN_MAP__. The application layer
+      rejects it explicitly (unsupported_map) rather than relying on that
+      training-time fallback as a sanctioned prediction path.
+
+alias_policy: >-
+  No map-name alias table exists anywhere in the repository as of Phase 9B.
+  This registry defines no aliases beyond each map's own canonical_name -
+  adding aliases is out of scope and must not be invented here.

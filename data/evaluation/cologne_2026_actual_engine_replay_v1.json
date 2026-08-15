@@ -1,0 +1,31 @@
+{
+  "event_id": "iem_cologne_major_2026",
+  "phase": "phase8e_gate2_engine_replay",
+  "official_match_count": 106,
+  "stage_1_matched": "33/33",
+  "stage_2_matched": "33/33",
+  "stage_3_matched": "33/33",
+  "playoffs_matched": "7/7",
+  "total_matched": "106/106",
+  "all_actual_rows_consumed_exactly_once": true,
+  "unused": 0,
+  "duplicate": 0,
+  "ambiguous": 0,
+  "missing": 0,
+  "stage_transitions_reproduced": {
+    "stage_1_qualifiers_reproduced": true,
+    "stage_2_qualifiers_reproduced": true,
+    "stage_3_qualifiers_reproduced": true
+  },
+  "playoff_seeds_reproduced": true,
+  "quarterfinals_reproduced": true,
+  "semifinals_reproduced": true,
+  "final_reproduced": true,
+  "champion_reproduced": true,
+  "actual_champion": "Team Falcons",
+  "engine_champion": "Team Falcons",
+  "phase8c_engine_hash": "012bd58e7792f7cce1e888d8f233fab274d798d4c3728f5b237f041fb73dd665",
+  "rf_model_loaded": false,
+  "probability_matrix_used": false,
+  "approved_by_user": true
+}
