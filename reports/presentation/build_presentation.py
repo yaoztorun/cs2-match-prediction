@@ -1,8 +1,8 @@
-# Builds reports/cs2_match_prediction_presentation.pptx
+# Builds reports/presentation/cs2_match_prediction_presentation.pptx
 #
 # 15-slide, 15-minute university presentation for the CS2 match prediction
 # project. Every number is transcribed from the frozen reports listed in
-# reports/presentation_sources.md — nothing is recomputed here.
+# reports/presentation/presentation_sources.md — nothing is recomputed here.
 #
 # Design: light academic theme — white background, navy ink, restrained
 # blue/cyan accents (deliberately NOT the dark esports theme of the PWA).
@@ -19,8 +19,8 @@ from pptx.util import Emu, Inches, Pt
 
 ROOT = Path(__file__).resolve().parents[2]
 FIG = ROOT / "reports" / "figures"
-PFIG = FIG / "presentation"
-OUT = ROOT / "reports" / "cs2_match_prediction_presentation.pptx"
+PFIG = Path(__file__).resolve().parent / "figures"
+OUT = Path(__file__).resolve().parent / "cs2_match_prediction_presentation.pptx"
 
 # ---- design tokens ---------------------------------------------------------
 NAVY = RGBColor(0x0F, 0x2A, 0x43)   # primary ink

@@ -1,7 +1,7 @@
 # Presentation-only figures, re-plotted from frozen report/table numbers.
 # Light academic theme to match the slide design. No model is loaded, no data
 # is re-evaluated: every number is transcribed from the frozen reports listed
-# in reports/presentation_sources.md.
+# in reports/presentation/presentation_sources.md.
 
 from pathlib import Path
 
@@ -11,7 +11,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-OUT = Path(__file__).resolve().parents[1] / "figures" / "presentation"
+OUT = Path(__file__).resolve().parent / "figures"
 OUT.mkdir(parents=True, exist_ok=True)
 
 NAVY = "#0F2A43"

@@ -5,11 +5,11 @@ data/interim/*
 !data/interim/team_identity_policy.csv
 data/processed/
 # experimental / obsolete model artifacts stay local; only the final runtime models are versioned
-/models/*
-!/models/random_forest_v2.joblib
-!/models/random_forest_v2.json
-!/models/map_xgboost_v3_final.json
-!/models/map_xgboost_v3_final_metadata.json
+/models/*/*
+!/models/series/random_forest_v2.joblib
+!/models/series/random_forest_v2.json
+!/models/map/map_xgboost_v3_final.json
+!/models/map/map_xgboost_v3_final_metadata.json
 output/
 .ipynb_checkpoints/
 # reports/ is versioned (scientific evidence); exclude archives/caches only

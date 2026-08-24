@@ -4,8 +4,8 @@ from pathlib import Path
 from pptx import Presentation
 
 ROOT = Path(__file__).resolve().parents[2]
-PPTX = ROOT / "reports" / "cs2_match_prediction_presentation.pptx"
-OUT = ROOT / "reports" / "presentation_speaker_notes.md"
+PPTX = Path(__file__).resolve().parent / "cs2_match_prediction_presentation.pptx"
+OUT = Path(__file__).resolve().parent / "presentation_speaker_notes.md"
 
 TITLES = [
     "Title — Predicting CS2 Matches with Probabilities",
@@ -29,7 +29,7 @@ prs = Presentation(str(PPTX))
 lines = [
     "# Speaker Notes — CS2 Match Prediction (15-minute presentation)",
     "",
-    "Auto-extracted from `reports/cs2_match_prediction_presentation.pptx` by",
+    "Auto-extracted from `reports/presentation/cs2_match_prediction_presentation.pptx` by",
     "`reports/presentation/export_speaker_notes.py` — the same notes are embedded in the",
     "PPTX notes pane. Target pace: ~50-60 seconds per slide => ~13.5 minutes total,",
     "leaving safety margin inside the 15-minute limit.",
