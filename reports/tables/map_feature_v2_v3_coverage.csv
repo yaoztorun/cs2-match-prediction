@@ -1,0 +1,3 @@
+model,subgroup,n,v2_log_loss,v3_log_loss,v2_roc_auc,v3_roc_auc,v2_accuracy,v3_accuracy
+random_forest,high_evidence (both_recent_map_history & roster_map_players_with_history_min>=5),4979,0.669206260581218,0.669220836280374,0.6156512738023427,0.6156760430356525,0.5828479614380397,0.5862623016670014
+xgboost,high_evidence (both_recent_map_history & roster_map_players_with_history_min>=5),4979,0.6712698235878798,0.670504370770956,0.6118641713525848,0.6144294059042729,0.5818437437236393,0.5832496485238

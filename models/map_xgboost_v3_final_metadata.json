@@ -1,0 +1,109 @@
+{
+  "prediction_task": "known_map",
+  "feature_version": "map_features_v3_modern_map",
+  "raw_feature_count": 120,
+  "transformed_feature_count": 131,
+  "target": "team1_map_win",
+  "training_unique_map_rows": 7762,
+  "training_augmented_rows": 15524,
+  "training_split": "TRAIN only (reconstructed from data/modeling/map_cv_folds_v1.csv, NOT map_split_v1.csv)",
+  "threshold": 0.5,
+  "categorical_vocabularies": {
+    "map_name": {
+      "categories": [
+        "Ancient",
+        "Anubis",
+        "Dust2",
+        "Inferno",
+        "Mirage",
+        "Nuke",
+        "Overpass",
+        "Train",
+        "Vertigo",
+        "__UNKNOWN_MAP__"
+      ],
+      "reference": "Mirage",
+      "dummies": [
+        "Ancient",
+        "Anubis",
+        "Dust2",
+        "Inferno",
+        "Nuke",
+        "Overpass",
+        "Train",
+        "Vertigo",
+        "__UNKNOWN_MAP__"
+      ],
+      "unknown_category": "__UNKNOWN_MAP__"
+    },
+    "bestOf": {
+      "categories": [
+        1,
+        3,
+        5
+      ],
+      "reference": 1,
+      "dummies": [
+        3,
+        5
+      ],
+      "unknown_category": null
+    },
+    "tier": {
+      "categories": [
+        "tier1",
+        "tier2",
+        "tier3",
+        "__UNKNOWN_TIER__"
+      ],
+      "reference": "tier1",
+      "dummies": [
+        "tier2",
+        "tier3",
+        "__UNKNOWN_TIER__"
+      ],
+      "unknown_category": "__UNKNOWN_TIER__"
+    }
+  },
+  "directional_features_hash": "cd8edb7b24b37685e95923b043d6cd0c3c787b36407fbb3fd9d5f7647f4031ac",
+  "symmetric_features_hash": "d492d45bf1133c33cdc30501c1c7f23bb3883dc046a99fcf2c4906984c078fc1",
+  "config_hash": "de9e71dfbaa13f63fc09ab6a3e4d86ee1f0b406605822183707e6b038212e2db",
+  "features_artifact_hash": "7d2ccbd9eb10e34f0892dcd5e23bc8fa6774e119b4a3c2832d573f69213688bd",
+  "cv_manifest_hash": "94dde09d1247ef09a5e428a0a84747ca5dab9339a7c464d12187ecd14a21bf99",
+  "selected_hyperparameters": {
+    "learning_rate": 0.03,
+    "max_depth": 2,
+    "min_child_weight": 10,
+    "subsample": 0.75,
+    "colsample_bytree": 0.85,
+    "gamma": 5.0,
+    "reg_alpha": 0.01,
+    "reg_lambda": 5.0
+  },
+  "fixed_params": {
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "tree_method": "hist",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "final_n_estimators": 118,
+  "final_n_estimators_rule": "round(median(best_iteration + 1 across the 4 outer folds)) of the SELECTED candidate's own fold best-iterations",
+  "random_state": 42,
+  "package_versions": {
+    "numpy": "2.4.2",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.8.0",
+    "xgboost": "3.4.0"
+  },
+  "search_plan_hash": "2aaf6f78c698e9c82867fd4b15472428d3aa1d2b7cc40272a65a656e0d5879e0",
+  "selected_candidate_id": "A1_less_l2",
+  "preprocessing_artifact": "data/modeling/map_xgboost_v3_final_preprocessing.json",
+  "reload_prediction_max_abs_diff": 0.0,
+  "calibration_applied": false,
+  "predictions_symmetrized": false,
+  "ensemble": "none - XGBoost only, Phase 6D does not build a new ensemble",
+  "test_status": "SEALED - never loaded in Phase 6D",
+  "cologne_status": "UNTOUCHED - never loaded in Phase 6D",
+  "main_validation_status": "CONSUMED in Phase 6B - not reopened in Phase 6C or 6D"
+}

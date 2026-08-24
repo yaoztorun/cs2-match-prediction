@@ -1,0 +1,41 @@
+model,fold,family,family_label,n_features,auc_decrease_mean,auc_decrease_std,row_type
+random_forest,1.0,M,recent/opponent-adjusted selected-map team features,8,0.00025398268070380147,0.002884794494432432,fold
+random_forest,1.0,N,map specialization (relative to overall/pool strength),5,0.003847105455830635,0.00238388788938036,fold
+random_forest,1.0,O,current-roster selected-map player performance,9,0.0032290641015929487,0.0014682048684131815,fold
+random_forest,1.0,P,current-core selected-map continuity,3,0.00027889284421880325,0.0011608408396041106,fold
+xgboost,1.0,M,recent/opponent-adjusted selected-map team features,8,0.002776809984262718,0.00438269451020557,fold
+xgboost,1.0,N,map specialization (relative to overall/pool strength),5,0.0014466409149434534,0.0011766230264238238,fold
+xgboost,1.0,O,current-roster selected-map player performance,9,0.002546306815790866,0.0020284483962485127,fold
+xgboost,1.0,P,current-core selected-map continuity,3,0.0013337036195476104,0.0008623949108373169,fold
+random_forest,2.0,M,recent/opponent-adjusted selected-map team features,8,0.0036609566850404505,0.0018547426591060158,fold
+random_forest,2.0,N,map specialization (relative to overall/pool strength),5,-0.0027606486782592145,0.0019510651306881835,fold
+random_forest,2.0,O,current-roster selected-map player performance,9,0.0024714088805873557,0.0018705380211359213,fold
+random_forest,2.0,P,current-core selected-map continuity,3,0.001250033286035368,0.0006405436466859027,fold
+xgboost,2.0,M,recent/opponent-adjusted selected-map team features,8,0.0035474671546082527,0.0022010957256288987,fold
+xgboost,2.0,N,map specialization (relative to overall/pool strength),5,-0.002880605209866849,0.0016420670973901535,fold
+xgboost,2.0,O,current-roster selected-map player performance,9,-0.00013162249451257325,0.001184644541390863,fold
+xgboost,2.0,P,current-core selected-map continuity,3,0.0004888292064989308,0.0006198710673931394,fold
+random_forest,3.0,M,recent/opponent-adjusted selected-map team features,8,0.0013772312230247886,0.00207347840785731,fold
+random_forest,3.0,N,map specialization (relative to overall/pool strength),5,-0.0008886162311888656,0.001157722762549532,fold
+random_forest,3.0,O,current-roster selected-map player performance,9,-0.0008385773464827939,0.0020650579496949706,fold
+random_forest,3.0,P,current-core selected-map continuity,3,-5.793976123855682e-05,0.0007433046537068887,fold
+xgboost,3.0,M,recent/opponent-adjusted selected-map team features,8,0.003712947212849582,0.0023406776833563574,fold
+xgboost,3.0,N,map specialization (relative to overall/pool strength),5,-0.00024794809588876145,0.00020623470072923843,fold
+xgboost,3.0,O,current-roster selected-map player performance,9,-0.0004221546774738294,0.0017144114723339678,fold
+xgboost,3.0,P,current-core selected-map continuity,3,0.0001226185054020168,0.0002048005498077036,fold
+random_forest,4.0,M,recent/opponent-adjusted selected-map team features,8,0.0028815447918677183,0.001733674933587774,fold
+random_forest,4.0,N,map specialization (relative to overall/pool strength),5,8.310352769811403e-05,0.0004280344902356952,fold
+random_forest,4.0,O,current-roster selected-map player performance,9,0.003748218098516609,0.0015528207002892416,fold
+random_forest,4.0,P,current-core selected-map continuity,3,0.0013559569978150554,0.0005820842304437034,fold
+xgboost,4.0,M,recent/opponent-adjusted selected-map team features,8,0.0029861245121170386,0.0014697644608893964,fold
+xgboost,4.0,N,map specialization (relative to overall/pool strength),5,-0.00014333024159149944,9.971686945554136e-05,fold
+xgboost,4.0,O,current-roster selected-map player performance,9,0.005839345629750548,0.0021245473003490395,fold
+xgboost,4.0,P,current-core selected-map continuity,3,0.00011275001089383618,8.212308692247823e-05,fold
+random_forest,,O,current-roster selected-map player performance,9,0.00215252843355353,,aggregate
+random_forest,,M,recent/opponent-adjusted selected-map team features,8,0.00204342884515919,,aggregate
+random_forest,,P,current-core selected-map continuity,3,0.0007067358417076673,,aggregate
+random_forest,,N,map specialization (relative to overall/pool strength),5,7.02360185201672e-05,,aggregate
+xgboost,,M,recent/opponent-adjusted selected-map team features,8,0.003255837215959398,,aggregate
+xgboost,,O,current-roster selected-map player performance,9,0.0019579688183887526,,aggregate
+xgboost,,P,current-core selected-map continuity,3,0.0005144753355855985,,aggregate
+xgboost,,N,map specialization (relative to overall/pool strength),5,-0.00045631065810091407,,aggregate

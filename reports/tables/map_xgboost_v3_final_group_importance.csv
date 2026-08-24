@@ -1,0 +1,17 @@
+family,family_label,n_features,auc_decrease_mean
+H,player performance,10,0.009686021593666966
+B,map-pool depth and order statistics,14,0.00961263543729909
+A,original series V1 (ELO / win rate / activity),15,0.007754777244938058
+E,opponent-strength / residual form,5,0.007750226974395852
+M,recent/opponent-adjusted selected-map team features,8,0.004187028595125009
+F,time-decayed form,3,0.001723393561906969
+O,current-roster selected-map player performance,9,0.0016736108736170319
+C,same-map matchup advantage,6,0.0009408130375937157
+P,current-core selected-map continuity,3,0.0006791404913617599
+K,map-specific historical strength (selected map),14,0.0006339092605108565
+G,form confidence,4,8.409447497721435e-05
+D,map-pool confidence,10,7.575537683356393e-05
+L,categorical map / bestOf / tier context,14,5.153799681095472e-05
+I,roster stability,4,-5.110400055125531e-05
+N,map specialization (relative to overall/pool strength),5,-0.00038140549746898953
+J,roster / player confidence,7,-0.00042114049714859494
