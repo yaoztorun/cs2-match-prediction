@@ -189,8 +189,8 @@ Verified with real renders (screenshots in `reports/figures/phase10a/`):
   navigation, readable result hero) via a 390-px iframe viewport render plus a genuinely resized
   ~328-CSS-px OS window — and programmatically: `document.documentElement.scrollWidth` = 371 ≤
   386 viewport, i.e. **zero horizontal overflow**.
-- Method note (amendment #25): no Playwright was added. The Claude-in-Chrome browser tooling was
-  used; because the host display runs 250 % scaling and the window resisted small OS resizes,
+- Method note (amendment #25): no Playwright was added; verification used live in-browser
+  renders. Because the host display runs 250 % scaling and the window resisted small OS resizes,
   the 390/820 checks used same-origin iframes (media queries evaluate against the iframe
   viewport) plus one real narrow-window render — both are true layout-engine renders of the
   target widths, with contract-correct live API data (amendment #26), not fabricated numbers.
