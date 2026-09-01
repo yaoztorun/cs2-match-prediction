@@ -1,9 +1,18 @@
 .venv/
 __pycache__/
-data/interim/
+# large rebuildable intermediate state stays local; only the small deterministic identity policy is versioned
+data/interim/*
+!data/interim/team_identity_policy.csv
 data/processed/
-/models/
+# experimental / obsolete model artifacts stay local; only the final runtime models are versioned
+/models/*/*
+!/models/series/random_forest_v2.joblib
+!/models/series/random_forest_v2.json
+!/models/map/map_xgboost_v3_final.json
+!/models/map/map_xgboost_v3_final_metadata.json
 output/
 .ipynb_checkpoints/
-reports/
+# reports/ is versioned (scientific evidence); exclude archives/caches only
+reports/figures/phase8d.zip
+reports.zip
 reference/

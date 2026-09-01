@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
 
-SCRIPTS_DIR = Path(__file__).resolve().parents[1] / "scripts"
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
+ROOT = Path(__file__).resolve().parents[1]  # repository root = package root
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))

@@ -1,0 +1,121 @@
+model,fold,family,family_label,n_features,auc_decrease_mean,auc_decrease_std,row_type,auc_decrease_fold_std
+random_forest,1.0,A,original series V1 (ELO / win rate / activity),15,0.004237589100120287,0.0038922156548723695,fold,
+random_forest,1.0,B,map-pool depth and order statistics,14,0.006967608371834666,0.003533117527573438,fold,
+random_forest,1.0,C,same-map matchup advantage,6,0.0016790796704452492,0.0014513643351679476,fold,
+random_forest,1.0,D,map-pool confidence,10,-8.971025103723384e-05,0.000679525899422865,fold,
+random_forest,1.0,E,opponent-strength / residual form,5,0.013538000622754055,0.004064031660512073,fold,
+random_forest,1.0,F,time-decayed form,3,0.004441751453794163,0.0040625809369058755,fold,
+random_forest,1.0,G,form confidence,4,0.0002933676689641063,0.00037080154058155394,fold,
+random_forest,1.0,H,player performance,10,0.008746497008255671,0.0027541266283665124,fold,
+random_forest,1.0,I,roster stability,4,0.0006294865645013025,0.0005502780410751984,fold,
+random_forest,1.0,J,roster / player confidence,7,0.001757176399303173,0.0011808335057360987,fold,
+random_forest,1.0,K,map-specific historical strength (selected map),14,0.004725188719735374,0.001973931147622872,fold,
+random_forest,1.0,L,categorical map / bestOf / tier context,14,0.00010990768091425628,0.000315887030232219,fold,
+xgboost,1.0,A,original series V1 (ELO / win rate / activity),15,0.005164482819561255,0.004930772557313241,fold,
+xgboost,1.0,B,map-pool depth and order statistics,14,0.003659774293721163,0.0021795436081175415,fold,
+xgboost,1.0,C,same-map matchup advantage,6,0.001329159197825469,0.0014101583824992097,fold,
+xgboost,1.0,D,map-pool confidence,10,0.00014853526555416163,0.00014589607040717777,fold,
+xgboost,1.0,E,opponent-strength / residual form,5,0.014235232733301361,0.004235522037743969,fold,
+xgboost,1.0,F,time-decayed form,3,0.006803335942168065,0.0035669859030855768,fold,
+xgboost,1.0,G,form confidence,4,0.00020365741792695015,0.0001444043652323453,fold,
+xgboost,1.0,H,player performance,10,0.014960825401634358,0.003206612633525223,fold,
+xgboost,1.0,I,roster stability,4,0.0,0.0,fold,
+xgboost,1.0,J,roster / player confidence,7,-0.0014540466392317763,0.0018440300179786851,fold,
+xgboost,1.0,K,map-specific historical strength (selected map),14,0.0017438797579674814,0.0016054962908543147,fold,
+xgboost,1.0,L,categorical map / bestOf / tier context,14,0.0,0.0,fold,
+random_forest,2.0,A,original series V1 (ELO / win rate / activity),15,0.0033185860345742667,0.0033576440152072126,fold,
+random_forest,2.0,B,map-pool depth and order statistics,14,0.01857221294440018,0.004504298449746676,fold,
+random_forest,2.0,C,same-map matchup advantage,6,0.0005023972285728928,0.0015974147545439348,fold,
+random_forest,2.0,D,map-pool confidence,10,0.0004616931623508291,0.0009397892719273984,fold,
+random_forest,2.0,E,opponent-strength / residual form,5,0.007704734478880093,0.0044197282133770655,fold,
+random_forest,2.0,F,time-decayed form,3,-0.0011859972940039154,0.0022163689313197754,fold,
+random_forest,2.0,G,form confidence,4,-0.0005887507148573223,0.0004257932396742841,fold,
+random_forest,2.0,H,player performance,10,0.014492169222400098,0.0038989983960744205,fold,
+random_forest,2.0,I,roster stability,4,0.0005325765673917848,0.00047738131811282404,fold,
+random_forest,2.0,J,roster / player confidence,7,0.0007241773277082642,0.000679538884561739,fold,
+random_forest,2.0,K,map-specific historical strength (selected map),14,0.0029654370488156334,0.0022630358772901503,fold,
+random_forest,2.0,L,categorical map / bestOf / tier context,14,-0.00010467665628151046,0.0002123770084958947,fold,
+xgboost,2.0,A,original series V1 (ELO / win rate / activity),15,0.006122982073726302,0.0039037146624296875,fold,
+xgboost,2.0,B,map-pool depth and order statistics,14,0.01860042682207753,0.003523751301666083,fold,
+xgboost,2.0,C,same-map matchup advantage,6,-9.497615451827812e-05,0.0004938331393749266,fold,
+xgboost,2.0,D,map-pool confidence,10,6.619165909009795e-05,0.0005831259145413979,fold,
+xgboost,2.0,E,opponent-strength / residual form,5,0.009030025906045836,0.006269964521454859,fold,
+xgboost,2.0,F,time-decayed form,3,-0.0008365256226391171,0.0007218068369728895,fold,
+xgboost,2.0,G,form confidence,4,-0.00014005495682962722,0.00016636765726063025,fold,
+xgboost,2.0,H,player performance,10,0.018322409173504507,0.004386878191807133,fold,
+xgboost,2.0,I,roster stability,4,0.000269838794145183,0.00026727405049030244,fold,
+xgboost,2.0,J,roster / player confidence,7,-0.00016351368658379384,0.00023851910461941426,fold,
+xgboost,2.0,K,map-specific historical strength (selected map),14,-0.00019083993664880116,0.0013188174139896246,fold,
+xgboost,2.0,L,categorical map / bestOf / tier context,14,0.0,0.0,fold,
+random_forest,3.0,A,original series V1 (ELO / win rate / activity),15,0.005045406802189956,0.002273867638686811,fold,
+random_forest,3.0,B,map-pool depth and order statistics,14,0.012741325302324769,0.004941457258585569,fold,
+random_forest,3.0,C,same-map matchup advantage,6,0.004087076954537472,0.00243266463001967,fold,
+random_forest,3.0,D,map-pool confidence,10,-0.00047033453240751254,0.0007188646424063907,fold,
+random_forest,3.0,E,opponent-strength / residual form,5,0.010872225785362654,0.004116941824643108,fold,
+random_forest,3.0,F,time-decayed form,3,0.0012004684755026807,0.001752786408184064,fold,
+random_forest,3.0,G,form confidence,4,-0.0006478718756680379,0.00044661758209722644,fold,
+random_forest,3.0,H,player performance,10,0.0034296000917121592,0.005342702007942065,fold,
+random_forest,3.0,I,roster stability,4,-0.0004663066345673483,0.0006222259634256531,fold,
+random_forest,3.0,J,roster / player confidence,7,-0.00011820330969265491,0.001168881970316342,fold,
+random_forest,3.0,K,map-specific historical strength (selected map),14,0.0013315300744541902,0.0014699313342430545,fold,
+random_forest,3.0,L,categorical map / bestOf / tier context,14,-3.702567629949582e-05,0.00018387826066333302,fold,
+xgboost,3.0,A,original series V1 (ELO / win rate / activity),15,0.010733418229026325,0.004236938738573264,fold,
+xgboost,3.0,B,map-pool depth and order statistics,14,0.015650861815218697,0.006017177448303586,fold,
+xgboost,3.0,C,same-map matchup advantage,6,0.0019466365503844284,0.0007712743898358614,fold,
+xgboost,3.0,D,map-pool confidence,10,5.127823788771968e-05,0.00016429750798032354,fold,
+xgboost,3.0,E,opponent-strength / residual form,5,0.016839478975922518,0.0053003539099598495,fold,
+xgboost,3.0,F,time-decayed form,3,0.00034748364828401934,0.00046497662781933144,fold,
+xgboost,3.0,G,form confidence,4,0.0,0.0,fold,
+xgboost,3.0,H,player performance,10,0.0064744584801193165,0.006236097129760277,fold,
+xgboost,3.0,I,roster stability,4,-7.676243768371949e-05,0.0002900414657118167,fold,
+xgboost,3.0,J,roster / player confidence,7,-0.00028342458071125567,0.00020390457101689488,fold,
+xgboost,3.0,K,map-specific historical strength (selected map),14,0.0026855234253243764,0.0021154397097134276,fold,
+xgboost,3.0,L,categorical map / bestOf / tier context,14,0.00023640661938539864,0.00011201457872208813,fold,
+random_forest,4.0,A,original series V1 (ELO / win rate / activity),15,0.0019110698878880173,0.003287312291509568,fold,
+random_forest,4.0,B,map-pool depth and order statistics,14,0.009494655851795574,0.005730335263780724,fold,
+random_forest,4.0,C,same-map matchup advantage,6,0.0012239873508337884,0.00377511438638631,fold,
+random_forest,4.0,D,map-pool confidence,10,2.6144930062255156e-05,0.0004853506634039916,fold,
+random_forest,4.0,E,opponent-strength / residual form,5,0.005184166132355528,0.002711885797123371,fold,
+random_forest,4.0,F,time-decayed form,3,0.0007330696015387716,0.0016750752553614423,fold,
+random_forest,4.0,G,form confidence,4,6.707419557648864e-05,0.00013654441022961747,fold,
+random_forest,4.0,H,player performance,10,0.002100931880007195,0.0030218547754143495,fold,
+random_forest,4.0,I,roster stability,4,0.0022888485648300703,0.00042894342601279523,fold,
+random_forest,4.0,J,roster / player confidence,7,0.0008564020841243747,0.0007582130656168287,fold,
+random_forest,4.0,K,map-specific historical strength (selected map),14,0.0037326556401461207,0.001725037965228916,fold,
+random_forest,4.0,L,categorical map / bestOf / tier context,14,4.108489009787553e-05,0.00013546706585442443,fold,
+xgboost,4.0,A,original series V1 (ELO / win rate / activity),15,0.015095895868478527,0.006259501249875627,fold,
+xgboost,4.0,B,map-pool depth and order statistics,14,0.012465295717833913,0.004820098168378703,fold,
+xgboost,4.0,C,same-map matchup advantage,6,0.0007357152194617633,0.0010579630160480447,fold,
+xgboost,4.0,D,map-pool confidence,10,6.536232515508278e-06,0.00010836165577802183,fold,
+xgboost,4.0,E,opponent-strength / residual form,5,0.009612852723118936,0.0036242210512355062,fold,
+xgboost,4.0,F,time-decayed form,3,0.0004903730632520364,0.000898496333813391,fold,
+xgboost,4.0,G,form confidence,4,-7.283230517364236e-05,6.460876000256442e-05,fold,
+xgboost,4.0,H,player performance,10,0.005846659985184488,0.004221084046605572,fold,
+xgboost,4.0,I,roster stability,4,3.112491674028828e-06,6.31460052559909e-05,fold,
+xgboost,4.0,J,roster / player confidence,7,0.0,0.0,fold,
+xgboost,4.0,K,map-specific historical strength (selected map),14,0.003048374345598559,0.0028308060699407563,fold,
+xgboost,4.0,L,categorical map / bestOf / tier context,14,-0.00015764770329247392,0.0001818968468227479,fold,
+random_forest,,B,map-pool depth and order statistics,14,0.011943950617588798,,aggregate,0.005011077557355776
+random_forest,,E,opponent-strength / residual form,5,0.009324781754838082,,aggregate,0.0036476041070843002
+random_forest,,H,player performance,10,0.007192299550593781,,aggregate,0.005650473695119808
+random_forest,,A,original series V1 (ELO / win rate / activity),15,0.003628162956193132,,aggregate,0.001344647019300143
+random_forest,,K,map-specific historical strength (selected map),14,0.0031887028707878297,,aggregate,0.0014324351994664238
+random_forest,,C,same-map matchup advantage,6,0.0018731353010973506,,aggregate,0.0015534382465383482
+random_forest,,F,time-decayed form,3,0.001297323059207925,,aggregate,0.00233681212197534
+random_forest,,J,roster / player confidence,7,0.0008048881253607893,,aggregate,0.0007677062534942199
+random_forest,,I,roster stability,4,0.0007461512655389524,,aggregate,0.0011415185676584717
+random_forest,,L,categorical map / bestOf / tier context,14,2.322559607781383e-06,,aggregate,9.322766481663803e-05
+random_forest,,D,map-pool confidence,10,-1.8051672757915532e-05,,aggregate,0.00038375477564376567
+random_forest,,G,form confidence,4,-0.00021904518149619133,,aggregate,0.00047081692913682796
+xgboost,,B,map-pool depth and order statistics,14,0.012594089662212826,,aggregate,0.006461643780987898
+xgboost,,E,opponent-strength / residual form,5,0.012429397584597162,,aggregate,0.003750489355984806
+xgboost,,H,player performance,10,0.011401088260110668,,aggregate,0.006210200376620258
+xgboost,,A,original series V1 (ELO / win rate / activity),15,0.009279194747698102,,aggregate,0.004576800576713916
+xgboost,,K,map-specific historical strength (selected map),14,0.0018217343980604038,,aggregate,0.001449976303511227
+xgboost,,F,time-decayed form,3,0.0017011667577662508,,aggregate,0.003453041767070486
+xgboost,,C,same-map matchup advantage,6,0.0009791337032883456,,aggregate,0.0008701616996993109
+xgboost,,D,map-pool confidence,10,6.813534876187188e-05,,aggregate,5.9291758446695204e-05
+xgboost,,I,roster stability,4,4.9047212033873084e-05,,aggregate,0.00015175925917508453
+xgboost,,L,categorical map / bestOf / tier context,14,1.968972902323118e-05,,aggregate,0.00016247066025038852
+xgboost,,G,form confidence,4,-2.3074610190798588e-06,,aggregate,0.00014874472761603963
+xgboost,,J,roster / player confidence,7,-0.0004752462266317065,,aggregate,0.0006627925628234163

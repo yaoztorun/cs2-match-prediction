@@ -1,0 +1,62 @@
+contexts:
+  deployment_post_cologne_v1:
+    classification: deployment
+    freshness_label: deployment_post_cologne_v1 (NOT live, NOT current - latest locally
+      available historical state through 2026-06-28)
+    phase9a_deployment_receipt_hash: 96cce35f58c238984941a1c611a626c27dc30e941456f0225ad87ebb9a3ce892
+    prediction_datetime_policy: defaults to state_cutoff; earlier is rejected (prediction_datetime_before_state_contract);
+      later is accepted only as hypothetical_future_from_stale_snapshot
+    purpose: Latest locally available application prediction state - includes official
+      Cologne 2026 results and legitimate post-Cologne matches.
+    state_cutoff: '2026-06-28T20:00:00'
+    state_cutoff_source: data/deployment/deployment_state_receipt_v1.json (Phase 9A,
+      cutoffs.deployment_history_cutoff)
+    state_hashes:
+      form_state: 1e7ad42f23f1fc4d9d56671c29afa8929460148b5411c4c1ffde722966c80669
+      map_state: 9acbf7cf047b5269db58cc38129a6cb42bb0e506dec3a88419cfb2c2de883ede
+      modern_map_state: 8ff268eed3fd03bc53ded3bbc305b7be9d7198427a6b681766b090f48a969746
+      roster_state: 62158c84ed384bc766e0d3ad3020983b158aa6fea7c67988f22707b62039bd1d
+      series_state: 27a6ee6d3da7a377fa271556705a5445bd3fda0b68f1cd7c94e991249a48b540
+  historical_cologne_pre_event:
+    classification: historical_replay
+    freshness_label: frozen_historical_snapshot
+    prediction_datetime_policy: locked - any override is rejected (historical_context_datetime_locked)
+    purpose: Reproduce exactly what the frozen system knew immediately before IEM
+      Cologne Major 2026 began (Phase 8D parity).
+    state_cutoff: '2026-06-02T13:30:00'
+    state_cutoff_source: the frozen Cologne cutoff used in Phase 8D (map_stream_common.cologne_cutoff(),
+      see Phase 8D.1)
+    state_hashes:
+      form_state: cce1da5b7f51731d5201e628aac00bf7fceffd075f76cb834072b1f08c3c9678
+      map_state: bd239a1b5b221aed4aa268926b781018bfbdf1dfe84d43ff2f5133119d5dcb79
+      modern_map_state: 54e4cba8fed871798e9365dbb16ec4935ae303f02ee3d4b4bf351ceb133632ac
+      roster_state: 5438a333590cdc0f3a7546495482faf23629b0b8d03b31ff353ab4e32fa8f2f3
+      series_state: 7d021bad35277fa09cff413899f47027eb20b2a4723a0a279615fdb9f3679caa
+note: Explicit version registry. list_inference_contexts() reads ONLY this file -
+  no filesystem 'latest' scanning. Each context's hashes make a prediction reproducible
+  from versioned artifacts, not just an identified model file.
+registry_version: application_inference_contexts_v1
+rf_unknown_map_pipeline:
+  feature_engine: 9650fc15d36a212520af1810b14cc40c80ce298c54113090dc7db42a6cbd7f29
+  predictor_adapter: 303c62807c4849091c1da955c0c46020008260aa05c14fdfce2a367fa835f5ba
+  preprocessing_random_forest_v1: a7348b9c523e024ff6e8c46736cd6464476e1c981ef261639bb8cd3916f24288
+  rf_model: e26e97fd8f1ea7676659605af2d9abd4d4e4cb0c5b767d1df506fb0a9cfac4a9
+  rf_preprocessing: 8415859db8d238f48bc04426872c8f97d8487678a4b8f0ab7706f8502e3c0111
+  rf_selected_config: 3666622740fe27a8cb51647133d2707e421010e865ecc56ce04916ed2b422934
+  series_feature_schema_yaml: 31f71bea039fc9b64fd8abc29eaac2aca4a407700b1dadfec833ac576c08481f
+xgb_known_map_pipeline:
+  feature_engine: 9650fc15d36a212520af1810b14cc40c80ce298c54113090dc7db42a6cbd7f29
+  map_feature_engine: 4dd1871bb7206a1170ec5e3740bea2354b164ea30dc1471e8dbbb2d2d4d44196
+  map_v3_feature_schema_yaml: de9e71dfbaa13f63fc09ab6a3e4d86ee1f0b406605822183707e6b038212e2db
+  modern_map_feature_engine: 3dbd4c51b6dfe6f468517ea92fd21ed1b4e138e5d9b2b4fe0950c5c99eeb472c
+  player_roster_feature_engine: 4e819200dbee4909eeb4442977137e7fa881dad74f097bd9a255ffe250ada7b1
+  preprocessing_common_map_v2: 0779cff85f53a1e5e707c5c7f6c1ba9bfe8963743344f904eb589d321eb09ede
+  preprocessing_common_map_v3: 029c0f5698c9fe3165b8f8a2c79ae0793b320a2e2ea3e93d5081e0e05cb52588
+  preprocessing_xgboost_map_v3: 4e221f8f929d3bdd295fe3ee4e838ae74d18995b5e314bb6eb39a450ad4b4638
+  rich_map_feature_composer: 067cfcc5c46bec70f2a72eacf2afb4408d15a5f34b3834764e664dd231f1acb9
+  rich_modern_map_feature_composer: 2ee9eb8d5d08c3ecde25dd2b87e3942bb5973f89e6b4a1ce80463672cb17639b
+  team_form_engine: 088d8ab6374bf4f0af91d0fb1db822191b6b4d69fd0d4b294170324ef296f472
+  xgb_metadata: 65eb6c3ae3f6d8d189e49f5e22bcd5e53d66a0a876ab1eafbc66c8b58c6bab21
+  xgb_model: e8bc38a2b42d4c321ea972849da81b2a82e6d67f390135894bb5727cbd3d4904
+  xgb_preprocessing: ac2892e1a6065c5bb2e651aa0d4a073f6bae6d610ac7416ddc67ee9edda5e422
+  xgb_selected_config: f0da2f254ec29c1b6855345fb19aad23ce69e2fdad4fb96847d4f62b23b8098b

@@ -1,0 +1,4 @@
+source,model_identity,n,accuracy,roc_auc,log_loss,brier
+Phase 6D TRAIN-only selected-model OOF (development),map_xgboost_v3_final (the SAME frozen model evaluated on TEST here),6541,0.5901238342761046,0.6200123616239626,0.668236572782268,0.2378501445055008
+"Phase 6B consumed main VALIDATION (EARLIER model/version, V2 features, random_013 @ 124 trees - NOT the Phase 6D final model)","map_xgboost_v2_random_013 (an earlier, different model)",1129,0.5961027457927369,0.62028623999393,0.6649197941150234,0.2362753897905349
+Phase 7 sealed internal TEST (this evaluation),map_xgboost_v3_final (the frozen model),1427,0.6131744919411353,0.6488855768036509,0.6520927137055035,0.23009616136550903

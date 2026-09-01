@@ -1,0 +1,4 @@
+family,mean_auc_decrease_across_folds,std_auc_decrease_across_folds
+E_opponent_strength,0.009093201435828886,0.004277543694626703
+F_time_decayed,0.0032782782930132425,0.0033965485036189856
+G_form_confidence,0.0006178905894777376,0.0010535285670182845
